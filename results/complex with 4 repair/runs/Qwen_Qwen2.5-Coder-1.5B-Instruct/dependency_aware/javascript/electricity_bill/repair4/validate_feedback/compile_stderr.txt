@@ -1,0 +1,9 @@
+service.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/electricity_bill/repair4/validate_feedback/service.mjs:28
+export function billableUnits(n) {
+       ^
+
+SyntaxError: Identifier 'billableUnits' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

@@ -1,0 +1,225 @@
+{
+  "compiled": true,
+  "passed": 9,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20241110,
+      "expected": 6917,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20260228,
+      "expected": 6804,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000228,
+      "expected": 6804,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240228,
+      "expected": 6804,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000131,
+      "expected": 6706,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20251231,
+      "expected": 6607,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240430,
+      "expected": 6806,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230430,
+      "expected": 6806,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20241110,
+      "expected": 20250217,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20260228,
+      "expected": 20260604,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000228,
+      "expected": 19000604,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240228,
+      "expected": 20240604,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20000131,
+      "expected": 20000506,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20251231,
+      "expected": 20260407,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240430,
+      "expected": 20240806,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230430,
+      "expected": 20230806,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20241110,
+      "expected": 20241210,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20260228,
+      "expected": 20260328,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 19000228,
+      "expected": 19000328,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20240228,
+      "expected": 20240328,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20000131,
+      "expected": 20000229,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20251231,
+      "expected": 20260131,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20240430,
+      "expected": 20240530,
+      "actual": "ERR: ReferenceError: start is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20230430,
+      "expected": 20230530,
+      "actual": "ERR: ReferenceError: start is not defined"
+    }
+  ]
+}

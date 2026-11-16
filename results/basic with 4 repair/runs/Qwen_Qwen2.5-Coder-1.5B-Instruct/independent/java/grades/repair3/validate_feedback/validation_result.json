@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: ';' expected\n        return 1 if bonusScore(n) >= 60 else 0;\n                ^\nMain.java:3: error: '(' expected\n        return 1 if bonusScore(n) >= 60 else 0;\n                   ^\nMain.java:3: error: ')' expected\n        return 1 if bonusScore(n) >= 60 else 0;\n                                       ^\nMain.java:3: error: not a statement\n        return 1 if bonusScore(n) >= 60 else 0;\n                                             ^\nMain.java:3: error: 'else' without 'if'\n        return 1 if bonusScore(n) >= 60 else 0;\n                                        ^\n5 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

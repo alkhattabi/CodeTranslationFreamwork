@@ -1,0 +1,99 @@
+{
+  "compiled": true,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -123,
+      "expected": 19,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1005,
+      "expected": 19,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 37,
+      "expected": 31,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 999,
+      "expected": 80,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": -123,
+      "expected": 18,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": 1005,
+      "expected": 18,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": 37,
+      "expected": 30,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": 999,
+      "expected": 81,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": -123,
+      "expected": 6,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": 1005,
+      "expected": 6,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": 37,
+      "expected": 10,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": 999,
+      "expected": 27,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    }
+  ]
+}

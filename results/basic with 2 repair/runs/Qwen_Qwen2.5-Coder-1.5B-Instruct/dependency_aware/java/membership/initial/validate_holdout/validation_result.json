@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:5: error: cannot find symbol\n        return Utils.tier(n) * 5;\n               ^\n  symbol:   variable Utils\n  location: class Service\nMain.java:5: error: cannot find symbol\n        int value = n * 4 - discount(n);\n                            ^\n  symbol:   method discount(int)\n  location: class Main\nMain.java:3: error: duplicate class: com.example.Main\npublic class Main {\n       ^\nEvalRunner.java:3: error: cannot access Main\n  try { System.out.println(\"main.solve|-5|\" + Main.solve(-5)); } catch (Throwable e) { System.out.println(\"main.solve|-5|ERR\"); }\n                                              ^\n  bad source file: ./Main.java\n    file does not contain class Main\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nService.java:3: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nEvalRunner.java:8: error: cannot access Service\n  try { System.out.println(\"service.discount|-5|\" + Service.discount(-5)); } catch (Throwable e) { System.out.println(\"service.discount|-5|ERR\"); }\n                                                    ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n6 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int solve(int)\u2019:\nservice.cpp:19:35: error: \u2018category_balance\u2019 was not declared in this scope\n   19 |     return alerts * 10 + std::abs(category_balance(n)) % 23;\n      |                                   ^~~~~~~~~~~~~~~~\nservice.cpp: In function \u2018int rolling_alert(int)\u2019:\nservice.cpp:35:35: error: \u2018category_balance\u2019 was not declared in this scope\n   35 |     return alerts * 10 + std::abs(category_balance(n)) % 23;\n      |                                   ^~~~~~~~~~~~~~~~\n",
+  "failed_modules": [
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

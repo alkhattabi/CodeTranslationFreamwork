@@ -1,0 +1,39 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/digits/initial/validate_feedback/service.mjs:2
+import { digit_sum } from "./utils.mjs";
+         ^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'digit_sum'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at async onImport.trac
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function digit_sum(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function digit_sum(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// utils.mjs
+export function digitSum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+def digit_sum(n: int) -> int:
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total

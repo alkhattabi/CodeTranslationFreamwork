@@ -1,0 +1,37 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int order_quantity(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.weekly_demand(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int order_quantity(int n) { /* implementation */ } }
+
+PYTHON FILE service.py:
+
+from utils import weekly_demand
+
+def order_quantity(n: int) -> int:
+    demand = weekly_demand(n)
+    safety = 15 if demand < 100 else 35
+    available = n if n > 0 else 0
+    shortage = demand + safety - available
+    if shortage <= 0:
+        return 0
+    packs = (shortage + 11) // 12
+    return packs * 12
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int weekly_demand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}

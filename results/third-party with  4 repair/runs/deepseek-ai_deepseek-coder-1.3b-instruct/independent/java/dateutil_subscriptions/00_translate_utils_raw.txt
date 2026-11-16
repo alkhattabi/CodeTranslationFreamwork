@@ -1,0 +1,28 @@
+Here is the Java equivalent of your Python code:
+
+```java
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            LocalDate start = LocalDate.of(year, month, day);
+            LocalDate end = start.plusMonths(1);
+            return end.getYear() * 10000 + end.getMonthValue() * 100 + end.getDayOfMonth();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It checks if the input `n` is a valid date, calculates the renewal date for the next month, and returns it as a 6-digit integer. If `n` is not a valid date, it returns `-1`.
+
+Please note that Java does not have a built-in library for handling dates and times, so we use the `java.time` package to handle dates. The `java.time.temporal.ChronoUnit` class is used to calculate the end date of the next month.

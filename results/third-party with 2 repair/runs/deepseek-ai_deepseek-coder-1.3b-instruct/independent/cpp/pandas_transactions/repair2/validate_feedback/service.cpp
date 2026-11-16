@@ -1,0 +1,42 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+int solve(int n) {
+    n = std::max(std::min(200, n), -200);
+    int series[5] = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+    int rolling[3] = {0, 0, 0};
+    int alerts = 0;
+
+    for (int i = 0; i < 5; i++) {
+        rolling[i % 3] += series[i];
+        if (rolling[i % 3] >= 15) {
+            alerts++;
+        }
+    }
+
+    return alerts * 10 + std::abs(category_balance(n)) % 23;
+}
+
+int rolling_alert(int n) {
+    n = std::max(std::min(200, n), -200);
+    int series[5] = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+    int rolling[3] = {0, 0, 0};
+    int alerts = 0;
+
+    for (int i = 0; i < 5; i++) {
+        rolling[i % 3] += series[i];
+        if (rolling[i % 3] >= 15) {
+            alerts++;
+        }
+    }
+
+    return alerts * 10 + std::abs(category_balance(n)) % 23;
+}
+
+int category_balance(int n) {
+    // This function is not defined in the provided Python code, so it's not included here.
+    // You may need to implement it or remove this function if it's not needed.
+    return 0;
+}

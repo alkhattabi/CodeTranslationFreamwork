@@ -1,0 +1,6 @@
+Main.java:3: error: cannot find symbol
+        return bonus_score(n) >= 60? 1 : 0;
+               ^
+  symbol:   method bonus_score(int)
+  location: class Main
+1 error

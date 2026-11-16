@@ -1,0 +1,110 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { disruption_score } from "./service.mjs";
+  import { route_cost } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: networkx.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import networkx as nx
+from utils import route_cost
+from service import disruption_score
+
+def solve(n: int) -> int:
+    graph = nx.Graph()
+    offset = abs(n) % 7
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + offset), (0, 2, 5), (1, 2, 1 + offset % 3),
+        (1, 3, 4), (2, 3, 2 + offset % 2), (3, 4, 6),
+        (2, 4, 8 + offset)
+    ])
+    tree = nx.minimum_spanning_tree(graph, weight="weight")
+    total = int(tree.size(weight="weight"))
+    return total + disruption_score(n) - route_cost(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: service.mjs
+// service.js
+import { route_cost } from "./utils.js";
+
+export function disruption_score(n) {
+    const graph = {
+        0: {1: 3 + Math.abs(n) % 3, 2: 5 + Math.abs(n) % 4},
+        1: {3: 4 + Math.abs(n) % 2, 4: 7},
+        2: {3: 1 + Math.abs(n) % 5, 4: 3 + Math.abs(n) % 3},
+        3: {5: 6},
+        4: {5: 2 + Math.abs(n) % 4},
+        5: {6: 1 + Math.abs(n) % 2},
+        6: {2: 15}
+    };
+
+    let reachable = 0;
+    for (const neighbor of graph[0]) {
+        if (neighbor in graph) {
+            reachable++;
+        }
+    }
+
+    let longest = 0;
+    function dfs(current, visited, graph) {
+        visited.add(current);
+        longest = Math.max(longest, graph[current]);
+        for (const neighbor of graph[current]) {
+            if (!visited.has(neighbor)) {
+                dfs(neighbor, visited, graph);
+            }
+        }
+    }
+
+    dfs(0, new Set(), graph);
+
+    return route_cost(n) + 3 * reachable + longest;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+// utils.js
+
+function route_cost(n) {
+    const x = Math.abs(n) % 13;
+    const graph = {
+        0: {1: 3 + x % 3, 2: 5 + x % 4},
+        1: {3: 4 + x % 2, 4: 7},
+        2: {3: 1 + x % 5, 4: 3 + x % 3},
+        3: {5: 6},
+        4: {5: 2 + x % 4},
+        5: {6: 1 + x % 2},
+        6: {2: 15}
+    };
+
+    let path = [];
+    let current = 0;
+
+    function shortestPath(current, target, graph) {
+        if (current === target) {
+            path.push(current);
+            return path;
+        }
+
+        for (const neighbor in graph[current]) {
+            if (neighbor in graph) {
+                const newPath = shortestPath(neighbor, target, graph);
+                if (newPath.length > path.length) {
+                    path = newPath;
+                }
+            }
+        }
+        return path;
+    }
+
+    return shortestPath(0, 6, graph);
+}
+
+export { route_cost };

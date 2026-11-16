@@ -1,0 +1,42 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+1 error
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int tier(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int tier(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int tier(int n) {
+        if (n >= 100) {
+            return 3;
+        } else if (n >= 50) {
+            return 2;
+        } else if (n >= 10) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
+
+ORIGINAL PYTHON:
+def tier(n: int) -> int:
+    if n >= 100:
+        return 3
+    if n >= 50:
+        return 2
+    if n >= 10:
+        return 1
+    return 0

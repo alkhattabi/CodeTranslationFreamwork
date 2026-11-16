@@ -1,0 +1,29 @@
+Here is the corrected Java code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = (patch % 4 == 0) ? "rc1" : "";
+        String version = major + "." + minor + "." + patch + suffix;
+        if (new Version(version).compareTo(new Version("1.5.0")) >= 0 && new Version(version).compareTo(new Version("3.99.99")) < 0) {
+            return upgradeCost(n) + 100 * 1 + 10 * 0 + releaseRank(n);
+        } else {
+            return upgradeCost(n) + 100 * 0 + 10 * 1 + releaseRank(n);
+        }
+    }
+
+    // Other static methods of their class
+}
+```
+
+Please note that the `Utils.java` and `Service.java` files are missing in the provided code. I've assumed that they are in the same package as `Main.java`. If they are in different packages, you need to import them in `Main.java`.
+
+Also, please note that the `releaseRank` and `upgradeCost` methods are not defined in the provided code. I've assumed they are in the `Service` class. If they are not, you need to import them from the `Service` class.
+
+Lastly, please note that the `compareTo` method in the `Version` class is case-sensitive. If the version strings are in different cases, you need to use the `equals` method to compare them.

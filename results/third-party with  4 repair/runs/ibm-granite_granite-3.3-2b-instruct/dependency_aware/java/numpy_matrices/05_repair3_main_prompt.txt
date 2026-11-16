@@ -1,0 +1,112 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:40: error: class, interface, enum, or record expected
+Note: The behavior of numpy in Python is replicated using basic array operations in Java. The floor division and modulo operations in Python are preserved using the standard Java operators.
+^
+1 error
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.matrix_energy(n)
+  Utils.vector_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int energy = Service.matrix_energy(n);
+        int[] vector = {energy, Utils.vector_signature(n), n};
+        int[] bounded = new int[3];
+        for (int i = 0; i < 3; i++) {
+            bounded[i] = Math.clip(vector[i], -150, 250);
+        }
+        int[] positives = new int[3];
+        for (int i = 0; i < 3; i++) {
+            positives[i] = bounded[i] > 0? bounded[i] : -bounded[i];
+        }
+        return (int) (positives[0] + (energy % 17) + energy);
+    }
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int matrix_energy(int n) {
+        n = Math.max(-100, Math.min(100, n));
+        int[][] m = {
+            {n % 5, 2, -1},
+            {3, n % 7, 4},
+            {1, 5, n % 3}
+        };
+        int[] square = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                square[i][j] = (int) (m[i][j] * m[j][i]);
+            }
+        }
+        int diagonal = 0;
+        for (int i = 0; i < 3; i++) {
+            diagonal += square[i][i];
+        }
+        return diagonal + vector_signature(n);
+    }
+
+    private static int vector_signature(int n) {
+        n = Math.max(-100, Math.min(100, n));
+        int[] v = new int[]{n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[] m = {
+            {1, 0, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        int[] out = new int[]{0, 0, 0};
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                out[i] += m[i][j] * v[j];
+            }
+        }
+        return Math.abs(out[0] + out[1] + out[2]);
+    }
+}
+
+Note: The behavior of numpy in Python is replicated using basic array operations in Java. The floor division and modulo operations in Python are preserved using the standard Java operators.
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int vector_signature(int n) {
+        n = Math.max(-100, Math.min(100, n));
+        int[] v = new int[]{n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {
+            {1, 0, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        int[] out = new int[]{0, 0, 0};
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                out[i] += m[i][j] * v[j];
+            }
+        }
+        return Math.abs(out[0] + out[1] + out[2]);
+    }
+}

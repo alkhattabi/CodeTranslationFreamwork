@@ -1,0 +1,21 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   14 | }
+      | ^
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:18:37: error: ‘gcd’ is not a member of ‘std’
+   18 |     int phi = static_cast<int>(std::gcd(value, value - 1));
+      |                                     ^~~
+service.cpp: In function ‘int factor_signature(int)’:
+service.cpp:25:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   25 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

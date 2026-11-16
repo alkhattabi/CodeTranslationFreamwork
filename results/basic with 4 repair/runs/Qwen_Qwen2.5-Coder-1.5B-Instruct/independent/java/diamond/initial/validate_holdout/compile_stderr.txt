@@ -1,0 +1,11 @@
+Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+               ^
+  symbol:   method weighted(int)
+  location: class Main
+Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+                             ^
+  symbol:   method normalize(int)
+  location: class Main
+2 errors

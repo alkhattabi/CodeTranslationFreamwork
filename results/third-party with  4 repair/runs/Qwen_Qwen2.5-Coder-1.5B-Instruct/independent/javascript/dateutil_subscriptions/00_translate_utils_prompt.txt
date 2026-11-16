@@ -1,0 +1,27 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function renewal_date(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function renewal_date(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: dateutil.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE utils.py:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

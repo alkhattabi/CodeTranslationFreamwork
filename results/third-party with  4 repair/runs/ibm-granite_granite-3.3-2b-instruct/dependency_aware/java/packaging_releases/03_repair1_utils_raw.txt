@@ -1,0 +1,22 @@
+public class Utils {
+    public static int release_rank(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        Version reference = new Version("2.1.0");
+        if (version.compareTo(reference) < 0) {
+            return 1;
+        } else if (version.equals(reference)) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+}
+
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.

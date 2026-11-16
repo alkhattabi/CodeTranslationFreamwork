@@ -1,0 +1,68 @@
+[
+  {
+    "module": "utils",
+    "phase": "translate",
+    "elapsed_s": 2.0430177900000217,
+    "prompt_tokens": 363,
+    "new_tokens": 257,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "service",
+    "phase": "translate",
+    "elapsed_s": 2.034326684000007,
+    "prompt_tokens": 361,
+    "new_tokens": 256,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "main",
+    "phase": "translate",
+    "elapsed_s": 1.8458358879998968,
+    "prompt_tokens": 414,
+    "new_tokens": 232,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "utils",
+    "phase": "repair1",
+    "elapsed_s": 2.0827906220000614,
+    "prompt_tokens": 996,
+    "new_tokens": 257,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "utils",
+      "service",
+      "main"
+    ],
+    "before_feedback_passed": 0,
+    "candidate_feedback_passed": 0,
+    "candidate_compiled": false,
+    "accepted_feedback_passed": 0,
+    "candidate_error_category": "compile"
+  },
+  {
+    "module": "service",
+    "phase": "repair2",
+    "elapsed_s": 2.077979543999959,
+    "prompt_tokens": 993,
+    "new_tokens": 256,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "service",
+      "main"
+    ],
+    "before_feedback_passed": 0,
+    "candidate_feedback_passed": 0,
+    "candidate_compiled": false,
+    "accepted_feedback_passed": 0,
+    "candidate_error_category": "compile"
+  }
+]

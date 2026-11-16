@@ -1,0 +1,17 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function weekly_demand(n) {
+    if (n < 0) {
+        return 0;
+    }
+    let base = n * 3;
+    let extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += Math.floor(n / 4);
+    }
+    return base + extra;
+}
+```
+
+This function calculates the weekly demand based on the input `n`. It first checks if `n` is less than 0, if so, it returns 0. Then it calculates the base demand by multiplying `n` by 3. It also calculates the extra demand based on the remainder of `n` divided by 7 and multiplied by 2. If `n` is 40 or more, it adds the floor division of `n` by 4 to the base demand. Finally, it returns the sum of the base demand and the extra demand.

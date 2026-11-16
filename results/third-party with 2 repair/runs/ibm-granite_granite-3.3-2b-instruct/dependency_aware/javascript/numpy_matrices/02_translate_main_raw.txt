@@ -1,0 +1,17 @@
+```javascript
+// main.mjs
+import { matrix_energy } from "./service.mjs";
+import { vector_signature } from "./utils.mjs";
+
+function solve(n) {
+    const energy = matrix_energy(n);
+    const vector = [energy, vector_signature(n), n].map(i => Math.floor(i));
+    const bounded = vector.map(val => Math.clip(val, -150, 250));
+    const positives = bounded.map(val => Math.abs(val) > 0? val : -val);
+    return parseInt(positives.reduce((sum, val) => sum + val, 0) + (energy % 17));
+}
+
+export function solve(n) {
+    return parseInt(solve(n));
+}
+```

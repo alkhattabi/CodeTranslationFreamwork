@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "service.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cchWTm0V.o: in function `main':\nEvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x143): undefined reference to `solve(int)'\n/usr/bin/ld: /tmp/cchWTm0V.o:EvalRunner.cpp:(.text+0x188): more undefined references to `solve(int)' follow\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

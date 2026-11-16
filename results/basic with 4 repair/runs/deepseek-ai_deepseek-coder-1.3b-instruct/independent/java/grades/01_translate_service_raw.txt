@@ -1,0 +1,28 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int bonus_score(int n) {
+        int base = Utils.clamp(n);
+        return Utils.clamp(base + 7);
+    }
+}
+```
+
+Please note that in Java, the import statement is not used to import classes or modules. Instead, you should use the fully qualified name of the class or method you want to use. In this case, you would import `Utils` from the package `com.example.utils`.
+
+```java
+import com.example.utils.Utils;
+```
+
+Also, please note that the `Utils.clamp(n)` function is not a static method of the `Utils` class, but a method of the `Utils` class. The `Utils` class is not declared in the `Service` class, so you would need to import it separately.
+
+```java
+import com.example.utils.Utils;
+```
+
+Lastly, please note that the `Utils.clamp(n)` function is not a static method of the `Utils` class, but a method of the `Utils` class. The `Utils` class is not declared in the `Service` class, so you would need to import it separately.
+
+```java
+import com.example.utils.Utils;
+```

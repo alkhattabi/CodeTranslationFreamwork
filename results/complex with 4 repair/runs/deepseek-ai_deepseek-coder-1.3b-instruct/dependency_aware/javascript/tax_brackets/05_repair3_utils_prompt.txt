@@ -1,0 +1,39 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 18/24 development checks.
+main.solve(3499): expected 149, actual ERR: Error: result must be a safe integer
+main.solve(15000): expected 2172, actual ERR: Error: result must be a safe integer
+main.solve(3500): expected 150, actual 120
+main.solve(7000): expected 570, actual 456
+service.calculate_tax(3499): expected 149, actual ERR: Error: result must be a safe integer
+service.calculate_tax(501): expected 0, actual ERR: Error: result must be a safe integer
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function taxable_income(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function taxable_income(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+
+
+ORIGINAL PYTHON:
+
+def taxable_income(n: int) -> int:
+    if n <= 500:
+        return 0
+    income = n - 500
+    if income > 20000:
+        income = 20000
+    return income

@@ -1,0 +1,20 @@
+Here is the C++ implementation of the Python function `weekly_demand(n)`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}
+```
+
+The function `weekly_demand(n)` calculates the weekly demand based on the input `n`. If `n` is less than 0, it returns 0. Otherwise, it calculates the base demand by multiplying `n` by 3. It also calculates the extra demand based on the remainder of `n` divided by 7, which is multiplied by 2. If `n` is 40 or more, it adds the quotient of `n` divided by 4 to the base demand. Finally, it returns the sum of the base demand and the extra demand.

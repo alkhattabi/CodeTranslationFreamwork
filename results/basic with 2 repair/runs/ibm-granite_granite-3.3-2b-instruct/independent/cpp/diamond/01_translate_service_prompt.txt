@@ -1,0 +1,19 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int weighted(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int weighted(int n);
+int normalize(int n);
+
+
+PYTHON FILE service.py:
+from utils import normalize
+
+def weighted(n: int) -> int:
+    x = normalize(n)
+    return x * 2 + 1

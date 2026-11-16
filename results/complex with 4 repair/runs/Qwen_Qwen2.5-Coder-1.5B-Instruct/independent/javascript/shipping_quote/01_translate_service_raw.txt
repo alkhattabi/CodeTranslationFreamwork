@@ -1,0 +1,18 @@
+```javascript
+import { weightBlocks } from "./utils.mjs";
+
+export function transport_cost(n) {
+    const blocks = weightBlocks(n);
+    if (blocks === 0) {
+        return 0;
+    }
+    let price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+```

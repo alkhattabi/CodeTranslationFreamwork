@@ -1,0 +1,6 @@
+#include "api.hpp"
+
+int weighted(int n) {
+    int x = solve(n);
+    return x * 2 + 1;
+}

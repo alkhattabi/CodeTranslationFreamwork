@@ -1,0 +1,19 @@
+import { renewal_date } from "./utils.mjs";
+
+export function solve(n) {
+    const renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    const year1 = Math.floor(renewed / 10000);
+    const month1 = Math.floor((renewed / 100) % 100);
+    const day1 = renewed % 100;
+    const year2 = Math.floor(n / 10000);
+    const month2 = Math.floor((n / 100) % 100);
+    const day2 = n % 100;
+    const date1 = new Date(year1, month1 - 1, day1);
+    const date2 = new Date(year2, month2 - 1, day2);
+    const diff = date2.getTime() - date1.getTime();
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    return days * 100 + day2;
+}

@@ -1,0 +1,71 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+dge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                                              ^
+  symbol:   class DefaultWeightedEdge
+  location: class Main
+Main.java:7: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|10|" + Main.solve(10)); } catch (Throwable e) { System.out.println("main.solve|10|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:7: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.disruption_score|10|" + Service.disruption_score(10)); } catch (Throwable e) { System.out.println("service.disruption_score|10|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.route_cost|10|" + Utils.route_cost
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int route_cost(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int route_cost(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int routeCost(int n) {
+        int x = Math.abs(n) % 13;
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+        graph.addEdge(0, 1, 3 + x % 3);
+        graph.addEdge(0, 2, 5 + x % 4);
+        graph.addEdge(1, 3, 4 + x % 2);
+        graph.addEdge(1, 4, 7);
+        graph.addEdge(2, 3, 1 + x % 5);
+        graph.addEdge(2, 4, 3 + x % 3);
+        graph.addEdge(3, 5, 6);
+        graph.addEdge(4, 5, 2 + x % 4);
+        graph.addEdge(5, 6, 1 + x % 2);
+        graph.addEdge(2, 6, 15);
+        return (int) NetworkX.shortestPathLength(graph, 0, 6, "weight");
+    }
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+
+def route_cost(n: int) -> int:
+    x = abs(n) % 13
+    graph = nx.DiGraph()
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + x % 3), (0, 2, 5 + x % 4),
+        (1, 3, 4 + x % 2), (1, 4, 7),
+        (2, 3, 1 + x % 5), (2, 4, 3 + x % 3),
+        (3, 5, 6), (4, 5, 2 + x % 4),
+        (5, 6, 1 + x % 2), (2, 6, 15)
+    ])
+    return int(nx.shortest_path_length(graph, 0, 6, weight="weight"))

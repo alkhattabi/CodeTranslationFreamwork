@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cczHF4Qf.o: in function `credit_band(int)':\nmain.cpp:(.text+0x11a): multiple definition of `credit_band(int)'; /tmp/ccL3j2YD.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cczHF4Qf.o: in function `yearly_interest(int)':\nmain.cpp:(.text+0x93): multiple definition of `yearly_interest(int)'; /tmp/ccl0p1BR.o:service.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

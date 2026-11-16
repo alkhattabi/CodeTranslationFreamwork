@@ -1,0 +1,104 @@
+[
+  {
+    "module": "utils",
+    "phase": "translate",
+    "elapsed_s": 0.6411202290000801,
+    "prompt_tokens": 220,
+    "new_tokens": 80,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "service",
+    "phase": "translate",
+    "elapsed_s": 0.9501807760000247,
+    "prompt_tokens": 262,
+    "new_tokens": 119,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "main",
+    "phase": "translate",
+    "elapsed_s": 0.9496171270000104,
+    "prompt_tokens": 268,
+    "new_tokens": 119,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "main",
+    "phase": "repair1",
+    "elapsed_s": 1.1181195300000581,
+    "prompt_tokens": 701,
+    "new_tokens": 139,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "main"
+    ],
+    "before_feedback_passed": 0,
+    "candidate_feedback_passed": 0,
+    "candidate_compiled": false,
+    "accepted_feedback_passed": 0,
+    "candidate_error_category": "compile"
+  },
+  {
+    "module": "utils",
+    "phase": "repair2",
+    "elapsed_s": 0.6446039350000774,
+    "prompt_tokens": 413,
+    "new_tokens": 80,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "utils",
+      "service",
+      "main"
+    ],
+    "before_feedback_passed": 0,
+    "candidate_feedback_passed": 0,
+    "candidate_compiled": false,
+    "accepted_feedback_passed": 0,
+    "candidate_error_category": "compile"
+  },
+  {
+    "module": "service",
+    "phase": "repair3",
+    "elapsed_s": 0.9555650909999258,
+    "prompt_tokens": 575,
+    "new_tokens": 119,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "service",
+      "main"
+    ],
+    "before_feedback_passed": 0,
+    "candidate_feedback_passed": 0,
+    "candidate_compiled": false,
+    "accepted_feedback_passed": 0,
+    "candidate_error_category": "compile"
+  },
+  {
+    "module": "main",
+    "phase": "repair4",
+    "elapsed_s": 1.1259832120001647,
+    "prompt_tokens": 701,
+    "new_tokens": 139,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "main"
+    ],
+    "before_feedback_passed": 0,
+    "candidate_feedback_passed": 0,
+    "candidate_compiled": false,
+    "accepted_feedback_passed": 0,
+    "candidate_error_category": "compile"
+  }
+]

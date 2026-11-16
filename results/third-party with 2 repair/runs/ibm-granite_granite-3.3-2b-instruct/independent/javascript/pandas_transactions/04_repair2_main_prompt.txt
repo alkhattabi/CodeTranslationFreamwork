@@ -1,0 +1,52 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/pandas_transactions/initial/validate_feedback/main.mjs:2
+import { category_balance } from "./utils.mjs";
+         ^^^^^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'category_balance'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+ 
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { rolling_alert } from "./service.mjs";
+  import { category_balance } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { category_balance } from "./utils.mjs";
+import { rolling_alert } from "./service.mjs";
+
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = [
+        Math.abs(balance) % 50,
+        alert,
+        Math.abs(n) % 50
+    ];
+    const ranks = scores.map((score, index) => score).sort((a, b) => b - a).slice(0, 3);
+    const penalty = Math.floor(ranks[0] * 7) + Math.floor(ranks[1] * 3);
+    return balance + alert - penalty;
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty

@@ -1,0 +1,25 @@
+Service.java:3: error: cannot find symbol
+import com.example.Utils;
+                  ^
+  symbol:   class Utils
+  location: package com.example
+Service.java:10: error: cannot find symbol
+        return n * Utils.unit_price(n);
+                   ^
+  symbol:   variable Utils
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int cost = gross(n);
+                   ^
+  symbol:   method gross(int)
+  location: class Main
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:7: error: cannot access Service
+  try { System.out.println("service.gross|11|" + Service.gross(11)); } catch (Throwable e) { System.out.println("service.gross|11|ERR"); }
+                                                 ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+5 errors

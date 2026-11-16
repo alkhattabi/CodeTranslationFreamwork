@@ -1,0 +1,45 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:64:12: error: ‘number_strength’ was not declared in this scope
+   64 |     return number_strength(n);
+      |            ^~~~~~~~~~~~~~~
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:68:5: error: ‘value’ was not declared in this scope
+   68 |     value = abs(n) % 1500 + 2;
+      |     ^~~~~
+service.cpp:69:5: error: ‘phi’ was not declared in this scope
+   69 |     phi = int(factor_signature(value));
+      |     ^~~
+service.cpp:70:5: error: ‘divisor_count’ was not declared in this scope
+   70 |     divisor_count = int(count_divisors(value));
+      |     ^~~~~~~~~~~~~
+service.cpp:70:25: error: ‘count_divisors’ was not declared in this scope; did you mean ‘countDivisors’?
+   70 |     divisor_count = int(count_divisors(value));
+      |                         ^~~~~~~~~~~~~~
+      |                         countDivisors
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:64:12: error: ‘number_strength’ was not declared in this scope
+   64 |     return number_strength(n);
+      |            ^~~~~~~~~~~~~~~
+main.cpp: In function ‘int number_strength(int)’:
+main.cpp:68:5: error: ‘value’ was not declared in this scope
+   68 |     value = abs(n) % 1500 + 2;
+      |     ^~~~~
+main.cpp:69:5: error: ‘phi’ was not declared in this scope
+   69 |     phi = int(factor_signature(value));
+      |     ^~~
+main.cpp:70:5: error: ‘divisor_count’ was not declared in this scope
+   70 |     divisor_count = int(count_divisors(value));
+      |     ^~~~~~~~~~~~~
+main.cpp:70:25: error: ‘count_divisors’ was not declared in this scope; did you mean ‘countDivisors’?
+   70 |     divisor_count = int(count_divisors(value));
+      |                         ^~~~~~~~~~~~~~
+      |                         countDivisors

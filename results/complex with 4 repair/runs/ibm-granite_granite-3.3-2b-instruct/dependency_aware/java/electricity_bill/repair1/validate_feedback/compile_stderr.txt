@@ -1,0 +1,6 @@
+Service.java:3: error: cannot find symbol
+        int units = billable_units(n);
+                    ^
+  symbol:   method billable_units(int)
+  location: class Service
+1 error

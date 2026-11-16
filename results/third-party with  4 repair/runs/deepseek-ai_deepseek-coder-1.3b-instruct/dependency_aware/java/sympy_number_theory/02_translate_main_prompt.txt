@@ -1,0 +1,78 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.number_strength(n)
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: sympy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+import java.math.BigInteger;
+import java.util.Map;
+import java.util.HashMap;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}

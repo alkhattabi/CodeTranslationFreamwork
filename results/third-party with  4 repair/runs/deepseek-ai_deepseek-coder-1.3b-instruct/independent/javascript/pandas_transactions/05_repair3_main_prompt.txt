@@ -1,0 +1,55 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+main.solve(-100): expected -220, actual ERR: TypeError: sums.filter is not a function
+main.solve(49): expected 163, actual ERR: TypeError: sums.filter is not a function
+main.solve(-10): expected 6, actual ERR: TypeError: sums.filter is not a function
+main.solve(100): expected 289, actual ERR: TypeError: sums.filter is not a function
+main.solve(50): expected 180, actual ERR: TypeError: sums.filter is not a function
+main.solve(20): expected 96, actual ERR: TypeError: sums.filter is not a function
+main.solve(200): expected 500, actual ERR: TypeError: sums.filter is not a function
+main.solve(1): expected 22, actual ERR: TypeError: sums.filter is not a function
+main.solve(9): expected 60, actual ERR: TypeError: sums.filter is not a function
+main.solve(21): expected 92, actual ERR: TypeError: sums.filter is not a function
+main.solve(7): expected 56, actual ERR: TypeError: sums.filter is not a function
+main.solve(-20): expected -10, actual ERR: TypeError: sums.filter is not a function
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { rolling_alert } from "./service.mjs";
+  import { category_balance } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { category_balance } from "./utils.mjs";
+import { rolling_alert } from "./service.mjs";
+
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = [Math.abs(balance) % 50, alert, Math.abs(n) % 50];
+    const ranks = scores.map(score => {
+        if (score === 0) return 0;
+        return scores.indexOf(score) + 1;
+    });
+    const penalty = Math.floor(ranks[0] * 7 + ranks[1] * 3);
+    return balance + alert - penalty;
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty

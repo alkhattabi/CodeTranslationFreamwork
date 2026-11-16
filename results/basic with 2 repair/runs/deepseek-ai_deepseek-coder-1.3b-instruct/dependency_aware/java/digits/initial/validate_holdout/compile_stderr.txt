@@ -1,0 +1,10 @@
+Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:7: error: cannot access Service
+  try { System.out.println("service.score_digits|-123|" + Service.score_digits(-123)); } catch (Throwable e) { System.out.println("service.score_digits|-123|ERR"); }
+                                                          ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors

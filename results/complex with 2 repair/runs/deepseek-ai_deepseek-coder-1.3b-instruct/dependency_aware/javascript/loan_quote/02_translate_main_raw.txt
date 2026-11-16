@@ -1,0 +1,20 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { credit_band } from "./utils.mjs";
+import { yearly_interest } from "./service.mjs";
+
+export function solve(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const interest = yearly_interest(n);
+    const fee = 150 + (band >= 3 ? 0 : 350);
+    const total = principal + interest + fee;
+    return Math.floor((total + 11) / 12);
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the total amount after adding interest and a fee based on the credit band. The credit band is calculated using the `credit_band` function from the `utils.mjs` module. The interest is calculated using the `yearly_interest` function from the `service.mjs` module. The `Math.floor` function is used to round down the result to the nearest whole number, as you requested.

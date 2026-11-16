@@ -1,0 +1,74 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:8: error: cannot find symbol
+        return n * Utils.unit_price(n);
+                   ^
+  symbol:   variable Utils
+  location: class Service
+Main.java:8: error: cannot find symbol
+        return n * Utils.unit_price(n) + (n * Utils.unit_price(n) * 15) / 100;
+                   ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:8: error: cannot find symbol
+        return n * Utils.unit_price(n) + (n * Utils.unit_price(n) * 15) / 100;
+                                              ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|11|" + Main.solve(11)); } catch (Throwable e) { System.out.println("main.solve|11|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:7: error: cannot access Service
+  try { System.out.println("service.gross|11|" + Service.gross(11)); } catch (Throwable e) { System.out.println("service.gross|11|ERR"); }
+                                                 ^
+  bad source file:
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.gross(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * Utils.unit_price(n) + (n * Utils.unit_price(n) * 15) / 100;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import gross
+
+def solve(n: int) -> int:
+    cost = gross(n)
+    return cost + (cost * 15) // 100
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * Utils.unit_price(n);
+    }
+}

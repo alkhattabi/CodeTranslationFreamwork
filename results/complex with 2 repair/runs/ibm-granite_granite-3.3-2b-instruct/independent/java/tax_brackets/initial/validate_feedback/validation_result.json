@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:18: error: class, interface, enum, or record expected\nNote: The taxable_income method from the utils module is assumed to be implemented in Java and is not provided here.\n^\n1 error\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

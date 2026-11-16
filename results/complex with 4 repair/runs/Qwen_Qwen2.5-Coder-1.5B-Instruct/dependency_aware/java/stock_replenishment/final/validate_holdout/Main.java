@@ -1,0 +1,47 @@
+import java.util.function.Function;
+
+public class Main {
+    public static int solve(int n) {
+        Function<Integer, Integer> orderQuantity = Main::orderQuantity;
+        Function<Integer, Integer> weeklyDemand = Main::weeklyDemand;
+        
+        int quantity = orderQuantity.apply(n);
+        if (quantity == 0) {
+            return 0;
+        }
+        int demand = weeklyDemand.apply(n);
+        int unitCost = 25 >= quantity ? 25 : 30;
+        int shipping = demand > 100 ? 400 : 200;
+        return quantity * unitCost + shipping;
+    }
+    
+    private static int orderQuantity(int n) {
+        int demand = Utils.weeklyDemand(n);
+        int safety = 15;
+        if (demand < 100) {
+            safety = 35;
+        }
+        int available = n;
+        if (available < 0) {
+            available = 0;
+        }
+        int shortage = demand + safety - available;
+        if (shortage <= 0) {
+            return 0;
+        }
+        int packs = (shortage + 11) / 12;
+        return packs * 12;
+    }
+    
+    private static int weeklyDemand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}

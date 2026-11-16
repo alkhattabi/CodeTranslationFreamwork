@@ -1,0 +1,26 @@
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int weekly_demand(int n);
+
+// Global declaration of order_quantity function
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = 15;
+    if (demand >= 100) {
+        safety = 35;
+    }
+    int available = n;
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+```

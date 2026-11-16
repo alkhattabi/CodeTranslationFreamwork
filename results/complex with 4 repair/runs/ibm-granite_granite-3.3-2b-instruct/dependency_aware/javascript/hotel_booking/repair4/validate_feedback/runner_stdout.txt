@@ -1,0 +1,30 @@
+{"k":"main.solve|1015","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|-201","v":-1}
+{"k":"main.solve|130","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|214","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|101","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|2010","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|307","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|1","v":-1}
+{"k":"main.solve|107","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|-1","v":-1}
+{"k":"service.lodging_charge|1015","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|-201","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|130","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|214","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|101","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|2010","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|307","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|1","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|107","error":"ReferenceError: require is not defined"}
+{"k":"service.lodging_charge|-1","error":"ReferenceError: require is not defined"}
+{"k":"utils.valid_nights|1015","v":15}
+{"k":"utils.valid_nights|-201","v":0}
+{"k":"utils.valid_nights|130","v":30}
+{"k":"utils.valid_nights|214","v":14}
+{"k":"utils.valid_nights|101","v":1}
+{"k":"utils.valid_nights|2010","v":10}
+{"k":"utils.valid_nights|307","v":7}
+{"k":"utils.valid_nights|1","v":0}
+{"k":"utils.valid_nights|107","v":7}
+{"k":"utils.valid_nights|-1","v":0}

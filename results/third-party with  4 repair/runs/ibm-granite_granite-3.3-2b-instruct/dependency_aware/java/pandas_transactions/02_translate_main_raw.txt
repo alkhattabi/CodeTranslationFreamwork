@@ -1,0 +1,25 @@
+public class Main {
+    public static int solve(int n) {
+        int balance = category_balance(n);
+        int alert = rolling_alert(n);
+        int[] scores = {Math.abs(balance) % 50, alert, Math.abs(n) % 50};
+        int[] ranks = new int[scores.length];
+
+        for (int i = 0; i < scores.length; i++) {
+            ranks[i] = i;
+        }
+
+        for (int i = 0; i < scores.length; i++) {
+            for (int j = 0; j < scores.length; j++) {
+                if (scores[i] < scores[j]) {
+                    int temp = ranks[i];
+                    ranks[i] = ranks[j];
+                    ranks[j] = temp;
+                }
+            }
+        }
+
+        int penalty = (int) (ranks[0] * 7 + ranks[1] * 3);
+        return balance + alert - penalty;
+    }
+}

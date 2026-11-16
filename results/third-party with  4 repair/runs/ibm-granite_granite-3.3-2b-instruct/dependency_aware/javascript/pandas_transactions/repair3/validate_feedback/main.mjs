@@ -1,0 +1,19 @@
+// main.mjs
+
+import { rollingAlert } from "./service.mjs";
+import { categoryBalance } from "./utils.mjs";
+
+export function solve(n) {
+    const balance = categoryBalance(n);
+    const alert = rollingAlert(n);
+    const scores = [
+        Math.abs(balance) % 50,
+        alert,
+        Math.abs(n) % 50
+    ];
+
+    const ranks = scores.map((score) => score).rank((value, index) => index, { method: "dense", ascending: false }).slice(0, 2).map(rank => rank.value);
+
+    const penalty = Math.floor(ranks[0] * 7 + ranks[1] * 3);
+    return balance + alert - penalty;
+}

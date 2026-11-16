@@ -1,0 +1,60 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.order_quantity(n)
+  Utils.weekly_demand(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON FILE main.py:
+
+from utils import weekly_demand
+from service import order_quantity
+
+def solve(n: int) -> int:
+    quantity = order_quantity(n)
+    if quantity == 0:
+        return 0
+    demand = weekly_demand(n)
+    unit_cost = 25 if quantity >= 120 else 30
+    shipping = 400 if demand > 100 else 200
+    return quantity * unit_cost + shipping
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+public class Service {
+    public static int order_quantity(int n) {
+        int demand = Utils.weekly_demand(n);
+        int safety = 15;
+        if (demand < 100) {
+            safety = 35;
+        }
+        int available = n;
+        if (n <= 0) {
+            available = 0;
+        }
+        int shortage = demand + safety - available;
+        if (shortage <= 0) {
+            return 0;
+        }
+        int packs = (shortage + 11) / 12;
+        return packs * 12;
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int weekly_demand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}

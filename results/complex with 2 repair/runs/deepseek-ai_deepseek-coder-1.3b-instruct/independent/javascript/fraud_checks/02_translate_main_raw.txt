@@ -1,0 +1,22 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { risk_points } from "./service.mjs";
+import { luhn_valid } from "./utils.mjs";
+
+export function solve(n) {
+    const points = risk_points(n);
+    if (points >= 70) {
+        return 3;
+    }
+    if (points >= 40) {
+        return 2;
+    }
+    if (luhn_valid(n) === 1) {
+        return 0;
+    }
+    return 1;
+}
+```
+
+Please note that the import statements and the function names are different from your Python code. The function names and the import statements are also different in JavaScript. The import statements are different because JavaScript uses the `import` keyword instead of `from`. The function names are different because JavaScript is a dynamically typed language and does not require you to declare the type of a variable when you declare it.

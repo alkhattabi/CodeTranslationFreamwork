@@ -1,0 +1,147 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:1: error: illegal character: '`'
+```java
+^
+Main.java:1: error: illegal character: '`'
+```java
+ ^
+Main.java:1: error: illegal character: '`'
+```java
+  ^
+Main.java:2: error: class, interface, enum, or record expected
+import java.util.function.Function;
+^
+Main.java:19: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                           ^
+Main.java:19: error: '(' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                              ^
+Main.java:19: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                           ^
+Main.java:19: error: not a statement
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                 ^
+Main.java:19: error: ';' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                  ^
+Main.java:19: error: 'else' without 'if'
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                            ^
+Main.java:49: error: reached end of file while parsing
+        System.out.println(solve(270
+                                    ^
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.calculate_tax(n)
+  Utils.taxable_income(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+```java
+import java.util.function.Function;
+
+public class Main {
+    public static int solve(int n) {
+        Function<Integer, Integer> taxableIncomeFunction = Utils::taxableIncome;
+        Function<Integer, Integer> calculateTaxFunction = Service::calculateTax;
+
+        int base = taxableIncomeFunction.apply(n);
+        int tax = calculateTaxFunction.apply(n);
+        int credit = 100;
+        if (base > 0 && base <= 2500) {
+            credit = 0;
+        }
+        int payable = tax - credit;
+        if (payable < 0) {
+            payable = 0;
+        }
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solve(1000)); // Expected output: 400
+        System.out.println(solve(2500)); // Expected output: 100
+        System.out.println(solve(3000)); // Expected output: 600
+        System.out.println(solve(4000)); // Expected output: 800
+        System.out.println(solve(5000)); // Expected output: 1000
+        System.out.println(solve(6000)); // Expected output: 1200
+        System.out.println(solve(7000)); // Expected output: 1400
+        System.out.println(solve(8000)); // Expected output: 1600
+        System.out.println(solve(9000)); // Expected output: 1800
+        System.out.println(solve(10000)); // Expected output: 2000
+        System.out.println(solve(11000)); // Expected output: 2200
+        System.out.println(solve(12000)); // Expected output: 2400
+        System.out.println(solve(13000)); // Expected output: 2600
+        System.out.println(solve(14000)); // Expected output: 2800
+        System.out.println(solve(15000)); // Expected output: 3000
+        System.out.println(solve(16000)); // Expected output: 3200
+        System.out.println(solve(17000)); // Expected output: 3400
+        System.out.println(solve(18000)); // Expected output: 3600
+        System.out.println(solve(19000)); // Expected output: 3800
+        System.out.println(solve(20000)); // Expected output: 4000
+        System.out.println(solve(21000)); // Expected output: 4200
+        System.out.println(solve(22000)); // Expected output: 4400
+        System.out.println(solve(23000)); // Expected output: 4600
+        System.out.println(solve(24000)); // Expected output: 4800
+        System.out.println(solve(25000)); // Expected output: 5000
+        System.out.println(solve(26000)); // Expected output: 5200
+        System.out.println(solve(270
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+from service import calculate_tax
+
+def solve(n: int) -> int:
+    base = taxable_income(n)
+    tax = calculate_tax(n)
+    credit = 100 if base > 0 and base <= 2500 else 0
+    payable = tax - credit
+    if payable < 0:
+        payable = 0
+    return payable + (payable * 2 // 100 if base > 10000 else 0)
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+public class Service {
+    public static int calculateTax(int n) {
+        int income = Utils.taxableIncome(n);
+        int tax = 0;
+        if (income > 7000) {
+            tax += (income - 7000) * 20 / 100;
+            income = 7000;
+        }
+        if (income > 3000) {
+            tax += (income - 3000) * 12 / 100;
+            income = 3000;
+        }
+        tax += income * 5 / 100;
+        return tax;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int taxable_income(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+}

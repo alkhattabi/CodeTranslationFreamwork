@@ -1,0 +1,39 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int days_in_month(int, int)’:
+utils.cpp:8:23: error: ‘is_leap_year’ was not declared in this scope
+    8 |     if (month == 2 && is_leap_year(year)) {
+      |                       ^~~~~~~~~~~~
+utils.cpp:11:59: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in return
+   11 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                           ^
+utils.cpp:11:60: error: expected ‘;’ before ‘[’ token
+   11 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                            ^
+      |                                                            ;
+utils.cpp:11:66: error: expected ‘,’ before ‘-’ token
+   11 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                  ^~
+      |                                                                  ,
+utils.cpp:11:67: error: expected identifier before ‘-’ token
+   11 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                   ^
+utils.cpp: In lambda function:
+utils.cpp:11:71: error: expected ‘{’ before ‘;’ token
+   11 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                       ^
+service.cpp: In function ‘int grace_period(int)’:
+service.cpp:17:53: error: expected ‘)’ before ‘/’ token
+   17 |     int year, month, day = renewed / 10000, (renewed / 100) % 100, renewed % 100;
+      |                                             ~       ^~
+      |                                                     )
+service.cpp:18:5: error: ‘date’ was not declared in this scope
+   18 |     date due(year, month, day) + relativedelta(months=2, days=7);
+      |     ^~~~
+service.cpp:19:12: error: ‘due’ was not declared in this scope
+   19 |     return due.year * 10000 + due.month * 100 + due.day;
+      |            ^~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

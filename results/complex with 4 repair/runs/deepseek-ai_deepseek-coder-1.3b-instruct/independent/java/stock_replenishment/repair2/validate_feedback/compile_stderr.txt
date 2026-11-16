@@ -1,0 +1,61 @@
+Service.java:3: error: cannot find symbol
+        int demand = Utils.weekly_demand(n);
+                          ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+Main.java:3: error: cannot find symbol
+        int quantity = Service.orderQuantity(n);
+                              ^
+  symbol:   method orderQuantity(int)
+  location: class Service
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|41|" + Utils.weekly_demand(41)); } catch (Throwable e) { System.out.println("utils.weekly_demand|41|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|1|" + Utils.weekly_demand(1)); } catch (Throwable e) { System.out.println("utils.weekly_demand|1|ERR"); }
+                                                           ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|19|" + Utils.weekly_demand(19)); } catch (Throwable e) { System.out.println("utils.weekly_demand|19|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|70|" + Utils.weekly_demand(70)); } catch (Throwable e) { System.out.println("utils.weekly_demand|70|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|55|" + Utils.weekly_demand(55)); } catch (Throwable e) { System.out.println("utils.weekly_demand|55|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:28: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|14|" + Utils.weekly_demand(14)); } catch (Throwable e) { System.out.println("utils.weekly_demand|14|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:29: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|7|" + Utils.weekly_demand(7)); } catch (Throwable e) { System.out.println("utils.weekly_demand|7|ERR"); }
+                                                           ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:30: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|28|" + Utils.weekly_demand(28)); } catch (Throwable e) { System.out.println("utils.weekly_demand|28|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:31: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|20|" + Utils.weekly_demand(20)); } catch (Throwable e) { System.out.println("utils.weekly_demand|20|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+EvalRunner.java:32: error: cannot find symbol
+  try { System.out.println("utils.weekly_demand|21|" + Utils.weekly_demand(21)); } catch (Throwable e) { System.out.println("utils.weekly_demand|21|ERR"); }
+                                                            ^
+  symbol:   method weekly_demand(int)
+  location: class Utils
+12 errors

@@ -1,0 +1,28 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int disruption_score(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.route_cost(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int disruption_score(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: networkx.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)

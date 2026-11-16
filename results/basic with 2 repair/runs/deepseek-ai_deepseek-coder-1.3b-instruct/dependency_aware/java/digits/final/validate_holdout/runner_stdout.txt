@@ -1,0 +1,12 @@
+main.solve|-123|7
+main.solve|1005|7
+main.solve|37|11
+main.solve|999|26
+service.score_digits|-123|6
+service.score_digits|1005|6
+service.score_digits|37|10
+service.score_digits|999|27
+utils.digit_sum|-123|6
+utils.digit_sum|1005|6
+utils.digit_sum|37|10
+utils.digit_sum|999|27

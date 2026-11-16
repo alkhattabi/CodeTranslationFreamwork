@@ -1,0 +1,48 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    int quantity = order_quantity(n);
+    if (quantity == 0) {
+        return 0;
+    }
+    int demand = weekly_demand(n);
+    int unit_cost = (demand >= 100) ? 30 : 25;
+    int shipping = (demand > 100) ? 400 : 200;
+    return quantity * unit_cost + shipping;
+}
+
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = 15;
+    if (demand < 100) {
+        safety = 35;
+    }
+    int available = n;
+    if (n < 0) {
+        available = 0;
+    }
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}
+```
+
+Please note that the C++ code assumes that the `weekly_demand` function is always called with a non-negative integer argument. If this is not the case, you may need to add error checking or exception handling.

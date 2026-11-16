@@ -1,0 +1,12 @@
+Here is the JavaScript ES-module source code for the given Python file:
+
+```javascript
+import { discount } from "./service.mjs";
+
+export function solve(n) {
+  const value = n * 4 - discount(n);
+  return Math.max(0, value);
+}
+```
+
+This JavaScript code does the same thing as the Python code. It takes an integer `n` as input, multiplies it by 4, and then subtracts the result of the `discount` function from it. The `discount` function is imported from the `service.mjs` module. The result is returned as the maximum of 0 and the value.

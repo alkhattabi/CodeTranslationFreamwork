@@ -1,0 +1,16 @@
+```javascript
+import { gracePeriod } from "./service.mjs";
+import { renewalDate } from "./utils.mjs";
+
+export function solve(n) {
+    const renewed = renewalDate(n);
+    const deadline = gracePeriod(n);
+    if (renewed < 0 || deadline < 0) {
+        return -1;
+    }
+    const [y1, m1, d1] = [renewed / 10000 | 0, (renewed / 100) % 100 | 0, renewed % 100 | 0];
+    const [y2, m2, d2] = [deadline / 10000 | 0, (deadline / 100) % 100 | 0, deadline % 100 | 0];
+    const days = new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime();
+    return days * 100 + d2;
+}
+```

@@ -1,0 +1,11 @@
+Service.java:3: error: cannot find symbol
+        int nights = validNights(n);
+                     ^
+  symbol:   method validNights(int)
+  location: class Service
+Main.java:20: error: cannot find symbol
+        int nights = Service.validNights(n);
+                            ^
+  symbol:   method validNights(int)
+  location: class Service
+2 errors

@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:30: error: class, interface, enum, or record expected\nNote: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.\n^\nService.java:30: error: unclosed character literal\nNote: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.\n                                                                               ^\nService.java:30: error: unclosed character literal\nNote: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.\n                                                                                                                                                                               ^\nMain.java:38: error: class, interface, enum, or record expected\nNote: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.\n^\nMain.java:38: error: illegal character: '`'\nNote: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.\n                                   ^\nMain.java:38: error: illegal character: '`'\nNote: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.\n                                                  ^\n6 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

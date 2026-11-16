@@ -1,0 +1,17 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int weight_blocks(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n > 10000) {
+            n = 10000;
+        }
+        return (n + 499) / 500;
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It checks if the input number `n` is less than or equal to 0, if it is, it returns 0. If `n` is greater than 10000, it sets `n` to 10000. Then it returns the result of the division of `(n + 499)` by `500`. The division operator `/` in Java performs integer division, so the result is an integer.

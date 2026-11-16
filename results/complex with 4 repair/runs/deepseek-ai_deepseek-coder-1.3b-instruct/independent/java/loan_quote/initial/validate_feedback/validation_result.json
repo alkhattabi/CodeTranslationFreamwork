@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: cannot find symbol\n        int band = Utils.creditBand(n);\n                        ^\n  symbol:   method creditBand(int)\n  location: class Utils\nMain.java:8: error: cannot find symbol\n        int interest = Service.yearlyInterest(n);\n                              ^\n  symbol:   method yearlyInterest(int)\n  location: class Service\n2 errors\n",
+  "failed_modules": [
+    "main",
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

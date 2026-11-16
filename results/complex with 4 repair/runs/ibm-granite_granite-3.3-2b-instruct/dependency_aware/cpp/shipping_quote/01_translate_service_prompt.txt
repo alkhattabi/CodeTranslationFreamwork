@@ -1,0 +1,41 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int transport_cost(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int transport_cost(int n);
+int weight_blocks(int n);
+
+
+PYTHON FILE service.py:
+
+from utils import weight_blocks
+
+def transport_cost(n: int) -> int:
+    blocks = weight_blocks(n)
+    if blocks == 0:
+        return 0
+    price = 1200 + blocks * 180
+    if blocks > 5:
+        price += (blocks - 5) * 70
+    if blocks > 12:
+        price += (blocks - 12) * 90
+    return price
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#include "api.hpp"
+
+int weight_blocks(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}

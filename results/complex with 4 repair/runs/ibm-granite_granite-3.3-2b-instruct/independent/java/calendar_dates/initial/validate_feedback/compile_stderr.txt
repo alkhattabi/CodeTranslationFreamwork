@@ -1,0 +1,6 @@
+Main.java:8: error: cannot find symbol
+        return quarter * 1000 + day_of_year(n);
+                                ^
+  symbol:   method day_of_year(int)
+  location: class Main
+1 error

@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.mjs\n/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/grades/initial/validate_feedback/main.mjs:5\n    return 1 if bonus_score(n) >= 60 else 0;\n             ^^\n\nSyntaxError: Unexpected token 'if'\n    at checkSyntax (node:internal/main/check_syntax:74:5)\n\nNode.js v22.23.4\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

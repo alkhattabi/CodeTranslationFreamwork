@@ -1,0 +1,36 @@
+{"k":"main.solve|10","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-10","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|21","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|999","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|5","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|1","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|12","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|2","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|7","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|11","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-51","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|3","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"service.matrix_energy|10","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-10","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|21","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|999","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|5","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|1","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|12","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|2","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|7","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|11","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-51","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|3","error":"ReferenceError: vector_signature is not defined"}
+{"k":"utils.vector_signature|10","v":219}
+{"k":"utils.vector_signature|-10","v":147}
+{"k":"utils.vector_signature|21","v":246}
+{"k":"utils.vector_signature|999","v":150}
+{"k":"utils.vector_signature|5","v":153}
+{"k":"utils.vector_signature|1","v":27}
+{"k":"utils.vector_signature|12","v":159}
+{"k":"utils.vector_signature|2","v":54}
+{"k":"utils.vector_signature|7","v":120}
+{"k":"utils.vector_signature|11","v":114}
+{"k":"utils.vector_signature|-51","v":198}
+{"k":"utils.vector_signature|3","v":99}

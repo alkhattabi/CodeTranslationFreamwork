@@ -1,0 +1,6 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int value = n * 4 - discount(n);
+    return max(0, value);
+}

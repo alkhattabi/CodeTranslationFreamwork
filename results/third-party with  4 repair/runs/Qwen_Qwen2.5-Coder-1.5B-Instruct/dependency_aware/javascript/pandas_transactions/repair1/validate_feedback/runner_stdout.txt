@@ -1,0 +1,36 @@
+{"k":"main.solve|-100","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|49","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|-10","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|100","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|50","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|20","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|200","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|1","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|9","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|21","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|7","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"main.solve|-20","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-100","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|49","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-10","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|100","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|50","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|20","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|200","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|1","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|9","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|21","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|7","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-20","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"utils.category_balance|-100","v":0}
+{"k":"utils.category_balance|49","v":0}
+{"k":"utils.category_balance|-10","v":0}
+{"k":"utils.category_balance|100","v":0}
+{"k":"utils.category_balance|50","v":0}
+{"k":"utils.category_balance|20","v":0}
+{"k":"utils.category_balance|200","v":0}
+{"k":"utils.category_balance|1","v":0}
+{"k":"utils.category_balance|9","v":0}
+{"k":"utils.category_balance|21","v":0}
+{"k":"utils.category_balance|7","v":0}
+{"k":"utils.category_balance|-20","v":0}

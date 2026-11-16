@@ -1,0 +1,33 @@
+#include "api.hpp"
+#include <vector>
+#include <numeric>
+#include <cmath>
+
+// Helper function to calculate matrix energy
+int matrix_energy(int n) {
+    int sum = 0;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            sum += std::pow(n / (i + j + 1), 2);
+        }
+    }
+    return sum;
+}
+
+// Helper function to calculate vector signature
+int vector_signature(int n) {
+    n = std::max(-100, std::min(100, n));
+    std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+    std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    std::vector<int> out = {};
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            out.push_back(m[i][j] * v[j]);
+        }
+    }
+    int result = 0;
+    for (int num : out) {
+        result += std::abs(num);
+    }
+    return result;
+}

@@ -1,0 +1,194 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Utils.java:3: error: illegal character: '`'
+```java
+^
+Utils.java:3: error: illegal character: '`'
+```java
+ ^
+Utils.java:3: error: illegal character: '`'
+```java
+  ^
+Utils.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Utils.java:65: error: reached end of file while parsing
+Service.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Service.java:3: error: illegal character: '`'
+```java
+^
+Service.java:3: error: illegal character: '`'
+```java
+ ^
+Service.java:3: error: illegal character: '`'
+```java
+  ^
+Service.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Service.java:65: error: reached end of file while parsing
+Main.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Main.java:3: error: illegal character: '`'
+```java
+^
+Main.java:3: error: illegal character: '`'
+```java
+ ^
+Main.java:3: error: illegal character: '`'
+```java
+  ^
+Main.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Main.java:65: error: reached end of file while parsing
+18 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int disruption_score(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.route_cost(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int disruption_score(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+Here is the Java equivalent of your Python code:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int route_cost(int n) {
+        int x = Math.abs(n) % 13;
+        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+        graph.put(0, new HashMap<>());
+        graph.get(0).put(1, 3 + x % 3);
+        graph.get(0).put(2, 5 + x % 4);
+        graph.put(1, new HashMap<>());
+        graph.get(1).put(3, 4 + x % 2);
+        graph.get(1).put(4, 7);
+        graph.put(2, new HashMap<>());
+        graph.get(2).put(3, 1 + x % 5);
+        graph.get(2).put(4, 3 + x % 3);
+        graph.put(3, new HashMap<>());
+        graph.get(3).put(5, 6);
+        graph.get(4, new HashMap<>());
+        graph.get(4).put(5, 2 + x % 4);
+        graph.put(5, new HashMap<>());
+        graph.get(5).put(6, 1 + x % 2);
+        graph.put(2, new HashMap<>());
+        graph.get(2).put(6, 15);
+
+        return shortestPath(graph, 0, 6);
+    }
+
+    private static int shortestPath(Map<Integer, Map<Integer, Integer>> graph, int start, int end) {
+        Map<Integer, Integer> distances = new HashMap<>();
+        distances.put(start, 0);
+        Map<Integer, Integer> parents = new HashMap<>();
+        parents.put(start, null);
+
+        for (int node = start; node != end; node = findClosestUnvisitedNode(distances, parents)) {
+            visitNode(node, distances, parents, graph);
+        }
+
+        return distances.get(end);
+    }
+
+    private static int findClosestUnvisitedNode(Map<Integer, Integer> distances, Map<Integer, Integer> parents) {
+        int closestNode = -1;
+        int closestDistance = Integer.MAX_VALUE;
+        for (Map.Entry<Integer, Integer> entry : distances.entrySet()) {
+            if (!entry.getKey().equals(parents.get(entry.getKey()))) {
+                int distance = entry.getValue();
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestNode = entry.getKey();
+                }
+            }
+        }
+        return closestNode;
+    }
+
+    private static void visitNode(int node, Map<Integer, Integer> distances, Map<Integer, Integer> parents, Map<Integer, Map<Integer, Integer>> graph) {
+        for (Map.Entry<Integer, Integer> edge : graph.get(node).entrySet()) {
+            int neighbor = edge.getKey();
+            int distanceThroughCurrentNode = edge.getValue();
+            int distanceThroughNeighbor =
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)
+
+
+DEPENDENCY Utils.java:
+Here is the Java equivalent of your Python code:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int route_cost(int n) {
+        int x = Math.abs(n) % 13;
+        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+        graph.put(0, new HashMap<>());
+        graph.get(0).put(1, 3 + x % 3);
+        graph.get(0).put(2, 5 + x % 4);
+        graph.put(1, new HashMap<>());
+        graph.get(1).put(3, 4 + x % 2);
+        graph.get(1).put(4, 7);
+        graph.put(2, new HashMap<>());
+        graph.get(2).put(3, 1 + x % 5);
+        graph.get(2).put(4, 3 + x % 3);
+        graph.put(3, new HashMap<>());
+        graph.get(3).put(5, 6);
+        graph.get(4, new HashMap<>());
+        graph.get(4).put(5, 2 + x % 4);
+        graph.put(5, new HashMap<>());
+        graph.get(5).put(6, 1 + x % 2);
+        graph.put(2, new HashMap<>());
+        graph.get(2).put(6, 15);
+
+        return shortestPath(graph, 0, 6);
+    }
+
+    private static int shortestPath(Map<Integer, Map<Integer, Integer>> graph, int start, int end) {
+        Map<Integer, Integer> distances = new HashMap<>();
+        distances.put(start, 0);
+        Map<Integer, Integer> parents = new HashMap<>();
+        parents.put(start, null);
+
+        for (int node = start; node != end; node = findClosestUnvisitedNode(distances, parents)) {
+            visitNode(node, distances, parents, graph);
+        }
+
+        return distances.get(end);
+    }
+
+    private static int findClosestUnvisitedNode(Map<Integer, Integer> distances, Map<Integer, Integer> parents) {
+        int closestN

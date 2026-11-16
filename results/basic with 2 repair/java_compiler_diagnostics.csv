@@ -1,0 +1,363 @@
+model,project,approach,compiler_error
+Qwen/Qwen2.5-Coder-1.5B-Instruct,grades,independent,"Main.java:3: error: ';' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                ^
+Main.java:3: error: '(' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                   ^
+Main.java:3: error: ')' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                                       ^
+Main.java:3: error: not a statement
+        return 1 if bonusScore(n) >= 60 else 0;
+                                             ^
+Main.java:3: error: 'else' without 'if'
+        return 1 if bonusScore(n) >= 60 else 0;
+                                        ^
+5 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,grades,dependency_aware,"Main.java:5: error: ';' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                ^
+Main.java:5: error: '(' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                   ^
+Main.java:5: error: ')' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                                       ^
+Main.java:5: error: not a statement
+        return 1 if bonusScore(n) >= 60 else 0;
+                                             ^
+Main.java:5: error: 'else' without 'if'
+        return 1 if bonusScore(n) >= 60 else 0;
+                                        ^
+5 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,invoice,independent,"Service.java:6: error: cannot find symbol
+        return n * unitPrice(n);
+                   ^
+  symbol:   method unitPrice(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int cost = gross(n);
+                   ^
+  symbol:   method gross(int)
+  location: class Main
+2 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,invoice,dependency_aware,"Service.java:8: error: cannot find symbol
+        return n * Utils.unit_price(n);
+                   ^
+  symbol:   variable Utils
+  location: class Service
+Main.java:8: error: cannot find symbol
+        return n * Utils.unit_price(n) + (n * Utils.unit_price(n) * 15) / 100;
+                   ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:8: error: cannot find symbol
+        return n * Utils.unit_price(n) + (n * Utils.unit_price(n) * 15) / 100;
+                                              ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|0|"" + Main.solve(0)); } catch (Throwable e) { System.out.println(""main.solve|0|ERR""); }
+                                             ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:7: error: cannot access Service
+  try { System.out.println(""service.gross|0|"" + Service.gross(0)); } catch (Throwable e) { System.out.println(""service.gross|0|ERR""); }
+                                                ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+7 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,digits,independent,"Service.java:3: error: cannot find symbol
+        return digitSum(n) * 3;
+               ^
+  symbol:   method digitSum(int)
+  location: class Service
+EvalRunner.java:11: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|-123|"" + Utils.digit_sum(-123)); } catch (Throwable e) { System.out.println(""utils.digit_sum|-123|ERR""); }
+                                                          ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|1005|"" + Utils.digit_sum(1005)); } catch (Throwable e) { System.out.println(""utils.digit_sum|1005|ERR""); }
+                                                          ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|37|"" + Utils.digit_sum(37)); } catch (Throwable e) { System.out.println(""utils.digit_sum|37|ERR""); }
+                                                        ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|999|"" + Utils.digit_sum(999)); } catch (Throwable e) { System.out.println(""utils.digit_sum|999|ERR""); }
+                                                         ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+5 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,digits,dependency_aware,"Main.java:20: error: duplicate class: Utils
+class Utils {
+^
+Service.java:5: error: cannot find symbol
+        return Utils.digitSum(n) * 3;
+               ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:5: error: cannot access Service
+        int value = Service.score_digits(n);
+                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:11: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|-123|"" + Utils.digit_sum(-123)); } catch (Throwable e) { System.out.println(""utils.digit_sum|-123|ERR""); }
+                                                          ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|1005|"" + Utils.digit_sum(1005)); } catch (Throwable e) { System.out.println(""utils.digit_sum|1005|ERR""); }
+                                                          ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|37|"" + Utils.digit_sum(37)); } catch (Throwable e) { System.out.println(""utils.digit_sum|37|ERR""); }
+                                                        ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println(""utils.digit_sum|999|"" + Utils.digit_sum(999)); } catch (Throwable e) { System.out.println(""utils.digit_sum|999|ERR""); }
+                                                         ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+8 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,membership,independent,"Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+2 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,membership,dependency_aware,"Service.java:5: error: cannot find symbol
+        return Utils.tier(n) * 5;
+               ^
+  symbol:   variable Utils
+  location: class Service
+Main.java:5: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|-5|"" + Main.solve(-5)); } catch (Throwable e) { System.out.println(""main.solve|-5|ERR""); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:8: error: cannot access Service
+  try { System.out.println(""service.discount|-5|"" + Service.discount(-5)); } catch (Throwable e) { System.out.println(""service.discount|-5|ERR""); }
+                                                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+6 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,diamond,independent,"Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+               ^
+  symbol:   method weighted(int)
+  location: class Main
+Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+                             ^
+  symbol:   method normalize(int)
+  location: class Main
+2 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,diamond,dependency_aware,"Service.java:5: error: cannot find symbol
+        int x = Utils.normalize(n);
+                ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator weighted = Service::weighted;
+                                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+3 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,grades,dependency_aware,"Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:13: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+3 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,invoice,dependency_aware,"Main.java:1: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|0|"" + Main.solve(0)); } catch (Throwable e) { System.out.println(""main.solve|0|ERR""); }
+                                             ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,digits,independent,"EvalRunner.java:7: error: cannot find symbol
+  try { System.out.println(""service.score_digits|-123|"" + Service.score_digits(-123)); } catch (Throwable e) { System.out.println(""service.score_digits|-123|ERR""); }
+                                                                 ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:8: error: cannot find symbol
+  try { System.out.println(""service.score_digits|1005|"" + Service.score_digits(1005)); } catch (Throwable e) { System.out.println(""service.score_digits|1005|ERR""); }
+                                                                 ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:9: error: cannot find symbol
+  try { System.out.println(""service.score_digits|37|"" + Service.score_digits(37)); } catch (Throwable e) { System.out.println(""service.score_digits|37|ERR""); }
+                                                               ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:10: error: cannot find symbol
+  try { System.out.println(""service.score_digits|999|"" + Service.score_digits(999)); } catch (Throwable e) { System.out.println(""service.score_digits|999|ERR""); }
+                                                                ^
+  symbol:   method score_digits(int)
+  location: class Service
+4 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,digits,dependency_aware,"Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:7: error: cannot access Service
+  try { System.out.println(""service.score_digits|-123|"" + Service.score_digits(-123)); } catch (Throwable e) { System.out.println(""service.score_digits|-123|ERR""); }
+                                                          ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,membership,independent,"Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+1 error
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,diamond,dependency_aware,"Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:10: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+3 errors
+"
+ibm-granite/granite-3.3-2b-instruct,grades,independent,"Service.java:3: error: cannot find symbol
+        int base = clamp(n);
+                   ^
+  symbol:   method clamp(int)
+  location: class Service
+Service.java:4: error: cannot find symbol
+        return clamp(base + 7);
+               ^
+  symbol:   method clamp(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        return bonusScore(n) >= 60? 1 : 0;
+               ^
+  symbol:   method bonusScore(int)
+  location: class Main
+3 errors
+"
+ibm-granite/granite-3.3-2b-instruct,grades,dependency_aware,"Main.java:3: error: ';' expected
+        return 1 if bonus_score(n) >= 60 else 0;
+                ^
+Main.java:3: error: '(' expected
+        return 1 if bonus_score(n) >= 60 else 0;
+                   ^
+Main.java:3: error: ')' expected
+        return 1 if bonus_score(n) >= 60 else 0;
+                                        ^
+Main.java:3: error: not a statement
+        return 1 if bonus_score(n) >= 60 else 0;
+                                              ^
+Main.java:3: error: 'else' without 'if'
+        return 1 if bonus_score(n) >= 60 else 0;
+                                         ^
+5 errors
+"
+ibm-granite/granite-3.3-2b-instruct,invoice,independent,"Main.java:3: error: cannot find symbol
+        int cost = gross(n);
+                   ^
+  symbol:   method gross(int)
+  location: class Main
+1 error
+"
+ibm-granite/granite-3.3-2b-instruct,membership,independent,"Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+2 errors
+"
+ibm-granite/granite-3.3-2b-instruct,membership,dependency_aware,"Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+1 error
+"
+ibm-granite/granite-3.3-2b-instruct,diamond,independent,"Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+               ^
+  symbol:   method weighted(int)
+  location: class Main
+Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+                             ^
+  symbol:   method normalize(int)
+  location: class Main
+2 errors
+"

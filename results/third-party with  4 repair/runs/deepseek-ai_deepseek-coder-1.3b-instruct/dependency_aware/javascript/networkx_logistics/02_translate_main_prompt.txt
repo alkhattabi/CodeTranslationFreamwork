@@ -1,0 +1,71 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { disruption_score } from "./service.mjs";
+  import { route_cost } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: networkx.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import networkx as nx
+from utils import route_cost
+from service import disruption_score
+
+def solve(n: int) -> int:
+    graph = nx.Graph()
+    offset = abs(n) % 7
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + offset), (0, 2, 5), (1, 2, 1 + offset % 3),
+        (1, 3, 4), (2, 3, 2 + offset % 2), (3, 4, 6),
+        (2, 4, 8 + offset)
+    ])
+    tree = nx.minimum_spanning_tree(graph, weight="weight")
+    total = int(tree.size(weight="weight"))
+    return total + disruption_score(n) - route_cost(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: service.mjs
+import { DiGraph } from 'graphlib';
+import { route_cost } from './utils.mjs';
+
+function disruption_score(n) {
+  const graph = new DiGraph();
+  graph.addEdgesFrom([[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [4, 5], [2, 5], [5, 6]]);
+  if (n % 3 === 0) {
+    graph.removeEdge(2, 5);
+  }
+  if (n % 5 === 0) {
+    graph.removeEdge(0, 2);
+  }
+  const reachable = Array.from(graph.descendants(0)).length;
+  const longest = Array.from(graph.dagLongestPath()).length;
+  return route_cost(n) + 3 * reachable + longest;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+import { DiGraph } from 'graphlib';
+
+function route_cost(n) {
+  const x = Math.abs(n) % 13;
+  const graph = new DiGraph();
+  graph.setWeightedEdgesFrom([
+    [0, 1, 3 + x % 3],
+    [0, 2, 5 + x % 4],
+    [1, 3, 4 + x % 2],
+    [1, 4, 7],
+    [2, 3, 1 + x % 5],
+    [2, 4, 3 + x % 3],
+    [3, 5, 6],
+    [4, 5, 2 + x % 4],
+    [5, 6, 1 + x % 2],
+    [2, 6, 15]
+  ]);
+  return Number(nx.shortestPathLength(graph, 0, 6, {weight: 'weight'}));
+}

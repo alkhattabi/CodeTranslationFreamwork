@@ -1,0 +1,42 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/30 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/stock_replenishment/repair1/validate_feedback/service.mjs:1
+import { weeklyDemand } from "./utils.mjs";
+         ^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'weeklyDemand'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+  
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function weekly_demand(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function weekly_demand(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function weekly_demand(n) {
+    if (n < 0) {
+        return 0;
+    }
+    let base = n * 3;
+    let extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += Math.floor(n / 4);
+    }
+    return base + extra;
+}
+
+
+ORIGINAL PYTHON:
+
+def weekly_demand(n: int) -> int:
+    if n < 0:
+        return 0
+    base = n * 3
+    extra = (n % 7) * 2
+    if n >= 40:
+        base += n // 4
+    return base + extra

@@ -1,0 +1,21 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int nights = Utils.valid_nights(n);
+        if (nights == 0) {
+            return -1;
+        }
+        int rooms = n / 100;
+        int charge = Service.lodging_charge(n);
+        int cleaning = rooms * 45;
+        int tax = (charge + cleaning) * 15 / 100;
+        return charge + cleaning + tax;
+    }
+}
+```
+
+Please note that in Java, we need to import the classes from the utils package and the service package to use them. Also, Java does not support importing modules directly, so we need to import the entire package.
+
+The Java code is the same as the Python code, but the import statements are different. The Java code also uses the exact function names, including underscores.

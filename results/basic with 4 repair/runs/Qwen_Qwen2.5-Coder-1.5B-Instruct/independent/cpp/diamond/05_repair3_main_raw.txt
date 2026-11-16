@@ -1,0 +1,60 @@
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int weighted(int n);
+int normalize(int n);
+
+int solve(int n) {
+    return weighted(n) + normalize(n);
+}
+
+// Original Python:
+// from utils import normalize
+// from service import weighted
+
+// def solve(n: int) -> int:
+//     return weighted(n) + normalize(n)
+
+// Dependency service.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function to normalize an integer
+int normalize(int n) {
+    if (n == INT_MIN) {
+        return INT_MAX;
+    }
+    return std::abs(n);
+}
+
+// Function to calculate the weighted value
+int weighted(int n) {
+    int x = normalize(n);
+    return x * 2 + 1;
+}
+
+// Dependency utils.cpp:
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int weighted(int n);
+
+// Global C++ functions declared in api.hpp
+int normalize(int n) {
+    if (n < 0) {
+        return -n;
+    }
+    return n;
+}
+```

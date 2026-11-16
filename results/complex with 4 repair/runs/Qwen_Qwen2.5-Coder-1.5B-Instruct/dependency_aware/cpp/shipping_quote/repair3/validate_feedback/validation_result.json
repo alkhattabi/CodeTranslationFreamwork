@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccCLpRiw.o: in function `weight_blocks(int)':\nservice.cpp:(.text+0x0): multiple definition of `weight_blocks(int)'; /tmp/ccTQwzft.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccngycSX.o: in function `weight_blocks(int)':\nmain.cpp:(.text+0x0): multiple definition of `weight_blocks(int)'; /tmp/ccTQwzft.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccngycSX.o: in function `transport_cost(int)':\nmain.cpp:(.text+0x4a): multiple definition of `transport_cost(int)'; /tmp/ccCLpRiw.o:service.cpp:(.text+0x4a): first defined here\n/usr/bin/ld: /tmp/ccxzaWMQ.o: in function `main':\nEvalRunner.cpp:(.text+0x0): multiple definition of `main'; /tmp/ccngycSX.o:main.cpp:(.text+0xad): first defined here\n/usr/bin/ld: /tmp/ccngycSX.o: in function `main':\nmain.cpp:(.text+0xc6): undefined reference to `solve(int)'\n/usr/bin/ld: /tmp/ccxzaWMQ.o: in function `main':\nEvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'\n/usr/bin/ld: /tmp/ccxzaWMQ.o:EvalRunner.cpp:(.text+0x143): more undefined references to `solve(int)' follow\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: cannot find symbol\n        int cost = gross(n);\n                   ^\n  symbol:   method gross(int)\n  location: class Main\n1 error\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

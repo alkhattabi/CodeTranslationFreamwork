@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:20: error: duplicate class: Utils\nclass Utils {\n^\nService.java:5: error: cannot find symbol\n        return Utils.digitSum(n) * 3;\n               ^\n  symbol:   variable Utils\n  location: class Service\nService.java:3: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nMain.java:5: error: cannot access Service\n        int value = Service.score_digits(n);\n                    ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nEvalRunner.java:11: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|-123|\" + Utils.digit_sum(-123)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|-123|ERR\"); }\n                                                          ^\n  symbol:   method digit_sum(int)\n  location: class Utils\nEvalRunner.java:12: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|1005|\" + Utils.digit_sum(1005)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|1005|ERR\"); }\n                                                          ^\n  symbol:   method digit_sum(int)\n  location: class Utils\nEvalRunner.java:13: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|37|\" + Utils.digit_sum(37)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|37|ERR\"); }\n                                                        ^\n  symbol:   method digit_sum(int)\n  location: class Utils\nEvalRunner.java:14: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|999|\" + Utils.digit_sum(999)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|999|ERR\"); }\n                                                         ^\n  symbol:   method digit_sum(int)\n  location: class Utils\n8 errors\n",
+  "failed_modules": [
+    "service",
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

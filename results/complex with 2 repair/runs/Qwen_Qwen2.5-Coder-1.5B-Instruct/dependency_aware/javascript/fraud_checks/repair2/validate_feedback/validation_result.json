@@ -1,0 +1,225 @@
+{
+  "compiled": true,
+  "passed": 3,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1230,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1016,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 987654321,
+      "expected": 2,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1234,
+      "expected": 2,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 799273,
+      "expected": 2,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 11,
+      "expected": 3,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 121,
+      "expected": 3,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10,
+      "expected": 2,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 123456789,
+      "expected": 2,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 125,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 1230,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 1016,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 987654321,
+      "expected": 40,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 1234,
+      "expected": 40,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 799273,
+      "expected": 40,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 11,
+      "expected": 85,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 121,
+      "expected": 85,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 10,
+      "expected": 65,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 123456789,
+      "expected": 40,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "risk_points",
+      "input": 125,
+      "expected": 25,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 1230,
+      "expected": 1,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 1016,
+      "expected": 1,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 987654321,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 1234,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 799273,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 11,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 121,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 10,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 123456789,
+      "expected": 0,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "utils",
+      "function": "luhn_valid",
+      "input": 125,
+      "expected": 1,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    }
+  ]
+}

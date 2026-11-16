@@ -1,0 +1,12 @@
+{"k":"main.solve|52","v":0}
+{"k":"main.solve|95","v":1}
+{"k":"main.solve|-10","v":0}
+{"k":"main.solve|0","v":0}
+{"k":"service.bonus_score|52","v":59}
+{"k":"service.bonus_score|95","v":100}
+{"k":"service.bonus_score|-10","v":7}
+{"k":"service.bonus_score|0","v":7}
+{"k":"utils.clamp|52","v":52}
+{"k":"utils.clamp|95","v":95}
+{"k":"utils.clamp|-10","v":0}
+{"k":"utils.clamp|0","v":0}

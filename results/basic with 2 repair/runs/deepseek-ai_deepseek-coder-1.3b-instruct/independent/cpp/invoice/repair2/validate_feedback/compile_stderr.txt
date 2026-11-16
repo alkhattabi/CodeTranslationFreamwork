@@ -1,0 +1,128 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:28:9: warning: #pragma once in main file
+   28 | #pragma once
+      |         ^~~~
+service.cpp:40:9: warning: #pragma once in main file
+   40 | #pragma once
+      |         ^~~~
+service.cpp:54:9: warning: #pragma once in main file
+   54 | #pragma once
+      |         ^~~~
+service.cpp:65:9: warning: #pragma once in main file
+   65 | #pragma once
+      |         ^~~~
+service.cpp:77:9: warning: #pragma once in main file
+   77 | #pragma once
+      |         ^~~~
+service.cpp:91:9: warning: #pragma once in main file
+   91 | #pragma once
+      |         ^~~~
+service.cpp:102:9: warning: #pragma once in main file
+  102 | #pragma once
+      |         ^~~~
+service.cpp:113:9: warning: #pragma once in main file
+  113 | #pragma once
+      |         ^~~~
+service.cpp:124:9: warning: #pragma once in main file
+  124 | #pragma once
+      |         ^~~~
+service.cpp:135:9: warning: #pragma once in main file
+  135 | #pragma once
+      |         ^~~~
+service.cpp:146:9: warning: #pragma once in main file
+  146 | #pragma once
+      |         ^~~~
+service.cpp:157:9: warning: #pragma once in main file
+  157 | #pragma once
+      |         ^~~~
+service.cpp:168:9: warning: #pragma once in main file
+  168 | #pragma once
+      |         ^~~~
+service.cpp:44:5: error: redefinition of ‘int gross(int)’
+   44 | int gross(int n) {
+      |     ^~~~~
+service.cpp:12:5: note: ‘int gross(int)’ previously defined here
+   12 | int gross(int n) {
+      |     ^~~~~
+service.cpp:58:5: error: redefinition of ‘int main()’
+   58 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:69:5: error: redefinition of ‘int solve(int)’
+   69 | int solve(int n) {
+      |     ^~~~~
+service.cpp:32:5: note: ‘int solve(int)’ previously defined here
+   32 | int solve(int n) {
+      |     ^~~~~
+service.cpp:81:5: error: redefinition of ‘int gross(int)’
+   81 | int gross(int n) {
+      |     ^~~~~
+service.cpp:12:5: note: ‘int gross(int)’ previously defined here
+   12 | int gross(int n) {
+      |     ^~~~~
+service.cpp:95:5: error: redefinition of ‘int main()’
+   95 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:106:5: error: redefinition of ‘int main()’
+  106 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:117:5: error: redefinition of ‘int main()’
+  117 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:128:5: error: redefinition of ‘int main()’
+  128 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:139:5: error: redefinition of ‘int main()’
+  139 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:150:5: error: redefinition of ‘int main()’
+  150 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:161:5: error: redefinition of ‘int main()’
+  161 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:172:5: error: redefinition of ‘int main()’
+  172 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int gross(int)’:
+main.cpp:6:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    6 | }
+      | ^
+main.cpp: In function ‘int unit_price(int)’:
+main.cpp:10:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   10 | }
+      | ^

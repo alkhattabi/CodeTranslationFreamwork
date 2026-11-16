@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccWmrj8X.o: in function `tier(int)':\nservice.cpp:(.text+0x0): multiple definition of `tier(int)'; /tmp/ccxSQNSg.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccrco8sz.o: in function `tier(int)':\nmain.cpp:(.text+0x0): multiple definition of `tier(int)'; /tmp/ccxSQNSg.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccrco8sz.o: in function `discount(int)':\nmain.cpp:(.text+0x39): multiple definition of `discount(int)'; /tmp/ccWmrj8X.o:service.cpp:(.text+0x39): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

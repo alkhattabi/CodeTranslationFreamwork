@@ -1,0 +1,24 @@
+Here is the JavaScript ES-module source code for the main.mjs file:
+
+```javascript
+// main.mjs
+import { unit_price } from "./service.mjs";
+
+export function solve(n) {
+    const cost = gross(n);
+    return cost + (cost * 0.15);
+}
+
+function gross(n) {
+    if (n < 0) {
+        return 0;
+    }
+    return n * unit_price(n);
+}
+```
+
+This JavaScript ES-module source code exports a function solve(n) that calculates the gross cost of a product given the quantity of units. It uses the gross function from the service.mjs module and adds 15% to the gross cost.
+
+The gross function checks if the quantity is negative, and if so, returns 0. Otherwise, it calculates the gross cost by multiplying the quantity by the unit price from the service.mjs module.
+
+The service.mjs module exports a function unit_price(n) that calculates the unit price of a product given the quantity of units. It uses a simple constant for now, but in a real-world scenario, this function would likely be more complex and depend on the specifics of the product.

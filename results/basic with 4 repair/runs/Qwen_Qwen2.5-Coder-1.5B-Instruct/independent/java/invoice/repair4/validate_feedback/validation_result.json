@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\nimport com.example.Utils;\n                  ^\n  symbol:   class Utils\n  location: package com.example\nService.java:10: error: cannot find symbol\n        return n * Utils.unit_price(n);\n                   ^\n  symbol:   variable Utils\n  location: class Service\nMain.java:3: error: cannot find symbol\n        int cost = gross(n);\n                   ^\n  symbol:   method gross(int)\n  location: class Main\nService.java:5: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nEvalRunner.java:7: error: cannot access Service\n  try { System.out.println(\"service.gross|11|\" + Service.gross(11)); } catch (Throwable e) { System.out.println(\"service.gross|11|ERR\"); }\n                                                 ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n5 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

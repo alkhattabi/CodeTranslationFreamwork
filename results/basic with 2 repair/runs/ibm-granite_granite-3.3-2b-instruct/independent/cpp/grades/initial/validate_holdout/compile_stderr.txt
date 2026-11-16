@@ -1,0 +1,8 @@
+main.cpp: In function ‘int solve(int)’:
+main.cpp:4:13: error: expected ‘;’ before ‘if’
+    4 |     return 1 if (bonus_score(n) >= 60) else 0;
+      |             ^~~
+      |             ;
+main.cpp:4:40: error: expected primary-expression before ‘else’
+    4 |     return 1 if (bonus_score(n) >= 60) else 0;
+      |                                        ^~~~

@@ -1,0 +1,103 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:22: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|19991231|" + Main.solve(19991231)); } catch (Throwable e) { System.out.println("main.solve|19991231|ERR"); }
+                                                    ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int grace_period(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.renewal_date(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int grace_period(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            LocalDate start = LocalDate.of(year, month, day);
+            LocalDate end = start.plusMonths(1);
+            return end.getYear() * 10000 + end.getMonthValue() * 100 + end.getDayOfMonth();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+}
+
+public class Service {
+    public static int grace_period(int n) {
+        int renewed = Utils.renewal_date(n);
+        if (renewed < 0) {
+            return -1;
+        }
+        int year, month, day;
+        year = renewed / 10000;
+        month = (renewed / 100) % 100;
+        day = renewed % 100;
+        LocalDate due = LocalDate.of(year, month, day).plus(2, ChronoUnit.DAYS);
+        return due.getYear() * 10000 + due.getMonthValue() * 100 + due.getDayOfMonth();
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day
+
+
+DEPENDENCY Utils.java:
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            LocalDate start = LocalDate.of(year, month, day);
+            LocalDate end = start.plusMonths(1);
+            return end.getYear() * 10000 + end.getMonthValue() * 100 + end.getDayOfMonth();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+}

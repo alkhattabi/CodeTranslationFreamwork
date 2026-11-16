@@ -1,0 +1,7 @@
+/usr/bin/ld: /tmp/ccV4acj8.o: in function `luhn_valid(int)':
+service.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/ccHiAl44.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc1j0LVn.o: in function `luhn_valid(int)':
+main.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/ccHiAl44.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc1j0LVn.o: in function `risk_points(int)':
+main.cpp:(.text+0xd1): multiple definition of `risk_points(int)'; /tmp/ccV4acj8.o:service.cpp:(.text+0xd1): first defined here
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,182 @@
+{
+  "compiled": true,
+  "passed": 15,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 101,
+      "expected": 77,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 4,
+      "expected": 66,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 9999,
+      "expected": 194,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10200,
+      "expected": 68,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 100,
+      "expected": 67,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 199,
+      "expected": 96,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000,
+      "expected": 166,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10001,
+      "expected": 76,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19999,
+      "expected": 294,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10000,
+      "expected": 66,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 0,
+      "expected": 66,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 200,
+      "expected": 68,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 101,
+      "expected": 66,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 4,
+      "expected": 65,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 9999,
+      "expected": 183,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 10200,
+      "expected": 67,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 100,
+      "expected": 66,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 199,
+      "expected": 85,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 20000,
+      "expected": 65,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 10001,
+      "expected": 65,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 19999,
+      "expected": 183,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 10000,
+      "expected": 65,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 0,
+      "expected": 65,
+      "actual": "ERR: ReferenceError: current is not defined"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 200,
+      "expected": 67,
+      "actual": "ERR: ReferenceError: current is not defined"
+    }
+  ]
+}

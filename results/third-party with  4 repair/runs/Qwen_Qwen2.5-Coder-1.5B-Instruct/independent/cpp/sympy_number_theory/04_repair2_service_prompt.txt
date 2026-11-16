@@ -1,0 +1,77 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   14 | }
+      | ^
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:18:37: error: ‘gcd’ is not a member of ‘std’
+   18 |     int phi = static_cast<int>(std::gcd(value, value - 1));
+      |                                     ^~~
+service.cpp: In function ‘int factor_signature(int)’:
+service.cpp:25:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   25 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int number_strength(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int number_strength(int n);
+int factor_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int number_strength(int n);
+int factor_signature(int n);
+
+// Global C++ functions declared in api.hpp
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int number_strength(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    int phi = static_cast<int>(std::gcd(value, value - 1));
+    int divisor_count = static_cast<int>(value / (value - 1));
+    return phi + 5 * divisor_count + factor_signature(n);
+}
+
+int factor_signature(int n) {
+    // Implementation of factor_signature function
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+
+def number_strength(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    phi = int(sp.totient(value))
+    divisor_count = int(sp.divisor_count(value))
+    return phi + 5 * divisor_count + factor_signature(n)

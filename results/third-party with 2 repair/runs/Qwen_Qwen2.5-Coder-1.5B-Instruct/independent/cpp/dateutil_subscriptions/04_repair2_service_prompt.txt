@@ -1,0 +1,76 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int days_in_month(int, int)’:
+utils.cpp:7:23: error: ‘is_leap_year’ was not declared in this scope
+    7 |     if (month == 2 && is_leap_year(year)) {
+      |                       ^~~~~~~~~~~~
+utils.cpp:10:59: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in return
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                           ^
+utils.cpp:10:60: error: expected ‘;’ before ‘[’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                            ^
+      |                                                            ;
+utils.cpp:10:66: error: expected ‘,’ before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                  ^~
+      |                                                                  ,
+utils.cpp:10:67: error: expected identifier before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                   ^
+utils.cpp: In lambda function:
+utils.cpp:10:71
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int grace_period(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int grace_period(int n);
+int renewal_date(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+// Helper function to calculate the renewal date
+int renewal_date(int n) {
+    // Implementation of renewal_date function using dateutil library
+    // This is a placeholder for actual implementation
+    // For demonstration purposes, we'll just return a dummy value
+    return 10000; // Replace with actual implementation
+}
+
+// Function to calculate the grace period
+int grace_period(int n) {
+    int renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    int year, month, day = renewed / 10000, (renewed / 100) % 100, renewed % 100;
+    date due(year, month, day) + relativedelta(months=2, days=7);
+    return due.year * 10000 + due.month * 100 + due.day;
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day

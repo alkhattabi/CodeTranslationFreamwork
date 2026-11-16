@@ -1,0 +1,55 @@
+{
+  "compiled": true,
+  "passed": 18,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1000,
+      "expected": 0,
+      "actual": "25"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 3499,
+      "expected": 149,
+      "actual": "49"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 15000,
+      "expected": 2172,
+      "actual": "2030"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 3500,
+      "expected": 150,
+      "actual": "50"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 7000,
+      "expected": 570,
+      "actual": "470"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1500,
+      "expected": 0,
+      "actual": "50"
+    }
+  ]
+}

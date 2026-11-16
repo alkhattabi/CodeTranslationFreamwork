@@ -1,0 +1,40 @@
+#pragma once
+#include <iostream>
+
+// Helper function prototypes
+int solve(int n);
+int risk_points(int n);
+
+// Global C++ function declaration
+int luhn_valid(int n);
+
+// Implementation of the helper functions
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int risk_points(int n) {
+    // Implementation of risk_points function
+}
+
+// Implementation of luhn_valid function
+int luhn_valid(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int total = 0;
+    bool double_ = false;
+    while (n > 0) {
+        int digit = n % 10;
+        if (double_) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double_ = !double_;
+        n /= 10;
+    }
+    return 1 if total % 10 == 0 else 0;
+}

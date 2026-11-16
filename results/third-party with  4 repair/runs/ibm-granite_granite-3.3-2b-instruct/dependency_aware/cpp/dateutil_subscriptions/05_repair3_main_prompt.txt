@@ -1,0 +1,114 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+ const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:77:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+   76 | # include <bit> // std::__bit_width
+  +++ |+#include <cstddef>
+   77 | #endif
+/usr/include/c++/13/bits/stl_algobase.h:436:32: error: ‘_Num’ was not declared in this scope
+  436 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+/usr/include/c++/13/bits/stl_algobase.h:441:29: error: ‘_Num’ was not declared in this scope
+  441 |           return __result + _Num;
+      |                             ^~~~
+/usr/include/c++/13/bits/stl_algobase.h: In static member function ‘static _Up* std::__copy_move_backward<_IsMove, true, std::random_access_iterator_tag>::__copy_move_b(_Tp*, _Tp*, _Up*)’:
+/usr/include/c++/13/bits/stl_algobase.h:746:17: error: ‘ptrdiff_t’ does not name a type
+  746 |           const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:746:17: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+/usr/include/c++/13/bits/stl_algobase.h:747:32: error: ‘_Num’ was not declared in this scope
+  747 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int grace_period(int n);
+int renewal_date(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+main.cpp
+
+#include "api.hpp"
+
+int solve(int n) {
+    int renewed = renewal_date(n);
+    int deadline = grace_period(n);
+    if (renewed < 0 || deadline < 0) {
+        return -1;
+    }
+    int y1, m1, d1;
+    int y2, m2, d2;
+    y1 = renewed / 10000;
+    m1 = (renewed / 100) % 100;
+    d1 = renewed % 100;
+    y2 = deadline / 10000;
+    m2 = (deadline / 100) % 100;
+    d2 = deadline % 100;
+    int days = (date(y2, m2, d2) - date(y1, m1, d1)).days;
+    return days * 100 + d2;
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from utils import renewal_date
+from service import grace_period
+
+def solve(n: int) -> int:
+    renewed = renewal_date(n)
+    deadline = grace_period(n)
+    if renewed < 0 or deadline < 0:
+        return -1
+    y1, m1, d1 = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    y2, m2, d2 = deadline // 10000, (deadline // 100) % 100, deadline % 100
+    days = (date(y2, m2, d2) - date(y1, m1, d1)).days
+    return days * 100 + d2
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int grace_period(int n) {
+    int renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    int year = renewed / 10000;
+    int month = (renewed / 100) % 100;
+    int day = renewed % 100;
+    date due_date(year, month, day);
+    due_date += relativedelta(months=2, days=7);
+    return due_date.year() * 10000 + due_date.month() * 100 + due_date.day();
+}
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int renewal_date(int n) {
+    if (n < 19000101 || n > 20991231) {
+        return -1;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    try {
+        date start_date(year, month, day);
+    } catch (...) {
+        return -1;
+    }
+    date end_date = start_date + relativedelta(months=1);
+    return end_date.year() * 10000 + end_date.month() * 100 + end_date.day();
+}

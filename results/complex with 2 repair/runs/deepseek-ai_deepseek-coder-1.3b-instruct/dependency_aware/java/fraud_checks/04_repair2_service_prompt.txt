@@ -1,0 +1,111 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:24: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+3 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int risk_points(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.luhn_valid(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int risk_points(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleDigit = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleDigit = !doubleDigit;
+            n /= 10;
+        }
+        return (total % 10 == 0) ? 1 : 0;
+    }
+}
+
+public class Service {
+    public static int risk_points(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (Utils.luhn_valid(n) == 0) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import luhn_valid
+
+def risk_points(n: int) -> int:
+    if n <= 0:
+        return 100
+    score = 0
+    if luhn_valid(n) == 0:
+        score += 40
+    if n % 11 == 0:
+        score += 20
+    if n % 100 < 10:
+        score += 15
+    if n < 1000:
+        score += 25
+    return score
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleDigit = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleDigit = !doubleDigit;
+            n /= 10;
+        }
+        return (total % 10 == 0) ? 1 : 0;
+    }
+}

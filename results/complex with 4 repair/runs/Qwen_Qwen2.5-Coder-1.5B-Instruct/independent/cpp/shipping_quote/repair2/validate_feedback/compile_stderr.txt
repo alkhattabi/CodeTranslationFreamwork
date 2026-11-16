@@ -1,0 +1,21 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:29:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   29 | }
+      | ^
+service.cpp: In function ‘int transport_cost(int)’:
+service.cpp:37:5: error: ‘price’ was not declared in this scope
+   37 |     price = 1200 + blocks * 180;
+      |     ^~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:17:25: error: expected ‘,’ or ‘;’ before ‘if’
+   17 |     int insurance = 300 if blocks >= 10 else 100;
+      |                         ^~

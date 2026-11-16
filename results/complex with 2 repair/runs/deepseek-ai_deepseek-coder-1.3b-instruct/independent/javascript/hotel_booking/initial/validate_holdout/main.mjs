@@ -1,0 +1,14 @@
+import { lodging_charge } from "./service.mjs";
+import { valid_nights } from "./utils.mjs";
+
+export function solve(n) {
+    const nights = valid_nights(n);
+    if (nights === 0) {
+        return -1;
+    }
+    const rooms = Math.floor(n / 100);
+    const charge = lodging_charge(n);
+    const cleaning = rooms * 45;
+    const tax = (charge + cleaning) * 15 / 100;
+    return charge + cleaning + tax;
+}

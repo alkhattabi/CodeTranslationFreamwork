@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:3: error: duplicate class: com.example.Utils\npublic class Utils {\n       ^\nService.java:3: error: cannot access Utils\n        int nights = Utils.valid_nights(n);\n                     ^\n  bad source file: ./Utils.java\n    file does not contain class Utils\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n2 errors\n",
+  "failed_modules": [
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

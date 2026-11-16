@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:14: error: missing return statement\n    }\n    ^\nMain.java:19: error: missing return statement\n    }\n    ^\n2 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

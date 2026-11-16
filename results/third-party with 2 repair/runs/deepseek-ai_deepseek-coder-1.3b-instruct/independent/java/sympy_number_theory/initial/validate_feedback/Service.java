@@ -1,0 +1,30 @@
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Service {
+    public static int number_strength(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        BigInteger bigInt = BigInteger.valueOf(value);
+        BigInteger phi = bigInt.subtract(bigInt.divide(bigInt.gcd(BigInteger.valueOf(value))));
+        ArrayList<BigInteger> divisors = new ArrayList<>();
+        for (BigInteger i = BigInteger.ONE.add(BigInteger.valueOf(1)); i.compareTo(bigInt) <= 0; i = i.add(BigInteger.ONE)) {
+            if (bigInt.mod(i).compareTo(BigInteger.ZERO) == 0) {
+                divisors.add(i);
+            }
+        }
+        Collections.sort(divisors);
+        int divisor_count = divisors.size();
+        return phi.add(BigInteger.valueOf(5 * divisor_count)).intValue() + factor_signature(n);
+    }
+
+    public static int factor_signature(int n) {
+        int factor_signature = 0;
+        for (int i = 1; i <= Math.abs(n); i++) {
+            if (Math.abs(n) % i == 0) {
+                factor_signature++;
+            }
+        }
+        return factor_signature;
+    }
+}

@@ -1,0 +1,11 @@
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    int value = abs(n) % 1500 + 2;
+    int prime_bonus = (sp::isprime(value)? 50 : 0);
+    int next_prime = static_cast<int>(sp::nextprime(value));
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}
+```
+Note: The actual implementation of `number_strength` and `factor_signature` functions in `api.hpp` is not provided, so they are assumed to be correctly defined. Also, the use of `sympy` library in Python is emulated using C++'s standard library features for prime checking (`sp::isprime` is assumed to be a custom function). The `sp::nextprime` function is assumed to be a custom function as well, returning the next prime number after a given number.

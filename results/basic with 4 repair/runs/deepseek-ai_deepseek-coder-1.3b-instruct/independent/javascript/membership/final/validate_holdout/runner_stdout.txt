@@ -1,0 +1,15 @@
+{"k":"main.solve|-5","v":0}
+{"k":"main.solve|9","v":36}
+{"k":"main.solve|99","v":386}
+{"k":"main.solve|50","v":190}
+{"k":"main.solve|12","v":43}
+{"k":"service.discount|-5","v":0}
+{"k":"service.discount|9","v":0}
+{"k":"service.discount|99","v":10}
+{"k":"service.discount|50","v":10}
+{"k":"service.discount|12","v":5}
+{"k":"utils.tier|-5","v":0}
+{"k":"utils.tier|9","v":0}
+{"k":"utils.tier|99","v":2}
+{"k":"utils.tier|50","v":2}
+{"k":"utils.tier|12","v":1}

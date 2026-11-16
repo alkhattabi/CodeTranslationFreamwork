@@ -1,0 +1,63 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 3/33 development checks.
+main.solve(1230): expected 0, actual ERR: TypeError: Assignment to constant variable.
+main.solve(1016): expected 0, actual ERR: TypeError: Assignment to constant variable.
+main.solve(987654321): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(1234): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(799273): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(11): expected 3, actual ERR: TypeError: Assignment to constant variable.
+main.solve(121): expected 3, actual ERR: TypeError: Assignment to constant variable.
+main.solve(10): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(123456789): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(125): expected 0, actual ERR: TypeError: Assignment to constant variable.
+service.risk_points(1230): expected 0, actual ERR: TypeError: Assignment to constant variable.
+service.risk_points(1016): expected 0, actual ERR: TypeError: Assignment to constant variable.
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function luhn_valid(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function luhn_valid(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function luhn_valid(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let total = 0;
+    let double = false;
+    while (n > 0) {
+        const digit = n % 10;
+        if (double) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double = !double;
+        n = Math.floor(n / 10);
+    }
+    return total % 10 === 0 ? 1 : 0;
+}
+
+
+ORIGINAL PYTHON:
+
+def luhn_valid(n: int) -> int:
+    if n <= 0:
+        return 0
+    total = 0
+    double = False
+    while n > 0:
+        digit = n % 10
+        if double:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        total += digit
+        double = not double
+        n //= 10
+    return 1 if total % 10 == 0 else 0

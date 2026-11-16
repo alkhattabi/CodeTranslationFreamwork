@@ -1,0 +1,22 @@
+// main.mjs
+export function solve(n) {
+    const energy = matrixEnergy(n);
+    const vector = new Float64Array([energy, vectorSignature(n), n]);
+    const bounded = new Float64Array(vector.length).fill(-Infinity);
+    for (let i = 0; i < vector.length; i++) {
+        if (vector[i] >= 0) {
+            bounded[i] = Math.min(vector[i], 250);
+        } else {
+            bounded[i] = Math.max(vector[i], -150);
+        }
+    }
+    const positives = new Float64Array(bounded.length).fill(0);
+    for (let i = 0; i < bounded.length; i++) {
+        if (bounded[i] > 0) {
+            positives[i] = bounded[i];
+        } else {
+            positives[i] = -bounded[i];
+        }
+    }
+    return Math.floor(positives.reduce((acc, val) => acc + val, 0) + (energy % 17));
+}

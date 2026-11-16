@@ -1,0 +1,106 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int dijkstra(const std::vector<std::vector<int> >&, int, int)’:
+utils.cpp:13:10: error: ‘priority_queue’ is not a member of ‘std’
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |          ^~~~~~~~~~~~~~
+utils.cpp:6:1: note: ‘std::priority_queue’ is defined in header ‘<queue>’; did you forget to ‘#include <queue>’?
+    5 | #include <limits>
+  +++ |+#include <queue>
+    6 | 
+utils.cpp:13:44: error: expected primary-expression before ‘,’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                            ^
+utils.cpp:13:78: error: expected primary-expression before ‘,’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                              ^
+utils.cpp:13:93: error: expected primary-expression before ‘>’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                                             ^~
+utils.cpp:13:96: error: ‘pq’ was not declar
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int route_cost(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int disruption_score(int n);
+int route_cost(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <limits>
+
+// Helper function to calculate the shortest path length using Dijkstra's algorithm
+int dijkstra(const std::vector<std::vector<int>>& graph, int start, int end) {
+    int num_nodes = graph.size();
+    std::vector<int> distances(num_nodes, std::numeric_limits<int>::max());
+    distances[start] = 0;
+
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        int current_distance = pq.top().first;
+        int current_node = pq.top().second;
+        pq.pop();
+
+        if (current_distance > distances[current_node]) continue;
+
+        for (int neighbor = 0; neighbor < num_nodes; ++neighbor) {
+            int edge_weight = graph[current_node][neighbor];
+            if (edge_weight == 0) continue;
+
+            int new_distance = current_distance + edge_weight;
+            if (new_distance < distances[neighbor]) {
+                distances[neighbor] = new_distance;
+                pq.push({new_distance, neighbor});
+            }
+        }
+    }
+
+    return distances[end];
+}
+
+// Route cost calculation function
+int route_cost(int n) {
+    int x = std::abs(n) % 13;
+    std::vector<std::vector<int>> graph = {
+        {0, 1, 3 + x % 3}, {0, 2, 5 + x % 4},
+        {1, 3, 4 + x % 2}, {1, 4, 7},
+        {2, 3, 1 + x % 5}, {2, 4, 3 + x % 3},
+        {3, 5, 6}, {4, 5, 2 + x % 4},
+        {5, 6, 1 + x % 2}, {2, 6, 15}
+    };
+
+    return dijkstra(graph, 0, 6);
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+
+def route_cost(n: int) -> int:
+    x = abs(n) % 13
+    graph = nx.DiGraph()
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + x % 3), (0, 2, 5 + x % 4),
+        (1, 3, 4 + x % 2), (1, 4, 7),
+        (2, 3, 1 + x % 5), (2, 4, 3 + x % 3),
+        (3, 5, 6), (4, 5, 2 + x % 4),
+        (5, 6, 1 + x % 2), (2, 6, 15)
+    ])
+    return int(nx.shortest_path_length(graph, 0, 6, weight="weight"))

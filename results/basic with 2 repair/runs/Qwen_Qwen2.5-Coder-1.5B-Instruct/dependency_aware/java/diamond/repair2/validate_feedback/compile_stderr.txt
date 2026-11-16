@@ -1,0 +1,7 @@
+Main.java:1: error: unclosed character literal
+obj['output']
+    ^
+Main.java:1: error: unclosed character literal
+obj['output']
+           ^
+2 errors

@@ -1,0 +1,78 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:11: error: cannot find symbol
+        if (Utils.luhn_valid(n)) {
+            ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:5: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|1230|" + Main.solve(1230)); } catch (Throwable e) { System.out.println("main.solve|1230|ERR"); }
+                                                ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:14: error: cannot access Service
+  try { System.out.println("service.risk_points|1230|" + Service.risk_points(1230)); } catch (Throwable e) { System.out.println("service.risk_points|1230|ERR"); }
+                                                         ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+5 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int luhn_valid(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int luhn_valid(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleFlag = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleFlag) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleFlag = !doubleFlag;
+            n /= 10;
+        }
+        return total % 10 == 0 ? 1 : 0;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def luhn_valid(n: int) -> int:
+    if n <= 0:
+        return 0
+    total = 0
+    double = False
+    while n > 0:
+        digit = n % 10
+        if double:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        total += digit
+        double = not double
+        n //= 10
+    return 1 if total % 10 == 0 else 0

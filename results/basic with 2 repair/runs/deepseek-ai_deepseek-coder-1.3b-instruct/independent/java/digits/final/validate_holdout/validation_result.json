@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "EvalRunner.java:7: error: cannot find symbol\n  try { System.out.println(\"service.score_digits|-123|\" + Service.score_digits(-123)); } catch (Throwable e) { System.out.println(\"service.score_digits|-123|ERR\"); }\n                                                                 ^\n  symbol:   method score_digits(int)\n  location: class Service\nEvalRunner.java:8: error: cannot find symbol\n  try { System.out.println(\"service.score_digits|1005|\" + Service.score_digits(1005)); } catch (Throwable e) { System.out.println(\"service.score_digits|1005|ERR\"); }\n                                                                 ^\n  symbol:   method score_digits(int)\n  location: class Service\nEvalRunner.java:9: error: cannot find symbol\n  try { System.out.println(\"service.score_digits|37|\" + Service.score_digits(37)); } catch (Throwable e) { System.out.println(\"service.score_digits|37|ERR\"); }\n                                                               ^\n  symbol:   method score_digits(int)\n  location: class Service\nEvalRunner.java:10: error: cannot find symbol\n  try { System.out.println(\"service.score_digits|999|\" + Service.score_digits(999)); } catch (Throwable e) { System.out.println(\"service.score_digits|999|ERR\"); }\n                                                                ^\n  symbol:   method score_digits(int)\n  location: class Service\n4 errors\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

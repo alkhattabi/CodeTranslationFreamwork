@@ -1,0 +1,66 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccO3COsN.o: in function `credit_band(int)':
+main.cpp:(.text+0x11a): multiple definition of `credit_band(int)'; /tmp/cctGcdpL.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccO3COsN.o: in function `yearly_interest(int)':
+main.cpp:(.text+0x93): multiple definition of `yearly_interest(int)'; /tmp/ccaz1QI4.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int credit_band(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int yearly_interest(int n);
+int credit_band(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+
+
+ORIGINAL PYTHON:
+
+def credit_band(n: int) -> int:
+    if n < 300 or n > 850:
+        return 0
+    if n >= 750:
+        return 4
+    if n >= 650:
+        return 3
+    if n >= 550:
+        return 2
+    if n >= 450:
+        return 1
+    return 0

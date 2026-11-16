@@ -1,0 +1,36 @@
+{"k":"main.solve|3","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|49999","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|29999","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|99","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|2","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|1","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|30104","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|30000","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|-1","v":-1}
+{"k":"main.solve|10100","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|20100","error":"ReferenceError: Version is not defined"}
+{"k":"main.solve|20203","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|3","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|49999","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|29999","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|99","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|2","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|1","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|30104","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|30000","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|-1","v":-1}
+{"k":"service.upgrade_cost|10100","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|20100","error":"ReferenceError: Version is not defined"}
+{"k":"service.upgrade_cost|20203","error":"ReferenceError: Version is not defined"}
+{"k":"utils.release_rank|3","v":1}
+{"k":"utils.release_rank|49999","v":3}
+{"k":"utils.release_rank|29999","v":3}
+{"k":"utils.release_rank|99","v":1}
+{"k":"utils.release_rank|2","v":1}
+{"k":"utils.release_rank|1","v":1}
+{"k":"utils.release_rank|30104","v":3}
+{"k":"utils.release_rank|30000","v":3}
+{"k":"utils.release_rank|-1","v":-1}
+{"k":"utils.release_rank|10100","v":1}
+{"k":"utils.release_rank|20100","v":3}
+{"k":"utils.release_rank|20203","v":3}

@@ -1,0 +1,49 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 11/30 development checks.
+main.solve(41): expected 4000, actual 800
+main.solve(1): expected 920, actual 1000
+main.solve(19): expected 2360, actual 1000
+main.solve(70): expected 5200, actual 800
+main.solve(55): expected 4900, actual 800
+main.solve(14): expected 1640, actual 1000
+main.solve(7): expected 1280, actual 1000
+main.solve(28): expected 2360, actual 1000
+main.solve(20): expected 2360, actual 1000
+main.solve(21): expected 2000, actual 1000
+service.order_quantity(41): expected 144, actual 24
+service.order_quantity(19): expected 72, actual 24
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int weekly_demand(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int weekly_demand(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int weekly_demand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def weekly_demand(n: int) -> int:
+    if n < 0:
+        return 0
+    base = n * 3
+    extra = (n % 7) * 2
+    if n >= 40:
+        base += n // 4
+    return base + extra

@@ -1,0 +1,14 @@
+public class Service {
+    public static int weighted(int n) {
+        int x = Utils.normalize(n);
+        return x * 2 + 1;
+    }
+
+    // Assume Utils class with normalize method exists
+    public static int normalize(int n) {
+        if (n < 0) {
+            return -n;
+        }
+        return n;
+    }
+}

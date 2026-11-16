@@ -1,0 +1,49 @@
+#include "api.hpp"
+
+int rolling_alert(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    std::vector<int> series = {
+        n % 13,
+        (n / 2) % 13,
+        n % 17,
+        std::abs(n) % 11,
+        n % 7
+    };
+
+    std::vector<int> rolling_sum;
+    rolling_sum.push_back(series[0]);
+    for (int i = 1; i < series.size(); ++i) {
+        rolling_sum.push_back(rolling_sum.back() + series[i]);
+    }
+
+    int alerts = 0;
+    for (int val : rolling_sum) {
+        if (val >= 15) {
+            alerts++;
+        }
+    }
+
+    return alerts * 10 + category_balance(n) % 23;
+}
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    std::vector<std::pair<std::string, int>> frame = {
+        {"A", n},
+        {"B", 12},
+        {"A", n / 2},
+        {"C", -7},
+        {"B", n % 9},
+        {"C", 4},
+        {"A", -n / 3}
+    };
+
+    std::map<std::string, int> sums;
+    for (const auto& pair : frame) {
+        sums[pair.first] += pair.second;
+    }
+
+    return 2 * sums["A"] + sums["B"] - sums["C"];
+}

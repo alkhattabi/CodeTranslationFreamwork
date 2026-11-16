@@ -1,0 +1,121 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int solve(int)’:
+utils.cpp:13:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   13 | }
+      | ^
+utils.cpp: In function ‘int upgrade_cost(int)’:
+utils.cpp:17:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   17 | }
+      | ^
+utils.cpp: In function ‘int release_rank(int)’:
+utils.cpp:28:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   28 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+utils.cpp:29:12: error: expected ‘;’ before ‘referenceVersion’
+   29 |     Version referenceVersion("2.1.0");
+      |            ^~~~~~~~~~~~~~~~~
+      |            ;
+utils.cpp:30:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   30 |     if (version < referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+utils.cpp:30:19: error: ‘referenceVersion’ was not declared in this scope
+   30 |     if (version < referenceVersion) {
+      |                   ^~~~~~~~~~~~~~~~
+utils.cpp:33:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   33 |     if (version == referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+utils.cpp:33:20: error: ‘referenceVersion’ was not declared in this scope
+   33 |     if (version == referenceVersion) {
+      |                    ^~~~~~~~~~~~~~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:16:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   16 | }
+      | ^
+service.cpp: In function ‘int upgrade_cost(int)’:
+service.cpp:20:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   20 | }
+      | ^
+service.cpp: In function ‘int release_rank(int)’:
+service.cpp:31:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   31 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+service.cpp:32:12: error: expected ‘;’ before ‘referenceVersion’
+   32 |     Version referenceVersion("2.1.0");
+      |            ^~~~~~~~~~~~~~~~~
+      |            ;
+service.cpp:33:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   33 |     if (version < referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+service.cpp:33:19: error: ‘referenceVersion’ was not declared in this scope
+   33 |     if (version < referenceVersion) {
+      |                   ^~~~~~~~~~~~~~~~
+service.cpp:36:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   36 |     if (version == referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+service.cpp:36:20: error: ‘referenceVersion’ was not declared in this scope
+   36 |     if (version == referenceVersion) {
+      |                    ^~~~~~~~~~~~~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:23:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   23 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+main.cpp:24:12: error: expected ‘;’ before ‘referenceVersion’
+   24 |     Version referenceVersion("2.1.0");
+      |            ^~~~~~~~~~~~~~~~~
+      |            ;
+main.cpp:25:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   25 |     if (version < referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+main.cpp:25:19: error: ‘referenceVersion’ was not declared in this scope
+   25 |     if (version < referenceVersion) {
+      |                   ^~~~~~~~~~~~~~~~
+main.cpp:28:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   28 |     if (version == referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+main.cpp:28:20: error: ‘referenceVersion’ was not declared in this scope
+   28 |     if (version == referenceVersion) {
+      |                    ^~~~~~~~~~~~~~~~
+main.cpp: In function ‘int upgrade_cost(int)’:
+main.cpp:36:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   36 | }
+      | ^
+main.cpp: In function ‘int release_rank(int)’:
+main.cpp:47:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   47 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+main.cpp:48:12: error: expected ‘;’ before ‘referenceVersion’
+   48 |     Version referenceVersion("2.1.0");
+      |            ^~~~~~~~~~~~~~~~~
+      |            ;
+main.cpp:49:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   49 |     if (version < referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+main.cpp:49:19: error: ‘referenceVersion’ was not declared in this scope
+   49 |     if (version < referenceVersion) {
+      |                   ^~~~~~~~~~~~~~~~
+main.cpp:52:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   52 |     if (version == referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+main.cpp:52:20: error: ‘referenceVersion’ was not declared in this scope
+   52 |     if (version == referenceVersion) {
+      |                    ^~~~~~~~~~~~~~~~

@@ -1,0 +1,11 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccoxcpk8.o: in function `order_quantity(int)':
+main.cpp:(.text+0x70): multiple definition of `order_quantity(int)'; /tmp/cc3W7CD8.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccoxcpk8.o: in function `weekly_demand(int)':
+main.cpp:(.text+0xfc): multiple definition of `weekly_demand(int)'; /tmp/cclh9NYp.o:utils.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,30 @@
+{"k":"main.solve|230","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|0","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|301","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|207","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|203","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|102","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|131","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|100","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|201","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|510","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.lodging_charge|230","v":8100}
+{"k":"service.lodging_charge|0","v":0}
+{"k":"service.lodging_charge|301","v":450}
+{"k":"service.lodging_charge|207","v":1890}
+{"k":"service.lodging_charge|203","v":900}
+{"k":"service.lodging_charge|102","v":300}
+{"k":"service.lodging_charge|131","v":0}
+{"k":"service.lodging_charge|100","v":0}
+{"k":"service.lodging_charge|201","v":300}
+{"k":"service.lodging_charge|510","v":6413}
+{"k":"utils.valid_nights|230","v":30}
+{"k":"utils.valid_nights|0","v":0}
+{"k":"utils.valid_nights|301","v":1}
+{"k":"utils.valid_nights|207","v":7}
+{"k":"utils.valid_nights|203","v":3}
+{"k":"utils.valid_nights|102","v":2}
+{"k":"utils.valid_nights|131","v":0}
+{"k":"utils.valid_nights|100","v":0}
+{"k":"utils.valid_nights|201","v":1}
+{"k":"utils.valid_nights|510","v":10}

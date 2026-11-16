@@ -1,0 +1,15 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:16:9: warning: #pragma once in main file
+   16 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccepEsIG.o: in function `weekly_demand(int)':
+service.cpp:(.text+0x8a): multiple definition of `weekly_demand(int)'; /tmp/cc3LfvjG.o:utils.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,57 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 26/30 development checks.
+main.solve(20261231): expected 4365, actual 4520
+main.solve(20281231): expected 4366, actual 4521
+service.day_of_year(20261231): expected 365, actual 520
+service.day_of_year(20281231): expected 366, actual 521
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int valid_date(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int valid_date(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int valid_date(int n) {
+        if (n < 10000101 || n > 99991231) {
+            return 0;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        if (month < 1 || month > 12 || day < 1) {
+            return 0;
+        }
+        int days = 31;
+        if (month == 4 || month == 6 || month == 9 || month == 11) {
+            days = 30;
+        }
+        if (month == 2) {
+            boolean leap = (year % 4 == 0 && year % 100!= 0) || year % 400 == 0;
+            days = leap? 29 : 28;
+        }
+        return day <= days? 1 : 0;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def valid_date(n: int) -> int:
+    if n < 10000101 or n > 99991231:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    if month < 1 or month > 12 or day < 1:
+        return 0
+    days = 31
+    if month == 4 or month == 6 or month == 9 or month == 11:
+        days = 30
+    if month == 2:
+        leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+        days = 29 if leap else 28
+    return 1 if day <= days else 0

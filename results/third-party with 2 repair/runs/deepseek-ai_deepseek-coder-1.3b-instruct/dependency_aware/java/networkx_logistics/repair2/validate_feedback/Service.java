@@ -1,0 +1,62 @@
+It seems like the Python code you provided is incomplete and contains a lot of syntax errors. Here is the corrected Java version of your Python code:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int route_cost(int n) {
+        int x = Math.abs(n) % 13;
+        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+        graph.put(0, new HashMap<>());
+        graph.get(0).put(1, 3 + x % 3);
+        graph.get(0).put(2, 5 + x % 4);
+        graph.put(1, new HashMap<>());
+        graph.get(1).put(3, 4 + x % 2);
+        graph.get(1).put(4, 7);
+        graph.put(2, new HashMap<>());
+        graph.get(2).put(3, 1 + x % 5);
+        graph.get(2).put(4, 3 + x % 3);
+        graph.put(3, new HashMap<>());
+        graph.get(3).put(5, 6);
+        graph.get(4, new HashMap<>());
+        graph.get(4).put(5, 2 + x % 4);
+        graph.put(5, new HashMap<>());
+        graph.get(5).put(6, 1 + x % 2);
+        graph.put(2, new HashMap<>());
+        graph.get(2).put(6, 15);
+
+        return shortestPath(graph, 0, 6);
+    }
+
+    private static int shortestPath(Map<Integer, Map<Integer, Integer>> graph, int start, int end) {
+        Map<Integer, Integer> distances = new HashMap<>();
+        distances.put(start, 0);
+        Map<Integer, Integer> parents = new HashMap<>();
+        parents.put(start, null);
+
+        for (int node = start; node != end; node = findClosestUnvisitedNode(distances, parents)) {
+            visitNode(node, distances, parents, graph);
+        }
+
+        return distances.get(end);
+    }
+
+    private static int findClosestUnvisitedNode(Map<Integer, Integer> distances, Map<Integer, Integer> parents) {
+        int closestNode = -1;
+        int closestDistance = Integer.MAX_VALUE;
+        for (Map.Entry<Integer, Integer> entry : distances.entrySet()) {
+            if (!entry.getKey().equals(parents.get(entry.getKey()))) {
+                int distance = entry.getValue();
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestNode = entry.getKey();
+                }
+            }
+        }
+        return closestNode;
+    }
+
+    private static void visitNode(int node, Map<Integer, Integer> distances, Map<Integer, Integer> parents, Map<Integer, Map<Integer, Integer>> graph) {
+        for (Map.Entry<Integer, Integer> edge : graph.get(node).entrySet()) {
+            int neighbor = edge.getKey();

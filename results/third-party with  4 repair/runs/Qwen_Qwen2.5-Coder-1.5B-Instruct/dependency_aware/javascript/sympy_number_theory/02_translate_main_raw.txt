@@ -1,0 +1,12 @@
+```javascript
+// main.mjs
+import { number_strength } from "./service.mjs";
+import { factor_signature } from "./utils.mjs";
+
+export function solve(n: number): number {
+    const value = Math.abs(n) % 1500 + 2;
+    const primeBonus = 50 if Number.isInteger(sp.prime(value)) else 0;
+    const nextPrime = Number.parseInt(sp.nextprime(value));
+    return number_strength(n) + primeBonus + nextPrime - factor_signature(n);
+}
+```

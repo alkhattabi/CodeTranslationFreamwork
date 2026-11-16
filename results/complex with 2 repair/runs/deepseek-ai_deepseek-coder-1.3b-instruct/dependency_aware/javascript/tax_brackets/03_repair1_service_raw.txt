@@ -1,0 +1,26 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { taxable_income } from "./utils.mjs";
+
+export function calculate_tax(n) {
+    let income = taxable_income(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+```
+
+This code exports a function `calculate_tax` that takes an integer `n` as input and returns an integer. It first calculates the `income` by calling the `taxable_income` function from the `utils.mjs` module. Then it calculates the `tax` based on the `income`. The `tax` is returned as the result of the function.
+
+The `taxable_income` function is a simple function that takes an integer `n` as input and returns the `income` after applying some conditions. If `n` is less than or equal to 500, it returns 0. Otherwise, it calculates the `income` by subtracting 500 from `n` and if the result is greater than 20000, it sets the `income` to 20000. Finally, it returns the `income`.
+
+The original Python code was missing the `//` operator for integer division in JavaScript, which is why the `tax` calculation was not working as expected. The `//` operator in JavaScript performs integer division and returns the result as an integer.

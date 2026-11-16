@@ -1,0 +1,37 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+Execution diagnostics: node:internal/modules/esm/resolve:275
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/digits/initial/validate_feedback/service.js' imported from /content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/digits/initial/validate_feedback/main.mjs
+    at finaliz
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function digit_sum(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function digit_sum(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+def digit_sum(n: int) -> int:
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total

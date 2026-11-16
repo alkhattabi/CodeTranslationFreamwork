@@ -1,0 +1,76 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:13: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+3 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.bonus_score(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}
+
+public class Service {
+    public static int bonus_score(int n) {
+        int base = Utils.clamp(n);
+        return Utils.clamp(base + 7);
+    }
+}
+
+public class Main {
+    public static int solve(int n) {
+        int result = Service.bonus_score(n);
+        return result >= 60 ? 1 : 0;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import bonus_score
+
+def solve(n: int) -> int:
+    return 1 if bonus_score(n) >= 60 else 0
+
+
+DEPENDENCY Service.java:
+public class Utils {
+    public static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}
+
+public class Service {
+    public static int bonus_score(int n) {
+        int base = Utils.clamp(n);
+        return Utils.clamp(base + 7);
+    }
+}

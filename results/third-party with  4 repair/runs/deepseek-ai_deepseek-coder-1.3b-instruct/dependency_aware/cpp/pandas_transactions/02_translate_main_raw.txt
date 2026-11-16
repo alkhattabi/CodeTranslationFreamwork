@@ -1,0 +1,36 @@
+Here is the C++ version of your Python code. I've kept the same logic and structure as your Python code, but I've replaced the Python functions with their C++ equivalents.
+
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    // Your solve function implementation here
+    return n * n;
+}
+
+int rolling_alert(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}
+```
+
+Please note that the `rolling_alert` and `category_balance` functions are not implemented in the provided Python code, so you'll need to implement them in your C++ code.

@@ -1,0 +1,36 @@
+{"k":"main.solve|-999","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|12","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|0","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|101","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|-2000","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|3","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|2","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|-256","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|2000","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|11","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|9","error":"ReferenceError: sp is not defined"}
+{"k":"main.solve|1","error":"ReferenceError: sp is not defined"}
+{"k":"service.number_strength|-999","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|12","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|0","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|101","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|-2000","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|3","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|2","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|-256","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|2000","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|11","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|9","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|1","error":"ReferenceError: factorSignature is not defined"}
+{"k":"utils.factor_signature|-999","v":40}
+{"k":"utils.factor_signature|12","v":15}
+{"k":"utils.factor_signature|0","v":5}
+{"k":"utils.factor_signature|101","v":106}
+{"k":"utils.factor_signature|-2000","v":259}
+{"k":"utils.factor_signature|3","v":8}
+{"k":"utils.factor_signature|2","v":7}
+{"k":"utils.factor_signature|-256","v":57}
+{"k":"utils.factor_signature|2000","v":259}
+{"k":"utils.factor_signature|11","v":16}
+{"k":"utils.factor_signature|9","v":14}
+{"k":"utils.factor_signature|1","v":6}

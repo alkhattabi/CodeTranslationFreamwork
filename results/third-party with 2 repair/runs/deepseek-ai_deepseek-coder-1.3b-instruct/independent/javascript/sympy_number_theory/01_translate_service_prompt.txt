@@ -1,0 +1,22 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function number_strength(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { factor_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function number_strength(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: sympy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+import sympy as sp
+from utils import factor_signature
+
+def number_strength(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    phi = int(sp.totient(value))
+    divisor_count = int(sp.divisor_count(value))
+    return phi + 5 * divisor_count + factor_signature(n)

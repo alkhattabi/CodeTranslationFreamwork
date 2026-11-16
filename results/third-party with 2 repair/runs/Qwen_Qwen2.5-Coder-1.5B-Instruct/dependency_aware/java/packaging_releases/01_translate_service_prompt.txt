@@ -1,0 +1,54 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int upgrade_cost(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.release_rank(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int upgrade_cost(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: packaging.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+from packaging.version import Version
+from utils import release_rank
+
+def upgrade_cost(n: int) -> int:
+    rank = release_rank(n)
+    if rank < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    current = Version(f"{major}.{minor}.{patch}")
+    required = Version("2.1.0")
+    penalty = 40 if current < required else 0
+    return rank * 25 + minor + patch // 5 + penalty
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int release_rank(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0 ? "rc1" : "";
+        String versionStr = major + "." + minor + "." + patch + suffix;
+        try {
+            Version version = new Version(versionStr);
+            Version reference = new Version("2.1.0");
+            if (version.compareTo(reference) < 0) {
+                return 1;
+            }
+            if (version.equals(reference)) {
+                return 2;
+            }
+            return 3;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid version string", e);
+        }
+    }
+}

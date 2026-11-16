@@ -1,0 +1,34 @@
+public class Service {
+    public static int matrix_energy(int n) {
+        int x = Math.max(-100, Math.min(100, n));
+        int[] m = new int[]{
+            (x % 5), 2, -(x % 3),
+            3, (x % 7), 4,
+            1, 5, (x % 1)
+        };
+        int[][] matrix = {
+            {m[0], m[1], m[2]},
+            {m[3], m[4], m[5]},
+            {m[6], m[7], m[8]}
+        };
+
+        int squareSum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                squareSum += matrix[i][j] * matrix[i][j];
+            }
+        }
+
+        int diagonalSum = squareSum - (matrix[0][0] + matrix[1][1] + matrix[2][2]) + matrix[3][3] + matrix[4][4] + matrix[5][5];
+
+        return diagonalSum + vector_signature(n);
+    }
+
+    // Placeholder for vector_signature method
+    private static int vector_signature(int n) {
+        // Implementation of vector_signature method goes here
+        return 0;
+    }
+}
+
+Note: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.

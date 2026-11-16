@@ -1,0 +1,118 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int factor_signature(int)’:
+utils.cpp:9:34: error: ‘sp’ has not been declared
+    9 |     std::map<int, int> factors = sp::factorint(value);
+      |                                  ^~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int factor_signature(int)’:
+service.cpp:9:34: error: ‘sp’ has not been declared
+    9 |     std::map<int, int> factors = sp::factorint(value);
+      |                                  ^~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:5:10: fatal error: sympy/ntheory.h: No such file or directory
+    5 | #include <sympy/ntheory.h>
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int number_strength(int n);
+int factor_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <cmath>
+#include <cstdlib>
+#include <map>
+#include <sympy/ntheory.h>
+
+int factor_signature(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    std::map<int, int> factors = sp::factorint(value);
+    int score = 0;
+    for(auto& pair : factors) {
+        score += pair.first * pair.second;
+    }
+    return score + 3 * factors.size();
+}
+
+int number_strength(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    int prime_bonus = sp::isprime(value) ? 50 : 0;
+    int next_prime = sp::nextprime(value);
+    return prime_bonus + next_prime;
+}
+
+int solve(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    int prime_bonus = sp::isprime(value) ? 50 : 0;
+    int next_prime = sp::nextprime(value);
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)
+
+
+DEPENDENCY service.cpp:
+#pragma once
+#include <map>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int factor_signature(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    std::map<int, int> factors = sp::factorint(value);
+    int score = 0;
+    for(auto& pair : factors) {
+        score += pair.first * pair.second;
+    }
+    return score + 3 * factors.size();
+}
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include <map>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int factor_signature(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    std::map<int, int> factors = sp::factorint(value);
+    int score = 0;
+    for(auto& pair : factors) {
+        score += pair.first * pair.second;
+    }
+    return score + 3 * factors.size();
+}

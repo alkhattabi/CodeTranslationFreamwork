@@ -1,0 +1,30 @@
+package com.example;
+
+import java.util.function.IntPredicate;
+
+public class Main {
+    public static int solve(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (Utils.luhn_valid(n)) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(123456)); // Output should be based on the logic implemented in solve method
+    }
+}

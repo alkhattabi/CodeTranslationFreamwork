@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/calendar_dates/initial/validate_feedback/main.mjs:9
+    const quarter = (month - 1) / 3 + 1;
+    ^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

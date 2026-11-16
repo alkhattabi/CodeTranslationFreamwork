@@ -1,0 +1,26 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccCLpRiw.o: in function `weight_blocks(int)':
+service.cpp:(.text+0x0): multiple definition of `weight_blocks(int)'; /tmp/ccTQwzft.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccngycSX.o: in function `weight_blocks(int)':
+main.cpp:(.text+0x0): multiple definition of `weight_blocks(int)'; /tmp/ccTQwzft.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccngycSX.o: in function `transport_cost(int)':
+main.cpp:(.text+0x4a): multiple definition of `transport_cost(int)'; /tmp/ccCLpRiw.o:service.cpp:(.text+0x4a): first defined here
+/usr/bin/ld: /tmp/ccxzaWMQ.o: in function `main':
+EvalRunner.cpp:(.text+0x0): multiple definition of `main'; /tmp/ccngycSX.o:main.cpp:(.text+0xad): first defined here
+/usr/bin/ld: /tmp/ccngycSX.o: in function `main':
+main.cpp:(.text+0xc6): undefined reference to `solve(int)'
+/usr/bin/ld: /tmp/ccxzaWMQ.o: in function `main':
+EvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'
+/usr/bin/ld: /tmp/ccxzaWMQ.o:EvalRunner.cpp:(.text+0x143): more undefined references to `solve(int)' follow
+collect2: error: ld returned 1 exit status

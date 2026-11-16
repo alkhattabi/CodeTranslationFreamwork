@@ -1,0 +1,94 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 24/33 development checks.
+main.solve(500): expected 1180, actual ERR: Error: result must be a safe integer
+main.solve(799): expected 1347, actual ERR: TypeError: Assignment to constant variable.
+main.solve(699): expected 1284, actual ERR: Error: result must be a safe integer
+main.solve(450): expected 1132, actual ERR: Error: result must be a safe integer
+main.solve(650): expected 1239, actual ERR: Error: result must be a safe integer
+main.solve(800): expected 1348, actual ERR: TypeError: Assignment to constant variable.
+main.solve(499): expected 1179, actual ERR: Error: result must be a safe integer
+service.yearly_interest(799): expected 1024, actual ERR: TypeError: Assignment to constant variable.
+service.yearly_interest(800): expected 1025, actual ERR: TypeError: Assignment to constant variable.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { yearly_interest } from "./service.mjs";
+  import { credit_band } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { credit_band } from "./utils.mjs";
+import { yearly_interest } from "./service.mjs";
+
+export function solve(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const interest = yearly_interest(n);
+    const fee = band >= 3? 150 : 350;
+    const total = principal + interest + fee;
+    return (total + 11) / 12;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import credit_band
+from service import yearly_interest
+
+def solve(n: int) -> int:
+    band = credit_band(n)
+    if band == 0:
+        return -1
+    principal = 10000 + (n - 300) * 10
+    interest = yearly_interest(n)
+    fee = 150 if band >= 3 else 350
+    total = principal + interest + fee
+    return (total + 11) // 12
+
+
+DEPENDENCY service.mjs:
+// service.mjs
+import { credit_band } from "./utils.mjs";
+
+export function yearly_interest(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const rate = 18 - band * 3;
+    const interest = principal * rate / 100;
+    if (principal > 14000) {
+        interest += 125;
+    }
+    return Math.floor(interest);
+}
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+export function credit_band(n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}

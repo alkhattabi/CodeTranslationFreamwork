@@ -1,0 +1,26 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function score_digits(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { digit_sum } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function score_digits(n) { /* implementation */ }
+
+PYTHON FILE service.py:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+// utils.mjs
+export function digitSum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}

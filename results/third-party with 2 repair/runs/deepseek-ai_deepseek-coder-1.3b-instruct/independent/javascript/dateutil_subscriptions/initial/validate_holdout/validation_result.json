@@ -1,0 +1,176 @@
+{
+  "compiled": true,
+  "passed": 16,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20241110,
+      "expected": 6917,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20260228,
+      "expected": 6804,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000228,
+      "expected": 6804,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240228,
+      "expected": 6804,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000131,
+      "expected": 6706,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20251231,
+      "expected": 6607,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240430,
+      "expected": 6806,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230430,
+      "expected": 6806,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "19000501"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "20260501"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20241110,
+      "expected": 20250217,
+      "actual": "20250110"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20260228,
+      "expected": 20260604,
+      "actual": "20260428"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000228,
+      "expected": 19000604,
+      "actual": "19000428"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240228,
+      "expected": 20240604,
+      "actual": "20240428"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20000131,
+      "expected": 20000506,
+      "actual": "20000402"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20251231,
+      "expected": 20260407,
+      "actual": "20260231"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240430,
+      "expected": 20240806,
+      "actual": "20240630"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230430,
+      "expected": 20230806,
+      "actual": "20230630"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "19000401"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "20260401"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20000131,
+      "expected": 20000229,
+      "actual": "20000302"
+    }
+  ]
+}

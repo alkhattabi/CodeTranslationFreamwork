@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\n        int blocks = weight_blocks(n);\n                     ^\n  symbol:   method weight_blocks(int)\n  location: class Service\n1 error\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

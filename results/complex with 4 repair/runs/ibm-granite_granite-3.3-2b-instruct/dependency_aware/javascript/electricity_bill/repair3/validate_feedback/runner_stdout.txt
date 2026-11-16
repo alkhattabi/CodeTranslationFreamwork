@@ -1,0 +1,27 @@
+{"k":"main.solve|101","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|350","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|400","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|0","v":0}
+{"k":"main.solve|99","error":"Error: result must be a safe integer"}
+{"k":"main.solve|1","error":"Error: result must be a safe integer"}
+{"k":"main.solve|700","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|-50","v":0}
+{"k":"main.solve|1000","error":"TypeError: Assignment to constant variable."}
+{"k":"service.energy_charge|101","error":"TypeError: Assignment to constant variable."}
+{"k":"service.energy_charge|350","error":"TypeError: Assignment to constant variable."}
+{"k":"service.energy_charge|400","error":"TypeError: Assignment to constant variable."}
+{"k":"service.energy_charge|0","v":0}
+{"k":"service.energy_charge|99","v":990}
+{"k":"service.energy_charge|1","v":10}
+{"k":"service.energy_charge|700","error":"TypeError: Assignment to constant variable."}
+{"k":"service.energy_charge|-50","v":0}
+{"k":"service.energy_charge|1000","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.billable_units|101","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|350","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|400","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|0","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|99","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|1","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|700","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|-50","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|1000","error":"TypeError: modules[t.m][t.f] is not a function"}

@@ -1,0 +1,32 @@
+Here is the Java equivalent of your Python code:
+
+```java
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Service {
+    public static int gracePeriod(int n) {
+        LocalDate renewed = Utils.renewalDate(n);
+        if (renewed.isBefore(LocalDate.now())) {
+            return -1;
+        }
+        int year = renewed.getYear();
+        int month = renewed.getMonthValue();
+        int day = renewed.getDayOfMonth();
+        LocalDate due = LocalDate.of(year, month, day).plusMonths(2).plusDays(7);
+        return due.getYear() * 10000 + due.getMonthValue() * 100 + due.getDayOfMonth();
+    }
+}
+```
+
+Please note that Java does not have a built-in library for handling dates and times, so we use the java.time package to handle dates. The Utils class is assumed to be in the same package as the Service class.
+
+Also, please note that the Java code uses floor division (//) and modulo (%) for division and modulo respectively. This is because Java does not have a built-in function for floor division and modulo.
+
+The Java code also uses the plusMonths and plusDays methods of the LocalDate class to add months and days to a date. The getYear, getMonthValue, and getDayOfMonth methods are used to get the year, month, and day of a date, respectively.
+
+The Java code also uses the isBefore method of the LocalDate class to check if a date is before another date.
+
+The Java code uses the plusMonths and plusDays methods of the ChronoUnit class to add months and days to a duration. The getYears, getMonths, and getDays methods are used to get the years, months, and days of a duration, respectively.
+
+The Java code uses the Utils class to get the renewal date. The Utils class is assumed to be in the same package as the Service class.

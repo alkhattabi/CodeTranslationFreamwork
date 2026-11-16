@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nutils.cpp: In function \u2018int solve(int)\u2019:\nutils.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   39 | }\n      | ^\nutils.cpp: In function \u2018int day_of_year(int)\u2019:\nutils.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   43 | }\n      | ^\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int solve(int)\u2019:\nservice.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   39 | }\n      | ^\nservice.cpp: In function \u2018int day_of_year(int)\u2019:\nservice.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   43 | }\n      | ^\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccgVzcNc.o: in function `valid_date(int)':\nservice.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccgVzcNc.o: in function `is_leap_year(int)':\nservice.cpp:(.text+0x13a): multiple definition of `is_leap_year(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x13a): first defined here\n/usr/bin/ld: /tmp/ccgVzcNc.o: in function `solve(int)':\nservice.cpp:(.text+0x120): multiple definition of `solve(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x120): first defined here\n/usr/bin/ld: /tmp/ccgVzcNc.o: in function `day_of_year(int)':\nservice.cpp:(.text+0x12d): multiple definition of `day_of_year(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x12d): first defined here\n/usr/bin/ld: /tmp/cc7cGERU.o: in function `valid_date(int)':\nmain.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cc7cGERU.o: in function `is_leap_year(int)':\nmain.cpp:(.text+0x2c0): multiple definition of `is_leap_year(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x13a): first defined here\n/usr/bin/ld: /tmp/cc7cGERU.o: in function `solve(int)':\nmain.cpp:(.text+0x120): multiple definition of `solve(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x120): first defined here\n/usr/bin/ld: /tmp/cc7cGERU.o: in function `day_of_year(int)':\nmain.cpp:(.text+0x1c5): multiple definition of `day_of_year(int)'; /tmp/ccETJqFk.o:utils.cpp:(.text+0x12d): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

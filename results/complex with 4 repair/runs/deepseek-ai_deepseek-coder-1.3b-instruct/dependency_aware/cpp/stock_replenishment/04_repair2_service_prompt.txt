@@ -1,0 +1,81 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc10WiaE.o: in function `order_quantity(int)':
+main.cpp:(.text+0x70): multiple definition of `order_quantity(int)'; /tmp/ccmRXZJE.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc10WiaE.o: in function `weekly_demand(int)':
+main.cpp:(.text+0xfc): multiple definition of `weekly_demand(int)'; /tmp/ccTdXScG.o:utils.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int order_quantity(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int order_quantity(int n);
+int weekly_demand(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = 15;
+    if (demand < 100) {
+        safety = 35;
+    }
+    int available = n;
+    if (n < 0) {
+        available = 0;
+    }
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weekly_demand
+
+def order_quantity(n: int) -> int:
+    demand = weekly_demand(n)
+    safety = 15 if demand < 100 else 35
+    available = n if n > 0 else 0
+    shortage = demand + safety - available
+    if shortage <= 0:
+        return 0
+    packs = (shortage + 11) // 12
+    return packs * 12
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include "api.hpp"
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}

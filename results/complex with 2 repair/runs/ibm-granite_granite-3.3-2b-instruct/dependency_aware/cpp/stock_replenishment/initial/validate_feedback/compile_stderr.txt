@@ -1,0 +1,14 @@
+service.cpp: In function ‘int order_quantity(int)’:
+service.cpp:5:21: error: expected ‘,’ or ‘;’ before ‘if’
+    5 |     int safety = 15 if (demand < 100) else 35;
+      |                     ^~
+service.cpp:6:23: error: expected ‘,’ or ‘;’ before ‘if’
+    6 |     int available = n if (n > 0) else 0;
+      |                       ^~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:9:24: error: expected ‘,’ or ‘;’ before ‘if’
+    9 |     int unit_cost = 25 if (quantity >= 120) else 30;
+      |                        ^~
+main.cpp:10:24: error: expected ‘,’ or ‘;’ before ‘if’
+   10 |     int shipping = 400 if (demand > 100) else 200;
+      |                        ^~

@@ -1,0 +1,12 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int quantity = order_quantity(n);
+    if (quantity == 0) {
+        return 0;
+    }
+    int demand = weekly_demand(n);
+    int unit_cost = 25 if (quantity >= 120) else 30;
+    int shipping = 400 if (demand > 100) else 200;
+    return quantity * unit_cost + shipping;
+}

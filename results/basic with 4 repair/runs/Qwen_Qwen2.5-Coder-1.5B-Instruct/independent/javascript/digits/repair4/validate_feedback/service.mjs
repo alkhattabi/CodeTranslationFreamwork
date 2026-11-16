@@ -1,0 +1,6 @@
+// service.mjs
+import { digitSum } from "./utils.js";
+
+export function score_digits(n) {
+    return digitSum(n) * 3;
+}

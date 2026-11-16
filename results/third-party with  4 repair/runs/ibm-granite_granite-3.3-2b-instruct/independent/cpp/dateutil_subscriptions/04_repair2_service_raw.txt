@@ -1,0 +1,17 @@
+```cpp
+#include "api.hpp"
+
+int grace_period(int n) {
+    int renewed = solve(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    int year = renewed / 10000;
+    int month = (renewed / 100) % 100;
+    int day = renewed % 100;
+    int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+    return due;
+}
+```
+
+Note: The solution assumes that the `solve` function is defined in `api.hpp` and has the same functionality as the Python `renewal_date` function. The `relativedelta` functionality is assumed to be available in the C++ standard library or a third-party library, as it's not a standard C++ feature. The negative floor division and modulo semantics are preserved as per the request.

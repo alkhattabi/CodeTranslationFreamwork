@@ -1,0 +1,23 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int transport_cost(int n) {
+    int blocks = weight_blocks(n);
+    if (blocks == 0) {
+        return 0;
+    }
+    int price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+```
+
+Please note that the `weight_blocks` function is not defined in the provided Python file. You need to define it in your `api.hpp` file or in the same file where `transport_cost` function is defined.

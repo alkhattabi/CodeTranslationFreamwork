@@ -1,0 +1,90 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp: In function ‘int release_rank(int)’:
+utils.cpp:14:10: error: ‘string’ is not a member of ‘std’
+   14 |     std::string suffix = (patch % 4 == 0) ? "rc1" : "";
+      |          ^~~~~~
+utils.cpp:5:1: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+    4 | #include <cstdlib>
+  +++ |+#include <string>
+    5 | 
+utils.cpp:15:10: error: ‘string’ is not a member of ‘std’
+   15 |     std::string version = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+      |          ^~~~~~
+utils.cpp:15:10: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+utils.cpp:16:10: error: ‘string’ is not a member of ‘std’
+   16 |     std::string reference = "2.1.0";
+      |          ^~~~~~
+utils.cpp:16:10: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+utils.cpp:17:9: error: ‘version’ was not declared in this scope
+   17 |     if (version < reference) {
+      |         ^~~~~~~
+utils.cpp:17:19: error: ‘reference’ was not declared in this scope
+   17 |     if (version < reference) {
+      |                   ^~~~~~~~~
+utils.cpp:20:9: error: ‘version’ was not declared in this scope
+   20 |     if (version == reference) {
+      |         ^~~~~~~
+utils.cpp:20:20: error: ‘reference’ was not declared in thi
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int upgrade_cost(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    // Implementation of solve function
+    // This function is not provided in the question
+    // You need to implement it according to your logic
+    return -1;
+}
+
+int upgrade_cost(int n) {
+    int rank = release_rank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    int major, minor, patch;
+    major = n / 10000;
+    minor = (n / 100) % 100;
+    patch = n % 100;
+    auto current = std::make_tuple(major, minor, patch);
+    auto required = std::make_tuple(2, 1, 0);
+    int penalty = 0;
+    if (current < required) {
+        penalty = 40;
+    }
+    return rank * 25 + minor + patch / 5 + penalty;
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+from utils import release_rank
+
+def upgrade_cost(n: int) -> int:
+    rank = release_rank(n)
+    if rank < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    current = Version(f"{major}.{minor}.{patch}")
+    required = Version("2.1.0")
+    penalty = 40 if current < required else 0
+    return rank * 25 + minor + patch // 5 + penalty

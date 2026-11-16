@@ -1,0 +1,135 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:10: error: cannot find symbol
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+                              ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:11: error: cannot find symbol
+        Version reference = new Version("2.1.0");
+        ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:11: error: cannot find symbol
+        Version reference = new Version("2.1.0");
+                                ^
+  symbol:   class Version
+  location: class Utils
+Service.java:11: error: cannot find symbol
+        Version currentVersion = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version currentVersion = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+                                     ^
+  symbol:   class Version
+  location: class Service
+Service.java:12: error: cannot find symbol
+        Version requiredVersion = new Version("2.1.0");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:12: err
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.upgrade_cost(n)
+  Utils.release_rank(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        Version allowedVersion = new Version(">=1.5,<4.0");
+        boolean inRange = allowedVersion.compareTo(version) >= 0;
+        boolean isStable =!version.getPrerelease();
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+    }
+}
+
+// Note: The Java code assumes that the upgrade_cost and release_rank methods from Service and Utils classes respectively, are already translated and available in the same package.
+
+// Note: The Version class is a standard Java library class, no external dependencies are needed.
+// Note: The SpecifierSet class from packaging library in Python is not directly available in Java, so the equivalent functionality is handled using Version class comparison.
+// Note: The floor-division and modulo operations in Python are directly translated to Java's integer division and modulus operators.
+// Note: The main method and package declaration are omitted as per the request.
+// Note: The code assumes that the required Version class and its methods are already available in the package.
+
+
+ORIGINAL PYTHON:
+from packaging.specifiers import SpecifierSet
+from packaging.version import Version
+from utils import release_rank
+from service import upgrade_cost
+
+def solve(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    allowed = SpecifierSet(">=1.5,<4.0")
+    in_range = 1 if version in allowed else 0
+    stable = 0 if version.is_prerelease else 1
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n)
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int upgrade_cost(int n) {
+        int rank = Utils.release_rank(n);
+        if (rank < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version currentVersion = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        Version requiredVersion = new Version("2.1.0");
+        int penalty = currentVersion.compareTo(requiredVersion) < 0? 40 : 0;
+        return rank * 25 + minor + patch / 5 + penalty;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int release_rank(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        Version reference = new Version("2.1.0");
+        if (version.compareTo(reference) < 0) {
+            return 1;
+        } else if (version.equals(reference)) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+}

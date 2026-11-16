@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:6: error: cannot find symbol\n        return n * unitPrice(n);\n                   ^\n  symbol:   method unitPrice(int)\n  location: class Service\nMain.java:3: error: cannot find symbol\n        int cost = gross(n);\n                   ^\n  symbol:   method gross(int)\n  location: class Main\n2 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

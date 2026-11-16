@@ -1,0 +1,140 @@
+{
+  "compiled": true,
+  "passed": 21,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 101,
+      "expected": 77,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 4,
+      "expected": 66,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 9999,
+      "expected": 194,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10200,
+      "expected": 68,
+      "actual": "67"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 100,
+      "expected": 67,
+      "actual": "66"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 199,
+      "expected": 96,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000,
+      "expected": 166,
+      "actual": "65"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10001,
+      "expected": 76,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19999,
+      "expected": 294,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10000,
+      "expected": 66,
+      "actual": "65"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 0,
+      "expected": 66,
+      "actual": "65"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 200,
+      "expected": 68,
+      "actual": "67"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 101,
+      "expected": 66,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 4,
+      "expected": 65,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 9999,
+      "expected": 183,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 199,
+      "expected": 85,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 10001,
+      "expected": 65,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "upgrade_cost",
+      "input": 19999,
+      "expected": 183,
+      "actual": "ERR: Error: result must be a safe integer"
+    }
+  ]
+}

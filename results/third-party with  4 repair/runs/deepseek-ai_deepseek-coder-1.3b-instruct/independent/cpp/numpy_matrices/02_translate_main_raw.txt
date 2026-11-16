@@ -1,0 +1,23 @@
+Here is the C++ version of your Python code:
+
+```cpp
+#pragma once
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    int energy = matrix_energy(n);
+    std::vector<int> vector = {energy, vector_signature(n), n};
+    for(auto& i : vector)
+        i = std::min(std::max(i, -150), 250);
+    int sum = 0;
+    for(const auto& i : vector)
+        sum += i > 0 ? i : -i;
+    return sum + (energy % 17);
+}
+```
+
+Please note that the C++ version of the code uses the C++ standard library features to implement the solution. The `std::min` and `std::max` functions are used to ensure that the values in the vector are within the range -150 to 250. The `std::vector` is used to store the values, and the `for-each` loop is used to iterate over the vector. The `auto&` syntax is used to automatically dereference the iterator, and the `const` keyword is used to prevent accidental modification of the vector elements. The `const` keyword is also used to prevent the `std::vector` from being modified. The `int` type is used to return the result, and the `+=` operator is used to add the values to the sum. The `%` operator is used to calculate the modulo of the energy by 17.

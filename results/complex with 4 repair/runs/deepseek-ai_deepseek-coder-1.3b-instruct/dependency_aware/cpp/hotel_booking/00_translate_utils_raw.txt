@@ -1,0 +1,20 @@
+Here is the C++ implementation of the Python function `valid_nights(n)`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int valid_nights(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}
+```
+
+This C++ function does exactly the same thing as the Python function. It checks if the input `n` is valid for the number of nights. If `n` is less than or equal to 0, it returns 0. If `n` is not valid, it returns 0. Otherwise, it calculates the number of rooms and nights from `n` and returns the number of nights.

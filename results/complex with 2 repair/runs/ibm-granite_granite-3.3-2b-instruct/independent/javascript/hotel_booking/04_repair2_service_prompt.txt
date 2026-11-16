@@ -1,0 +1,69 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/30 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/hotel_booking/initial/validate_feedback/service.mjs:2
+import { validNights } from "./utils.mjs";
+         ^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'validNights'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at async 
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function lodging_charge(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { valid_nights } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function lodging_charge(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+import { validNights } from "./utils.mjs";
+
+export function lodgingCharge(n) {
+    const nights = validNights(n);
+    if (nights === 0) {
+        return 0;
+    }
+    const rooms = Math.floor(n / 100);
+    let charge = rooms * nights * 150;
+    if (nights >= 7) {
+        charge -= Math.floor(charge / 10);
+    }
+    if (rooms >= 5) {
+        charge -= Math.floor(charge / 20);
+    }
+    return charge;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_nights
+
+def lodging_charge(n: int) -> int:
+    nights = valid_nights(n)
+    if nights == 0:
+        return 0
+    rooms = n // 100
+    charge = rooms * nights * 150
+    if nights >= 7:
+        charge -= charge // 10
+    if rooms >= 5:
+        charge -= charge // 20
+    return charge
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+export function valid_nights(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let rooms = Math.floor(n / 100);
+    let nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}

@@ -1,0 +1,91 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+service.cpp: In function ‘int order_quantity(int)’:
+service.cpp:5:21: error: expected ‘,’ or ‘;’ before ‘if’
+    5 |     int safety = 15 if (demand < 100) else 35;
+      |                     ^~
+service.cpp:6:23: error: expected ‘,’ or ‘;’ before ‘if’
+    6 |     int available = n if (n > 0) else 0;
+      |                       ^~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:9:24: error: expected ‘,’ or ‘;’ before ‘if’
+    9 |     int unit_cost = 25 if (quantity >= 120) else 30;
+      |                        ^~
+main.cpp:10:24: error: expected ‘,’ or ‘;’ before ‘if’
+   10 |     int shipping = 400 if (demand > 100) else 200;
+      |                        ^~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int order_quantity(int n);
+int weekly_demand(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    int quantity = order_quantity(n);
+    if (quantity == 0) {
+        return 0;
+    }
+    int demand = weekly_demand(n);
+    int unit_cost = 25 if (quantity >= 120) else 30;
+    int shipping = 400 if (demand > 100) else 200;
+    return quantity * unit_cost + shipping;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weekly_demand
+from service import order_quantity
+
+def solve(n: int) -> int:
+    quantity = order_quantity(n)
+    if quantity == 0:
+        return 0
+    demand = weekly_demand(n)
+    unit_cost = 25 if quantity >= 120 else 30
+    shipping = 400 if demand > 100 else 200
+    return quantity * unit_cost + shipping
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = 15 if (demand < 100) else 35;
+    int available = n if (n > 0) else 0;
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}

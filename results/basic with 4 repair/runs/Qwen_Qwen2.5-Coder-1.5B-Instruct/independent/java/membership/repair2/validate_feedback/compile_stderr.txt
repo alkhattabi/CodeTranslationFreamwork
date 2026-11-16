@@ -1,0 +1,4 @@
+Main.java:24: error: class, interface, enum, or record expected
+package com.example;
+^
+1 error

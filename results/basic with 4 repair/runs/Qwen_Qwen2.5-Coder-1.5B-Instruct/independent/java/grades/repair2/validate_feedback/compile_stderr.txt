@@ -1,0 +1,16 @@
+Main.java:3: error: ';' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                ^
+Main.java:3: error: '(' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                   ^
+Main.java:3: error: ')' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                                       ^
+Main.java:3: error: not a statement
+        return 1 if bonusScore(n) >= 60 else 0;
+                                             ^
+Main.java:3: error: 'else' without 'if'
+        return 1 if bonusScore(n) >= 60 else 0;
+                                        ^
+5 errors

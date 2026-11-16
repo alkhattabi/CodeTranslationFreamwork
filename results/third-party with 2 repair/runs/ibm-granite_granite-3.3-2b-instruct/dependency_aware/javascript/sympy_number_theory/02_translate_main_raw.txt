@@ -1,0 +1,13 @@
+```javascript
+// main.mjs
+import { number_strength } from "./service.mjs";
+import { factor_signature } from "./utils.mjs";
+
+export function solve(n) {
+    const value = Math.abs(n) % 1500 + 2;
+    const prime_bonus = 50 if (number_strength.isPrime(value)) else 0;
+    const next_prime = Math.floor(number_strength(n) + 1);
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}
+```
+Note: The `number_strength` function from `service.mjs` is assumed to be available in `main.mjs` and has been used directly. The `isprime` method from `sympy` in Python is not directly available in JavaScript, so it's been replaced with a hypothetical `number_strength.isPrime(value)` method. This JavaScript version assumes that `number_strength` module has this method.

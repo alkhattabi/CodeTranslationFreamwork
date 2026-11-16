@@ -1,0 +1,107 @@
+Utils.java:3: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DefaultWeightedEdge;
+                        ^
+Utils.java:4: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+                        ^
+Service.java:3: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DirectedAcyclicGraph;
+                        ^
+Service.java:4: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DefaultWeightedEdge;
+                        ^
+Service.java:5: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+                        ^
+Main.java:3: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DirectedAcyclicGraph;
+                        ^
+Main.java:4: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DefaultWeightedEdge;
+                        ^
+Main.java:5: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+                        ^
+Utils.java:10: error: cannot find symbol
+        SimpleDirectedWeightedGraph<Integer, Integer> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+        ^
+  symbol:   class SimpleDirectedWeightedGraph
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+        SimpleDirectedWeightedGraph<Integer, Integer> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                  ^
+  symbol:   class SimpleDirectedWeightedGraph
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+        SimpleDirectedWeightedGraph<Integer, Integer> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                                ^
+  symbol:   class DefaultWeightedEdge
+  location: class Utils
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+        ^
+  symbol:   class DirectedAcyclicGraph
+  location: class Service
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                      ^
+  symbol:   class DefaultWeightedEdge
+  location: class Service
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                ^
+  symbol:   class SimpleDirectedWeightedGraph
+  location: class Service
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                                              ^
+  symbol:   class DefaultWeightedEdge
+  location: class Service
+Main.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+        ^
+  symbol:   class DirectedAcyclicGraph
+  location: class Main
+Main.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                      ^
+  symbol:   class DefaultWeightedEdge
+  location: class Main
+Main.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                ^
+  symbol:   class SimpleDirectedWeightedGraph
+  location: class Main
+Main.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                                              ^
+  symbol:   class DefaultWeightedEdge
+  location: class Main
+Main.java:7: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|10|" + Main.solve(10)); } catch (Throwable e) { System.out.println("main.solve|10|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:7: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.disruption_score|10|" + Service.disruption_score(10)); } catch (Throwable e) { System.out.println("service.disruption_score|10|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Utils.java:6: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:27: error: cannot access Utils
+  try { System.out.println("utils.route_cost|10|" + Utils.route_cost(10)); } catch (Throwable e) { System.out.println("utils.route_cost|10|ERR"); }
+                                                    ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+25 errors

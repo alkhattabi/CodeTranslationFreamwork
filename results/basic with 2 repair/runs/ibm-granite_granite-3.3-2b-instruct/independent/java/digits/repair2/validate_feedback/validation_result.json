@@ -1,0 +1,28 @@
+{
+  "compiled": true,
+  "passed": 10,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -1,
+      "expected": 2,
+      "actual": "-4"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": -1,
+      "expected": 3,
+      "actual": "-3"
+    }
+  ]
+}

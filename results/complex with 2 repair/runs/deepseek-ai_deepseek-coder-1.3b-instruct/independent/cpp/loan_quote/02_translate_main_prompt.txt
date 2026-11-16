@@ -1,0 +1,27 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int yearly_interest(int n);
+int credit_band(int n);
+
+
+PYTHON FILE main.py:
+
+from utils import credit_band
+from service import yearly_interest
+
+def solve(n: int) -> int:
+    band = credit_band(n)
+    if band == 0:
+        return -1
+    principal = 10000 + (n - 300) * 10
+    interest = yearly_interest(n)
+    fee = 150 if band >= 3 else 350
+    total = principal + interest + fee
+    return (total + 11) // 12

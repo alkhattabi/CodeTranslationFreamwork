@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:14:9: warning: #pragma once in main file\n   14 | #pragma once\n      |         ^~~~\nservice.cpp:21:9: warning: #pragma once in main file\n   21 | #pragma once\n      |         ^~~~\nservice.cpp:28:9: warning: #pragma once in main file\n   28 | #pragma once\n      |         ^~~~\nservice.cpp:31:2: error: #endif without #if\n   31 | #endif\n      |  ^~~~~\nservice.cpp:33:2: error: #endif without #if\n   33 | #endif\n      |  ^~~~~\nservice.cpp:35:2: error: #endif without #if\n   35 | #endif\n      |  ^~~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:5:17: error: \u2018scoreDigits\u2019 was not declared in this scope; did you mean \u2018score_digits\u2019?\n    5 |     int value = scoreDigits(n);\n      |                 ^~~~~~~~~~~\n      |                 score_digits\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

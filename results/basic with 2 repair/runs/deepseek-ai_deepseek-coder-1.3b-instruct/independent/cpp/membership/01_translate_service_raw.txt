@@ -1,0 +1,22 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int discount(int n) {
+    return tier(n) * 5;
+}
+```
+
+And here is the api.hpp file:
+
+```cpp
+#pragma once
+
+int solve(int n);
+
+int tier(int n);
+```
+
+Please note that the `solve` function is not defined in the provided Python file, so it is not included in the C++ code. The `tier` function is defined in the provided Python file, so it is included in the C++ code.

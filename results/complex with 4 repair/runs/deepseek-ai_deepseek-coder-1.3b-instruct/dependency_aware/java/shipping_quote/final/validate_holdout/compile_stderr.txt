@@ -1,0 +1,17 @@
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:13: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+Main.java:32: error: cannot find symbol
+        int blocks = Utils.weightBlocks(n);
+                          ^
+  symbol:   method weightBlocks(int)
+  location: class Utils
+Main.java:36: error: cannot find symbol
+        int cost = Service.transportCost(n);
+                          ^
+  symbol:   method transportCost(int)
+  location: class Service
+4 errors

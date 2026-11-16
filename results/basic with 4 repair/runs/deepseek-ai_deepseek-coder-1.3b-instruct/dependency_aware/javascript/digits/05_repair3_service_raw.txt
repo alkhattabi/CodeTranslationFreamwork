@@ -1,0 +1,42 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+// utils.mjs
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+```
+
+The error in the original Python code is due to the fact that the `digit_sum` function is already defined in the `utils.mjs` module. In JavaScript, a module is a self-contained unit of code that can be imported and exported. Therefore, you cannot have two functions with the same name in the same module.
+
+In the provided Python code, the `digit_sum` function is defined in the `utils.mjs` module, and then imported in the `main.mjs` module. This is not allowed in JavaScript, and will result in a syntax error.
+
+To fix this, you should remove the `digit_sum` function from the `utils.mjs` module and define it in the `main.mjs` module. Here is the corrected code:
+
+```javascript
+// utils.mjs
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+
+// main.mjs
+import { digit_sum } from "./utils.mjs";
+
+export function score_digits(n) {
+    return digit_sum(n) * 3;
+}
+```
+
+In the corrected code, the `digit_sum` function is defined in the `utils.mjs` module and imported in the `main.mjs` module. The `score_digits` function uses the `digit_sum` function from the `utils.mjs` module.

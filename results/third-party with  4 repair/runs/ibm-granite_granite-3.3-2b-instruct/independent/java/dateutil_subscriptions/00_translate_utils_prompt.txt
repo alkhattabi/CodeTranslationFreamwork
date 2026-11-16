@@ -1,0 +1,27 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int renewal_date(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int renewal_date(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: dateutil.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE utils.py:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

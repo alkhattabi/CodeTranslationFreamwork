@@ -1,0 +1,76 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'graphlib' imported from /content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/networkx_logistics/initial/validate_feedback/utils.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:intern
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function disruption_score(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { route_cost } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function disruption_score(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { DiGraph } from 'graphlib';
+import { route_cost } from './utils.mjs';
+
+function disruption_score(n) {
+  const graph = new DiGraph();
+  graph.addEdgesFrom([[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [4, 5], [2, 5], [5, 6]]);
+  if (n % 3 === 0) {
+    graph.removeEdge(2, 5);
+  }
+  if (n % 5 === 0) {
+    graph.removeEdge(0, 2);
+  }
+  const reachable = Array.from(graph.descendants(0)).length;
+  const longest = Array.from(graph.dagLongestPath()).length;
+  return route_cost(n) + 3 * reachable + longest;
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)
+
+
+DEPENDENCY utils.mjs:
+import { DiGraph } from 'graphlib';
+
+function route_cost(n) {
+  const x = Math.abs(n) % 13;
+  const graph = new DiGraph();
+  graph.setWeightedEdgesFrom([
+    [0, 1, 3 + x % 3],
+    [0, 2, 5 + x % 4],
+    [1, 3, 4 + x % 2],
+    [1, 4, 7],
+    [2, 3, 1 + x % 5],
+    [2, 4, 3 + x % 3],
+    [3, 5, 6],
+    [4, 5, 2 + x % 4],
+    [5, 6, 1 + x % 2],
+    [2, 6, 15]
+  ]);
+  return Number(nx.shortestPathLength(graph, 0, 6, {weight: 'weight'}));
+}

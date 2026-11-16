@@ -1,0 +1,20 @@
+Here is the JavaScript ES-module source code for the given Python file:
+
+```javascript
+import { lodging_charge } from "./service.mjs";
+import { valid_nights } from "./utils.mjs";
+
+export function solve(n) {
+    const nights = valid_nights(n);
+    if (nights === 0) {
+        return -1;
+    }
+    const rooms = Math.floor(n / 100);
+    const charge = lodging_charge(n);
+    const cleaning = rooms * 45;
+    const tax = (charge + cleaning) * 15 / 100;
+    return charge + cleaning + tax;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the total cost of lodging based on the input number of nights. It uses the lodging_charge function from the service module and the valid_nights function from the utils module. The function returns -1 if the number of nights is 0.

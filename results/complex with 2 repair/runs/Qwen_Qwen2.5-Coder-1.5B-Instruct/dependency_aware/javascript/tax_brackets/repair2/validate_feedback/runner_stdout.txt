@@ -1,0 +1,24 @@
+{"k":"main.solve|1000","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|3499","v":149}
+{"k":"main.solve|500","v":0}
+{"k":"main.solve|501","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|15000","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|3500","v":150}
+{"k":"main.solve|7000","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|1500","error":"TypeError: Assignment to constant variable."}
+{"k":"service.calculate_tax|1000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|3499","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|501","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|15000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|3500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|7000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.calculate_tax|1500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|1000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|3499","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|501","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|15000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|3500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|7000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.taxable_income|1500","error":"TypeError: modules[t.m][t.f] is not a function"}

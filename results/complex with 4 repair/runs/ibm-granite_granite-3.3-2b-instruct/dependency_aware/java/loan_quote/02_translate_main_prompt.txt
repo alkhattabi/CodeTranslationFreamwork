@@ -1,0 +1,64 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.yearly_interest(n)
+  Utils.credit_band(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON FILE main.py:
+
+from utils import credit_band
+from service import yearly_interest
+
+def solve(n: int) -> int:
+    band = credit_band(n)
+    if band == 0:
+        return -1
+    principal = 10000 + (n - 300) * 10
+    interest = yearly_interest(n)
+    fee = 150 if band >= 3 else 350
+    total = principal + interest + fee
+    return (total + 11) // 12
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+public class Service {
+    public static int yearly_interest(int n) {
+        int band = Utils.credit_band(n);
+        if (band == 0) {
+            return -1;
+        }
+        int principal = 10000 + (n - 300) * 10;
+        int rate = 18 - band * 3;
+        int interest = principal * rate / 100;
+        if (principal > 14000) {
+            interest += 125;
+        }
+        return interest;
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int credit_band(int n) {
+        if (n < 300 || n > 850) {
+            return 0;
+        }
+        if (n >= 750) {
+            return 4;
+        }
+        if (n >= 650) {
+            return 3;
+        }
+        if (n >= 550) {
+            return 2;
+        }
+        if (n >= 450) {
+            return 1;
+        }
+        return 0;
+    }
+}

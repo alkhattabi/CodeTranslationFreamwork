@@ -1,0 +1,31 @@
+Here is the Java version of your Python code:
+
+```java
+import packaging.specifiers.SpecifierSet;
+import packaging.version.Version;
+import utils.Utils;
+import service.Service;
+
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = (patch % 4 == 0) ? "rc1" : "";
+        String version = major + "." + minor + "." + patch + suffix;
+        SpecifierSet allowed = new SpecifierSet(">=1.5,<4.0");
+        boolean inRange = allowed.contains(new Version(version));
+        boolean stable = !new Version(version).isPrerelease();
+        return Service.upgrade_cost(n) + 100 * inRange + 10 * stable + Utils.release_rank(n);
+    }
+}
+```
+
+Please note that the Java version of your code is not exactly the same as your Python code because Java is a statically typed language and Python is dynamically typed. Also, Java does not have a built-in version of the `specifiers` module from Python's `packaging` library, so I replaced it with a `SpecifierSet`.
+
+Please also note that the `Utils.release_rank` method in your Python code is not returning the expected result. It should return the release rank of the version, but in this case, it's always returning 1. You may need to adjust this method to return the correct release rank.
+
+Lastly, please note that the `Service.upgrade_cost` method in your Python code is not returning the expected result. It should return the upgrade cost of the version, but in this case, it's always returning 0. You may need to adjust this method to return the correct upgrade cost.

@@ -1,0 +1,60 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:3: error: cannot find symbol
+        int base = clamp(n);
+                   ^
+  symbol:   method clamp(int)
+  location: class Service
+Service.java:4: error: cannot find symbol
+        return clamp(base + 7);
+               ^
+  symbol:   method clamp(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        return bonusScore(n) >= 60? 1 : 0;
+               ^
+  symbol:   method bonusScore(int)
+  location: class Main
+3 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.bonus_score(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        return bonusScore(n) >= 60? 1 : 0;
+    }
+
+    // Assume Service class exists with static bonusScore method
+    public static class Service {
+        public static int bonusScore(int n) {
+            // Implementation of bonusScore method
+            return 0; // Placeholder
+        }
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import bonus_score
+
+def solve(n: int) -> int:
+    return 1 if bonus_score(n) >= 60 else 0
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int bonus_score(int n) {
+        int base = clamp(n);
+        return clamp(base + 7);
+    }
+
+    // Place other static methods here if needed
+}

@@ -1,0 +1,63 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/27 development checks.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int transport_cost(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int transport_cost(int n);
+int weight_blocks(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int transport_cost(int n) {
+    int blocks = solve(n);
+    if (blocks == 0) {
+        return 0;
+    }
+    int price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weight_blocks
+
+def transport_cost(n: int) -> int:
+    blocks = weight_blocks(n)
+    if blocks == 0:
+        return 0
+    price = 1200 + blocks * 180
+    if blocks > 5:
+        price += (blocks - 5) * 70
+    if blocks > 12:
+        price += (blocks - 12) * 90
+    return price
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int weight_blocks(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}

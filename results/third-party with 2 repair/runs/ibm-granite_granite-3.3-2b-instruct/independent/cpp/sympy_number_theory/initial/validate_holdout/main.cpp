@@ -1,0 +1,8 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int value = abs(n) % 1500 + 2;
+    int prime_bonus = (sp::isprime(value)? 50 : 0);
+    int next_prime = static_cast<int>(sp::nextprime(value));
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}

@@ -1,0 +1,40 @@
+Utils.java:19: error: invalid method reference
+        IntUnaryOperator energyCharge = Utils::energy_charge;
+                                        ^
+  cannot find symbol
+    symbol:   method energy_charge(int)
+    location: class Utils
+Utils.java:21: error: cannot find symbol
+            System.out.println("utils.billable_units|101|" + Utils.billable_units(101));
+                                                                  ^
+  symbol:   method billable_units(int)
+  location: class Utils
+Utils.java:26: error: cannot find symbol
+            System.out.println("utils.billable_units|350|" + Utils.billable_units(350));
+                                                                  ^
+  symbol:   method billable_units(int)
+  location: class Utils
+Utils.java:31: error: cannot find symbol
+            System.out.println("utils.billable_units|400|" + Utils.billable_units(400));
+                                                                  ^
+  symbol:   method billable_units(int)
+  location: class Utils
+Utils.java:5: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+Main.java:5: error: cannot access Utils
+        IntUnaryOperator billableUnits = Utils::billableUnits;
+                                         ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator energyCharge = Service::energy_charge;
+                                        ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+8 errors

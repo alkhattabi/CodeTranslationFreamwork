@@ -1,0 +1,75 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:5: error: cannot find symbol
+        int x = Utils.normalize(n);
+                ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator weighted = Service::weighted;
+                                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+3 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.weighted(n)
+  Utils.normalize(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+import java.util.function.IntUnaryOperator;
+
+public class Main {
+    public static int solve(int n) {
+        IntUnaryOperator normalized = Utils::normalize;
+        IntUnaryOperator weighted = Service::weighted;
+        return weighted.applyAsInt(n) + normalized.applyAsInt(n);
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(5)); // Expected output: 13
+        System.out.println(solve(-3)); // Expected output: 7
+        System.out.println(solve(0)); // Expected output: 1
+    }
+}
+
+
+ORIGINAL PYTHON:
+from utils import normalize
+from service import weighted
+
+def solve(n: int) -> int:
+    return weighted(n) + normalize(n)
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+public class Service {
+    public static int weighted(int n) {
+        int x = Utils.normalize(n);
+        return x * 2 + 1;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int normalize(int n) {
+        if (n < 0) {
+            return -n;
+        }
+        return n;
+    }
+}

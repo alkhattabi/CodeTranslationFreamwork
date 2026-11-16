@@ -1,0 +1,56 @@
+{
+  "compiled": true,
+  "passed": 24,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000229,
+      "expected": 1060,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20280101,
+      "expected": 1001,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20261231,
+      "expected": 4365,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20281231,
+      "expected": 4366,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20261231,
+      "expected": 365,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20281231,
+      "expected": 366,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    }
+  ]
+}

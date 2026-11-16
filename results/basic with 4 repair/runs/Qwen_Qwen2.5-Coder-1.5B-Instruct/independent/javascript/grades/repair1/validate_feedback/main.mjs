@@ -1,0 +1,6 @@
+import { clamp } from './utils.mjs';
+
+export function solve(n) {
+    const base = clamp(n);
+    return clamp(base + 7) >= 60 ? 1 : 0;
+}

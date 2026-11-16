@@ -1,0 +1,17 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function valid_nights(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let rooms = Math.floor(n / 100);
+    let nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}
+```
+
+This function `valid_nights(n)` takes an integer `n` as input and returns an integer. It first checks if `n` is less than or equal to 0. If it is, it returns 0. If not, it calculates the number of rooms and the number of nights by dividing `n` by 100 and taking the remainder. It then checks if the number of rooms is less than 1 or greater than 20, or the number of nights is less than 1 or greater than 30. If either of these conditions is true, it returns 0. Otherwise, it returns the number of nights.

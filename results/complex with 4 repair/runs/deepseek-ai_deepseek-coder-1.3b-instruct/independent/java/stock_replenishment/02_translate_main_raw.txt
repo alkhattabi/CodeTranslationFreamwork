@@ -1,0 +1,25 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int quantity = Service.orderQuantity(n);
+        if (quantity == 0) {
+            return 0;
+        }
+        int demand = Utils.weeklyDemand(n);
+        int unitCost = (quantity >= 120) ? 30 : 25;
+        int shipping = (demand > 100) ? 400 : 200;
+        return quantity * unitCost + shipping;
+    }
+}
+```
+
+Please note that in Java, we need to import the classes from the other modules to use them. Here, we have imported `Service` and `Utils` from the `main` package.
+
+```java
+import main.Service;
+import main.Utils;
+```
+
+Also, please note that in Java, method names should start with a lowercase letter. So, I changed `order_quantity` to `orderQuantity` and `weekly_demand` to `weeklyDemand`.

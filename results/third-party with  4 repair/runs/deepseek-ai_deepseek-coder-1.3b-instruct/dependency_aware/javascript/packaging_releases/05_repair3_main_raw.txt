@@ -1,0 +1,24 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { release_rank } from "./utils.mjs";
+
+export function solve(n) {
+    if (n < 0) {
+        return -1;
+    }
+    let major = Math.floor(n / 10000);
+    let minor = Math.floor((n / 100) % 100);
+    let patch = n % 100;
+    let suffix = (patch % 4 === 0) ? "rc1" : "";
+    let version = `${major}.${minor}.${patch}${suffix}`;
+    let required = "2.1.0";
+    let penalty = 40;
+    if (version < required) {
+        return release_rank(n) * 25 + minor + patch / 5 + penalty;
+    }
+    return release_rank(n) * 25 + minor + patch / 5;
+}
+```
+
+This JavaScript ES-module source code exports a function `solve(n)` that calculates the solution for the given input `n`. The function first checks if `n` is less than 0, and if so, it returns -1. Then it calculates the major, minor, and patch versions of `n`. It checks if the version is less than the required version, and if so, it calculates the penalty based on the release rank of `n`. If the version is not less than the required version, it simply calculates the release rank of `n`. The function finally returns the calculated result.

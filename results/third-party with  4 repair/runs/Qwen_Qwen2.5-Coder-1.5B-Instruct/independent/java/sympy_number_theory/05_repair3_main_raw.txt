@@ -1,0 +1,40 @@
+```
+public class Main {
+    public static int solve(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        boolean isPrime = isPrime(value);
+        int primeBonus = isPrime ? 50 : 0;
+        int nextPrime = getNextPrime(value);
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+    }
+
+    private static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        if (num == 2 || num == 3) return true;
+        if (num % 2 == 0 || num % 3 == 0) return false;
+
+        for (int i = 5; i * i <= num; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) return false;
+        }
+        return true;
+    }
+
+    private static int getNextPrime(int num) {
+        while (!isPrime(num)) {
+            num++;
+        }
+        return num;
+    }
+
+    // Assuming these methods are defined in other Java files
+    public static int numberStrength(int n) {
+        // Implementation of numberStrength method
+        return 0; // Placeholder
+    }
+
+    public static int factorSignature(int n) {
+        // Implementation of factorSignature method
+        return 0; // Placeholder
+    }
+}
+```

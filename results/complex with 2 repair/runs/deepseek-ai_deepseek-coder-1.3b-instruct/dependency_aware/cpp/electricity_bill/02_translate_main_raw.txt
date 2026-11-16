@@ -1,0 +1,48 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int energy_charge(int n) {
+    int units = billable_units(n);
+    int charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+```
+
+And here is the C++ implementation of the Python function `solve`:
+
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    int units = billable_units(n);
+    if (units == 0) {
+        return 0;
+    }
+    int charge = energy_charge(n);
+    int service_fee = (units <= 400) ? 200 : 500;
+    int rebate = (units < 100) ? charge / 20 : 0;
+    return charge + service_fee - rebate;
+}
+```
+
+Please note that the `billable_units` function in the Python file is not defined in the provided C++ code. You need to define it in the C++ code to match the behavior of the Python function `billable_units`.

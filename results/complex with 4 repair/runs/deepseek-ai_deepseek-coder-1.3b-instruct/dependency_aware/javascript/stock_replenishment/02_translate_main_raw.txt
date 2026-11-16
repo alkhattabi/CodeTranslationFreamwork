@@ -1,0 +1,21 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+import { weekly_demand } from "./utils.mjs";
+import { order_quantity } from "./service.mjs";
+
+export function solve(n) {
+    const quantity = order_quantity(n);
+    if (quantity === 0) {
+        return 0;
+    }
+    const demand = weekly_demand(n);
+    const unit_cost = quantity >= 120 ? 30 : 25;
+    const shipping = demand > 100 ? 400 : 200;
+    return quantity * unit_cost + shipping;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the quantity of items to order based on the input `n`, calculates the unit cost based on the quantity, and then adds the shipping cost to the product of the quantity and unit cost.
+
+Please note that the import statements and the function names have been adjusted to match the original Python code. The import statements are adjusted to match the original Python code, and the function names are adjusted to match the original Python code.

@@ -1,0 +1,22 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccIRWkQx.o: in function `solve(int)':
+service.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/cc2HREAx.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccIRWkQx.o: in function `rolling_alert(int)':
+service.cpp:(.text+0x13): multiple definition of `rolling_alert(int)'; /tmp/cc2HREAx.o:utils.cpp:(.text+0x13): first defined here
+/usr/bin/ld: /tmp/ccIRWkQx.o: in function `category_balance(int)':
+service.cpp:(.text+0xcd): multiple definition of `category_balance(int)'; /tmp/cc2HREAx.o:utils.cpp:(.text+0x26): first defined here
+/usr/bin/ld: /tmp/ccPKrrHN.o: in function `solve(int)':
+main.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/cc2HREAx.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccPKrrHN.o: in function `rolling_alert(int)':
+main.cpp:(.text+0x13): multiple definition of `rolling_alert(int)'; /tmp/cc2HREAx.o:utils.cpp:(.text+0x13): first defined here
+/usr/bin/ld: /tmp/ccPKrrHN.o: in function `category_balance(int)':
+main.cpp:(.text+0xcd): multiple definition of `category_balance(int)'; /tmp/cc2HREAx.o:utils.cpp:(.text+0x26): first defined here
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,33 @@
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<int> vector = {energy, vector_signature(n), n};
+      |          ^~~~~~
+main.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+main.cpp:5:17: error: expected primary-expression before ‘int’
+    5 |     std::vector<int> vector = {energy, vector_signature(n), n};
+      |                 ^~~
+main.cpp:6:10: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<int> bounded;
+      |          ^~~~~~
+main.cpp:6:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:6:17: error: expected primary-expression before ‘int’
+    6 |     std::vector<int> bounded;
+      |                 ^~~
+main.cpp:7:18: error: ‘vector’ was not declared in this scope
+    7 |     for (int i : vector) {
+      |                  ^~~~~~
+main.cpp:9:13: error: ‘bounded’ was not declared in this scope
+    9 |             bounded.push_back(i);
+      |             ^~~~~~~
+main.cpp:11:13: error: ‘bounded’ was not declared in this scope
+   11 |             bounded.push_back(-i);
+      |             ^~~~~~~
+main.cpp:14:15: error: ‘bounded’ was not declared in this scope
+   14 |     std::sort(bounded.begin(), bounded.end());
+      |               ^~~~~~~

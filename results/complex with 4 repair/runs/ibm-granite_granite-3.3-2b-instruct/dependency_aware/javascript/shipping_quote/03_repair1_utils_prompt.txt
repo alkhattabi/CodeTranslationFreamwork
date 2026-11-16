@@ -1,0 +1,44 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 1/27 development checks.
+main.solve(10000): expected 7396, actual ERR: Error: result must be a safe integer
+main.solve(500): expected 1591, actual ERR: Error: result must be a safe integer
+main.solve(1001): expected 1980, actual ERR: Error: result must be a safe integer
+main.solve(5000): expected 3918, actual ERR: Error: result must be a safe integer
+main.solve(2500): expected 2368, actual ERR: Error: result must be a safe integer
+main.solve(1000): expected 1785, actual ERR: Error: result must be a safe integer
+main.solve(999): expected 1785, actual ERR: Error: result must be a safe integer
+main.solve(2499): expected 2368, actual ERR: Error: result must be a safe integer
+service.transport_cost(10000): expected 6570, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.transport_cost(500): expected 1380, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.transport_cost(1001): expected 1740, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.transport_cost(5000): expected 3350, actual ERR: TypeError: modules[t.m][t.f] is not a function
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function weight_blocks(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function weight_blocks(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// utils.js
+export function weightBlocks(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}
+
+
+ORIGINAL PYTHON:
+
+def weight_blocks(n: int) -> int:
+    if n <= 0:
+        return 0
+    if n > 10000:
+        n = 10000
+    return (n + 499) // 500

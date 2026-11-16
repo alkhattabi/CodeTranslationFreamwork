@@ -1,0 +1,110 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cceMaIj6.o: in function `solve(int)':
+service.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cceMaIj6.o: in function `rolling_alert(int)':
+service.cpp:(.text+0x13): multiple definition of `rolling_alert(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x13): first defined here
+/usr/bin/ld: /tmp/cceMaIj6.o: in function `category_balance(int)':
+service.cpp:(.text+0xcd): multiple definition of `category_balance(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x26): first defined here
+/usr/bin/ld: /tmp/ccGCnbzA.o: in function `solve(int)':
+main.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccGCnbzA.o: in function `rolling_alert(int)':
+main.cpp:(.text+0x13): multiple definition of `rolling_alert(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x13): first defined here
+/usr/bin/ld: /tmp/ccGCnbzA.o: in function `category_balance(int)':
+main.cpp:(.text+0xcd): multiple definition of `category_balance(int)'; /tmp/ccA9pH7U.o:utils.c
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int rolling_alert(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    // Your solve function implementation here
+    return n * n;
+}
+
+int rolling_alert(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+
+def rolling_alert(n: int) -> int:
+    n = max(-200, min(200, n))
+    series = pd.Series([n % 13, (n // 2) % 13, n % 17, abs(n) % 11, n % 7])
+    rolling = series.rolling(window=3, min_periods=1).sum()
+    alerts = int((rolling >= 15).sum())
+    return alerts * 10 + abs(category_balance(n)) % 23
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    // Your solve function implementation here
+    return n * n;
+}
+
+int rolling_alert(int n) {
+    // Your rolling_alert function implementation here
+    return n + 1;
+}
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}

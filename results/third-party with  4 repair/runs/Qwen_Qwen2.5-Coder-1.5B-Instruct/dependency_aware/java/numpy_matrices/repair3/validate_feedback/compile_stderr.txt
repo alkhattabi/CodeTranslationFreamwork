@@ -1,0 +1,38 @@
+Main.java:5: error: cannot find symbol
+        int energy = matrixEnergy(n);
+                     ^
+  symbol:   method matrixEnergy(int)
+  location: class Main
+Main.java:6: error: cannot find symbol
+        int[] vector = new int[]{energy, vectorSignature(n), n};
+                                         ^
+  symbol:   method vectorSignature(int)
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|10|" + Main.solve(10)); } catch (Throwable e) { System.out.println("main.solve|10|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.matrix_energy|10|" + Service.matrix_energy(10)); } catch (Throwable e) { System.out.println("service.matrix_energy|10|ERR"); }
+                                                         ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:27: error: cannot access Utils
+  try { System.out.println("utils.vector_signature|10|" + Utils.vector_signature(10)); } catch (Throwable e) { System.out.println("utils.vector_signature|10|ERR"); }
+                                                          ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+8 errors

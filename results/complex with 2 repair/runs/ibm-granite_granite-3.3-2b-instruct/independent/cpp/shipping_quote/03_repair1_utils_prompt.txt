@@ -1,0 +1,38 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/27 development checks.
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int weight_blocks(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int transport_cost(int n);
+int weight_blocks(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int weight_blocks(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}
+
+
+ORIGINAL PYTHON:
+
+def weight_blocks(n: int) -> int:
+    if n <= 0:
+        return 0
+    if n > 10000:
+        n = 10000
+    return (n + 499) // 500

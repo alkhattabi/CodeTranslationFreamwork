@@ -1,0 +1,25 @@
+import { valid_date } from "./utils.mjs";
+
+export function day_of_year(n) {
+    if (valid_date(n) === 0) {
+        return 0;
+    }
+    const year = Math.floor(n / 10000);
+    const month = Math.floor((n / 100) % 100);
+    const day = n % 100;
+    let total = day;
+    let m = 1;
+    while (m < month) {
+        const days = 31;
+        if (m === 4 || m === 6 || m === 9 || m === 11) {
+            days = 30;
+        }
+        if (m === 2) {
+            const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+            days = leap ? 29 : 28;
+        }
+        total += days;
+        m += 1;
+    }
+    return total;
+}

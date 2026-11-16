@@ -1,0 +1,19 @@
+```java
+public class Main {
+    public static int solve(int n) {
+        NetworkX graph = new NetworkX();
+        int offset = Math.abs(n) % 7;
+        graph.addEdge(0, 1, 3 + offset);
+        graph.addEdge(0, 2, 5);
+        graph.addEdge(1, 2, 1 + offset % 3);
+        graph.addEdge(1, 3, 4);
+        graph.addEdge(2, 3, 2 + offset % 2);
+        graph.addEdge(3, 4, 6);
+        graph.addEdge(2, 4, 8 + offset);
+
+        Tree tree = graph.minimumSpanningTree("weight");
+        int total = tree.size("weight");
+        return total + disruptionScore(n) - routeCost(n);
+    }
+}
+```

@@ -1,0 +1,6 @@
+Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+1 error

@@ -1,0 +1,21 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function factor_signature(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function factor_signature(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: sympy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE utils.py:
+import sympy as sp
+
+def factor_signature(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    factors = sp.factorint(value)
+    score = sum(int(prime) * int(exponent) for prime, exponent in factors.items())
+    return score + 3 * len(factors)

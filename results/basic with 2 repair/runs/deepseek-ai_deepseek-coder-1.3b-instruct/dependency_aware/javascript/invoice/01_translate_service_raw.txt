@@ -1,0 +1,27 @@
+Here is the JavaScript ES-module source code for the service.mjs file:
+
+```javascript
+// utils.mjs
+export function unit_price(n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}
+```
+
+And here is the JavaScript ES-module source code for the service.mjs file:
+
+```javascript
+// service.mjs
+import { unit_price } from "./utils.mjs";
+
+export function gross(n) {
+    if (n < 0) {
+        return 0;
+    }
+    return n * unit_price(n);
+}
+```
+
+Please note that the `unit_price` function is not exported from the `utils.mjs` file, so it cannot be imported directly from `service.mjs`. You would need to import it from `utils.mjs` in `service.mjs`.

@@ -1,0 +1,56 @@
+{
+  "compiled": true,
+  "passed": 6,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 208,
+      "expected": 31,
+      "actual": "11"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": 2,
+      "actual": "0"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -1,
+      "expected": 2,
+      "actual": "0"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": 208,
+      "expected": 30,
+      "actual": "10"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": 1,
+      "expected": 3,
+      "actual": "1"
+    },
+    {
+      "module": "service",
+      "function": "score_digits",
+      "input": -1,
+      "expected": 3,
+      "actual": "1"
+    }
+  ]
+}

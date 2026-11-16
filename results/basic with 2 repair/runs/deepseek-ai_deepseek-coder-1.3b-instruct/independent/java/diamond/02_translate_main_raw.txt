@@ -1,0 +1,15 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        return Service.weighted(n) + Utils.normalize(n);
+    }
+}
+```
+
+Please note that the `Utils.normalize(n)` and `Service.weighted(n)` are assumed to be static methods of their respective classes. If they are not, you will need to import them from their respective packages.
+
+Also, please note that the Java language does not support importing modules directly, so you will need to import the classes or packages that `Utils.normalize(n)` and `Service.weighted(n)` are in.
+
+Please replace `Utils` and `Service` with the actual names of the classes or packages that contain these methods.

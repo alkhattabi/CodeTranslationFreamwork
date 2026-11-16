@@ -1,0 +1,12 @@
+public class Main {
+    public static int solve(int n) {
+        int quantity = order_quantity(n);
+        if (quantity == 0) {
+            return 0;
+        }
+        int demand = weekly_demand(n);
+        int unitCost = quantity >= 120? 25 : 30;
+        int shipping = demand > 100? 400 : 200;
+        return quantity * unitCost + shipping;
+    }
+}

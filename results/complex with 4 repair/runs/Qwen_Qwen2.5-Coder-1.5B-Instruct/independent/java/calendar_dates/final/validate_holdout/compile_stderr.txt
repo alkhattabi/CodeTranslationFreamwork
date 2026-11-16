@@ -1,0 +1,14 @@
+Service.java:3: error: bad operand type int for unary operator '!'
+        if (!Utils.valid_date(n)) {
+            ^
+Main.java:3: error: cannot find symbol
+        if (!Utils.validDate(n)) {
+                  ^
+  symbol:   method validDate(int)
+  location: class Utils
+Main.java:8: error: cannot find symbol
+        return quarter * 1000 + Service.dayOfYear(n);
+                                       ^
+  symbol:   method dayOfYear(int)
+  location: class Service
+3 errors

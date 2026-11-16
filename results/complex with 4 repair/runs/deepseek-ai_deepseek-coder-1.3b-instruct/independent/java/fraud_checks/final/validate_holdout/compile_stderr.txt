@@ -1,0 +1,66 @@
+Service.java:7: error: cannot find symbol
+        if (Utils.luhnValid(n)) {
+                 ^
+  symbol:   method luhnValid(int)
+  location: class Utils
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.risk_points|-1001|" + Service.risk_points(-1001)); } catch (Throwable e) { System.out.println("service.risk_points|-1001|ERR"); }
+                                                                 ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.risk_points|799273982|" + Service.risk_points(799273982)); } catch (Throwable e) { System.out.println("service.risk_points|799273982|ERR"); }
+                                                                     ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.risk_points|99|" + Service.risk_points(99)); } catch (Throwable e) { System.out.println("service.risk_points|99|ERR"); }
+                                                              ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.risk_points|101|" + Service.risk_points(101)); } catch (Throwable e) { System.out.println("service.risk_points|101|ERR"); }
+                                                               ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println("service.risk_points|9|" + Service.risk_points(9)); } catch (Throwable e) { System.out.println("service.risk_points|9|ERR"); }
+                                                             ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println("service.risk_points|10009|" + Service.risk_points(10009)); } catch (Throwable e) { System.out.println("service.risk_points|10009|ERR"); }
+                                                                 ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("service.risk_points|42|" + Service.risk_points(42)); } catch (Throwable e) { System.out.println("service.risk_points|42|ERR"); }
+                                                              ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("service.risk_points|87654323|" + Service.risk_points(87654323)); } catch (Throwable e) { System.out.println("service.risk_points|87654323|ERR"); }
+                                                                    ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("service.risk_points|12345678|" + Service.risk_points(12345678)); } catch (Throwable e) { System.out.println("service.risk_points|12345678|ERR"); }
+                                                                    ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("service.risk_points|-1|" + Service.risk_points(-1)); } catch (Throwable e) { System.out.println("service.risk_points|-1|ERR"); }
+                                                              ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("service.risk_points|222|" + Service.risk_points(222)); } catch (Throwable e) { System.out.println("service.risk_points|222|ERR"); }
+                                                               ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("service.risk_points|0|" + Service.risk_points(0)); } catch (Throwable e) { System.out.println("service.risk_points|0|ERR"); }
+                                                             ^
+  symbol:   method risk_points(int)
+  location: class Service
+13 errors

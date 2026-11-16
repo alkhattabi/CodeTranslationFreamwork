@@ -1,0 +1,11 @@
+Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+2 errors

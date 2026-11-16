@@ -1,0 +1,4 @@
+Main.java:25: error: class, interface, enum, or record expected
+Note: The provided code snippets for Service.java and Utils.java are incomplete and lack the actual implementation of the riskPoints and luhnValid methods. The corrected Main.java file assumes these methods exist and are correctly implemented in their respective classes.
+^
+1 error

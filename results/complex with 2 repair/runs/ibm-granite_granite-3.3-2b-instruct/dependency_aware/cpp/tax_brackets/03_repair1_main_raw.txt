@@ -1,0 +1,13 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int base = taxable_income(n);
+    int tax = calculate_tax(n);
+    int credit = 100 if (base > 0 && base <= 2500) else 0;
+    int payable = tax - credit;
+    if (payable < 0) {
+        payable = 0;
+    }
+    payable += (payable * 2 / 100) if (base > 10000) else 0;
+    return payable;
+}

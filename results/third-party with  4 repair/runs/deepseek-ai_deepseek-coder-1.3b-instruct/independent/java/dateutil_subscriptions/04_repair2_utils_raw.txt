@@ -1,0 +1,31 @@
+Here is the corrected Java code:
+
+```java
+import java.time.LocalDate;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            LocalDate start = LocalDate.of(year, month, day);
+            LocalDate end = start.plusMonths(1);
+            return end.getYear() * 10000 + end.getMonthValue() * 100 + end.getDayOfMonth();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It checks if the input `n` is a valid date, if it is, it calculates the renewal date by adding one month to the input date. If the input date is not valid, it returns -1.
+
+The `renewal_date` method takes an integer `n` as input and returns an integer. If `n` is not a valid date, it returns -1. Otherwise, it calculates the renewal date by adding one month to the input date and returns the renewal date as a 6-digit integer.
+
+The `LocalDate.of(year, month, day)` method is used to create a `LocalDate` object from the input date. The `plusMonths(1)` method is used to add one month to the input date. The `getYear()`, `getMonthValue()`, and `getDayOfMonth()` methods are used to get the year, month, and day of the renewal date.
+
+The `try-catch` block is used to handle any exceptions that might occur when creating a `LocalDate` object. If an exception is thrown, it means that the input date is not valid, so it returns -1.

@@ -1,0 +1,22 @@
+Service.java:40: error: class, interface, enum, or record expected
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+^
+Service.java:40: error: illegal character: '`'
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+                         ^
+Service.java:40: error: illegal character: '`'
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+                              ^
+Service.java:40: error: <identifier> expected
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+                                     ^
+Service.java:40: error: unclosed character literal
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+                                                                                                                                    ^
+Service.java:40: error: illegal character: '`'
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+                                                                                                                                                        ^
+Service.java:40: error: illegal character: '`'
+Note: The Java code uses `Date` class for date manipulation, which is not recommended for new development due to its deprecation. It's suggested to use `java.time` package for date and time manipulation instead.
+                                                                                                                                                                  ^
+7 errors

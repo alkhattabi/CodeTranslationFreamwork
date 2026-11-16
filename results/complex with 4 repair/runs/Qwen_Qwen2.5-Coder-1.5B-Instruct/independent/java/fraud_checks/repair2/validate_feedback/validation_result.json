@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:7: error: cannot find symbol\n        if (Utils.luhnValid(n) == 0) {\n                 ^\n  symbol:   method luhnValid(int)\n  location: class Utils\n1 error\n",
+  "failed_modules": [
+    "service",
+    "utils"
+  ],
+  "case_failures": []
+}

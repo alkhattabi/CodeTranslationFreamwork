@@ -1,0 +1,44 @@
+```java
+package com.example;
+
+import java.util.function.Function;
+
+public class Service {
+
+    public static int energy_charge(int n) {
+        int units = billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+
+    private static Function<Integer, Integer> billableUnitsFunction = n -> {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    };
+
+    public static void main(String[] args) {
+        // Test cases
+        System.out.println("energy_charge|101|" + energy_charge(101));
+        System.out.println("energy_charge|350|" + energy_charge(350));
+        System.out.println("energy_charge|400|" + energy_charge(400));
+    }
+}
+```

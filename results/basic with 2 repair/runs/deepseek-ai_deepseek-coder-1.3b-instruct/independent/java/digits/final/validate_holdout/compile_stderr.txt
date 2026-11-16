@@ -1,0 +1,21 @@
+EvalRunner.java:7: error: cannot find symbol
+  try { System.out.println("service.score_digits|-123|" + Service.score_digits(-123)); } catch (Throwable e) { System.out.println("service.score_digits|-123|ERR"); }
+                                                                 ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:8: error: cannot find symbol
+  try { System.out.println("service.score_digits|1005|" + Service.score_digits(1005)); } catch (Throwable e) { System.out.println("service.score_digits|1005|ERR"); }
+                                                                 ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:9: error: cannot find symbol
+  try { System.out.println("service.score_digits|37|" + Service.score_digits(37)); } catch (Throwable e) { System.out.println("service.score_digits|37|ERR"); }
+                                                               ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:10: error: cannot find symbol
+  try { System.out.println("service.score_digits|999|" + Service.score_digits(999)); } catch (Throwable e) { System.out.println("service.score_digits|999|ERR"); }
+                                                                ^
+  symbol:   method score_digits(int)
+  location: class Service
+4 errors

@@ -1,0 +1,60 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int solve(int)’:
+utils.cpp:17:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   17 | }
+      | ^
+utils.cpp: In function ‘int risk_points(int)’:
+utils.cpp:21:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   21 | }
+      | ^
+utils.cpp: In function ‘int luhn_valid(int)’:
+utils.cpp:42:13: error: expected ‘;’ before ‘if’
+   42 |     return 1 if total % 10 == 0 else 0;
+      |             ^~~
+      |             ;
+utils.cpp:42:17: error: expected ‘(’ before ‘total’
+   42 |     return 1 if total % 10 == 0 else 0;
+      |                 ^~~~~
+      |                 (
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   14 | }
+      | ^
+service.cpp: In function ‘int risk_points(int)’:
+service.cpp:18:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   18 | }
+      | ^
+service.cpp: In function ‘int luhn_valid(int)’:
+service.cpp:39:13: error: expected ‘;’ before ‘if’
+   39 |     return 1 if total % 10 == 0 else 0;
+      |             ^~~
+      |             ;
+service.cpp:39:17: error: expected ‘(’ before ‘total’
+   39 |     return 1 if total % 10 == 0 else 0;
+      |                 ^~~~~
+      |                 (
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   14 | }
+      | ^
+main.cpp: In function ‘int risk_points(int)’:
+main.cpp:18:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   18 | }
+      | ^
+main.cpp: In function ‘int luhn_valid(int)’:
+main.cpp:39:13: error: expected ‘;’ before ‘if’
+   39 |     return 1 if total % 10 == 0 else 0;
+      |             ^~~
+      |             ;
+main.cpp:39:17: error: expected ‘(’ before ‘total’
+   39 |     return 1 if total % 10 == 0 else 0;
+      |                 ^~~~~
+      |                 (

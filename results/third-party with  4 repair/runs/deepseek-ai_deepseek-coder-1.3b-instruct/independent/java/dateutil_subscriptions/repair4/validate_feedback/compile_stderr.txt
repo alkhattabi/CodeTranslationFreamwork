@@ -1,0 +1,66 @@
+Service.java:6: error: cannot find symbol
+        LocalDate renewed = Utils.renewalDate(n);
+                                 ^
+  symbol:   method renewalDate(int)
+  location: class Utils
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.grace_period|19991231|" + Service.grace_period(19991231)); } catch (Throwable e) { System.out.println("service.grace_period|19991231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.grace_period|20240130|" + Service.grace_period(20240130)); } catch (Throwable e) { System.out.println("service.grace_period|20240130|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.grace_period|20231231|" + Service.grace_period(20231231)); } catch (Throwable e) { System.out.println("service.grace_period|20231231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.grace_period|19000131|" + Service.grace_period(19000131)); } catch (Throwable e) { System.out.println("service.grace_period|19000131|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println("service.grace_period|20010228|" + Service.grace_period(20010228)); } catch (Throwable e) { System.out.println("service.grace_period|20010228|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println("service.grace_period|20000229|" + Service.grace_period(20000229)); } catch (Throwable e) { System.out.println("service.grace_period|20000229|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("service.grace_period|20240630|" + Service.grace_period(20240630)); } catch (Throwable e) { System.out.println("service.grace_period|20240630|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("service.grace_period|20240229|" + Service.grace_period(20240229)); } catch (Throwable e) { System.out.println("service.grace_period|20240229|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("service.grace_period|20991231|" + Service.grace_period(20991231)); } catch (Throwable e) { System.out.println("service.grace_period|20991231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("service.grace_period|20230229|" + Service.grace_period(20230229)); } catch (Throwable e) { System.out.println("service.grace_period|20230229|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("service.grace_period|20240131|" + Service.grace_period(20240131)); } catch (Throwable e) { System.out.println("service.grace_period|20240131|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("service.grace_period|20230228|" + Service.grace_period(20230228)); } catch (Throwable e) { System.out.println("service.grace_period|20230228|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+13 errors

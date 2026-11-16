@@ -1,0 +1,74 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:4: error: package sympy.ntheory does not exist
+import sympy.ntheory.factorint;
+                    ^
+Main.java:5: error: package sympy.ntheory does not exist
+import sympy.ntheory.primetest;
+                    ^
+Main.java:10: error: cannot find symbol
+        int primeBonus = Primetest.isprime(value) ? 50 : 0;
+                         ^
+  symbol:   variable Primetest
+  location: class Main
+Main.java:12: error: incompatible types: int cannot be converted to BigInteger
+        nextPrime = nextPrime.intValue();
+                                      ^
+Main.java:13: error: bad operand types for binary operator '+'
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+                                              ^
+  first type:  int
+  second type: BigInteger
+Main.java:22: error: cannot find symbol
+        List<BigInteger> factors = factorint.factorint(n).values();
+                                   ^
+  symbol:   variable factorint
+  location: class Main
+6 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int factor_signature(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int factor_signature(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.math.BigInteger;
+import java.util.Map;
+import java.util.HashMap;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+
+def factor_signature(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    factors = sp.factorint(value)
+    score = sum(int(prime) * int(exponent) for prime, exponent in factors.items())
+    return score + 3 * len(factors)

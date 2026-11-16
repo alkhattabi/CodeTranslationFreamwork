@@ -1,0 +1,131 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:17: error: missing return statement
+    }
+    ^
+Main.java:22: error: missing return statement
+    }
+    ^
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("service.risk_points|1230|" + Service.risk_points(1230)); } catch (Throwable e) { System.out.println("service.risk_points|1230|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.risk_points|1016|" + Service.risk_points(1016)); } catch (Throwable e) { System.out.println("service.risk_points|1016|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.risk_points|1|" + Service.risk_points(1)); } catch (Throwable e) { System.out.println("service.risk_points|1|ERR"); }
+                                                             ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.risk_points|987654321|" + Service.risk_points(987654321)); } catch (Throwable e) { System.out.println("service.risk_points|987654321|ERR"); }
+                                 
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.risk_points(n)
+  Utils.luhn_valid(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int points = riskPoints(n);
+        if (points >= 70) {
+            return 3;
+        } else if (points >= 40) {
+            return 2;
+        } else if (luhnValid(n) == 1) {
+            return 0;
+        }
+        return 1;
+    }
+
+    // Static method from Utils class
+    private static int riskPoints(int n) {
+        // Implementation of risk_points function
+    }
+
+    // Static method from Service class
+    private static int luhnValid(int n) {
+        // Implementation of luhn_valid function
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import luhn_valid
+from service import risk_points
+
+def solve(n: int) -> int:
+    points = risk_points(n)
+    if points >= 70:
+        return 3
+    if points >= 40:
+        return 2
+    if luhn_valid(n) == 1:
+        return 0
+    return 1
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int riskPoints(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (luhnValid(n) == 0) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    // Placeholder for the luhnValid method
+    private static int luhnValid(int n) {
+        // Implementation of luhn_valid function goes here
+        return 0;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubled = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubled) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubled =!doubled;
+            n /= 10;
+        }
+        return 1 - (total % 10);
+    }
+}

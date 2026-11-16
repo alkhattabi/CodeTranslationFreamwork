@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:14: error: illegal start of expression\n        Series sums = frame.groupby(\"category\").agg({\"amount\": \"sum\"});\n                                                    ^\nUtils.java:14: error: not a statement\n        Series sums = frame.groupby(\"category\").agg({\"amount\": \"sum\"});\n                                                     ^\nUtils.java:14: error: ';' expected\n        Series sums = frame.groupby(\"category\").agg({\"amount\": \"sum\"});\n                                                             ^\nUtils.java:14: error: illegal start of expression\n        Series sums = frame.groupby(\"category\").agg({\"amount\": \"sum\"});\n                                                                     ^\n4 errors\n",
+  "failed_modules": [
+    "utils"
+  ],
+  "case_failures": []
+}

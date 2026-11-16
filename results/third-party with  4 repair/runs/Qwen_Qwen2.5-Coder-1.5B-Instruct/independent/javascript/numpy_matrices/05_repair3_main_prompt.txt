@@ -1,0 +1,62 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 11/36 development checks.
+main.solve(10): expected 486, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(-10): expected 387, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(21): expected 525, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(999): expected 606, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(5): expected 401, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(1): expected 120, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(12): expected 409, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(2): expected 186, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(7): expected 307, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(11): expected 325, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(-51): expected 334, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(3): expected 283, actual ERR: ReferenceError: matrixEnergy is not defined
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { matrix_energy } from "./service.mjs";
+  import { vector_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+export function solve(n) {
+    const energy = matrixEnergy(n);
+    const vector = new Float64Array([energy, vectorSignature(n), n]);
+    const bounded = new Float64Array(vector.length).fill(-Infinity);
+    for (let i = 0; i < vector.length; i++) {
+        if (vector[i] >= 0) {
+            bounded[i] = Math.min(vector[i], 250);
+        } else {
+            bounded[i] = Math.max(vector[i], -150);
+        }
+    }
+    const positives = new Float64Array(bounded.length).fill(0);
+    for (let i = 0; i < bounded.length; i++) {
+        if (bounded[i] > 0) {
+            positives[i] = bounded[i];
+        } else {
+            positives[i] = -bounded[i];
+        }
+    }
+    return Math.floor(positives.reduce((acc, val) => acc + val, 0) + (energy % 17));
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))

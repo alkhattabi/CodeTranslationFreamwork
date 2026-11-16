@@ -1,0 +1,98 @@
+Utils.java:3: error: package org.apache.commons.math3.stat.descriptive does not exist
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+                                                ^
+Utils.java:55: error: cannot find symbol
+        private Map<String, Double> values;
+                ^
+  symbol:   class Map
+  location: class Series
+Utils.java:57: error: cannot find symbol
+        public Series(Map<String, Double> values) {
+                      ^
+  symbol:   class Map
+  location: class Series
+Utils.java:19: error: cannot find symbol
+        DescriptiveStatistics stats = new DescriptiveStatistics();
+        ^
+  symbol:   class DescriptiveStatistics
+  location: class Utils
+Utils.java:19: error: cannot find symbol
+        DescriptiveStatistics stats = new DescriptiveStatistics();
+                                          ^
+  symbol:   class DescriptiveStatistics
+  location: class Utils
+Utils.java:41: error: cannot find symbol
+            Map<String, Double> result = new HashMap<>();
+            ^
+  symbol:   class Map
+  location: class DataFrame
+Utils.java:41: error: cannot find symbol
+            Map<String, Double> result = new HashMap<>();
+                                             ^
+  symbol:   class HashMap
+  location: class DataFrame
+Service.java:4: error: cannot find symbol
+        Series<Integer> series = new Series<>(Arrays.asList(n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7));
+        ^
+  symbol:   class Series
+  location: class Service
+Service.java:4: error: cannot find symbol
+        Series<Integer> series = new Series<>(Arrays.asList(n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7));
+                                     ^
+  symbol:   class Series
+  location: class Service
+Service.java:4: error: cannot find symbol
+        Series<Integer> series = new Series<>(Arrays.asList(n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7));
+                                              ^
+  symbol:   variable Arrays
+  location: class Service
+Service.java:5: error: cannot find symbol
+        RollingWindow<Integer> rolling = series.rolling(windowSize = 3, minPeriods = 1);
+        ^
+  symbol:   class RollingWindow
+  location: class Service
+Service.java:5: error: cannot find symbol
+        RollingWindow<Integer> rolling = series.rolling(windowSize = 3, minPeriods = 1);
+                                                        ^
+  symbol:   variable windowSize
+  location: class Service
+Service.java:5: error: cannot find symbol
+        RollingWindow<Integer> rolling = series.rolling(windowSize = 3, minPeriods = 1);
+                                                                        ^
+  symbol:   variable minPeriods
+  location: class Service
+Utils.java:5: error: duplicate class: com.example.utils.Utils
+public class Utils {
+       ^
+Service.java:7: error: cannot access Utils
+        return alerts * 10 + Math.abs(Utils.category_balance(n)) % 23;
+                                      ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Main.java:3: error: cannot find symbol
+        int balance = categoryBalance(n);
+                      ^
+  symbol:   method categoryBalance(int)
+  location: class Main
+Main.java:4: error: cannot find symbol
+        int alert = rollingAlert(n);
+                    ^
+  symbol:   method rollingAlert(int)
+  location: class Main
+Main.java:6: error: cannot find symbol
+        Arrays.sort(scores);
+        ^
+  symbol:   variable Arrays
+  location: class Main
+Main.java:7: error: cannot find symbol
+        int rank1 = (int)(scores.length - Arrays.binarySearch(scores, Math.abs(balance) % 50)) + 1;
+                                          ^
+  symbol:   variable Arrays
+  location: class Main
+Main.java:8: error: cannot find symbol
+        int rank2 = (int)(scores.length - Arrays.binarySearch(scores, alert)) + 1;
+                                          ^
+  symbol:   variable Arrays
+  location: class Main
+20 errors

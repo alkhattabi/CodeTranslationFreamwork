@@ -1,0 +1,30 @@
+Here is the corrected Main.java file:
+
+```java
+import utils.Utils;
+
+public class Main {
+    public static int solve(int n) {
+        int balance = Utils.categoryBalance(n);
+        int alert = service.rollingAlert(n);
+        series scores = series.of(Math.abs(balance) % 50, alert, Math.abs(n) % 50);
+        series ranks = scores.rank("dense", true);
+        int penalty = (int)(ranks.iloc[0] * 7 + ranks.iloc[1] * 3);
+        return balance + alert - penalty;
+    }
+}
+```
+
+Please note that the import statements and the class name are not changed as they are already correct. The corrected import statements are:
+
+```java
+import utils.Utils;
+```
+
+And the corrected class name is:
+
+```java
+public class Main {
+```
+
+The corrected code should compile and run without any syntax errors.

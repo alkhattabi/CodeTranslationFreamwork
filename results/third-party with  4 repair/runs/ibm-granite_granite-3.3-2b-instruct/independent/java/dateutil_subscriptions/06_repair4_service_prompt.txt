@@ -1,0 +1,64 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+pected
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                     ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                 ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in 
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int grace_period(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.renewal_date(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int grace_period(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int gracePeriod(int n) {
+        int renewed = renewalDate(n);
+        if (renewed < 0) {
+            return -1;
+        }
+        int year = renewed / 10000;
+        int month = (renewed / 100) % 100;
+        int day = renewed % 100;
+        int dueDate = dayOfYearToDate(year, month, day) + relativedelta(months=2, days=7);
+        return dueDate.getYear() * 10000 + dueDate.getMonth() * 100 + dueDate.getDay();
+    }
+
+    private static int renewalDate(int n) {
+        // Placeholder for the actual implementation from utils.
+        return n;
+    }
+
+    private static Date dayOfYearToDate(int year, int month, int day) {
+        // Placeholder for the actual implementation.
+        return new Date(year, month - 1, day);
+    }
+}
+
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day

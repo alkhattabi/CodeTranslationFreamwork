@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\n        return tier(n) * 5;\n               ^\n  symbol:   method tier(int)\n  location: class Service\nMain.java:3: error: cannot find symbol\n        int value = n * 4 - discount(n);\n                            ^\n  symbol:   method discount(int)\n  location: class Main\nMain.java:10: error: cannot find symbol\n            return tier(n) * 5;\n                   ^\n  symbol:   method tier(int)\n  location: class Service\n3 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

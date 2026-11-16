@@ -1,0 +1,70 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+EvalRunner.java:7: error: cannot find symbol
+  try { System.out.println("service.score_digits|0|" + Service.score_digits(0)); } catch (Throwable e) { System.out.println("service.score_digits|0|ERR"); }
+                                                              ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:8: error: cannot find symbol
+  try { System.out.println("service.score_digits|208|" + Service.score_digits(208)); } catch (Throwable e) { System.out.println("service.score_digits|208|ERR"); }
+                                                                ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:9: error: cannot find symbol
+  try { System.out.println("service.score_digits|1|" + Service.score_digits(1)); } catch (Throwable e) { System.out.println("service.score_digits|1|ERR"); }
+                                                              ^
+  symbol:   method score_digits(int)
+  location: class Service
+EvalRunner.java:10: error: cannot find symbol
+  try { System.out.println("service.score_digits|-1|" + Service.score_digits(-1)); } catch (Throwable e) { System.out.println("service.score_digits|-1|ERR"); }
+                                                               ^
+  symbol:   method score_digits(int)
+  location: class Service
+4 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.score_digits(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int value = Service.scoreDigits(n);
+        if (value % 2 == 0) {
+            return value + 1;
+        }
+        return value - 1;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import score_digits
+
+def solve(n: int) -> int:
+    value = score_digits(n)
+    if value % 2 == 0:
+        return value + 1
+    return value - 1
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int scoreDigits(int n) {
+        return digitSum(n) * 3;
+    }
+
+    private static int digitSum(int n) {
+        int sum = 0;
+        while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+}

@@ -1,0 +1,31 @@
+Here is the C++ implementation of the Python function `day_of_year`.
+
+```cpp
+#include "api.hpp"
+
+int day_of_year(int n) {
+    if (!valid_date(n)) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    int total = day;
+    for (int m = 2; m <= month; ++m) {
+        int days = 31;
+        if (m == 4 || m == 6 || m == 9 || m == 11) {
+            days = 30;
+        }
+        if (m == 2) {
+            bool leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+            days = leap ? 29 : 28;
+        }
+        total += days;
+    }
+    return total;
+}
+```
+
+This C++ function works by first checking if the input date is valid. If it is not, it immediately returns 0. If it is valid, it calculates the day of the year by adding up the days of all previous months.
+
+Please note that this function assumes that the input date is in the format YYYYMMDD. If the input date is in a different format, you will need to adjust the function accordingly.

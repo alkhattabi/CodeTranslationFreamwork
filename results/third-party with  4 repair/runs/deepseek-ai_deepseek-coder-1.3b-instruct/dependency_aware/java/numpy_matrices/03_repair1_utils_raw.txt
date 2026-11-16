@@ -1,0 +1,18 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static int vector_signature(int n) {
+        n = Math.max(Math.min(100, n), -100);
+        int[] v = {n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int out = 0;
+        for (int i = 0; i < 3; i++) {
+            out += m[i / 3][i % 3] * v[i];
+        }
+        return Math.abs(out);
+    }
+}
+```
+
+This Java code declares a public class named `Utils` with a public static method `vector_signature`. The method takes an integer `n` as input and returns an integer. The method first checks if `n` is within the range of -100 to 100. Then, it calculates the modulo, absolute value, floor division, and modulo of `n` by 11, 7, and 9, respectively. It multiplies these values with the corresponding elements of a 3x3 matrix `m`, and sums the results. Finally, it returns the absolute value of the sum.

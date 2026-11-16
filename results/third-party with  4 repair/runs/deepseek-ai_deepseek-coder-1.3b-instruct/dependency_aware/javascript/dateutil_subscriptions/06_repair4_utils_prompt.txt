@@ -1,0 +1,57 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 8/36 development checks.
+main.solve(19991231): expected 6707, actual -3069
+main.solve(20240130): expected 6706, actual -3070
+main.solve(20231231): expected 6707, actual -3069
+main.solve(19000131): expected 6605, actual -3069
+main.solve(20010228): expected 6804, actual -2772
+main.solve(20000229): expected 6805, actual -2871
+main.solve(20240630): expected 6907, actual -2970
+main.solve(20240229): expected 6805, actual -2871
+main.solve(20991231): expected 6607, actual -3069
+main.solve(20230229): expected -1, actual -3071
+main.solve(20240131): expected 6706, actual -3069
+main.solve(20230228): expected 6804, actual -2772
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function renewal_date(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function renewal_date(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+export function renewal_date(n) {
+    if (n < 19000101 || n > 20991231) {
+        return -1;
+    }
+    let year = Math.floor(n / 10000);
+    let month = Math.floor((n / 100) % 100);
+    let day = n % 100;
+    let start = new Date(year, month - 1, day);
+    if (isNaN(start.getTime())) {
+        return -1;
+    }
+    let end = new Date(start.getTime());
+    end.setMonth(start.getMonth() + 1);
+    return end.getFullYear() * 10000 + (end.getMonth() + 1) * 100 + end.getDate();
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

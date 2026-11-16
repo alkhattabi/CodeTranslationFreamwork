@@ -1,0 +1,23 @@
+Here is the JavaScript ES-module source code for the provided Python file:
+
+```javascript
+import { valid_nights } from "./utils.mjs";
+
+export function lodging_charge(n) {
+    const nights = valid_nights(n);
+    if (nights === 0) {
+        return 0;
+    }
+    const rooms = Math.floor(n / 100);
+    let charge = rooms * nights * 150;
+    if (nights >= 7) {
+        charge -= Math.floor(charge / 10);
+    }
+    if (rooms >= 5) {
+        charge -= Math.floor(charge / 20);
+    }
+    return charge;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the lodging charge based on the number of nights and rooms. It uses the `valid_nights` function from the `utils.mjs` module. The function checks if the number of nights is 0, and if so, it returns 0. Otherwise, it calculates the number of rooms and the charge based on the number of nights. If the number of nights is 7 or more, it subtracts 10% of the charge. If the number of rooms is 5 or more, it subtracts 20% of the charge. Finally, it returns the calculated charge.

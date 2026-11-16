@@ -1,0 +1,43 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/sympy_number_theory/initial/validate_feedback/main.mjs:2
+import { factorSignature } from "./utils.mjs";
+         ^^^^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'factorSignature'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function number_strength(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { factor_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function number_strength(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// Importing required module
+const { factor_signature } = require("./utils.js");
+const { totient } = require("mathjs");
+
+// Exporting the function
+export function number_strength(n) {
+    let value = Math.abs(n) % 1500 + 2;
+    let phi = Math.floor(totient(value));
+    let divisorCount = Math.floor(mathjs.divisorCount(value));
+    return phi + 5 * divisorCount + factor_signature(n);
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+
+def number_strength(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    phi = int(sp.totient(value))
+    divisor_count = int(sp.divisor_count(value))
+    return phi + 5 * divisor_count + factor_signature(n)

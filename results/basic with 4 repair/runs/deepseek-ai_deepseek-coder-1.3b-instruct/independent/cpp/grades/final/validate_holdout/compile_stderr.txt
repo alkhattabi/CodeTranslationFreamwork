@@ -1,0 +1,17 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccEMVKfy.o: in function `bonus_score(int)':
+main.cpp:(.text+0x0): multiple definition of `bonus_score(int)'; /tmp/ccJGzj6g.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccEbSmwF.o: in function `main':
+EvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int solve(int)\u2019:\nservice.cpp:29:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   29 | }\n      | ^\nservice.cpp: In function \u2018int transport_cost(int)\u2019:\nservice.cpp:37:5: error: \u2018price\u2019 was not declared in this scope\n   37 |     price = 1200 + blocks * 180;\n      |     ^~~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:17:25: error: expected \u2018,\u2019 or \u2018;\u2019 before \u2018if\u2019\n   17 |     int insurance = 300 if blocks >= 10 else 100;\n      |                         ^~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

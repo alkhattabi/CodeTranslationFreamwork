@@ -1,0 +1,6 @@
+import { tier } from './utils.js';
+
+export function solve(n) {
+    const value = n * 4 - discount(n);
+    return Math.max(0, value);
+}

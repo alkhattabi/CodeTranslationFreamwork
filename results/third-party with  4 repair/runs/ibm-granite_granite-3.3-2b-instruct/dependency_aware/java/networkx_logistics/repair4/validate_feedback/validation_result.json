@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:27: error: class, interface, enum, or record expected\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.\n^\nService.java:27: error: unclosed character literal\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.\n                    ^\nService.java:27: error: unclosed character literal\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.\n                                                     ^\nMain.java:1: error: illegal character: '`'\n```java\n^\nMain.java:1: error: illegal character: '`'\n```java\n ^\nMain.java:1: error: illegal character: '`'\n```java\n  ^\nMain.java:2: error: class, interface, enum, or record expected\nimport java.util.HashMap;\n^\nMain.java:3: error: class, interface, enum, or record expected\nimport java.util.Map;\n^\nMain.java:81: error: reached end of file while parsing\n        graph.addWeightedEdge(1, 4, 7);\n                                       ^\n9 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

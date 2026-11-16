@@ -1,0 +1,26 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function energy_charge(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { billable_units } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function energy_charge(n) { /* implementation */ }
+
+PYTHON FILE service.py:
+
+from utils import billable_units
+
+def energy_charge(n: int) -> int:
+    units = billable_units(n)
+    charge = 0
+    if units > 400:
+        charge += (units - 400) * 50
+        units = 400
+    if units > 200:
+        charge += (units - 200) * 30
+        units = 200
+    if units > 100:
+        charge += (units - 100) * 20
+        units = 100
+    charge += units * 10
+    return charge

@@ -1,0 +1,26 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { release_rank } from "./utils.mjs";
+
+export function solve(n) {
+    if (n < 0) {
+        return -1;
+    }
+    let major = Math.floor(n / 10000);
+    let minor = Math.floor((n / 100) % 100);
+    let patch = n % 100;
+    let suffix = (patch % 4 === 0) ? "rc1" : "";
+    let version = `${major}.${minor}.${patch}${suffix}`;
+    let required = "2.1.0";
+    let penalty = 40;
+    if (version < required) {
+        return release_rank(n) * 25 + minor + patch / 5 + penalty;
+    }
+    return release_rank(n) * 25 + minor + patch / 5;
+}
+```
+
+This JavaScript code does the same thing as your Python code. It checks if the input number is negative, if it is, it returns -1. If it's not, it calculates the major, minor, and patch version numbers, checks if the version is less than the required version, and if it is, it calculates the upgrade cost and returns it. If the version is not less than the required version, it just returns the upgrade cost.
+
+Please note that the `release_rank` function is not imported from `utils.mjs`, so you need to define it in the same file or import it from another file.

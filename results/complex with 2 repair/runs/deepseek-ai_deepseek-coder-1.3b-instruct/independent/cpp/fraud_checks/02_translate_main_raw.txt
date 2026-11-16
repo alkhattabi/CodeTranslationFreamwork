@@ -1,0 +1,22 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    int points = risk_points(n);
+    if (points >= 70) {
+        return 3;
+    }
+    if (points >= 40) {
+        return 2;
+    }
+    if (luhn_valid(n) == 1) {
+        return 0;
+    }
+    return 1;
+}
+```
+
+Please note that the `luhn_valid` function is not defined in the provided Python code, so it is assumed that it is a global function in the `api.hpp` file. If it is not, you will need to include it in the `api.hpp` file.

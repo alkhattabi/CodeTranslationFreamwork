@@ -1,0 +1,13 @@
+public class Main {
+    public static int solve(int n) {
+        int value = n * 4 - discount(n);
+        return Math.max(0, value);
+    }
+
+    // Assume Service.java has discount method
+    static class Service {
+        public static int discount(int n) {
+            return tier(n) * 5;
+        }
+    }
+}

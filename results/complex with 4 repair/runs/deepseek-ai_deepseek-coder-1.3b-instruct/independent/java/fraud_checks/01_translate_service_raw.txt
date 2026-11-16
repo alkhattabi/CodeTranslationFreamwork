@@ -1,0 +1,29 @@
+Here is the Java version of the provided Python code:
+
+```java
+public class Service {
+    public static int riskPoints(int n) {
+        int score = 0;
+        if (n <= 0) {
+            return 100;
+        }
+        if (Utils.luhnValid(n)) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+}
+```
+
+Please note that the Utils class is assumed to be in the same package as the Service class. If it's in a different package, you would need to import it using the fully qualified name.
+
+Also, please note that the luhnValid method is assumed to be a static method of the Utils class. If it's not, you would need to import the Utils class and call the luhnValid method on an instance of Utils.

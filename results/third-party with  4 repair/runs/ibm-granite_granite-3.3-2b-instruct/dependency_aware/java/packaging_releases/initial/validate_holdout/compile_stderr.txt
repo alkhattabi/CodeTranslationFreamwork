@@ -1,0 +1,81 @@
+Utils.java:10: error: cannot find symbol
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+                              ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:11: error: cannot find symbol
+        Version reference = new Version("2.1.0");
+        ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:11: error: cannot find symbol
+        Version reference = new Version("2.1.0");
+                                ^
+  symbol:   class Version
+  location: class Utils
+Service.java:11: error: cannot find symbol
+        Version currentVersion = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version currentVersion = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+                                     ^
+  symbol:   class Version
+  location: class Service
+Service.java:12: error: cannot find symbol
+        Version requiredVersion = new Version("2.1.0");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:12: error: cannot find symbol
+        Version requiredVersion = new Version("2.1.0");
+                                      ^
+  symbol:   class Version
+  location: class Service
+Main.java:10: error: cannot find symbol
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Main
+Main.java:10: error: cannot find symbol
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+                              ^
+  symbol:   class Version
+  location: class Main
+Main.java:11: error: cannot find symbol
+        Version allowedVersion = new Version(">=1.5,<4.0");
+        ^
+  symbol:   class Version
+  location: class Main
+Main.java:11: error: cannot find symbol
+        Version allowedVersion = new Version(">=1.5,<4.0");
+                                     ^
+  symbol:   class Version
+  location: class Main
+Main.java:14: error: cannot find symbol
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+               ^
+  symbol:   method upgrade_cost(int)
+  location: class Main
+Main.java:14: error: bad operand types for binary operator '*'
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+                                     ^
+  first type:  int
+  second type: boolean
+Main.java:14: error: bad operand types for binary operator '*'
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+                                                    ^
+  first type:  int
+  second type: boolean
+Main.java:14: error: cannot find symbol
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+                                                                 ^
+  symbol:   method release_rank(int)
+  location: class Main
+16 errors

@@ -1,0 +1,31 @@
+Service.java:25: error: class, interface, enum, or record expected
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                     ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                 ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                       ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                                       ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                                                                                                                                                                    ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                                                                                                                                                                                  ^
+Service.java:25: error: unclosed character literal
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                                                                                                                                                                                                                          ^
+Service.java:25: error: unclosed character literal
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                                                                                                                                                                                                                                                    ^
+Main.java:27: error: class, interface, enum, or record expected
+Note: The Java code assumes that the date manipulation methods and classes are available in the standard Java library or imported appropriately. The actual implementations of renewalDate and gracePeriod methods are not provided as they were not specified in the Python code.
+^
+10 errors

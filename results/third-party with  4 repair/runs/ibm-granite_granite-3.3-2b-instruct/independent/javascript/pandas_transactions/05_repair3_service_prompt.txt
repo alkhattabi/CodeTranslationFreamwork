@@ -1,0 +1,50 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/pandas_transactions/initial/validate_feedback/main.mjs:2
+import { category_balance } from "./utils.mjs";
+         ^^^^^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'category_balance'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+ 
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function rolling_alert(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { category_balance } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function rolling_alert(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+import { categoryBalance } from "./utils.mjs";
+
+export function rollingAlert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const series = [n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7];
+    const rolling = series.reduce((acc, curr, i) => {
+        acc[i] = acc[i] || 0;
+        acc[i] += curr;
+        return acc;
+    }, []);
+
+    const windowSize = 3;
+    const alerts = (rolling.map(x => x >= 15).reduce((sum, isAlert) => sum + isAlert, 0) * 10) + categoryBalance(n) % 23;
+
+    return alerts;
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+
+def rolling_alert(n: int) -> int:
+    n = max(-200, min(200, n))
+    series = pd.Series([n % 13, (n // 2) % 13, n % 17, abs(n) % 11, n % 7])
+    rolling = series.rolling(window=3, min_periods=1).sum()
+    alerts = int((rolling >= 15).sum())
+    return alerts * 10 + abs(category_balance(n)) % 23

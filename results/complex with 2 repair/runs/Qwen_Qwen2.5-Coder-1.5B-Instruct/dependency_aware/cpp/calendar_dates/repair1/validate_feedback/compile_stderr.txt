@@ -1,0 +1,42 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int solve(int)’:
+utils.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   39 | }
+      | ^
+utils.cpp: In function ‘int day_of_year(int)’:
+utils.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   43 | }
+      | ^
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   39 | }
+      | ^
+service.cpp: In function ‘int day_of_year(int)’:
+service.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   43 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccyy2MtF.o: in function `valid_date(int)':
+service.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccyy2MtF.o: in function `is_leap_year(int)':
+service.cpp:(.text+0x13a): multiple definition of `is_leap_year(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x13a): first defined here
+/usr/bin/ld: /tmp/ccyy2MtF.o: in function `solve(int)':
+service.cpp:(.text+0x120): multiple definition of `solve(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x120): first defined here
+/usr/bin/ld: /tmp/ccyy2MtF.o: in function `day_of_year(int)':
+service.cpp:(.text+0x12d): multiple definition of `day_of_year(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x12d): first defined here
+/usr/bin/ld: /tmp/cc42MG9p.o: in function `valid_date(int)':
+main.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc42MG9p.o: in function `is_leap_year(int)':
+main.cpp:(.text+0x2c0): multiple definition of `is_leap_year(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x13a): first defined here
+/usr/bin/ld: /tmp/cc42MG9p.o: in function `solve(int)':
+main.cpp:(.text+0x120): multiple definition of `solve(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x120): first defined here
+/usr/bin/ld: /tmp/cc42MG9p.o: in function `day_of_year(int)':
+main.cpp:(.text+0x1c5): multiple definition of `day_of_year(int)'; /tmp/ccxhOVsw.o:utils.cpp:(.text+0x12d): first defined here
+collect2: error: ld returned 1 exit status

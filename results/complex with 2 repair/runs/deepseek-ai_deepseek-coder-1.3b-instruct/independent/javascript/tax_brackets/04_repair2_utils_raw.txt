@@ -1,0 +1,16 @@
+Here is the corrected JavaScript version of your Python code:
+
+```javascript
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+```
+
+This JavaScript code exports a function named `taxable_income` that takes an integer `n` as an argument and returns an integer. It first checks if `n` is less than or equal to 500, in which case it returns 0. If `n` is greater than 500, it calculates the remaining income after subtracting 500 from `n`. If the remaining income is greater than 20000, it sets the remaining income to 20000. Finally, it returns the remaining income.

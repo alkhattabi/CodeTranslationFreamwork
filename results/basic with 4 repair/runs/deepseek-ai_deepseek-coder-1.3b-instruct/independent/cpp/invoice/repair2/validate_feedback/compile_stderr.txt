@@ -1,0 +1,116 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:28:9: warning: #pragma once in main file
+   28 | #pragma once
+      |         ^~~~
+service.cpp:40:9: warning: #pragma once in main file
+   40 | #pragma once
+      |         ^~~~
+service.cpp:54:9: warning: #pragma once in main file
+   54 | #pragma once
+      |         ^~~~
+service.cpp:65:9: warning: #pragma once in main file
+   65 | #pragma once
+      |         ^~~~
+service.cpp:79:9: warning: #pragma once in main file
+   79 | #pragma once
+      |         ^~~~
+service.cpp:91:9: warning: #pragma once in main file
+   91 | #pragma once
+      |         ^~~~
+service.cpp:102:9: warning: #pragma once in main file
+  102 | #pragma once
+      |         ^~~~
+service.cpp:114:9: warning: #pragma once in main file
+  114 | #pragma once
+      |         ^~~~
+service.cpp:128:9: warning: #pragma once in main file
+  128 | #pragma once
+      |         ^~~~
+service.cpp:139:9: warning: #pragma once in main file
+  139 | #pragma once
+      |         ^~~~
+service.cpp:153:9: warning: #pragma once in main file
+  153 | #pragma once
+      |         ^~~~
+service.cpp:165:9: warning: #pragma once in main file
+  165 | #pragma once
+      |         ^~~~
+service.cpp:167:9: error: #include expects "FILENAME" or <FILENAME>
+  167 | #include
+      |         ^
+service.cpp:44:5: error: redefinition of ‘int gross(int)’
+   44 | int gross(int n) {
+      |     ^~~~~
+service.cpp:12:5: note: ‘int gross(int)’ previously defined here
+   12 | int gross(int n) {
+      |     ^~~~~
+service.cpp:58:5: error: redefinition of ‘int main()’
+   58 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:69:5: error: redefinition of ‘int unit_price(int)’
+   69 | int unit_price(int n) {
+      |     ^~~~~~~~~~
+service.cpp:5:5: note: ‘int unit_price(int)’ previously defined here
+    5 | int unit_price(int n) {
+      |     ^~~~~~~~~~
+service.cpp:83:5: error: redefinition of ‘int solve(int)’
+   83 | int solve(int n) {
+      |     ^~~~~
+service.cpp:32:5: note: ‘int solve(int)’ previously defined here
+   32 | int solve(int n) {
+      |     ^~~~~
+service.cpp:95:5: error: redefinition of ‘int main()’
+   95 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:106:5: error: redefinition of ‘int solve(int)’
+  106 | int solve(int n) {
+      |     ^~~~~
+service.cpp:32:5: note: ‘int solve(int)’ previously defined here
+   32 | int solve(int n) {
+      |     ^~~~~
+service.cpp:118:5: error: redefinition of ‘int gross(int)’
+  118 | int gross(int n) {
+      |     ^~~~~
+service.cpp:12:5: note: ‘int gross(int)’ previously defined here
+   12 | int gross(int n) {
+      |     ^~~~~
+service.cpp:132:5: error: redefinition of ‘int main()’
+  132 | int main() {
+      |     ^~~~
+service.cpp:21:5: note: ‘int main()’ previously defined here
+   21 | int main() {
+      |     ^~~~
+service.cpp:143:5: error: redefinition of ‘int unit_price(int)’
+  143 | int unit_price(int n) {
+      |     ^~~~~~~~~~
+service.cpp:5:5: note: ‘int unit_price(int)’ previously defined here
+    5 | int unit_price(int n) {
+      |     ^~~~~~~~~~
+service.cpp:157:5: error: redefinition of ‘int solve(int)’
+  157 | int solve(int n) {
+      |     ^~~~~
+service.cpp:32:5: note: ‘int solve(int)’ previously defined here
+   32 | int solve(int n) {
+      |     ^~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int gross(int)’:
+main.cpp:6:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    6 | }
+      | ^
+main.cpp: In function ‘int unit_price(int)’:
+main.cpp:10:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   10 | }
+      | ^

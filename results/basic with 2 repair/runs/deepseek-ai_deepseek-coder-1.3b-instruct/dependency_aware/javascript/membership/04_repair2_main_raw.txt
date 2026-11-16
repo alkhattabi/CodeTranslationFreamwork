@@ -1,0 +1,39 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+// service.mjs
+export function discount(n) {
+    return Math.floor(n / 10);
+}
+
+// utils.mjs
+export function tier(n) {
+    if (n >= 100) {
+        return 3;
+    }
+    if (n >= 50) {
+        return 2;
+    }
+    if (n >= 10) {
+        return 1;
+    }
+    return 0;
+}
+
+// main.mjs
+import { discount } from "./service.mjs";
+import { tier } from "./utils.mjs";
+
+export function solve(n) {
+    if (typeof n !== 'number' || n % 1 !== 0) {
+        throw new Error('Input must be an integer');
+    }
+    let value = n * 4 - discount(n);
+    value = Math.max(0, value);
+    return value * tier(value);
+}
+```
+
+The error message indicates that the identifier 'discount' has already been declared. This is because the identifier 'discount' is being imported from the 'service.mjs' module, which is being imported into the 'main.mjs' module. This is not allowed in JavaScript, as it leads to a syntax error.
+
+To fix this, you should either remove the import statement for 'discount' from 'main.mjs', or rename the 'discount' function to something else.

@@ -1,0 +1,6 @@
+// service.mjs
+import { tier } from './utils.js';
+
+export function discount(n) {
+    return tier(n) * 5;
+}

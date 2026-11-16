@@ -1,0 +1,10 @@
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+Service.java:3: error: cannot access Utils
+        int nights = Utils.valid_nights(n);
+                     ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors

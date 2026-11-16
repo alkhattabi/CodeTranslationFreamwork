@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccUVhKel.o: in function `luhn_valid(int)':\nservice.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/ccePL10M.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccWyD4PT.o: in function `luhn_valid(int)':\nmain.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/ccePL10M.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccWyD4PT.o: in function `risk_points(int)':\nmain.cpp:(.text+0xd1): multiple definition of `risk_points(int)'; /tmp/ccUVhKel.o:service.cpp:(.text+0xd1): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

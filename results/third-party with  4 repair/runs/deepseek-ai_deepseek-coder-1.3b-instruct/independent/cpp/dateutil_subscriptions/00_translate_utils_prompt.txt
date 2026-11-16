@@ -1,0 +1,32 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int renewal_date(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int grace_period(int n);
+int renewal_date(int n);
+
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: dateutil.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE utils.py:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

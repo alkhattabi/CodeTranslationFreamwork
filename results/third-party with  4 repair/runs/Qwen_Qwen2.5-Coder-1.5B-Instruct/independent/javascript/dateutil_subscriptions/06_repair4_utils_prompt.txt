@@ -1,0 +1,57 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'date-fns' imported from /content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/dateutil_subscriptions/initial/validate_feedback/utils.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/module
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function renewal_date(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function renewal_date(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { date } from 'date-fns';
+
+export function renewal_date(n) {
+    if (n < 19000101 || n > 20991231) {
+        return -1;
+    }
+    const year = Math.floor(n / 10000);
+    const month = Math.floor((n / 100) % 100);
+    const day = n % 100;
+
+    try {
+        const start = new Date(year, month - 1, day);
+    } catch (error) {
+        return -1;
+    }
+
+    const end = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+
+    return end.getFullYear() * 10000 + end.getMonth() * 100 + end.getDate();
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

@@ -1,0 +1,27 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int energy_charge(int n) {
+    int units = billable_units(n);
+    int charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+```
+
+This C++ code does the same thing as the Python code. It calculates the energy charge based on the number of billable units. The billable units are determined by the `billable_units` function, which takes an integer input and returns the same integer. The charge is calculated based on the number of units, with each unit costing 10 cents. If the number of units is greater than 400, it is charged at 50 cents per unit. If it's greater than 200, it's charged at 30 cents per unit. If it's greater than 100, it's charged at 20 cents per unit. If the number of units is less than or equal to 100, it's charged at 10 cents per unit. The total charge is then returned.

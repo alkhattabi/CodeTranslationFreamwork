@@ -1,0 +1,16 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccm5rbsY.o: in function `normalize(int)':
+service.cpp:(.text+0x0): multiple definition of `normalize(int)'; /tmp/ccBtH5ZU.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc6pN1Dj.o: in function `normalize(int)':
+main.cpp:(.text+0x0): multiple definition of `normalize(int)'; /tmp/ccBtH5ZU.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc6pN1Dj.o: in function `weighted(int)':
+main.cpp:(.text+0x1d): multiple definition of `weighted(int)'; /tmp/ccm5rbsY.o:service.cpp:(.text+0x1d): first defined here
+collect2: error: ld returned 1 exit status

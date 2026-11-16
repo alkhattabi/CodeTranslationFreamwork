@@ -1,0 +1,47 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.cpp: In function ‘int solve(int)’:
+main.cpp:4:13: error: expected ‘;’ before ‘if’
+    4 |     return 1 if (bonus_score(n) >= 60) else 0;
+      |             ^~~
+      |             ;
+main.cpp:4:40: error: expected primary-expression before ‘else’
+    4 |     return 1 if (bonus_score(n) >= 60) else 0;
+      |                                        ^~~~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int bonus_score(int n);
+int clamp(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    return 1 if (bonus_score(n) >= 60) else 0;
+}
+
+
+ORIGINAL PYTHON:
+from service import bonus_score
+
+def solve(n: int) -> int:
+    return 1 if bonus_score(n) >= 60 else 0
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int bonus_score(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}

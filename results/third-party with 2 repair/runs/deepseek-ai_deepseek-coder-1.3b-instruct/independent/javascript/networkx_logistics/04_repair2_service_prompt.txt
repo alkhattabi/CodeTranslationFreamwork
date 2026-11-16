@@ -1,0 +1,62 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'graphlib' imported from /content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/networkx_logistics/initial/validate_feedback/utils.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/mo
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function disruption_score(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { route_cost } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function disruption_score(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { route_cost } from "./utils.mjs";
+
+export function disruption_score(n) {
+  let graph = new Map();
+  graph.set(0, new Set([1, 2]));
+  graph.set(1, new Set([3]));
+  graph.set(2, new Set([3, 5]));
+  graph.set(3, new Set([4]));
+  graph.set(4, new Set([5]));
+  graph.set(5, new Set([6]));
+
+  if (n % 3 === 0) {
+    graph.get(2).delete(5);
+  }
+
+  if (n % 5 === 0) {
+    graph.get(0).delete(2);
+  }
+
+  let reachable = Array.from(new Set([...graph.get(0)])).length;
+  let longestPath = Math.max(...Object.values(graph));
+
+  return route_cost(n) + 3 * reachable + longestPath;
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)

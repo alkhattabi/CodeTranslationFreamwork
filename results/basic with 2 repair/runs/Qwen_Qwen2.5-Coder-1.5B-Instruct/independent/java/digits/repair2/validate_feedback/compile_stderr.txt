@@ -1,0 +1,15 @@
+Service.java:3: error: cannot find symbol
+        return digitSum(n) * 3;
+               ^
+  symbol:   method digitSum(int)
+  location: class Service
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:11: error: cannot access Utils
+  try { System.out.println("utils.digit_sum|0|" + Utils.digit_sum(0)); } catch (Throwable e) { System.out.println("utils.digit_sum|0|ERR"); }
+                                                  ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+3 errors

@@ -1,0 +1,74 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int main()’:
+main.cpp:35:10: error: ‘cout’ is not a member of ‘std’
+   35 |     std::cout << "Result: " << result << std::endl;
+      |          ^~~~
+main.cpp:6:1: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+    5 | #include <cstdlib>
+  +++ |+#include <iostream>
+    6 | 
+main.cpp:35:47: error: ‘endl’ is not a member of ‘std’
+   35 |     std::cout << "Result: " << result << std::endl;
+      |                                               ^~~~
+main.cpp:6:1: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+    5 | #include <cstdlib>
+  +++ |+#include <ostream>
+    6 | 
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int clamp(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int bonus_score(int n);
+int clamp(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int bonus_score(int n);
+
+// Global C++ function declaration for clamp
+int clamp(int n);
+
+// Implementation of clamp function
+int clamp(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 100) {
+        return 100;
+    }
+    return n;
+}
+
+
+ORIGINAL PYTHON:
+def clamp(n: int) -> int:
+    if n < 0:
+        return 0
+    if n > 100:
+        return 100
+    return n

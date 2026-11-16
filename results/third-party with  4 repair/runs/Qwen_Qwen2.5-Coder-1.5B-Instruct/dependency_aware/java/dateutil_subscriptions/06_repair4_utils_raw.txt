@@ -1,0 +1,26 @@
+```java
+package com.example;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            Date start = new Date(year - 1900, month - 1, day);
+        } catch (IllegalArgumentException e) {
+            return -1;
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(start);
+        calendar.add(Calendar.MONTH, 1);
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+    }
+}
+```

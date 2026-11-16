@@ -1,0 +1,24 @@
+{"k":"main.solve|-1","v":0}
+{"k":"main.solve|0","v":0}
+{"k":"main.solve|9500","v":824}
+{"k":"main.solve|25000","error":"Error: result must be a safe integer"}
+{"k":"main.solve|499","v":0}
+{"k":"main.solve|3501","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-5000","v":0}
+{"k":"main.solve|1","v":0}
+{"k":"service.calculate_tax|-1","v":0}
+{"k":"service.calculate_tax|0","v":0}
+{"k":"service.calculate_tax|9500","v":1030}
+{"k":"service.calculate_tax|25000","v":3230}
+{"k":"service.calculate_tax|499","v":0}
+{"k":"service.calculate_tax|3501","error":"Error: result must be a safe integer"}
+{"k":"service.calculate_tax|-5000","v":0}
+{"k":"service.calculate_tax|1","v":0}
+{"k":"utils.taxable_income|-1","v":0}
+{"k":"utils.taxable_income|0","v":0}
+{"k":"utils.taxable_income|9500","v":9000}
+{"k":"utils.taxable_income|25000","v":20000}
+{"k":"utils.taxable_income|499","v":0}
+{"k":"utils.taxable_income|3501","v":3001}
+{"k":"utils.taxable_income|-5000","v":0}
+{"k":"utils.taxable_income|1","v":0}

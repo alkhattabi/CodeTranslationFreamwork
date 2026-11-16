@@ -1,0 +1,34 @@
+Here is the corrected Java code:
+
+```java
+public class Service {
+    public static int rolling_alert(int n) {
+        n = Math.max(Math.min(200, n), -200);
+        int[] series = {n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7};
+        int[] rolling = new int[series.length];
+        for(int i = 0; i < series.length; i++) {
+            int sum = 0;
+            if(i >= 2) {
+                sum += series[i - 2];
+            }
+            if(i >= 1) {
+                sum += series[i - 1];
+            }
+            if(i < series.length) {
+                sum += series[i];
+            }
+            rolling[i] = sum;
+        }
+        long alerts = Arrays.stream(rolling).filter(sum -> sum >= 15).count();
+        return (int)(alerts * 10 + Math.abs(category_balance(n)) % 23);
+    }
+
+    public static int category_balance(int n) {
+        // This is a placeholder for the category_balance function from the utils module.
+        // You need to implement this function in your own code.
+        return 0;
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It calculates the rolling sum of the series and counts the number of times the sum is greater than or equal to 15. It then multiplies the count by 10 and adds the result of the category_balance function modulo 23 to the end of the result. The Math.abs function is used to ensure that the result is always positive.

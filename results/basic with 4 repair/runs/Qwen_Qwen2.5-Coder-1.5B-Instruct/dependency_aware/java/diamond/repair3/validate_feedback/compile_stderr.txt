@@ -1,0 +1,19 @@
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+Main.java:5: error: cannot access Utils
+        IntUnaryOperator normalized = Utils::normalize;
+                                      ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator weighted = Service::weighted;
+                                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors

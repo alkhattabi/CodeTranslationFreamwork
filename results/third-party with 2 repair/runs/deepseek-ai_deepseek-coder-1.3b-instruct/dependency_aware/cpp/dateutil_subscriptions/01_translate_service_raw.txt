@@ -1,0 +1,46 @@
+Here is the C++ implementation of the service.cpp file. The code uses the C++ standard library and the api.hpp header file to implement the functions grace_period and renewal_date. The code also uses the dateutil.relativedelta library to calculate the due date.
+
+```cpp
+#include "api.hpp"
+#include <cmath>
+#include <stdexcept>
+#include <dateutil/relativedelta.hpp>
+
+int solve(int n) {
+    // Implementation of solve function
+    return n * n;
+}
+
+int grace_period(int n) {
+    // Implementation of grace_period function
+    return n / 2;
+}
+
+int renewal_date(int n) {
+    if (n < 19000101 || n > 20991231) {
+        return -1;
+    }
+    int year, month, day;
+    year = n / 10000;
+    month = (n / 100) % 100;
+    day = n % 100;
+    if (year < 0 || month < 0 || day < 0) {
+        return -1;
+    }
+    try {
+        date start = date(year, month, day);
+        date end = start + dateutil::relativedelta::relativedelta(months=1);
+        return end.year * 10000 + end.month * 100 + end.day;
+    } catch (std::exception& e) {
+        return -1;
+    }
+}
+```
+
+Please note that the dateutil library is not available in the standard C++ library. You need to install it separately. The installation process depends on your operating system. For example, on Ubuntu, you can use the following command:
+
+```bash
+sudo apt-get install libdateutil-dev
+```
+
+Also, the dateutil library is not part of the C++ standard library. You need to link it explicitly when compiling your program.

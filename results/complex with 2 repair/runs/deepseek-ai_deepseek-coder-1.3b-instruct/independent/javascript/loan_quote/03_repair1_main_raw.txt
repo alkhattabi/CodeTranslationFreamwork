@@ -1,0 +1,39 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { credit_band } from "./utils.mjs";
+import { yearly_interest } from "./service.mjs";
+
+export function solve(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const interest = yearly_interest(n);
+    let fee = 150;
+    if (band >= 3) {
+        fee = 350;
+    }
+    const total = principal + interest + fee;
+    return Math.floor((total + 11) / 12);
+}
+```
+
+The error message indicates that the module `utils.js` or `service.js` is not found. This is because the imports in `main.mjs` are relative to the current file (`main.mjs`), not the root directory. You need to provide the correct path to the module files.
+
+For example, if `utils.js` and `service.js` are in the same directory as `main.mjs`, you can import them like this:
+
+```javascript
+import { credit_band } from "./utils.js";
+import { yearly_interest } from "./service.js";
+```
+
+If `utils.js` and `service.js` are in a subdirectory, you need to provide the full path to the files:
+
+```javascript
+import { credit_band } from "/path/to/subdirectory/utils.js";
+import { yearly_interest } from "/path/to/subdirectory/service.js";
+```
+
+Please replace "/path/to/subdirectory" with the actual path to your subdirectory.

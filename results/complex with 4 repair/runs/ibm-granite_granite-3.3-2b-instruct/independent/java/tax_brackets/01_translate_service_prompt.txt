@@ -1,0 +1,23 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int calculate_tax(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.taxable_income(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int calculate_tax(int n) { /* implementation */ } }
+
+PYTHON FILE service.py:
+
+from utils import taxable_income
+
+def calculate_tax(n: int) -> int:
+    income = taxable_income(n)
+    tax = 0
+    if income > 7000:
+        tax += (income - 7000) * 20 // 100
+        income = 7000
+    if income > 3000:
+        tax += (income - 3000) * 12 // 100
+        income = 3000
+    tax += income * 5 // 100
+    return tax

@@ -1,0 +1,12 @@
+// main.mjs
+import { day_of_year } from "./service.mjs";
+import { valid_date } from "./utils.mjs";
+
+export function solve(n) {
+    if (!valid_date(n)) {
+        return -1;
+    }
+    const month = (n / 100) % 100;
+    const quarter = (month - 1) // 3 + 1;
+    return quarter * 1000 + day_of_year(n);
+}

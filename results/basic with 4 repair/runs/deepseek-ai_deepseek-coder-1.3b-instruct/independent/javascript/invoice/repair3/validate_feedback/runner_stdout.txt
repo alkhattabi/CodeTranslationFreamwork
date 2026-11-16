@@ -1,0 +1,12 @@
+{"k":"main.solve|11","error":"Error: result must be a safe integer"}
+{"k":"main.solve|50","v":575}
+{"k":"main.solve|9","error":"Error: result must be a safe integer"}
+{"k":"main.solve|7","error":"Error: result must be a safe integer"}
+{"k":"service.gross|11","v":110}
+{"k":"service.gross|50","v":500}
+{"k":"service.gross|9","v":108}
+{"k":"service.gross|7","v":84}
+{"k":"utils.unit_price|11","v":10}
+{"k":"utils.unit_price|50","v":10}
+{"k":"utils.unit_price|9","v":12}
+{"k":"utils.unit_price|7","v":12}

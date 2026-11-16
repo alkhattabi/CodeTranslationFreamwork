@@ -1,0 +1,32 @@
+public class Main {
+    public static int solve(int n) {
+        int energy = matrixEnergy(n);
+        int[] vector = new int[]{energy, vectorSignature(n), n};
+        int[] bounded = clip(vector, -150, 250);
+        int[] positives = new int[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            positives[i] = bounded[i] > 0? bounded[i] : -bounded[i];
+        }
+        return positives.sum() + (energy % 17);
+    }
+
+    private static int matrixEnergy(int n) {
+        // Placeholder for the original matrix_energy function
+        return 0;
+    }
+
+    private static int vectorSignature(int n) {
+        // Placeholder for the original vector_signature function
+        return 0;
+    }
+
+    private static int[] clip(int[] vector, int min, int max) {
+        int[] result = new int[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            result[i] = Math.min(Math.max(vector[i], min), max);
+        }
+        return result;
+    }
+}
+
+Note: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.

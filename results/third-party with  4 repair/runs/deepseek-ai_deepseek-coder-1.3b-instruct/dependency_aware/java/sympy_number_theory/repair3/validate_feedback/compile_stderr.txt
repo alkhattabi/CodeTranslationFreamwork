@@ -1,0 +1,61 @@
+Main.java:1: error: class, interface, enum, or record expected
+The provided code is in Python and uses the sympy library for prime number operations. The Utils class in the Utils.java file is a third-party library that provides a method factor_signature. The Utils class is also used in the solve method in the Main class. The Main class uses the Utils class in the Utils.java file.
+^
+Main.java:1: error: '{' expected
+The provided code is in Python and uses the sympy library for prime number operations. The Utils class in the Utils.java file is a third-party library that provides a method factor_signature. The Utils class is also used in the solve method in the Main class. The Main class uses the Utils class in the Utils.java file.
+                                                                                                         ^
+Main.java:1: error: '{' expected
+The provided code is in Python and uses the sympy library for prime number operations. The Utils class in the Utils.java file is a third-party library that provides a method factor_signature. The Utils class is also used in the solve method in the Main class. The Main class uses the Utils class in the Utils.java file.
+                                                                                                                                                                                                                  ^
+Main.java:1: error: <identifier> expected
+The provided code is in Python and uses the sympy library for prime number operations. The Utils class in the Utils.java file is a third-party library that provides a method factor_signature. The Utils class is also used in the solve method in the Main class. The Main class uses the Utils class in the Utils.java file.
+                                                                                                                                                                                                                                                                  ^
+Main.java:1: error: '{' expected
+The provided code is in Python and uses the sympy library for prime number operations. The Utils class in the Utils.java file is a third-party library that provides a method factor_signature. The Utils class is also used in the solve method in the Main class. The Main class uses the Utils class in the Utils.java file.
+                                                                                                                                                                                                                                                                                       ^
+Main.java:1: error: '{' expected
+The provided code is in Python and uses the sympy library for prime number operations. The Utils class in the Utils.java file is a third-party library that provides a method factor_signature. The Utils class is also used in the solve method in the Main class. The Main class uses the Utils class in the Utils.java file.
+                                                                                                                                                                                                                                                                                                          ^
+Main.java:3: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:5: error: unclosed character literal
+The provided code also uses the sympy library's nextprime function, which is also not available in Java. The sympy library also does not have a direct equivalent in Java.
+                                             ^
+Main.java:7: error: unclosed character literal
+The provided code also uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                             ^
+Main.java:9: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:11: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:13: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:15: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:17: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:19: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:21: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:23: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:25: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:27: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+Main.java:29: error: unclosed character literal
+The provided code is broken because it uses the sympy library's isprime function, which is not available in Java. The sympy library is a Python library for symbolic mathematics, and it does not have a direct equivalent in Java.
+                                                             ^
+20 errors

@@ -1,0 +1,200 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int main()’:
+main.cpp:9:10: error: ‘cout’ is not a member of ‘std’
+    9 |     std::cout << solve(53) << std::endl;
+      |          ^~~~
+main.cpp:2:1: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+    1 | #include "api.hpp"
+  +++ |+#include <iostream>
+    2 | 
+main.cpp:9:36: error: ‘endl’ is not a member of ‘std’
+    9 |     std::cout << solve(53) << std::endl;
+      |                                    ^~~~
+main.cpp:2:1: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+    1 | #include "api.hpp"
+  +++ |+#include <ostream>
+    2 | 
+main.cpp:10:10: error: ‘cout’ is not a member of ‘std’
+   10 |     std::cout << solve(60) << std::endl;
+      |          ^~~~
+main.cpp:10:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:10:36: error: ‘endl’ is not a member of ‘std’
+   10 |     std::cout << solve(60) << std::endl;
+      |                                    ^~~~
+main.cpp:10:36: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:11:10: error: ‘cout’ is not a member of ‘std’
+   11 |     std::cout << solve(100) << std::endl;
+      |          ^~~~
+main.cpp:11:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:11:37: error: ‘endl’ is not a member of ‘std’
+   11 |     std::cout << solve(100) << std::endl;
+      |                                     ^~~~
+main.cpp:11:37: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:12:10: error: ‘cout’ is not a member of ‘std’
+   12 |     std::cout << solve(130) << std::endl;
+      |          ^~~~
+main.cpp:12:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:12:37: error: ‘endl’ is not a member of ‘std’
+   12 |     std::cout << solve(130) << std::endl;
+      |                                     ^~~~
+main.cpp:12:37: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:16:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   16 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:18:14: error: ‘cout’ is not a member of ‘std’
+   18 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |              ^~~~
+main.cpp:18:14: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:18:61: error: ‘endl’ is not a member of ‘std’
+   18 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |                                                             ^~~~
+main.cpp:18:61: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:22:10: error: ‘cout’ is not a member of ‘std’
+   22 |     std::cout << solve(n) << std::endl;
+      |          ^~~~
+main.cpp:22:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:22:35: error: ‘endl’ is not a member of ‘std’
+   22 |     std::cout << solve(n) << std::endl;
+      |                                   ^~~~
+main.cpp:22:35: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:26:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   26 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:28:14: error: ‘cout’ is not a member of ‘std’
+   28 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |              ^~~~
+main.cpp:28:14: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:28:61: error: ‘endl’ is not a member of ‘std’
+   28 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |                                                             ^~~~
+main.cpp:28:61: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:32:10: error: ‘cout’ is not a member of ‘std’
+   32 |     std::cout << solve(n) << std::endl;
+      |          ^~~~
+main.cpp:32:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:32:35: error: ‘endl’ is not a member of ‘std’
+   32 |     std::cout << solve(n) << std::endl;
+      |                                   ^~~~
+main.cpp:32:35: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:36:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   36 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:38:14: error: ‘cout’ is not a member of ‘std’
+   38 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |              ^~~~
+main.cpp:38:14: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:38:61: error: ‘endl’ is not a member of ‘std’
+   38 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |                                                             ^~~~
+main.cpp:38:61: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:42:10: error: ‘cout’ is not a member of ‘std’
+   42 |     std::cout << solve(n) << std::endl;
+      |          ^~~~
+main.cpp:42:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:42:35: error: ‘endl’ is not a member of ‘std’
+   42 |     std::cout << solve(n) << std::endl;
+      |                                   ^~~~
+main.cpp:42:35: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:46:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   46 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:48:14: error: ‘cout’ is not a member of ‘std’
+   48 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |              ^~~~
+main.cpp:48:14: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:48:61: error: ‘endl’ is not a member of ‘std’
+   48 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |                                                             ^~~~
+main.cpp:48:61: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:52:10: error: ‘cout’ is not a member of ‘std’
+   52 |     std::cout << solve(n) << std::endl;
+      |          ^~~~
+main.cpp:52:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:52:35: error: ‘endl’ is not a member of ‘std’
+   52 |     std::cout << solve(n) << std::endl;
+      |                                   ^~~~
+main.cpp:52:35: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:56:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   56 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:58:14: error: ‘cout’ is not a member of ‘std’
+   58 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |              ^~~~
+main.cpp:58:14: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:58:61: error: ‘endl’ is not a member of ‘std’
+   58 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |                                                             ^~~~
+main.cpp:58:61: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:62:10: error: ‘cout’ is not a member of ‘std’
+   62 |     std::cout << solve(n) << std::endl;
+      |          ^~~~
+main.cpp:62:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:62:35: error: ‘endl’ is not a member of ‘std’
+   62 |     std::cout << solve(n) << std::endl;
+      |                                   ^~~~
+main.cpp:62:35: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:66:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   66 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:68:14: error: ‘cout’ is not a member of ‘std’
+   68 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |              ^~~~
+main.cpp:68:14: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:68:61: error: ‘endl’ is not a member of ‘std’
+   68 |         std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+      |                                                             ^~~~
+main.cpp:68:61: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp:72:10: error: ‘cout’ is not a member of ‘std’
+   72 |     std::cout << solve(n) << std::endl;
+      |          ^~~~
+main.cpp:72:10: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+main.cpp:72:35: error: ‘endl’ is not a member of ‘std’
+   72 |     std::cout << solve(n) << std::endl;
+      |                                   ^~~~
+main.cpp:72:35: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+main.cpp: At global scope:
+main.cpp:76:5: error: conflicting declaration of C function ‘int main(int, char**)’
+   76 | int main(int argc, char* argv[]) {
+      |     ^~~~
+main.cpp:8:5: note: previous declaration ‘int main()’
+    8 | int main() {
+      |     ^~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:76:35: error: expected ‘}’ at end of input
+   76 | int main(int argc, char* argv[]) {
+      |                                  ~^

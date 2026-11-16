@@ -1,0 +1,23 @@
+Here is the JavaScript ES-module source code for the service.mjs file:
+
+```javascript
+// utils.mjs
+export function normalize(n) {
+    if (n < 0) {
+        return -n;
+    }
+    return n;
+}
+```
+
+Here is the JavaScript ES-module source code for the service.mjs file:
+
+```javascript
+// service.mjs
+import { normalize } from "./utils.mjs";
+
+export function weighted(n) {
+    const x = normalize(n);
+    return x * 2 + 1;
+}
+```

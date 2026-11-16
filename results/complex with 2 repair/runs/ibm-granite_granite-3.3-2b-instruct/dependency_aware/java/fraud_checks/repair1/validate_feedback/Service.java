@@ -1,0 +1,42 @@
+public class Service {
+    public static int riskPoints(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (luhnValid(n) == 0) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    private static int luhnValid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubled = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubled) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubled =!doubled;
+            n /= 10;
+        }
+        return 1 - (total % 10);
+    }
+}

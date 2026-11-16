@@ -1,0 +1,25 @@
+```javascript
+import { Version } from 'packaging';
+
+export function release_rank(n: number): number {
+    if (n < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = Math.floor((n / 100) % 100);
+    const patch = n % 100;
+    let suffix = "";
+    if (patch % 4 === 0) {
+        suffix = "rc1";
+    }
+    const version = new Version(`${major}.${minor}.${patch}${suffix}`);
+    const reference = new Version("2.1.0");
+    if (version.compare(reference) < 0) {
+        return 1;
+    }
+    if (version.compare(reference) === 0) {
+        return 2;
+    }
+    return 3;
+}
+```

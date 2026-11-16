@@ -1,0 +1,13 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int bonus_score(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}
+```
+
+The `clamp` function is defined in the `api.hpp` file. This function is used to ensure that the input is within a certain range. If the input is less than the lower bound, it is set to the lower bound. If the input is greater than the upper bound, it is set to the upper bound.

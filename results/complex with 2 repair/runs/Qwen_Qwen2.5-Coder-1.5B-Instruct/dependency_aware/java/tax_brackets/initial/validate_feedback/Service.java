@@ -1,0 +1,18 @@
+package com.example;
+
+public class Service {
+    public static int calculateTax(int n) {
+        int income = Utils.taxableIncome(n);
+        int tax = 0;
+        if (income > 7000) {
+            tax += (income - 7000) * 20 / 100;
+            income = 7000;
+        }
+        if (income > 3000) {
+            tax += (income - 3000) * 12 / 100;
+            income = 3000;
+        }
+        tax += income * 5 / 100;
+        return tax;
+    }
+}

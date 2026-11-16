@@ -1,0 +1,12 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc1MQpma.o: in function `solve(int)':
+main.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/cc8v56pf.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

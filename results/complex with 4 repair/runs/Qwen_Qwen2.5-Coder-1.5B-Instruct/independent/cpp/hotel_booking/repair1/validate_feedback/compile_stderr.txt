@@ -1,0 +1,18 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc4hgFAc.o: in function `solve(int)':
+main.cpp:(.text+0x4d): undefined reference to `lodging_charge(int)'
+/usr/bin/ld: /tmp/ccsGVaye.o: in function `main':
+EvalRunner.cpp:(.text+0x2e1): undefined reference to `lodging_charge(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x326): undefined reference to `lodging_charge(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x36b): undefined reference to `lodging_charge(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x3b0): undefined reference to `lodging_charge(int)'
+/usr/bin/ld: /tmp/ccsGVaye.o:EvalRunner.cpp:(.text+0x3f5): more undefined references to `lodging_charge(int)' follow
+collect2: error: ld returned 1 exit status

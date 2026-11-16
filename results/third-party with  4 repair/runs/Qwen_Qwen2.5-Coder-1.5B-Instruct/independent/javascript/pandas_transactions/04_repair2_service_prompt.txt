@@ -1,0 +1,50 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+main.solve(-100): expected -220, actual ERR: ReferenceError: category_balance is not defined
+main.solve(49): expected 163, actual ERR: ReferenceError: category_balance is not defined
+main.solve(-10): expected 6, actual ERR: ReferenceError: category_balance is not defined
+main.solve(100): expected 289, actual ERR: ReferenceError: category_balance is not defined
+main.solve(50): expected 180, actual ERR: ReferenceError: category_balance is not defined
+main.solve(20): expected 96, actual ERR: ReferenceError: category_balance is not defined
+main.solve(200): expected 500, actual ERR: ReferenceError: category_balance is not defined
+main.solve(1): expected 22, actual ERR: ReferenceError: category_balance is not defined
+main.solve(9): expected 60, actual ERR: ReferenceError: category_balance is not defined
+main.solve(21): expected 92, actual ERR: ReferenceError: category_balance is not defined
+main.solve(7): expected 56, actual ERR: ReferenceError: category_balance is not defined
+main.solve(-20): expected -10, actual ERR: ReferenceError: category_balance is not defined
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function rolling_alert(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { category_balance } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function rolling_alert(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+export function rolling_alert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const series = new Array(5);
+    series[0] = n % 13;
+    series[1] = (n / 2) % 13;
+    series[2] = n % 17;
+    series[3] = Math.abs(n) % 11;
+    series[4] = n % 7;
+    const rolling = series.reduce((acc, val) => acc + val, 0);
+    const alerts = Math.floor(rolling / 15);
+    return alerts * 10 + (category_balance(n) % 23);
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+
+def rolling_alert(n: int) -> int:
+    n = max(-200, min(200, n))
+    series = pd.Series([n % 13, (n // 2) % 13, n % 17, abs(n) % 11, n % 7])
+    rolling = series.rolling(window=3, min_periods=1).sum()
+    alerts = int((rolling >= 15).sum())
+    return alerts * 10 + abs(category_balance(n)) % 23

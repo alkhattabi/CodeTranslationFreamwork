@@ -1,0 +1,19 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int cost = Service.gross(n);
+        return cost + (cost * 15) / 100;
+    }
+}
+```
+
+In this Java code, we have a public class named `Main`. Inside this class, we have a public static method named `solve` that takes an integer `n` as a parameter and returns an integer. The implementation of this method is as follows:
+
+- It first calls the `gross` method from the `Service` class and assigns the result to the variable `cost`.
+- Then it calculates the result of `cost + (cost * 15) / 100` and returns it.
+
+Please note that in Java, division of two integers results in an integer. So, we need to use integer division (`/`) instead of floating-point division (`//`).
+
+Also, please note that the `gross` method in the `Service` class is not defined in your provided Python code. You need to define this method in the `Service` class or import it from another class.

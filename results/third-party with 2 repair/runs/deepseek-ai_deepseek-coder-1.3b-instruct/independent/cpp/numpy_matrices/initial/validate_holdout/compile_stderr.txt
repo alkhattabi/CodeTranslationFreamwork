@@ -1,0 +1,11 @@
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccBjH6gh.o: in function `vector_signature(int)':
+service.cpp:(.text+0x56f): multiple definition of `vector_signature(int)'; /tmp/ccNsChGf.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccd8GzQ6.o: in function `solve(int)':
+main.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccBjH6gh.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

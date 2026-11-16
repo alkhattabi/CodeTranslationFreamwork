@@ -1,0 +1,45 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/digits/initial/validate_feedback/service.mjs:2
+import { digit_sum } from "./utils.mjs";
+         ^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'digit_sum'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at async onImport.trac
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function score_digits(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { digit_sum } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function score_digits(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+import { digit_sum } from "./utils.mjs";
+
+export function score_digits(n) {
+    return digit_sum(n) * 3;
+}
+
+
+ORIGINAL PYTHON:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+DEPENDENCY utils.mjs:
+// utils.mjs
+export function digitSum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}

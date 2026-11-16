@@ -1,0 +1,22 @@
+Here is the JavaScript equivalent of the Python code:
+
+```javascript
+import { weight_blocks } from "./utils.mjs";
+import { transport_cost } from "./service.mjs";
+
+export function solve(n) {
+    const blocks = weight_blocks(n);
+    if (blocks === 0) {
+        return 0;
+    }
+    const cost = transport_cost(n);
+    const fuel = Math.floor((cost * 8 + 99) / 100);
+    let insurance = 300;
+    if (blocks >= 10) {
+        insurance = 100;
+    }
+    return cost + fuel + insurance;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the cost of transport, fuel, and insurance based on the weight of the cargo and the number of blocks. The `weight_blocks` function is imported from `./utils.mjs` and the `transport_cost` function is imported from `./service.mjs`. The `solve` function is exported from this module.

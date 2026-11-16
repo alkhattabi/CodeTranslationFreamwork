@@ -1,0 +1,12 @@
+main.solve|52|0
+main.solve|95|0
+main.solve|-10|0
+main.solve|0|0
+service.bonus_score|52|59
+service.bonus_score|95|100
+service.bonus_score|-10|7
+service.bonus_score|0|7
+utils.clamp|52|52
+utils.clamp|95|95
+utils.clamp|-10|0
+utils.clamp|0|0

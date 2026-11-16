@@ -1,0 +1,91 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int number_strength(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int number_strength(int n);
+int factor_signature(int n);
+
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: sympy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+import sympy as sp
+from utils import factor_signature
+
+def number_strength(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    phi = int(sp.totient(value))
+    divisor_count = int(sp.divisor_count(value))
+    return phi + 5 * divisor_count + factor_signature(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <cmath>
+
+// Helper function to calculate the number of divisors of a given number
+int countDivisors(int n) {
+    int count = 0;
+    for (int i = 1; i <= sqrt(n); ++i) {
+        if (n % i == 0) {
+            if (i == n / i) {
+                count++;
+            } else {
+                count += 2;
+            }
+        }
+    }
+    return count;
+}
+
+// Helper function to calculate the sum of digits of a given number
+int sumOfDigits(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+
+// Helper function to calculate the number of prime factors of a given number
+int countPrimeFactors(int n) {
+    int count = 0;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        while (n % i == 0) {
+            count++;
+            n /= i;
+        }
+    }
+    if (n > 1) {
+        count++;
+    }
+    return count;
+}
+
+// Main function to calculate the factor signature
+int factor_signature(int n) {
+    // Calculate the absolute value of n and take modulo 1500
+    int value = std::abs(n) % 1500 + 2;
+
+    // Calculate the number of divisors, sum of digits, and number of prime factors
+    int divisors = countDivisors(value);
+    int sum_digits = sumOfDigits(value);
+    int prime_factors = countPrimeFactors(value);
+
+    // Calculate the factor signature
+    int score = sum_digits + 3 * prime_factors;
+
+    return score;
+}

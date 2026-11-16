@@ -1,0 +1,8 @@
+public class Utils {
+    public static int normalize(int n) {
+        if (n < 0) {
+            return -n;
+        }
+        return n;
+    }
+}

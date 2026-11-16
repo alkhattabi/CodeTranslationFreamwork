@@ -1,0 +1,26 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { factor_signature } from "./utils.mjs";
+
+export function number_strength(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let phi = Math.floor(Math.sqrt(value));
+  for(let i = 2; i <= phi; i++)
+    if(value % i === 0) phi = i;
+  let divisor_count = 2;
+  let temp = value;
+  while(temp !== 1) {
+    if(temp % i === 0) {
+      divisor_count++;
+      temp = temp / i;
+    }
+    else i++;
+  }
+  return phi + 5 * divisor_count + factor_signature(n);
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the number of divisors of a number, then calculates the number of positive divisors of the absolute value of the input number. It also uses the `factor_signature` function from the `utils.mjs` module.
+
+Please note that the `factor_signature` function is not defined in the provided Python code, so it is not included in the JavaScript code. If it is defined in another module, you would need to import it in the JavaScript code.

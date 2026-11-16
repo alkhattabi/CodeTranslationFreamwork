@@ -1,0 +1,12 @@
+public class Main {
+    public static int solve(int n) {
+        int blocks = Utils.weight_blocks(n);
+        if (blocks == 0) {
+            return 0;
+        }
+        int cost = Service.transport_cost(n);
+        int fuel = (cost * 8 + 99) / 100;
+        int insurance = blocks >= 10? 300 : 100;
+        return cost + fuel + insurance;
+    }
+}

@@ -1,0 +1,114 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/esm/resolve:275
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/networkx_logistics/initial/validate_feedback/utils.js' imported from /content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/networkx_logistics/initial/validate_feedback/service.mjs
+ 
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function disruption_score(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { route_cost } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function disruption_score(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// service.js
+import { route_cost } from "./utils.js";
+
+export function disruption_score(n) {
+    const graph = {
+        0: {1: 3 + Math.abs(n) % 3, 2: 5 + Math.abs(n) % 4},
+        1: {3: 4 + Math.abs(n) % 2, 4: 7},
+        2: {3: 1 + Math.abs(n) % 5, 4: 3 + Math.abs(n) % 3},
+        3: {5: 6},
+        4: {5: 2 + Math.abs(n) % 4},
+        5: {6: 1 + Math.abs(n) % 2},
+        6: {2: 15}
+    };
+
+    let reachable = 0;
+    for (const neighbor of graph[0]) {
+        if (neighbor in graph) {
+            reachable++;
+        }
+    }
+
+    let longest = 0;
+    function dfs(current, visited, graph) {
+        visited.add(current);
+        longest = Math.max(longest, graph[current]);
+        for (const neighbor of graph[current]) {
+            if (!visited.has(neighbor)) {
+                dfs(neighbor, visited, graph);
+            }
+        }
+    }
+
+    dfs(0, new Set(), graph);
+
+    return route_cost(n) + 3 * reachable + longest;
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+
+function route_cost(n) {
+    const x = Math.abs(n) % 13;
+    const graph = {
+        0: {1: 3 + x % 3, 2: 5 + x % 4},
+        1: {3: 4 + x % 2, 4: 7},
+        2: {3: 1 + x % 5, 4: 3 + x % 3},
+        3: {5: 6},
+        4: {5: 2 + x % 4},
+        5: {6: 1 + x % 2},
+        6: {2: 15}
+    };
+
+    let path = [];
+    let current = 0;
+
+    function shortestPath(current, target, graph) {
+        if (current === target) {
+            path.push(current);
+            return path;
+        }
+
+        for (const neighbor in graph[current]) {
+            if (neighbor in graph) {
+                const newPath = shortestPath(neighbor, target, graph);
+                if (newPath.length > path.length) {
+                    path = newPath;
+                }
+            }
+        }
+        return path;
+    }
+
+    return shortestPath(0, 6, graph);
+}
+
+export { route_cost };

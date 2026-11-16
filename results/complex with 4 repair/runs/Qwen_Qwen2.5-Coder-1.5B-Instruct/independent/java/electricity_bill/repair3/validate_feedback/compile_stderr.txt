@@ -1,0 +1,25 @@
+Service.java:3: error: cannot find symbol
+        int units = billableUnits(n);
+                    ^
+  symbol:   method billableUnits(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int units = billableUnits(n);
+                    ^
+  symbol:   method billableUnits(int)
+  location: class Main
+Main.java:7: error: cannot find symbol
+        int charge = energyCharge(n);
+                     ^
+  symbol:   method energyCharge(int)
+  location: class Main
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:21: error: cannot access Utils
+  try { System.out.println("utils.billable_units|101|" + Utils.billable_units(101)); } catch (Throwable e) { System.out.println("utils.billable_units|101|ERR"); }
+                                                         ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+5 errors

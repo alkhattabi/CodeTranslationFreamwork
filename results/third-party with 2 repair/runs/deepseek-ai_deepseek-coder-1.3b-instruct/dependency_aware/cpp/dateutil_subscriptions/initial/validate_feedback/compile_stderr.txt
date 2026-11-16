@@ -1,0 +1,68 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int renewal_date(int)’:
+utils.cpp:27:9: error: ‘date’ was not declared in this scope
+   27 |         date start = date(year, month, day);
+      |         ^~~~
+utils.cpp:28:13: error: expected ‘;’ before ‘end’
+   28 |         date end = start + relativedelta(months=1);
+      |             ^~~~
+      |             ;
+utils.cpp:29:16: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   29 |         return end.year * 10000 + end.month * 100 + end.day;
+      |                ^~~
+      |                std::end
+In file included from /usr/include/c++/13/bits/algorithmfwd.h:39,
+                 from /usr/include/c++/13/bits/stl_algo.h:59,
+                 from /usr/include/c++/13/algorithm:61,
+                 from api.hpp:2,
+                 from utils.cpp:2:
+/usr/include/c++/13/initializer_list:99:5: note: ‘std::end’ declared here
+   99 |     end(initializer_list<_Tp> __ils) noexcept
+      |     ^~~
+utils.cpp:30:14: error: ‘ValueError’ does not name a type
+   30 |     } catch (ValueError) {
+      |              ^~~~~~~~~~
+service.cpp:4:10: fatal error: dateutil/relativedelta.hpp: No such file or directory
+    4 | #include <dateutil/relativedelta.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+main.cpp: In function ‘int renewal_date(int)’:
+main.cpp:27:22: error: ‘year’ is not a member of ‘std::chrono’
+   27 |         std::chrono::year y(year);
+      |                      ^~~~
+main.cpp:28:22: error: ‘month’ is not a member of ‘std::chrono’
+   28 |         std::chrono::month m(month);
+      |                      ^~~~~
+main.cpp:29:22: error: ‘day’ is not a member of ‘std::chrono’
+   29 |         std::chrono::day d(day);
+      |                      ^~~
+main.cpp:30:81: error: ‘year_month_day’ is not a member of ‘std::chrono’
+   30 |         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::year_month_day{y, m, d};
+      |                                                                                 ^~~~~~~~~~~~~~
+main.cpp:31:87: error: ‘months’ is not a member of ‘std::chrono’
+   31 |         std::chrono::time_point<std::chrono::system_clock> end = start + std::chrono::months(1);
+      |                                                                                       ^~~~~~
+main.cpp:32:39: error: no matching function for call to ‘floor<int>(std::__success_type<long int>::type)’
+   32 |         return std::chrono::floor<int>(end.time_since_epoch() / std::chrono::seconds(1));
+      |                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/13/chrono:41,
+                 from main.cpp:2:
+/usr/include/c++/13/bits/chrono.h:388:7: note: candidate: ‘template<class _ToDur, class _Rep, class _Period> constexpr std::chrono::__enable_if_is_duration<_ToDur> std::chrono::floor(const duration<_Rep, _Period>&)’
+  388 |       floor(const duration<_Rep, _Period>& __d)
+      |       ^~~~~
+/usr/include/c++/13/bits/chrono.h:388:7: note:   template argument deduction/substitution failed:
+/usr/include/c++/13/bits/chrono.h: In substitution of ‘template<class _Tp> using std::chrono::__enable_if_is_duration = typename std::enable_if<std::chrono::__is_duration<_Tp>::value, _Tp>::type [with _Tp = int]’:
+/usr/include/c++/13/bits/chrono.h:388:7:   required by substitution of ‘template<class _ToDur, class _Rep, class _Period> constexpr std::chrono::__enable_if_is_duration<_ToDur> std::chrono::floor(const duration<_Rep, _Period>&) [with _ToDur = int; _Rep = <missing>; _Period = <missing>]’
+main.cpp:32:39:   required from here
+/usr/include/c++/13/bits/chrono.h:240:13: error: no type named ‘type’ in ‘struct std::enable_if<false, int>’
+  240 |       using __enable_if_is_duration
+      |             ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/bits/chrono.h:1041:7: note: candidate: ‘template<class _ToDur, class _Clock, class _Dur> constexpr std::enable_if_t<__is_duration_v<_ToDur>, std::chrono::time_point<_Clock, _ToDur> > std::chrono::floor(const time_point<_Clock, _Dur>&)’
+ 1041 |       floor(const time_point<_Clock, _Dur>& __tp)
+      |       ^~~~~
+/usr/include/c++/13/bits/chrono.h:1041:7: note:   template argument deduction/substitution failed:
+main.cpp:32:39: note:   mismatched types ‘const std::chrono::time_point<_Clock, _Dur>’ and ‘std::__success_type<long int>::type’ {aka ‘long int’}
+   32 |         return std::chrono::floor<int>(end.time_since_epoch() / std::chrono::seconds(1));
+      |                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

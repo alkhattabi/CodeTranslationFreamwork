@@ -1,0 +1,31 @@
+public class Main {
+    public static int solve(int n) {
+        int energy = matrixEnergy(n);
+        int[] vector = {energy, vectorSignature(n), n};
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i] < -150 || vector[i] > 250) {
+                vector[i] = (vector[i] > 0) ? 250 : -150;
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i] > 0) {
+                sum += vector[i];
+            } else {
+                sum -= vector[i];
+            }
+        }
+        return sum + (energy % 17);
+    }
+
+    // Static methods to be implemented in the service and utils classes
+    public static int matrixEnergy(int n) {
+        // Implementation
+        return 0;
+    }
+
+    public static int vectorSignature(int n) {
+        // Implementation
+        return 0;
+    }
+}

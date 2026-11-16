@@ -1,0 +1,20 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = (demand < 100) ? 15 : 35;
+    int available = (n > 0) ? n : 0;
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+```
+
+Please note that the `weekly_demand` function is not defined in the provided Python code, so it's assumed that it's a global function in the `api.hpp` file. If it's not, you'll need to provide the definition or include the necessary header file.

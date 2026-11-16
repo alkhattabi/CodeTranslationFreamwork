@@ -1,0 +1,15 @@
+Here is the corrected JavaScript version of your Python code:
+
+```javascript
+export function category_balance(n) {
+    n = Math.max(-200, Math.min(200, n));
+    let frame = {
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, Math.floor(n / 2), -7, Math.floor(n / 9), 4, -Math.floor(n / 3)]
+    };
+    let sums = frame.amount.reduce((a, b) => a + b, 0);
+    return 2 * sums - sums.filter(x => x < 0).reduce((a, b) => a + b, 0);
+}
+```
+
+This JavaScript code does the same thing as your Python code. It takes an integer `n` as input, and returns an integer. It first clamps `n` between -200 and 200, then it creates a frame with categories and amounts, calculates the sum of the amounts, and finally returns the result of the formula.

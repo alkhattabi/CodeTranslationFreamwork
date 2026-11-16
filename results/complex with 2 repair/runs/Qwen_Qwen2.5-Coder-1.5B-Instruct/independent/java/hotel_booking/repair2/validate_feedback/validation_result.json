@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:28: error: class, interface, enum, or record expected\nDEPENDENCY LodgingService.java:\n^\nMain.java:48: error: class, interface, enum, or record expected\nDEPENDENCY Utils.java:\n^\n2 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

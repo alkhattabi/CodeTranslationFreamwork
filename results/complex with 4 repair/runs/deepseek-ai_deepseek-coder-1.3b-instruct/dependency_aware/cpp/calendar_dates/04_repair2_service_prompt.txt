@@ -1,0 +1,95 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+/usr/bin/ld: /tmp/ccgBHbeQ.o: in function `valid_date(int)':
+main.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/cc7BaM6z.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccgBHbeQ.o: in function `day_of_year(int)':
+main.cpp:(.text+0x183): multiple definition of `day_of_year(int)'; /tmp/ccSV5v8e.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int day_of_year(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int day_of_year(int n);
+int valid_date(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int day_of_year(int n) {
+    if (!valid_date(n)) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    int total = day;
+    for (int m = 2; m <= month; ++m) {
+        int days = 31;
+        if (m == 4 || m == 6 || m == 9 || m == 11) {
+            days = 30;
+        }
+        if (m == 2) {
+            bool leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+            days = leap ? 29 : 28;
+        }
+        total += days;
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_date
+
+def day_of_year(n: int) -> int:
+    if valid_date(n) == 0:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    total = day
+    m = 1
+    while m < month:
+        days = 31
+        if m == 4 or m == 6 or m == 9 or m == 11:
+            days = 30
+        if m == 2:
+            leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+            days = 29 if leap else 28
+        total += days
+        m += 1
+    return total
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int valid_date(int n) {
+    if (n < 10000101 || n > 99991231) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    if (month < 1 || month > 12 || day < 1) {
+        return 0;
+    }
+    int days = 31;
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;
+    }
+    if (month == 2) {
+        bool leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+        days = leap ? 29 : 28;
+    }
+    return day <= days ? 1 : 0;
+}

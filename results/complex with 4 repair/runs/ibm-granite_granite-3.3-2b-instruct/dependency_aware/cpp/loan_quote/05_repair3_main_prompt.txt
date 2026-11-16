@@ -1,0 +1,110 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+ const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:77:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+   76 | # include <bit> // std::__bit_width
+  +++ |+#include <cstddef>
+   77 | #endif
+/usr/include/c++/13/bits/stl_algobase.h:436:32: error: ‘_Num’ was not declared in this scope
+  436 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+/usr/include/c++/13/bits/stl_algobase.h:441:29: error: ‘_Num’ was not declared in this scope
+  441 |           return __result + _Num;
+      |                             ^~~~
+/usr/include/c++/13/bits/stl_algobase.h: In static member function ‘static _Up* std::__copy_move_backward<_IsMove, true, std::random_access_iterator_tag>::__copy_move_b(_Tp*, _Tp*, _Up*)’:
+/usr/include/c++/13/bits/stl_algobase.h:746:17: error: ‘ptrdiff_t’ does not name a type
+  746 |           const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:746:17: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+/usr/include/c++/13/bits/stl_algobase.h:747:32: error: ‘_Num’ was not declared in this scope
+  747 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int yearly_interest(int n);
+int credit_band(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+main.cpp
+
+#include "api.hpp"
+
+int solve(int n) {
+    int band = credit_band(n);
+    if (band == 0) {
+        return -1;
+    }
+    int principal = 10000 + (n - 300) * 10;
+    int interest = yearly_interest(n);
+    int fee = 150 if (band >= 3) else 350;
+    int total = principal + interest + fee;
+    return (total + 11) / 12;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import credit_band
+from service import yearly_interest
+
+def solve(n: int) -> int:
+    band = credit_band(n)
+    if band == 0:
+        return -1
+    principal = 10000 + (n - 300) * 10
+    interest = yearly_interest(n)
+    fee = 150 if band >= 3 else 350
+    total = principal + interest + fee
+    return (total + 11) // 12
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int yearly_interest(int n) {
+    int band = credit_band(n);
+    if (band == 0) {
+        return -1;
+    }
+    int principal = 10000 + (n - 300) * 10;
+    int rate = 18 - band * 3;
+    int interest = principal * rate / 100;
+    if (principal > 14000) {
+        interest += 125;
+    }
+    return interest;
+}
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}

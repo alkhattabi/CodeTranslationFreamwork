@@ -1,0 +1,19 @@
+Here is the corrected version of Utils.java:
+
+```java
+public class Utils {
+    public static int weeklyDemand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}
+```
+
+This Java code does the same thing as the Python code you provided. It defines a public static method `weeklyDemand` that calculates the weekly demand based on the input `n`. The method checks if `n` is less than 0, if so it returns 0. Otherwise, it calculates the base demand and the extra demand based on the input `n`. If `n` is 40 or more, it adds the quotient of `n` divided by 4 to the base demand. Finally, it returns the sum of the base demand and the extra demand.

@@ -1,0 +1,13 @@
+#pragma once
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    if (!valid_date(n)) {
+        return -1;
+    }
+    int month = (n / 100) % 100;
+    int quarter = (month - 1) / 3 + 1;
+    return quarter * 1000 + day_of_year(n);
+}

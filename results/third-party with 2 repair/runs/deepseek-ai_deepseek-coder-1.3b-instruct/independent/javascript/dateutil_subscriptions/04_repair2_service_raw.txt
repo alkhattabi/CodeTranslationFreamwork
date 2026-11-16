@@ -1,0 +1,20 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { renewal_date } from "./utils.mjs";
+
+export function grace_period(n) {
+    const renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    const year = Math.floor(renewed / 10000);
+    const month = Math.floor((renewed - year * 10000) / 100);
+    const day = renewed - year * 10000 - month * 100;
+    const due = new Date(year, month - 1, day);
+    due.setMonth(due.getMonth() + 2);
+    return due.getFullYear() * 10000 + due.getMonth() * 100 + due.getDate();
+}
+```
+
+This code is exporting a function `grace_period` that calculates the grace period based on the input `n`. The function first calls the `renewal_date` function from the `utils.mjs` module to get the renewed date. If the renewed date is less than 0, it returns -1. Otherwise, it calculates the year, month, and day from the renewed date. It then creates a new `Date` object with the year, month, and day, and sets the month to 2 months later. Finally, it returns the year, month, and day as a single integer.

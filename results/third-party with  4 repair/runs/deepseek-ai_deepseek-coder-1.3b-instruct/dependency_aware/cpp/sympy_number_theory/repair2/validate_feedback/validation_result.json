@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nutils.cpp: In function \u2018int factor_signature(int)\u2019:\nutils.cpp:9:34: error: \u2018sp\u2019 has not been declared\n    9 |     std::map<int, int> factors = sp::factorint(value);\n      |                                  ^~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:17:9: warning: #pragma once in main file\n   17 | #pragma once\n      |         ^~~~\nservice.cpp:18:10: fatal error: sympy/ntheory.h: No such file or directory\n   18 | #include <sympy/ntheory.h>\n      |          ^~~~~~~~~~~~~~~~~\ncompilation terminated.\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:5:10: fatal error: sympy/ntheory.h: No such file or directory\n    5 | #include <sympy/ntheory.h>\n      |          ^~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

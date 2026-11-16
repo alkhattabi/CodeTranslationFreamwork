@@ -1,0 +1,190 @@
+{
+  "compiled": true,
+  "passed": 2,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 101,
+      "expected": 1220,
+      "actual": "1169"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 350,
+      "expected": 7700,
+      "actual": "7325"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 400,
+      "expected": 9200,
+      "actual": "8750"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 99,
+      "expected": 1141,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": 210,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 700,
+      "expected": 24500,
+      "actual": "23300"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1000,
+      "expected": 39500,
+      "actual": "37550"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 101,
+      "expected": 1020,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 350,
+      "expected": 7500,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 400,
+      "expected": 9000,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 0,
+      "expected": 0,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 99,
+      "expected": 990,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 1,
+      "expected": 10,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 700,
+      "expected": 24000,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": -50,
+      "expected": 0,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "service",
+      "function": "energy_charge",
+      "input": 1000,
+      "expected": 39000,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 101,
+      "expected": 101,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 350,
+      "expected": 350,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 400,
+      "expected": 400,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 0,
+      "expected": 0,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 99,
+      "expected": 99,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 1,
+      "expected": 1,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 700,
+      "expected": 700,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": -50,
+      "expected": 0,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "billable_units",
+      "input": 1000,
+      "expected": 1000,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    }
+  ]
+}

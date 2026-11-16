@@ -1,0 +1,34 @@
+{
+  "compiled": true,
+  "passed": 27,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1015,
+      "expected": 22641,
+      "actual": "-1"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2010,
+      "expected": 30532,
+      "actual": "-1"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": -1,
+      "actual": "0"
+    }
+  ]
+}

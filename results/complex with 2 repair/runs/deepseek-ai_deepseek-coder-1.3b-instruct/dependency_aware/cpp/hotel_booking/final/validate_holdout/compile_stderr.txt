@@ -1,0 +1,8 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cceewzgU.o: in function `valid_nights(int)':
+main.cpp:(.text+0x136): multiple definition of `valid_nights(int)'; /tmp/ccOW5U14.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cceewzgU.o: in function `lodging_charge(int)':
+main.cpp:(.text+0x96): multiple definition of `lodging_charge(int)'; /tmp/ccPIKNlz.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

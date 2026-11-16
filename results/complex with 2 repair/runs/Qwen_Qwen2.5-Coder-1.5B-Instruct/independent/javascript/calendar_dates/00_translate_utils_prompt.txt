@@ -1,0 +1,25 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function valid_date(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function valid_date(n) { /* implementation */ }
+
+PYTHON FILE utils.py:
+
+def valid_date(n: int) -> int:
+    if n < 10000101 or n > 99991231:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    if month < 1 or month > 12 or day < 1:
+        return 0
+    days = 31
+    if month == 4 or month == 6 or month == 9 or month == 11:
+        days = 30
+    if month == 2:
+        leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+        days = 29 if leap else 28
+    return 1 if day <= days else 0

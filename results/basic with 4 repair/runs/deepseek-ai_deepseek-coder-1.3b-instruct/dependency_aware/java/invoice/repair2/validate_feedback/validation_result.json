@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:6: error: cannot find symbol\n        return n * Utils.unitPrice(n);\n                        ^\n  symbol:   method unitPrice(int)\n  location: class Utils\n1 error\n",
+  "failed_modules": [
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

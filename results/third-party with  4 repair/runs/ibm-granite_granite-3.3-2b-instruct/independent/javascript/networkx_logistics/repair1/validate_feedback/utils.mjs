@@ -1,0 +1,36 @@
+// utils.mjs
+
+export function route_cost(n) {
+    const x = Math.abs(n) % 13;
+    const graph = {
+        0: {1: 3 + x % 3, 2: 5 + x % 4},
+        1: {3: 4 + x % 2, 4: 7},
+        2: {3: 1 + x % 5, 4: 3 + x % 3},
+        3: {5: 6},
+        4: {5: 2 + x % 4},
+        5: {6: 1 + x % 2},
+        6: {2: 15}
+    };
+
+    let path = [];
+    let current = 0;
+
+    function shortestPath(current, target, graph) {
+        if (current === target) {
+            path.push(current);
+            return path;
+        }
+
+        for (const neighbor in graph[current]) {
+            if (neighbor in graph) {
+                const newPath = shortestPath(neighbor, target, graph);
+                if (newPath.length > path.length) {
+                    path = newPath;
+                }
+            }
+        }
+        return path;
+    }
+
+    return shortestPath(0, 6, graph);
+}

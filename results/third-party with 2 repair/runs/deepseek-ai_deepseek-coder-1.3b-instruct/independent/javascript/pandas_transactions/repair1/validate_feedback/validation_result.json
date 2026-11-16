@@ -1,0 +1,267 @@
+{
+  "compiled": true,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -100,
+      "expected": -220,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 49,
+      "expected": 163,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -10,
+      "expected": 6,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 100,
+      "expected": 289,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 50,
+      "expected": 180,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20,
+      "expected": 96,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 200,
+      "expected": 500,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": 22,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 9,
+      "expected": 60,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 21,
+      "expected": 92,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 7,
+      "expected": 56,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -20,
+      "expected": -10,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": -100,
+      "expected": 4,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 49,
+      "expected": 56,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": -10,
+      "expected": 31,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 100,
+      "expected": 58,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 50,
+      "expected": 61,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 20,
+      "expected": 57,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 200,
+      "expected": 30,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 1,
+      "expected": 16,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 9,
+      "expected": 42,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 21,
+      "expected": 50,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": 7,
+      "expected": 33,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "service",
+      "function": "rolling_alert",
+      "input": -20,
+      "expected": 33,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": -100,
+      "expected": -211,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 49,
+      "expected": 131,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": -10,
+      "expected": -1,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 100,
+      "expected": 248,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 50,
+      "expected": 136,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 20,
+      "expected": 63,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 200,
+      "expected": 483,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 1,
+      "expected": 16,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 9,
+      "expected": 35,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 21,
+      "expected": 66,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": 7,
+      "expected": 36,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "category_balance",
+      "input": -20,
+      "expected": -26,
+      "actual": "ERR: TypeError: sums.filter is not a function"
+    }
+  ]
+}

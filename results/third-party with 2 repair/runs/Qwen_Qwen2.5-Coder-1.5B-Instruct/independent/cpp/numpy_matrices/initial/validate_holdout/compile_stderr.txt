@@ -1,0 +1,14 @@
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccoQLGl1.o: in function `main':
+EvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x143): undefined reference to `solve(int)'
+/usr/bin/ld: /tmp/ccoQLGl1.o:EvalRunner.cpp:(.text+0x188): more undefined references to `solve(int)' follow
+collect2: error: ld returned 1 exit status

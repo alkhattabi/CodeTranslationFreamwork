@@ -1,0 +1,55 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int digit_sum(int)’:
+service.cpp:4:16: error: ‘abs’ was not declared in this scope
+    4 |         sum += abs(n % 10);
+      |                ^~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:17: error: ‘scoreDigits’ was not declared in this scope; did you mean ‘score_digits’?
+    5 |     int value = scoreDigits(n);
+      |                 ^~~~~~~~~~~
+      |                 score_digits
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int digit_sum(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int score_digits(int n);
+int digit_sum(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int digit_sum(int n) {
+    n = std::abs(n);
+    int total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n /= 10;
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+def digit_sum(n: int) -> int:
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total

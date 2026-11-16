@@ -1,0 +1,58 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { lodging_charge } from "./service.mjs";
+  import { valid_nights } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+PYTHON FILE main.py:
+
+from utils import valid_nights
+from service import lodging_charge
+
+def solve(n: int) -> int:
+    nights = valid_nights(n)
+    if nights == 0:
+        return -1
+    rooms = n // 100
+    charge = lodging_charge(n)
+    cleaning = rooms * 45
+    tax = (charge + cleaning) * 15 // 100
+    return charge + cleaning + tax
+
+
+ALREADY TRANSLATED DEPENDENCY: service.mjs
+// service.mjs
+export function lodging_charge(n) {
+    const validNights = require('./utils').valid_nights;
+    let nights = validNights(n);
+    if (nights === 0) {
+        return 0;
+    }
+    let rooms = Math.floor(n / 100);
+    let charge = rooms * nights * 150;
+    if (nights >= 7) {
+        charge = Math.floor(charge / 10);
+    }
+    if (rooms >= 5) {
+        charge = Math.floor(charge / 20);
+    }
+    return charge;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+// utils.js
+export function valid_nights(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let rooms = Math.floor(n / 100);
+    let nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}

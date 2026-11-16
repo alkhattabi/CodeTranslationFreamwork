@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:1: error: unclosed character literal\nobj['output']\n    ^\nUtils.java:1: error: unclosed character literal\nobj['output']\n           ^\nMain.java:1: error: illegal character: '`'\n```java\n^\nMain.java:1: error: illegal character: '`'\n```java\n ^\nMain.java:1: error: illegal character: '`'\n```java\n  ^\nMain.java:2: error: class, interface, enum, or record expected\nimport java.util.function.Function;\n^\nMain.java:19: error: ')' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                           ^\nMain.java:19: error: '(' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                              ^\nMain.java:19: error: ')' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                           ^\nMain.java:19: error: not a statement\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                                 ^\nMain.java:19: error: ';' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                                  ^\nMain.java:19: error: 'else' without 'if'\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                            ^\nMain.java:49: error: reached end of file while parsing\n        System.out.println(solve(270\n                                    ^\n13 errors\n",
+  "failed_modules": [
+    "utils",
+    "main"
+  ],
+  "case_failures": []
+}

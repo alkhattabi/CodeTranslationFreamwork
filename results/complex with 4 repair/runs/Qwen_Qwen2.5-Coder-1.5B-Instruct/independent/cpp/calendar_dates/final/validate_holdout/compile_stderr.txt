@@ -1,0 +1,38 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int solve(int)’:
+utils.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   39 | }
+      | ^
+utils.cpp: In function ‘int day_of_year(int)’:
+utils.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   43 | }
+      | ^
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:12:16: error: conflicting declaration of ‘int valid_date(int)’ with ‘C’ linkage
+   12 | extern "C" int valid_date(int n);
+      |                ^~~~~~~~~~
+service.cpp:9:5: note: previous declaration with ‘C++’ linkage
+    9 | int valid_date(int n);
+      |     ^~~~~~~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int main()’:
+main.cpp:17:10: error: ‘cout’ is not a member of ‘std’
+   17 |     std::cout << "Result: " << result << std::endl;
+      |          ^~~~
+main.cpp:5:1: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+    4 | #include <cstdlib>
+  +++ |+#include <iostream>
+    5 | 
+main.cpp:17:47: error: ‘endl’ is not a member of ‘std’
+   17 |     std::cout << "Result: " << result << std::endl;
+      |                                               ^~~~
+main.cpp:5:1: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+    4 | #include <cstdlib>
+  +++ |+#include <ostream>
+    5 | 

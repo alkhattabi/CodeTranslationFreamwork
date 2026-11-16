@@ -1,0 +1,23 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int rolling_alert(int)’:
+service.cpp:20:10: error: ‘vector’ is not a member of ‘std’
+   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |          ^~~~~~
+service.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+service.cpp:20:17: error: expected primary-expression before ‘int’
+   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |                 ^~~
+service.cpp:21:25: error: ‘accumulate’ is not a member of ‘std’
+   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);
+      |                         ^~~~~~~~~~
+service.cpp:21:36: error: ‘series’ was not declared in this scope
+   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);
+      |                                    ^~~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

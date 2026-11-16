@@ -1,0 +1,105 @@
+{
+  "compiled": true,
+  "passed": 17,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 41,
+      "expected": 4000,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": 920,
+      "actual": "800"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19,
+      "expected": 2360,
+      "actual": "2000"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 70,
+      "expected": 5200,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 55,
+      "expected": 4900,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 14,
+      "expected": 1640,
+      "actual": "1400"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 7,
+      "expected": 1280,
+      "actual": "1100"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 28,
+      "expected": 2360,
+      "actual": "2000"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20,
+      "expected": 2360,
+      "actual": "2000"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 21,
+      "expected": 2000,
+      "actual": "1700"
+    },
+    {
+      "module": "service",
+      "function": "order_quantity",
+      "input": 41,
+      "expected": 144,
+      "actual": "120"
+    },
+    {
+      "module": "service",
+      "function": "order_quantity",
+      "input": 70,
+      "expected": 192,
+      "actual": "180"
+    },
+    {
+      "module": "service",
+      "function": "order_quantity",
+      "input": 55,
+      "expected": 180,
+      "actual": "156"
+    }
+  ]
+}

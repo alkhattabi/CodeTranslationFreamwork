@@ -1,0 +1,44 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int score_digits(int n);
+int digit_sum(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    int value = score_digits(n);
+    if (value % 2 == 0) {
+        return value + 1;
+    }
+    return value - 1;
+}
+
+
+ORIGINAL PYTHON:
+from service import score_digits
+
+def solve(n: int) -> int:
+    value = score_digits(n)
+    if value % 2 == 0:
+        return value + 1
+    return value - 1
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int score_digits(int n) {
+    return solve(n) * 3;
+}

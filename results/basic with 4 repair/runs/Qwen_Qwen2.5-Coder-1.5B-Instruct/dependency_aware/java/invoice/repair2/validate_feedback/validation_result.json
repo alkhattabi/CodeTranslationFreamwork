@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:8: error: cannot find symbol\n        return n * Utils.unit_price(n);\n                   ^\n  symbol:   variable Utils\n  location: class Service\nMain.java:8: error: cannot find symbol\n        return n * Utils.unitPrice(n) + (n * Utils.unitPrice(n) * 15) / 100;\n                   ^\n  symbol:   variable Utils\n  location: class Main\nMain.java:8: error: cannot find symbol\n        return n * Utils.unitPrice(n) + (n * Utils.unitPrice(n) * 15) / 100;\n                                             ^\n  symbol:   variable Utils\n  location: class Main\nMain.java:3: error: duplicate class: com.example.Main\npublic class Main {\n       ^\nEvalRunner.java:3: error: cannot access Main\n  try { System.out.println(\"main.solve|11|\" + Main.solve(11)); } catch (Throwable e) { System.out.println(\"main.solve|11|ERR\"); }\n                                              ^\n  bad source file: ./Main.java\n    file does not contain class Main\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nService.java:3: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nEvalRunner.java:7: error: cannot access Service\n  try { System.out.println(\"service.gross|11|\" + Service.gross(11)); } catch (Throwable e) { System.out.println(\"service.gross|11|ERR\"); }\n                                                 ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n7 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

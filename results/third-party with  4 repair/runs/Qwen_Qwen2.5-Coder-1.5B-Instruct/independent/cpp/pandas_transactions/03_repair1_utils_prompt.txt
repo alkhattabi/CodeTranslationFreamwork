@@ -1,0 +1,108 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int rolling_alert(int)’:
+service.cpp:20:10: error: ‘vector’ is not a member of ‘std’
+   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |          ^~~~~~
+service.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+service.cpp:20:17: error: expected primary-expression before ‘int’
+   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |                 ^~~
+service.cpp:21:25: error: ‘accumulate’ is not a member of ‘std’
+   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);
+      |                         ^~~~~~~~~~
+service.cpp:21:36: error: ‘series’ was not declared in this scope
+   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);
+      |                                    ^~~~~~
+main.cpp: In function ‘int rolling_alert(int)’:
+main.cpp:6:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    6 | }
+      | ^
+main.cpp: In function ‘int category_balance(int)’:
+main.cpp:11:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   11 | }
+  
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int category_balance(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+// Helper function to calculate the sum of amounts for each category
+int calculate_category_sum(const std::vector<int>& amounts) {
+    int sum_A = 0;
+    int sum_B = 0;
+    int sum_C = 0;
+
+    for (int amount : amounts) {
+        if (amount >= 0) {
+            if (amount % 3 == 0) {
+                sum_A += amount;
+            } else if (amount % 3 == 1) {
+                sum_B += amount;
+            } else {
+                sum_C += amount;
+            }
+        } else {
+            if (-amount % 3 == 0) {
+                sum_A -= amount;
+            } else if (-amount % 3 == 1) {
+                sum_B -= amount;
+            } else {
+                sum_C -= amount;
+            }
+        }
+    }
+
+    return sum_A + sum_B - sum_C;
+}
+
+// Function to calculate the category balance based on the given input
+int category_balance(int n) {
+    // Ensure the input is within the valid range
+    n = std::max(-200, std::min(200, n));
+
+    // Create a vector with the given amounts
+    std::vector<int> amounts = {n, 12, n / 2, -7, n % 9, 4, -n / 3};
+
+    // Calculate the total sum of amounts for each category
+    int total_sum = calculate_category_sum(amounts);
+
+    // Return twice the sum of amounts for category A minus the sum of amounts for categories B and C
+    return 2 * total_sum - calculate_category_sum({0, 0, 0});
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+
+def category_balance(n: int) -> int:
+    n = max(-200, min(200, n))
+    frame = pd.DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, n // 2, -7, n % 9, 4, -n // 3]
+    })
+    sums = frame.groupby("category", sort=True)["amount"].sum()
+    return int(2 * sums.loc["A"] + sums.loc["B"] - sums.loc["C"])

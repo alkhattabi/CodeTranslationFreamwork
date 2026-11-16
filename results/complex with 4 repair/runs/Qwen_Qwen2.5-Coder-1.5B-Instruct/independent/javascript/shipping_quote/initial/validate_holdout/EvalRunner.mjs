@@ -1,0 +1,12 @@
+import * as M_utils from "./utils.mjs";
+import * as M_service from "./service.mjs";
+import * as M_main from "./main.mjs";
+const tests = [{"m": "main", "f": "solve", "n": 2501, "k": "main.solve|2501"}, {"m": "main", "f": "solve", "n": -3000, "k": "main.solve|-3000"}, {"m": "main", "f": "solve", "n": 499, "k": "main.solve|499"}, {"m": "main", "f": "solve", "n": 5001, "k": "main.solve|5001"}, {"m": "main", "f": "solve", "n": 501, "k": "main.solve|501"}, {"m": "main", "f": "solve", "n": 0, "k": "main.solve|0"}, {"m": "main", "f": "solve", "n": 1, "k": "main.solve|1"}, {"m": "main", "f": "solve", "n": 9999, "k": "main.solve|9999"}, {"m": "main", "f": "solve", "n": 4999, "k": "main.solve|4999"}, {"m": "service", "f": "transport_cost", "n": 2501, "k": "service.transport_cost|2501"}, {"m": "service", "f": "transport_cost", "n": -3000, "k": "service.transport_cost|-3000"}, {"m": "service", "f": "transport_cost", "n": 499, "k": "service.transport_cost|499"}, {"m": "service", "f": "transport_cost", "n": 5001, "k": "service.transport_cost|5001"}, {"m": "service", "f": "transport_cost", "n": 501, "k": "service.transport_cost|501"}, {"m": "service", "f": "transport_cost", "n": 0, "k": "service.transport_cost|0"}, {"m": "service", "f": "transport_cost", "n": 1, "k": "service.transport_cost|1"}, {"m": "service", "f": "transport_cost", "n": 9999, "k": "service.transport_cost|9999"}, {"m": "service", "f": "transport_cost", "n": 4999, "k": "service.transport_cost|4999"}, {"m": "utils", "f": "weight_blocks", "n": 2501, "k": "utils.weight_blocks|2501"}, {"m": "utils", "f": "weight_blocks", "n": -3000, "k": "utils.weight_blocks|-3000"}, {"m": "utils", "f": "weight_blocks", "n": 499, "k": "utils.weight_blocks|499"}, {"m": "utils", "f": "weight_blocks", "n": 5001, "k": "utils.weight_blocks|5001"}, {"m": "utils", "f": "weight_blocks", "n": 501, "k": "utils.weight_blocks|501"}, {"m": "utils", "f": "weight_blocks", "n": 0, "k": "utils.weight_blocks|0"}, {"m": "utils", "f": "weight_blocks", "n": 1, "k": "utils.weight_blocks|1"}, {"m": "utils", "f": "weight_blocks", "n": 9999, "k": "utils.weight_blocks|9999"}, {"m": "utils", "f": "weight_blocks", "n": 4999, "k": "utils.weight_blocks|4999"}];
+const modules = {"utils":M_utils, "service":M_service, "main":M_main};
+for (const t of tests) {
+  try {
+    const v = modules[t.m][t.f](t.n);
+    if (!Number.isSafeInteger(v)) throw new Error("result must be a safe integer");
+    console.log(JSON.stringify({k:t.k, v:v}));
+  } catch (e) { console.log(JSON.stringify({k:t.k, error:String(e)})); }
+}

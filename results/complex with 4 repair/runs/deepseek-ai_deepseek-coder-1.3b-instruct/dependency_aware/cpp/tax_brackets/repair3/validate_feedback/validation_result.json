@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:22:9: warning: #pragma once in main file\n   22 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cczB8E8S.o: in function `taxable_income(int)':\nservice.cpp:(.text+0xb5): multiple definition of `taxable_income(int)'; /tmp/ccsiwigD.o:utils.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

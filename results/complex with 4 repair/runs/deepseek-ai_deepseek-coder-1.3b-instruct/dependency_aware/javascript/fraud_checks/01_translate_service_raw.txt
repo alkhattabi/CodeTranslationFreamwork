@@ -1,0 +1,27 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+import { luhn_valid } from "./utils.mjs";
+
+export function risk_points(n) {
+    if (n <= 0) {
+        return 100;
+    }
+    let score = 0;
+    if (luhn_valid(n) === 0) {
+        score += 40;
+    }
+    if (n % 11 === 0) {
+        score += 20;
+    }
+    if (n % 100 < 10) {
+        score += 15;
+    }
+    if (n < 1000) {
+        score += 25;
+    }
+    return score;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It checks if the number is valid according to the Luhn algorithm, and if it is, it adds a certain score to the total. The score is 40 for a valid number, 20 for a number divisible by 11, 15 for a number with a single digit less than 10, and 25 for a number less than 1000.

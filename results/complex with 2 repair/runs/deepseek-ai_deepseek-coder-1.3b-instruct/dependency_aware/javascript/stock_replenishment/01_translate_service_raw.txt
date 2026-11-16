@@ -1,0 +1,19 @@
+Here is the JavaScript ES-module source code for the function order_quantity(n):
+
+```javascript
+import { weekly_demand } from "./utils.mjs";
+
+export function order_quantity(n) {
+    const demand = weekly_demand(n);
+    const safety = 15;
+    const available = n > 0 ? n : 0;
+    const shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    const packs = Math.ceil(shortage / 12);
+    return packs * 12;
+}
+```
+
+This JavaScript ES-module source code exports the function order_quantity(n) which calculates the number of packs needed to fulfill the order quantity based on the demand and safety levels. The function uses the imported function weekly_demand(n) to calculate the demand based on the input n. The safety level is set to 15, the available quantity is the input n if it is greater than 0, the shortage is the demand plus the safety level minus the available quantity, and the packs are calculated by rounding up the shortage divided by 12. The function returns the number of packs needed.

@@ -1,0 +1,36 @@
+public class Main {
+    public static int solve(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        boolean isPrime = isPrime(value);
+        int nextPrime = nextPrime(value);
+        int primeBonus = isPrime? 50 : 0;
+        int factorSignature = factor_signature(n);
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature;
+    }
+
+    private static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    private static int nextPrime(int num) {
+        num++;
+        while (!isPrime(num)) {
+            num++;
+        }
+        return num;
+    }
+
+    private static int numberStrength(int n) {
+        // Placeholder for the original implementation
+        return 0;
+    }
+
+    private static int factor_signature(int n) {
+        // Placeholder for the original implementation
+        return 0;
+    }
+}

@@ -1,0 +1,15 @@
+Service.java:9: error: incompatible types: int[][] cannot be converted to int[]
+        int[] square = new int[3][3];
+                       ^
+Service.java:12: error: array required, but int found
+                square[i][j] = (int) (m[i][j] * m[j][i]);
+                         ^
+Service.java:17: error: array required, but int found
+            diagonal += square[i][i];
+                                 ^
+Main.java:7: error: cannot find symbol
+            bounded[i] = Math.clip(vector[i], -150, 250);
+                             ^
+  symbol:   method clip(int,int,int)
+  location: class Math
+4 errors

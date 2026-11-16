@@ -1,0 +1,39 @@
+public class Main {
+    public static int solve(int n) {
+        int balance = categoryBalance(n);
+        int alert = rollingAlert(n);
+        int[] scores = {Math.abs(balance) % 50, alert, Math.abs(n) % 50};
+        int[] ranks = new Ranking(scores).getRanks();
+        int penalty = (int) (ranks[0] * 7 + ranks[1] * 3);
+        return balance + alert - penalty;
+    }
+
+    // Dummy class to mimic pandas Series functionality
+    private static class Ranking {
+        private int[] scores;
+
+        Ranking(int[] scores) {
+            this.scores = scores;
+        }
+
+        int[] getRanks() {
+            // Assuming ranks are sorted in descending order
+            return ranks;
+        }
+    }
+}
+
+// Dummy utility classes for context
+public class Utils {
+    public static int categoryBalance(int n) {
+        // Placeholder implementation
+        return n;
+    }
+}
+
+public class Service {
+    public static int rollingAlert(int n) {
+        // Placeholder implementation
+        return n;
+    }
+}

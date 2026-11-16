@@ -1,0 +1,18 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function to normalize an integer
+int normalize(int n) {
+    if (n == INT_MIN) {
+        return INT_MAX;
+    }
+    return std::abs(n);
+}
+
+// Function to calculate the weighted value
+int weighted(int n) {
+    int x = normalize(n);
+    return x * 2 + 1;
+}

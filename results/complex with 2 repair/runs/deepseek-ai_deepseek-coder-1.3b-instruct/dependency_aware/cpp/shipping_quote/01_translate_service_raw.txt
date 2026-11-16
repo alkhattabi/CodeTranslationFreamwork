@@ -1,0 +1,30 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int transport_cost(int n) {
+    int blocks = weight_blocks(n);
+    if (blocks == 0) {
+        return 0;
+    }
+    int price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+```
+
+The `transport_cost` function calculates the cost of transport based on the number of blocks. The cost is calculated as follows:
+
+- If the number of blocks is 0, the cost is 0.
+- If the number of blocks is greater than 0 but less than or equal to 5, the cost is 1200 plus the number of blocks times 180.
+- If the number of blocks is greater than 5 but less than or equal to 12, the cost is the same as the previous calculation plus the additional cost for each additional block over 5.
+- If the number of blocks is greater than 12, the cost is the same as the previous calculation plus the additional cost for each additional block over 12.
+
+The `weight_blocks` function calculates the number of blocks based on the input number `n`. If `n` is less than or equal to 0, the number of blocks is 0. If `n` is greater than 10000, the number of blocks is set to 10000. Otherwise, the number of blocks is calculated as the ceiling of the division of `n + 499` by 500.

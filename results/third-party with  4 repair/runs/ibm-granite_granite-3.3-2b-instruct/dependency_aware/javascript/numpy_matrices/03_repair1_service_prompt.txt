@@ -1,0 +1,70 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+service.mjs
+/content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/numpy_matrices/initial/validate_feedback/service.mjs:17
+export function matrix_energy(n) { /* implementation */ }
+       ^
+
+SyntaxError: Identifier 'matrix_energy' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function matrix_energy(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { vector_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function matrix_energy(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+
+import { vector_signature } from "./utils.mjs";
+
+function matrix_energy(n) {
+    n = Math.max(-100, Math.min(100, n));
+    const m = [
+        [n % 5, 2, -1],
+        [3, n % 7, 4],
+        [1, 5, n % 3]
+    ];
+    const square = m.reduce((acc, row) => acc.map((col, i) => acc[i] + row[i] * m[i][i]), [0, 0, 0]);
+    const diagonal = square.reduce((acc, val, i) => (i === m.length - 1? acc + val : acc + val / m[i][i]), 0);
+    return diagonal + vector_signature(n);
+}
+
+export function matrix_energy(n) { /* implementation */ }
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+
+def matrix_energy(n: int) -> int:
+    x = max(-100, min(100, n))
+    m = np.array([[x % 5, 2, -1], [3, x % 7, 4], [1, 5, x % 3]], dtype=np.int64)
+    square = m @ m
+    diagonal = int(np.trace(square))
+    return diagonal + vector_signature(n)
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+
+function vector_signature(n) {
+    n = Math.max(-100, Math.min(100, n));
+    const v = [n % 11, Math.abs(n) % 7, (n / 3) % 9];
+    const m = Array.from({length: 3}, (_, i) => Array.from({length: 3}, (_, j) => (i + j === 2? 1 : 0)));
+    const out = m.reduce((acc, row, i) => {
+        return acc.map((val, j) => val + row[j] * v[i]);
+    }, [0, 0, 0]);
+    return Math.abs(out.reduce((sum, val) => sum + val, 0));
+}
+
+// Export the function
+export { vector_signature };

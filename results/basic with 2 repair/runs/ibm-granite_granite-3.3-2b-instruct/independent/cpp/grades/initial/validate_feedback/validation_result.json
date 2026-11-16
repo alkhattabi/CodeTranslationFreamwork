@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:4:13: error: expected \u2018;\u2019 before \u2018if\u2019\n    4 |     return 1 if (bonus_score(n) >= 60) else 0;\n      |             ^~~\n      |             ;\nmain.cpp:4:40: error: expected primary-expression before \u2018else\u2019\n    4 |     return 1 if (bonus_score(n) >= 60) else 0;\n      |                                        ^~~~\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

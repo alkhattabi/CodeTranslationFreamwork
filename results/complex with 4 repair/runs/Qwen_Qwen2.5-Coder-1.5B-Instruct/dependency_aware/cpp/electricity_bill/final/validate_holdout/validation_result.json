@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:46:27: error: expected \u2018,\u2019 or \u2018;\u2019 before \u2018if\u2019\n   46 |     int service_fee = 200 if units <= 400 else 500;\n      |                           ^~\nmain.cpp:47:30: error: expected \u2018,\u2019 or \u2018;\u2019 before \u2018if\u2019\n   47 |     int rebate = charge / 20 if units < 100 else 0;\n      |                              ^~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

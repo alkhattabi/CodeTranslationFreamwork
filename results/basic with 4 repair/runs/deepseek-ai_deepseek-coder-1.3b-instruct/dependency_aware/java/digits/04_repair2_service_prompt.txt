@@ -1,0 +1,55 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:7: error: cannot access Service
+  try { System.out.println("service.score_digits|0|" + Service.score_digits(0)); } catch (Throwable e) { System.out.println("service.score_digits|0|ERR"); }
+                                                       ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int score_digits(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.digit_sum(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int score_digits(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int digit_sum(int n) {
+        n = Math.abs(n);
+        int total = 0;
+        while (n > 0) {
+            total += n % 10;
+            n /= 10;
+        }
+        return total;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int digit_sum(int n) {
+        n = Math.abs(n);
+        int total = 0;
+        while (n > 0) {
+            total += n % 10;
+            n /= 10;
+        }
+        return total;
+    }
+}

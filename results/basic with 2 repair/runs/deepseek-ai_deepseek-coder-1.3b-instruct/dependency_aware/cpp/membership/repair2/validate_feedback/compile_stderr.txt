@@ -1,0 +1,15 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:9:9: warning: #pragma once in main file
+    9 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cca0WwjO.o: in function `discount(int)':
+main.cpp:(.text+0x70): multiple definition of `discount(int)'; /tmp/ccZjm3TV.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

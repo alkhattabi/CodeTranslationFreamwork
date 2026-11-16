@@ -1,0 +1,4 @@
+Main.java:9: error: duplicate class: Service
+class Service {
+^
+1 error

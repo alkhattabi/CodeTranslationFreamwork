@@ -1,0 +1,88 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/27 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/electricity_bill/initial/validate_feedback/main.mjs:2
+import { energyCharge } from "./service.mjs";
+         ^^^^^^^^^^^^
+SyntaxError: The requested module './service.mjs' does not provide an export named 'energyCharge'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { energy_charge } from "./service.mjs";
+  import { billable_units } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { energyCharge } from "./service.mjs";
+import { billableUnits } from "./utils.mjs";
+
+export function solve(n) {
+    const units = billableUnits(n);
+    if (units === 0) {
+        return 0;
+    }
+    const charge = energyCharge(units);
+    const serviceFee = 200 * (units <= 400 ? 1 : 2);
+    const rebate = Math.floor(charge / 20) * (units < 100 ? 1 : 0);
+    return charge + serviceFee - rebate;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+from service import energy_charge
+
+def solve(n: int) -> int:
+    units = billable_units(n)
+    if units == 0:
+        return 0
+    charge = energy_charge(n)
+    service_fee = 200 if units <= 400 else 500
+    rebate = charge // 20 if units < 100 else 0
+    return charge + service_fee - rebate
+
+
+DEPENDENCY service.mjs:
+import { billableUnits } from "./utils.mjs";
+
+export function energy_charge(n) {
+    const units = billableUnits(n);
+    let charge = 0;
+
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+
+    charge += units * 10;
+    return charge;
+}
+
+
+DEPENDENCY utils.mjs:
+export function billableUnits(n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}

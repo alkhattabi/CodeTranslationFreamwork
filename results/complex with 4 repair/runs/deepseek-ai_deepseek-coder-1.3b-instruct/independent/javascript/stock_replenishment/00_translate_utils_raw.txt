@@ -1,0 +1,17 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+export function weekly_demand(n) {
+    if (n < 0) {
+        return 0;
+    }
+    let base = n * 3;
+    let extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += Math.floor(n / 4);
+    }
+    return base + extra;
+}
+```
+
+This JavaScript function does exactly the same thing as the Python function. It takes an integer `n` as input and returns the result of a calculation based on the conditions specified in the Python function.

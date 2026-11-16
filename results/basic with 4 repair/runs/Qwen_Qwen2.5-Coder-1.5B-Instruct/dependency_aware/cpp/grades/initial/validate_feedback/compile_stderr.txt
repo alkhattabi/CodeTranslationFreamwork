@@ -1,0 +1,24 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int main()’:
+main.cpp:35:10: error: ‘cout’ is not a member of ‘std’
+   35 |     std::cout << "Result: " << result << std::endl;
+      |          ^~~~
+main.cpp:6:1: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+    5 | #include <cstdlib>
+  +++ |+#include <iostream>
+    6 | 
+main.cpp:35:47: error: ‘endl’ is not a member of ‘std’
+   35 |     std::cout << "Result: " << result << std::endl;
+      |                                               ^~~~
+main.cpp:6:1: note: ‘std::endl’ is defined in header ‘<ostream>’; did you forget to ‘#include <ostream>’?
+    5 | #include <cstdlib>
+  +++ |+#include <ostream>
+    6 | 

@@ -1,0 +1,29 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int lodging_charge(int n) {
+        int nights = Utils.valid_nights(n);
+        if (nights == 0) {
+            return 0;
+        }
+        int rooms = n / 100;
+        int charge = rooms * nights * 150;
+        if (nights >= 7) {
+            charge -= charge / 10;
+        }
+        if (rooms >= 5) {
+            charge -= charge / 20;
+        }
+        return charge;
+    }
+}
+```
+
+Please note that in Java, we need to import the Utils class to use its methods. The Utils class should be in the same package as the Service class. Here is how you can do it:
+
+```java
+import utils.Utils;
+```
+
+Also, please note that in Java, division operator `/` performs integer division. If you want to perform floating-point division, you should use `/` instead of `//`.

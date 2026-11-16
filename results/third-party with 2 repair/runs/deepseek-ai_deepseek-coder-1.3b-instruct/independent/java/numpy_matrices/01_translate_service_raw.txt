@@ -1,0 +1,31 @@
+Here is the Java equivalent of the Python code you provided:
+
+```java
+public class Service {
+    public static int matrix_energy(int n) {
+        int x = Math.max(Math.min(100, Math.abs(n)), -100);
+        int[][] m = new int[][] {
+            {x % 5, 2, -1},
+            {3, x % 7, 4},
+            {1, 5, x % 3}
+        };
+        int[][] square = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                square[i][j] = m[i][j] * m[j][i];
+            }
+        }
+        int diagonal = 0;
+        for (int i = 0; i < 3; i++) {
+            diagonal += square[i][i];
+        }
+        return diagonal + vector_signature(n);
+    }
+}
+```
+
+Please note that the `vector_signature` function is not defined in the provided Python code, so it is assumed that it is defined in the same Java file or in a separate class. If it's not, you will need to import it or define it in a separate class.
+
+Also, please note that Java does not support dynamic typing, so we need to specify the type of the variables. In this case, we use `int` for all variables.
+
+Finally, Java does not have a built-in function to calculate the trace of a matrix, so we have to create a new method to calculate it.

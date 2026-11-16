@@ -1,0 +1,78 @@
+utils.cpp: In function ‘int category_balance(int)’:
+utils.cpp:6:10: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |          ^~~~~~
+utils.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+utils.cpp:6:32: error: ‘string’ is not a member of ‘std’
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |                                ^~~~~~
+utils.cpp:2:1: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+    1 | #include "api.hpp"
+  +++ |+#include <string>
+    2 | 
+utils.cpp:6:40: error: template argument 1 is invalid
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |                                        ^~~
+utils.cpp:6:46: error: ‘frame’ was not declared in this scope
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |                                              ^~~~~
+utils.cpp:16:10: error: ‘map’ is not a member of ‘std’
+   16 |     std::map<std::string, int> sums;
+      |          ^~~
+utils.cpp:2:1: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+    1 | #include "api.hpp"
+  +++ |+#include <map>
+    2 | 
+utils.cpp:16:19: error: ‘string’ is not a member of ‘std’
+   16 |     std::map<std::string, int> sums;
+      |                   ^~~~~~
+utils.cpp:16:19: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+utils.cpp:16:27: error: expected primary-expression before ‘int’
+   16 |     std::map<std::string, int> sums;
+      |                           ^~~
+utils.cpp:18:9: error: ‘sums’ was not declared in this scope
+   18 |         sums[pair.first] += pair.second;
+      |         ^~~~
+utils.cpp:21:16: error: ‘sums’ was not declared in this scope
+   21 |     return 2 * sums["A"] + sums["B"] - sums["C"];
+      |                ^~~~
+service.cpp: In function ‘int rolling_alert(int)’:
+service.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |          ^~~~~~
+service.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+service.cpp:5:17: error: expected primary-expression before ‘int’
+    5 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |                 ^~~
+service.cpp:6:10: error: ‘rolling_sum’ is not a member of ‘std’
+    6 |     std::rolling_sum rolling;
+      |          ^~~~~~~~~~~
+service.cpp:7:5: error: ‘rolling’ was not declared in this scope
+    7 |     rolling.resize(series.size());
+      |     ^~~~~~~
+service.cpp:7:20: error: ‘series’ was not declared in this scope
+    7 |     rolling.resize(series.size());
+      |                    ^~~~~~
+service.cpp:17:23: error: ‘accumulate’ is not a member of ‘std’
+   17 |     int alerts = std::accumulate(rolling.begin(), rolling.end(), 0, [](int sum, int val) { return sum + (val >= 15? 1 : 0); });
+      |                       ^~~~~~~~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:7:10: error: ‘vector’ is not a member of ‘std’
+    7 |     std::vector<int> ranked_scores(scores, scores + 3);
+      |          ^~~~~~
+main.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+main.cpp:7:17: error: expected primary-expression before ‘int’
+    7 |     std::vector<int> ranked_scores(scores, scores + 3);
+      |                 ^~~
+main.cpp:8:15: error: ‘ranked_scores’ was not declared in this scope
+    8 |     std::sort(ranked_scores.begin(), ranked_scores.end(),
+      |               ^~~~~~~~~~~~~

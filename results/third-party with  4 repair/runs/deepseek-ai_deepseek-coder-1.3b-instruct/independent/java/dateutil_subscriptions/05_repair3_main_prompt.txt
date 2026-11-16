@@ -1,0 +1,83 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:6: error: cannot find symbol
+        LocalDate renewed = Utils.renewalDate(n);
+                                 ^
+  symbol:   method renewalDate(int)
+  location: class Utils
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.grace_period|19991231|" + Service.grace_period(19991231)); } catch (Throwable e) { System.out.println("service.grace_period|19991231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.grace_period|20240130|" + Service.grace_period(20240130)); } catch (Throwable e) { System.out.println("service.grace_period|20240130|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.grace_period|20231231|" + Service.grace_period(20231231)); } catch (Throwable e) { System.out.println("service.grace_period|20231231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.grace_period|19000131|" + Ser
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.grace_period(n)
+  Utils.renewal_date(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Main {
+    public static int solve(int n) {
+        int renewed = renewalDate(n);
+        int deadline = gracePeriod(n);
+        if (renewed < 0 || deadline < 0) {
+            return -1;
+        }
+        int y1 = renewed / 10000;
+        int m1 = (renewed / 100) % 100;
+        int d1 = renewed % 100;
+        int y2 = deadline / 10000;
+        int m2 = (deadline / 100) % 100;
+        int d2 = deadline % 100;
+        Period period = Period.between(LocalDate.of(y1, m1, d1), LocalDate.of(y2, m2, d2));
+        return period.getDays() * 100 + d2;
+    }
+
+    public static int renewalDate(int n) {
+        // Implementation of renewalDate method
+        return -1;
+    }
+
+    public static int gracePeriod(int n) {
+        // Implementation of gracePeriod method
+        return -1;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from utils import renewal_date
+from service import grace_period
+
+def solve(n: int) -> int:
+    renewed = renewal_date(n)
+    deadline = grace_period(n)
+    if renewed < 0 or deadline < 0:
+        return -1
+    y1, m1, d1 = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    y2, m2, d2 = deadline // 10000, (deadline // 100) % 100, deadline % 100
+    days = (date(y2, m2, d2) - date(y1, m1, d1)).days
+    return days * 100 + d2

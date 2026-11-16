@@ -1,0 +1,13 @@
+```javascript
+export function vector_signature(n) {
+    n = Math.max(-100, Math.min(100, n));
+    const v = [n % 11, Math.abs(n) % 7, Math.floor(n / 3) % 9];
+    const m = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    const out = m.map(row => row.reduce((acc, val) => acc + val * v[row.indexOf(val)], 0));
+    return Math.abs(out.reduce((acc, val) => acc + val, 0));
+}
+```

@@ -1,0 +1,14 @@
+Here is the Java equivalent of the provided Python code:
+
+```java
+public class Utils {
+    public static int unit_price(int n) {
+        if (n >= 10) {
+            return 10;
+        }
+        return 12;
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It checks if the input integer `n` is greater than or equal to 10. If it is, it returns 10. Otherwise, it returns 12.

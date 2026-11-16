@@ -1,0 +1,15 @@
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+Service.java:3: error: cannot access Utils
+        int blocks = Utils.weight_blocks(n);
+                     ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Main.java:7: error: cannot find symbol
+        int cost = Service.transportCost(n);
+                          ^
+  symbol:   method transportCost(int)
+  location: class Service
+3 errors

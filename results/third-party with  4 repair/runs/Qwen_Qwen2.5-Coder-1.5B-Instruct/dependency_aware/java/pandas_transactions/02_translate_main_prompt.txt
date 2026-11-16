@@ -1,0 +1,150 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.rolling_alert(n)
+  Utils.category_balance(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: pandas.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+package com.example;
+
+public class Service {
+    public static int rolling_alert(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        Series series = new Series(new double[]{n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7});
+        Series rolling = series.rolling(3, 1).sum();
+        int alerts = (int)((rolling.get(0) >= 15) ? 1 : 0) +
+                      (int)((rolling.get(1) >= 15) ? 1 : 0) +
+                      (int)((rolling.get(2) >= 15) ? 1 : 0);
+        return alerts * 10 + (int)(Math.floor(Utils.category_balance(n) / 23));
+    }
+}
+
+class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        DataFrame frame = new DataFrame(new Object[][]{
+            {"category", "amount"},
+            {"A", n},
+            {"B", 12},
+            {"A", n / 2},
+            {"C", -7},
+            {"B", n % 9},
+            {"A", -n / 3}
+        }, new String[]{"category", "amount"});
+
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+        return (int)(2 * sums.get("A") + sums.get("B") - sums.get("C"));
+    }
+
+    private static class DataFrame {
+        private List<double[]> data;
+        private String[] columns;
+
+        public DataFrame(double[][] data, String[] columns) {
+            this.data = Arrays.asList(data);
+            this.columns = columns;
+        }
+
+        public Series agg(String column) {
+            Map<String, Double> result = new HashMap<>();
+            for (double[] row : data) {
+                double value = row[1];
+                if (!result.containsKey(column)) {
+                    result.put(column, value);
+                } else {
+                    result.put(column, result.get(column) + value);
+                }
+            }
+            return new Series(result);
+        }
+    }
+
+    private static class Series {
+        private Map<String, Double> values;
+
+        public Series(Map<String, Double> values) {
+            this.values = values;
+        }
+
+        public double get(String key) {
+            return values.get(key);
+        }
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        DataFrame frame = new DataFrame(new Object[][]{
+            {"category", "amount"},
+            {"A", n},
+            {"B", 12},
+            {"A", n / 2},
+            {"C", -7},
+            {"B", n % 9},
+            {"A", -n / 3}
+        }, new String[]{"category", "amount"});
+        
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+        return (int)(2 * sums.get("A") + sums.get("B") - sums.get("C"));
+    }
+    
+    private static class DataFrame {
+        private List<Object[]> data;
+        private String[] columns;
+
+        public DataFrame(Object[][] data, String[] columns) {
+            this.data = Arrays.asList(data);
+            this.columns = columns;
+        }
+
+        public Series agg(String column) {
+            Map<String, Double> result = new HashMap<>();
+            for (Object[] row : data) {
+                double value = (Double) row[1];
+                if (!result.containsKey(column)) {
+                    result.put(column, value);
+                } else {
+                    result.put(column, result.get(column) + value);
+                }
+            }
+            return new Series(result);
+        }
+    }
+
+    private static class Series {
+        private Map<String, Double> values;
+
+        public Series(Map<String, Double> values) {
+            this.values = values;
+        }
+
+        public double get(String key) {
+            return values.get(key);
+        }
+    }
+}

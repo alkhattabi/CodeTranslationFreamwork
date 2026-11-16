@@ -1,0 +1,33 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function factor_signature(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let factors = factorint(value);
+  let score = Object.keys(factors).reduce((sum, prime) => {
+    return sum + prime * factors[prime];
+  }, 0);
+  return score + 3 * Object.keys(factors).length;
+}
+```
+
+This code is already correct as per your requirements. It exports a function named `factor_signature` that takes an integer as an argument and returns an integer. It uses the `factorint` function from the `mathjs` library to get the factors of the input number, calculates the score by multiplying the prime factors with their corresponding exponents, and returns the score plus three times the number of primes.
+
+Please note that the `factorint` function is not a built-in function in JavaScript, so you need to import it from a third-party library like `mathjs`.
+
+Also, please note that the `factorint` function from `mathjs` is not a standard ES-module, so you need to import it from a third-party library like `mathjs`.
+
+Here is the corrected code with the import statement:
+
+```javascript
+import { factorint } from 'mathjs';
+
+export function factor_signature(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let factors = factorint(value);
+  let score = Object.keys(factors).reduce((sum, prime) => {
+    return sum + prime * factors[prime];
+  }, 0);
+  return score + 3 * Object.keys(factors).length;
+}
+```

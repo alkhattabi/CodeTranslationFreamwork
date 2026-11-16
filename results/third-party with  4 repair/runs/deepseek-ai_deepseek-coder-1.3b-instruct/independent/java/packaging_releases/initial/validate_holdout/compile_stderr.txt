@@ -1,0 +1,66 @@
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                                                      ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                       ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = release_rank(n);
+                   ^
+  symbol:   method release_rank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version("2.1.0");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version("2.1.0");
+                               ^
+  symbol:   class Version
+  location: class Service
+Main.java:12: error: cannot find symbol
+            return upgradeCost(n) + 100 * 1 + 10 * 0 + releaseRank(n);
+                   ^
+  symbol:   method upgradeCost(int)
+  location: class Main
+Main.java:12: error: cannot find symbol
+            return upgradeCost(n) + 100 * 1 + 10 * 0 + releaseRank(n);
+                                                       ^
+  symbol:   method releaseRank(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+            return upgradeCost(n) + 100 * 0 + 10 * 1 + releaseRank(n);
+                   ^
+  symbol:   method upgradeCost(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+            return upgradeCost(n) + 100 * 0 + 10 * 1 + releaseRank(n);
+                                                       ^
+  symbol:   method releaseRank(int)
+  location: class Main
+13 errors

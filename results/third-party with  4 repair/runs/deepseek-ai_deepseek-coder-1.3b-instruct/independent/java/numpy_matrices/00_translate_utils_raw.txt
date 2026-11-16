@@ -1,0 +1,26 @@
+Here is the Java equivalent of your Python code:
+
+```java
+public class Utils {
+    public static int vector_signature(int n) {
+        n = Math.max(Math.min(100, n), -100);
+        int[] v = {n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int out = 0;
+        for (int i = 0; i < 3; i++) {
+            out += m[i / 3][i % 3] * v[i];
+        }
+        return Math.abs(out);
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It takes an integer input, clamps it between -100 and 100, calculates a vector based on the modulo and absolute values of the input, multiplies the vector and matrix, and returns the absolute sum.
+
+Please note that Java does not have a built-in matrix multiplication operation like Python's @ operator, so we have to manually implement it.
+
+Also, Java does not have a built-in reshape function like numpy's reshape function, so we have to manually implement it.
+
+Lastly, Java does not have a built-in sum function like numpy's sum function, so we have to manually implement it.
+
+Please note that this code does not handle the case where the matrix or vector dimensions do not match the input vector size. You may want to add error checking code to handle this case.

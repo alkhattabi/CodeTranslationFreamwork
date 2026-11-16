@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:1: error: <identifier> expected\npackage;\n       ^\n1 error\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

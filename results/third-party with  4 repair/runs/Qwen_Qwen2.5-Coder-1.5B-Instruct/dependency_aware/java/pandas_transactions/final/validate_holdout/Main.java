@@ -1,0 +1,40 @@
+package com.example;
+
+public class Main {
+    public static int solve(int n) {
+        int balance = categoryBalance(n);
+        int alert = rollingAlert(n);
+        Series scores = new Series(new double[]{Math.abs(balance) % 50, alert, Math.abs(n) % 50});
+        Series ranks = scores.rank(method="dense", ascending=false);
+        int penalty = (int)((ranks.get(0) >= 15) ? 1 : 0) +
+                      (int)((ranks.get(1) >= 15) ? 1 : 0) +
+                      (int)((ranks.get(2) >= 15) ? 1 : 0);
+        return balance + alert - penalty;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(10)); // Output will depend on the actual implementation of rolling_alert and category_balance
+    }
+}
+
+class Series {
+    private double[] values;
+
+    public Series(double[] values) {
+        this.values = values;
+    }
+
+    public double get(int index) {
+        return values[index];
+    }
+
+    public double get(String key) {
+        throw new UnsupportedOperationException("Series does not support string keys");
+    }
+
+    public int rank(String method, boolean ascending) {
+        // Implement ranking logic here
+        return 0; // Placeholder return value
+    }
+}

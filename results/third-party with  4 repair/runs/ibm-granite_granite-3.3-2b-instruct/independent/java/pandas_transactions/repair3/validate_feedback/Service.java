@@ -1,0 +1,28 @@
+public class Service {
+    public static int rolling_alert(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        int[] series = new int[]{n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7};
+        int[] rollingSum = new int[series.length];
+        int sum = 0;
+        for (int i = 0; i < series.length; i++) {
+            sum += series[i];
+            rollingSum[i] = sum;
+        }
+
+        int alerts = 0;
+        for (int i = 2; i < rollingSum.length; i++) {
+            if (rollingSum[i] >= 15) {
+                alerts++;
+            }
+        }
+
+        return (alerts * 10) + Math.abs(categoryBalance(n)) % 23;
+    }
+
+    private static int categoryBalance(int n) {
+        // Placeholder for the category_balance method from utils
+        return 0;
+    }
+}
+
+Note: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.

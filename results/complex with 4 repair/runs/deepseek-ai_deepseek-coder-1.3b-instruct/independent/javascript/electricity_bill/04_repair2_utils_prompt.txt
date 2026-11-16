@@ -1,0 +1,37 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 21/27 development checks.
+main.solve(101): expected 1220, actual 1169
+main.solve(350): expected 7700, actual 7325
+main.solve(400): expected 9200, actual 8750
+main.solve(99): expected 1141, actual 1190
+main.solve(700): expected 24500, actual 23300
+main.solve(1000): expected 39500, actual 37550
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function billable_units(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function billable_units(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function billable_units(n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}
+
+
+ORIGINAL PYTHON:
+
+def billable_units(n: int) -> int:
+    if n < 0:
+        return 0
+    if n > 1200:
+        return 1200
+    return n

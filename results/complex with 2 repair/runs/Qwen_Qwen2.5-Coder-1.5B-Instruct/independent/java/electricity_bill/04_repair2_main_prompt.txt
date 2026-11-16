@@ -1,0 +1,110 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:3: error: cannot find symbol
+        int units = billableUnits(n);
+                    ^
+  symbol:   method billableUnits(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int units = billableUnits(n);
+                    ^
+  symbol:   method billableUnits(int)
+  location: class Main
+Main.java:7: error: cannot find symbol
+        int charge = energyCharge(n);
+                     ^
+  symbol:   method energyCharge(int)
+  location: class Main
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("utils.billable_units|101|" + Utils.billable_units(101)); } catch (Throwable e) { System.out.println("utils.billable_units|101|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("utils.billable_units|350|" + Utils.billable_units(350)); } catch (Throwable e) { System.out.println("utils.billable_units|350|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("utils.billable_units|400|" + Utils.billable_units(400)); } catch (Throwable e) { System.out.println("utils.billable_units|400|ERR"); }
+     
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.energy_charge(n)
+  Utils.billable_units(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int units = billableUnits(n);
+        if (units == 0) {
+            return 0;
+        }
+        int charge = energyCharge(n);
+        int serviceFee = 200 <= units ? 200 : 500;
+        int rebate = units < 100 ? units / 20 : 0;
+        return charge + serviceFee - rebate;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(100)); // Output will depend on the actual implementations of billableUnits and energyCharge
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+from service import energy_charge
+
+def solve(n: int) -> int:
+    units = billable_units(n)
+    if units == 0:
+        return 0
+    charge = energy_charge(n)
+    service_fee = 200 if units <= 400 else 500
+    rebate = charge // 20 if units < 100 else 0
+    return charge + service_fee - rebate
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int energy_charge(int n) {
+        int units = billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int billableUnits(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+}

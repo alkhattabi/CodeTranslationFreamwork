@@ -1,0 +1,59 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'graphlib' imported from /content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/networkx_logistics/initial/validate_feedback/utils.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/mo
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { disruption_score } from "./service.mjs";
+  import { route_cost } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { disruption_score } from "./service.mjs";
+import { route_cost } from "./utils.mjs";
+
+export function solve(n) {
+  let graph = new Map();
+  let offset = Math.abs(n) % 7;
+  graph.set([0, 1], 3 + offset);
+  graph.set([0, 2], 5);
+  graph.set([1, 2], 1 + offset % 3);
+  graph.set([1, 3], 4);
+  graph.set([2, 3], 2 + offset % 2);
+  graph.set([3, 4], 6);
+  graph.set([2, 4], 8 + offset);
+
+  let tree = new Map(Array.from(graph.keys()).map(key => [[key[0], key[1]], graph.get(key)]));
+  let total = Array.from(tree.keys()).reduce((a, b) => a + tree.get(b), 0);
+
+  return total + disruption_score(n) - route_cost(n);
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+from service import disruption_score
+
+def solve(n: int) -> int:
+    graph = nx.Graph()
+    offset = abs(n) % 7
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + offset), (0, 2, 5), (1, 2, 1 + offset % 3),
+        (1, 3, 4), (2, 3, 2 + offset % 2), (3, 4, 6),
+        (2, 4, 8 + offset)
+    ])
+    tree = nx.minimum_spanning_tree(graph, weight="weight")
+    total = int(tree.size(weight="weight"))
+    return total + disruption_score(n) - route_cost(n)

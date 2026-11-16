@@ -1,0 +1,27 @@
+Here is the C++ implementation of the Python function `credit_band(n)`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+This C++ function implements the behavior of the Python function `credit_band(n)`. It checks the input `n` and returns the corresponding credit band value. If `n` is not within the valid range, it returns 0.

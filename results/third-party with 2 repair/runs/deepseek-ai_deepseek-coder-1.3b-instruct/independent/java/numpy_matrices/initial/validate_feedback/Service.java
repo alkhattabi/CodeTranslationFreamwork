@@ -1,0 +1,21 @@
+public class Service {
+    public static int matrix_energy(int n) {
+        int x = Math.max(Math.min(100, Math.abs(n)), -100);
+        int[][] m = new int[][] {
+            {x % 5, 2, -1},
+            {3, x % 7, 4},
+            {1, 5, x % 3}
+        };
+        int[][] square = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                square[i][j] = m[i][j] * m[j][i];
+            }
+        }
+        int diagonal = 0;
+        for (int i = 0; i < 3; i++) {
+            diagonal += square[i][i];
+        }
+        return diagonal + vector_signature(n);
+    }
+}

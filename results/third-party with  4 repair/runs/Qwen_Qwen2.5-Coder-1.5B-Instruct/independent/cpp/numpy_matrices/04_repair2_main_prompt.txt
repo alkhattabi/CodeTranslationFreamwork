@@ -1,0 +1,62 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccOBnNCS.o: in function `main':
+EvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x143): undefined reference to `solve(int)'
+/usr/bin/ld: /tmp/ccOBnNCS.o:EvalRunner.cpp:(.text+0x188): more undefined references to `solve(int)' follow
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int matrix_energy(int n);
+int vector_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int matrix_energy(int n);
+int vector_signature(int n);
+
+// Main function
+int solve(int n);
+
+// Global variables
+extern int matrix_energy(int n);
+extern int vector_signature(int n);
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))

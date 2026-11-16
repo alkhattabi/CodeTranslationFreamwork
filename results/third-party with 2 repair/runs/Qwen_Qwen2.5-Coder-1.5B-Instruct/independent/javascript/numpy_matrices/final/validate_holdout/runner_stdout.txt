@@ -1,0 +1,36 @@
+{"k":"main.solve|99","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-7","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|0","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-30","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|100","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-11","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|30","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-3","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-1","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-100","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|-12","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"main.solve|51","error":"ReferenceError: matrixEnergy is not defined"}
+{"k":"service.matrix_energy|99","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-7","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|0","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-30","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|100","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-11","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|30","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-3","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-1","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-100","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|-12","error":"ReferenceError: vector_signature is not defined"}
+{"k":"service.matrix_energy|51","error":"ReferenceError: vector_signature is not defined"}
+{"k":"utils.vector_signature|99","v":123}
+{"k":"utils.vector_signature|-7","v":138}
+{"k":"utils.vector_signature|0","v":0}
+{"k":"utils.vector_signature|-30","v":84}
+{"k":"utils.vector_signature|100","v":150}
+{"k":"utils.vector_signature|-11","v":12}
+{"k":"utils.vector_signature|30","v":144}
+{"k":"utils.vector_signature|-3","v":9}
+{"k":"utils.vector_signature|-1","v":15}
+{"k":"utils.vector_signature|-100","v":108}
+{"k":"utils.vector_signature|-12","v":9}
+{"k":"utils.vector_signature|51","v":258}

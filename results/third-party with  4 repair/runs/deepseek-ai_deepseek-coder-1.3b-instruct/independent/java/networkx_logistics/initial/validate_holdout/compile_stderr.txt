@@ -1,0 +1,17 @@
+Utils.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Utils.java:3: error: illegal character: '`'
+```java
+^
+Utils.java:3: error: illegal character: '`'
+```java
+ ^
+Utils.java:3: error: illegal character: '`'
+```java
+  ^
+Utils.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Utils.java:65: error: reached end of file while parsing
+6 errors

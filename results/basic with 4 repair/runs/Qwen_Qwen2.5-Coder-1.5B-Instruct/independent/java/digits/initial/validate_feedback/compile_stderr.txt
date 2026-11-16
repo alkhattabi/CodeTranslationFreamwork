@@ -1,0 +1,26 @@
+Service.java:3: error: cannot find symbol
+        return digitSum(n) * 3;
+               ^
+  symbol:   method digitSum(int)
+  location: class Service
+EvalRunner.java:11: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|0|" + Utils.digit_sum(0)); } catch (Throwable e) { System.out.println("utils.digit_sum|0|ERR"); }
+                                                       ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|208|" + Utils.digit_sum(208)); } catch (Throwable e) { System.out.println("utils.digit_sum|208|ERR"); }
+                                                         ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|1|" + Utils.digit_sum(1)); } catch (Throwable e) { System.out.println("utils.digit_sum|1|ERR"); }
+                                                       ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|-1|" + Utils.digit_sum(-1)); } catch (Throwable e) { System.out.println("utils.digit_sum|-1|ERR"); }
+                                                        ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+5 errors

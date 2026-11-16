@@ -1,0 +1,20 @@
+Service.java:6: error: cannot find symbol
+        return n * unitPrice(n);
+                   ^
+  symbol:   method unitPrice(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int cost = gross(n);
+                   ^
+  symbol:   method gross(int)
+  location: class Main
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:11: error: cannot access Utils
+  try { System.out.println("utils.unit_price|11|" + Utils.unit_price(11)); } catch (Throwable e) { System.out.println("utils.unit_price|11|ERR"); }
+                                                    ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors

@@ -1,0 +1,31 @@
+Service.java:8: error: variable n is already defined in method lodging_charge(int)
+        IntPredicate isValidNights = n -> n > 0 && n <= 9999;
+                                     ^
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|1015|" + Main.solve(1015)); } catch (Throwable e) { System.out.println("main.solve|1015|ERR"); }
+                                                ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:13: error: cannot access Service
+  try { System.out.println("service.lodging_charge|1015|" + Service.lodging_charge(1015)); } catch (Throwable e) { System.out.println("service.lodging_charge|1015|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Utils.java:5: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:23: error: cannot access Utils
+  try { System.out.println("utils.valid_nights|1015|" + Utils.valid_nights(1015)); } catch (Throwable e) { System.out.println("utils.valid_nights|1015|ERR"); }
+                                                        ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+7 errors

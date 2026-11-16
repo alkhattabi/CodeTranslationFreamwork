@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:1: error: class Utils is public, should be declared in a file named Utils.java\npublic class Utils {\n       ^\nEvalRunner.java:7: error: cannot access Service\n  try { System.out.println(\"service.score_digits|0|\" + Service.score_digits(0)); } catch (Throwable e) { System.out.println(\"service.score_digits|0|ERR\"); }\n                                                       ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n2 errors\n",
+  "failed_modules": [
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "service.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cc6GdT9W.o: in function `vector_signature(int)':\nservice.cpp:(.text+0x56f): multiple definition of `vector_signature(int)'; /tmp/cc3IkhpD.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccHlUQzf.o: in function `solve(int)':\nmain.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/cc6GdT9W.o:service.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

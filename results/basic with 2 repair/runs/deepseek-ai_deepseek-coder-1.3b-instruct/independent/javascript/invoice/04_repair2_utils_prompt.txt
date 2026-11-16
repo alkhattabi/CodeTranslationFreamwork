@@ -1,0 +1,28 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 9/12 development checks.
+main.solve(11): expected 126, actual ERR: Error: result must be a safe integer
+main.solve(9): expected 124, actual ERR: Error: result must be a safe integer
+main.solve(7): expected 96, actual ERR: Error: result must be a safe integer
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function unit_price(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function unit_price(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function unit_price(n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}
+
+
+ORIGINAL PYTHON:
+def unit_price(n: int) -> int:
+    if n >= 10:
+        return 10
+    return 12

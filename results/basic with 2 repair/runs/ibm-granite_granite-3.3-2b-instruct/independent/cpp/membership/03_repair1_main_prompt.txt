@@ -1,0 +1,51 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:12: error: ‘max’ was not declared in this scope; did you mean ‘std::max’?
+    5 |     return max(0, value);
+      |            ^~~
+      |            std::max
+In file included from /usr/include/c++/13/algorithm:61,
+                 from api.hpp:2,
+                 from main.cpp:1:
+/usr/include/c++/13/bits/stl_algo.h:5805:5: note: ‘std::max’ declared here
+ 5805 |     max(initializer_list<_Tp> __l, _Compare __comp)
+      |     ^~~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int discount(int n);
+int tier(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    int value = n * 4 - discount(n);
+    return max(0, value);
+}
+
+
+ORIGINAL PYTHON:
+from service import discount
+
+def solve(n: int) -> int:
+    value = n * 4 - discount(n)
+    return max(0, value)
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int discount(int n) {
+    return tier(n) * 5;
+}

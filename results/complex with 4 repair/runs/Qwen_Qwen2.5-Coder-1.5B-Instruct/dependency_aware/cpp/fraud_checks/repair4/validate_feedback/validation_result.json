@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nutils.cpp: In function \u2018int solve(int)\u2019:\nutils.cpp:17:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   17 | }\n      | ^\nutils.cpp: In function \u2018int risk_points(int)\u2019:\nutils.cpp:21:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   21 | }\n      | ^\nutils.cpp: In function \u2018int luhn_valid(int)\u2019:\nutils.cpp:42:13: error: expected \u2018;\u2019 before \u2018if\u2019\n   42 |     return 1 if total % 10 == 0 else 0;\n      |             ^~~\n      |             ;\nutils.cpp:42:17: error: expected \u2018(\u2019 before \u2018total\u2019\n   42 |     return 1 if total % 10 == 0 else 0;\n      |                 ^~~~~\n      |                 (\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int solve(int)\u2019:\nservice.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   14 | }\n      | ^\nservice.cpp: In function \u2018int risk_points(int)\u2019:\nservice.cpp:18:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   18 | }\n      | ^\nservice.cpp: In function \u2018int luhn_valid(int)\u2019:\nservice.cpp:39:13: error: expected \u2018;\u2019 before \u2018if\u2019\n   39 |     return 1 if total % 10 == 0 else 0;\n      |             ^~~\n      |             ;\nservice.cpp:39:17: error: expected \u2018(\u2019 before \u2018total\u2019\n   39 |     return 1 if total % 10 == 0 else 0;\n      |                 ^~~~~\n      |                 (\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   14 | }\n      | ^\nmain.cpp: In function \u2018int risk_points(int)\u2019:\nmain.cpp:18:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   18 | }\n      | ^\nmain.cpp: In function \u2018int luhn_valid(int)\u2019:\nmain.cpp:39:13: error: expected \u2018;\u2019 before \u2018if\u2019\n   39 |     return 1 if total % 10 == 0 else 0;\n      |             ^~~\n      |             ;\nmain.cpp:39:17: error: expected \u2018(\u2019 before \u2018total\u2019\n   39 |     return 1 if total % 10 == 0 else 0;\n      |                 ^~~~~\n      |                 (\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

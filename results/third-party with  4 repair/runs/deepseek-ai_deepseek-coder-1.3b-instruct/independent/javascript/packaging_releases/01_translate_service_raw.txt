@@ -1,0 +1,26 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { release_rank } from "./utils.mjs";
+
+export function upgrade_cost(n) {
+    const rank = release_rank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    let major = Math.floor(n / 10000);
+    let minor = Math.floor((n / 100) % 100);
+    let patch = n % 100;
+    let current = `${major}.${minor}.${patch}`;
+    let required = "2.1.0";
+    let version = new Version(current);
+    let penalty = version < required ? 40 : 0;
+    return rank * 25 + minor + patch / 5 + penalty;
+}
+```
+
+Please note that JavaScript does not have a built-in versioning library like Python's packaging.version. You would need to use a third-party library like semver to handle versioning.
+
+Also, the `Version` class is not a standard JavaScript library, you would need to install it using npm or a similar package manager.
+
+Please replace `import { release_rank } from "./utils.mjs";` with the actual import statement for `release_rank` function.

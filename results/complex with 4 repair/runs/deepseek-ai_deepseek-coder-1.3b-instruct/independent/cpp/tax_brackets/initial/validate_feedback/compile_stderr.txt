@@ -1,0 +1,13 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int calculate_tax(int)’:
+service.cpp:12:18: error: ‘taxable_income’ was not declared in this scope
+   12 |     int income = taxable_income(n);
+      |                  ^~~~~~~~~~~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

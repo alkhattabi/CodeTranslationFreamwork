@@ -1,0 +1,49 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function risk_points(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { luhn_valid } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function risk_points(n) { /* implementation */ }
+
+PYTHON FILE service.py:
+
+from utils import luhn_valid
+
+def risk_points(n: int) -> int:
+    if n <= 0:
+        return 100
+    score = 0
+    if luhn_valid(n) == 0:
+        score += 40
+    if n % 11 == 0:
+        score += 20
+    if n % 100 < 10:
+        score += 15
+    if n < 1000:
+        score += 25
+    return score
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+// utils.js
+export function luhn_valid(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let total = 0;
+    let double = false;
+    while (n > 0) {
+        let digit = n % 10;
+        if (double) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double =!double;
+        n = Math.floor(n / 10);
+    }
+    return 1 if total % 10 === 0 else 0;
+}

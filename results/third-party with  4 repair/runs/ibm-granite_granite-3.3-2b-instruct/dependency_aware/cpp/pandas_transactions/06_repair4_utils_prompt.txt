@@ -1,0 +1,84 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+  6 |     std::vector<std::pair<std::string, int>> frame = {
+      |          ^~~~~~
+utils.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+utils.cpp:6:32: error: ‘string’ is not a member of ‘std’
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |                                ^~~~~~
+utils.cpp:2:1: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+    1 | #include "api.hpp"
+  +++ |+#include <string>
+    2 | 
+utils.cpp:6:40: error: template argument 1 is invalid
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |                                        ^~~
+utils.cpp:6:46: error: ‘frame’ was not declared in this scope
+    6 |     std::vector<std::pair<std::string, int>> frame = {
+      |                                              ^~~~~
+utils.cpp:16:10: error: ‘map’ is not a member of ‘std’
+   16 |     std::map<std::string, int> sums;
+      |          ^~~
+utils.cpp:2:1: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+    1 | #include "api.hpp"
+  +++ |+#include <map>
+    2 | 
+utils.cpp:16:19: error: ‘string’ is not a member of ‘std’
+   16 |     std::map<std::string, int> sums;
+      |                   ^~~~~~
+utils.cpp:16:19: 
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int category_balance(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    std::vector<std::pair<std::string, int>> frame = {
+        {"A", n},
+        {"B", 12},
+        {"A", n / 2},
+        {"C", -7},
+        {"B", n % 9},
+        {"C", 4},
+        {"A", -n / 3}
+    };
+
+    std::map<std::string, int> sums;
+    for (const auto& pair : frame) {
+        sums[pair.first] += pair.second;
+    }
+
+    return 2 * sums["A"] + sums["B"] - sums["C"];
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+
+def category_balance(n: int) -> int:
+    n = max(-200, min(200, n))
+    frame = pd.DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, n // 2, -7, n % 9, 4, -n // 3]
+    })
+    sums = frame.groupby("category", sort=True)["amount"].sum()
+    return int(2 * sums.loc["A"] + sums.loc["B"] - sums.loc["C"])

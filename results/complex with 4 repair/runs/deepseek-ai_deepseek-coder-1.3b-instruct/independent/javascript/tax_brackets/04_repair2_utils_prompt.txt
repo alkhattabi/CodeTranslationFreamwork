@@ -1,0 +1,39 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/24 development checks.
+Execution diagnostics: node:internal/modules/esm/resolve:275
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/tax_brackets/initial/validate_feedback/service.js' imported from /content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/tax_brackets/initial/validate_feedback/main.mjs
+  
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function taxable_income(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function taxable_income(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+
+
+ORIGINAL PYTHON:
+
+def taxable_income(n: int) -> int:
+    if n <= 500:
+        return 0
+    income = n - 500
+    if income > 20000:
+        income = 20000
+    return income

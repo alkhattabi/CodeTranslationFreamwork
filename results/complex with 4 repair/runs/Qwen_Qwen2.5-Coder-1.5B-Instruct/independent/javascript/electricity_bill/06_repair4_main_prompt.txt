@@ -1,0 +1,86 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/electricity_bill/initial/validate_feedback/main.mjs:4
+export function solve(n: number): number {
+                       ^
+
+SyntaxError: Unexpected token ':'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { energy_charge } from "./service.mjs";
+  import { billable_units } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { energyCharge } from "./service.mjs";
+import { billableUnits } from "./utils.mjs";
+
+export function solve(n: number): number {
+    const units = billableUnits(n);
+    if (units === 0) {
+        return 0;
+    }
+    const charge = energyCharge(n);
+    const serviceFee = units <= 400 ? 200 : 500;
+    const rebate = units < 100 ? Math.floor(charge / 20) : 0;
+    return charge + serviceFee - rebate;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+from service import energy_charge
+
+def solve(n: int) -> int:
+    units = billable_units(n)
+    if units == 0:
+        return 0
+    charge = energy_charge(n)
+    service_fee = 200 if units <= 400 else 500
+    rebate = charge // 20 if units < 100 else 0
+    return charge + service_fee - rebate
+
+
+DEPENDENCY service.mjs:
+import { billableUnits } from './utils.mjs';
+
+export function energy_charge(n) {
+    const units = billableUnits(n);
+    let charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+
+
+DEPENDENCY utils.mjs:
+export function billableUnits(n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}

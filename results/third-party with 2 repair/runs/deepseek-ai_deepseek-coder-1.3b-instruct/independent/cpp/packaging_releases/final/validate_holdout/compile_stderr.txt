@@ -1,0 +1,50 @@
+utils.cpp: In function ‘int release_rank(int)’:
+utils.cpp:14:10: error: ‘string’ is not a member of ‘std’
+   14 |     std::string suffix = (patch % 4 == 0) ? "rc1" : "";
+      |          ^~~~~~
+utils.cpp:5:1: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+    4 | #include <cstdlib>
+  +++ |+#include <string>
+    5 | 
+utils.cpp:15:10: error: ‘string’ is not a member of ‘std’
+   15 |     std::string version = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+      |          ^~~~~~
+utils.cpp:15:10: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+utils.cpp:16:10: error: ‘string’ is not a member of ‘std’
+   16 |     std::string reference = "2.1.0";
+      |          ^~~~~~
+utils.cpp:16:10: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+utils.cpp:17:9: error: ‘version’ was not declared in this scope
+   17 |     if (version < reference) {
+      |         ^~~~~~~
+utils.cpp:17:19: error: ‘reference’ was not declared in this scope
+   17 |     if (version < reference) {
+      |                   ^~~~~~~~~
+utils.cpp:20:9: error: ‘version’ was not declared in this scope
+   20 |     if (version == reference) {
+      |         ^~~~~~~
+utils.cpp:20:20: error: ‘reference’ was not declared in this scope
+   20 |     if (version == reference) {
+      |                    ^~~~~~~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int upgrade_cost(int)’:
+service.cpp:23:25: error: ‘make_tuple’ is not a member of ‘std’
+   23 |     auto current = std::make_tuple(major, minor, patch);
+      |                         ^~~~~~~~~~
+service.cpp:6:1: note: ‘std::make_tuple’ is defined in header ‘<tuple>’; did you forget to ‘#include <tuple>’?
+    5 | #include "api.hpp"
+  +++ |+#include <tuple>
+    6 | 
+service.cpp:24:26: error: ‘make_tuple’ is not a member of ‘std’
+   24 |     auto required = std::make_tuple(2, 1, 0);
+      |                          ^~~~~~~~~~
+service.cpp:24:26: note: ‘std::make_tuple’ is defined in header ‘<tuple>’; did you forget to ‘#include <tuple>’?
+main.cpp: In function ‘int solve(int)’:
+main.cpp:15:12: error: ‘upgrade_cost’ was not declared in this scope
+   15 |     return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+      |            ^~~~~~~~~~~~
+main.cpp:15:61: error: ‘release_rank’ was not declared in this scope
+   15 |     return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+      |                                                             ^~~~~~~~~~~~

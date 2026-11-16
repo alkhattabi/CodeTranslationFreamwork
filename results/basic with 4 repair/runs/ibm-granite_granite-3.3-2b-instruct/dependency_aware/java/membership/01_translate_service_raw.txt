@@ -1,0 +1,5 @@
+public class Service {
+    public static int discount(int n) {
+        return Utils.tier(n) * 5;
+    }
+}

@@ -1,0 +1,31 @@
+Utils.java:22: error: class, interface, enum, or record expected
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+^
+Utils.java:22: error: illegal character: '`'
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                              ^
+Utils.java:22: error: illegal character: '`'
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                      ^
+Utils.java:22: error: '{' expected
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                  ^
+Utils.java:22: error: illegal character: '`'
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                       ^
+Utils.java:22: error: illegal character: '`'
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                                                              ^
+Utils.java:22: error: unclosed character literal
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                                                                                               ^
+Utils.java:22: error: illegal character: '`'
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                                                                                                                                                                    ^
+Utils.java:22: error: illegal character: '`'
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                                                                                                                                                                            ^
+Utils.java:22: error: '{' expected
+Note: The Java code provided assumes that the `Version` class from the `java.util.concurrent.ThreadLocalRandom` package is being used, as there's no direct equivalent in the standard Java library. If a different `Version` class is intended, the import and usage should be adjusted accordingly.
+                                                                                                                                                                                                                                      ^
+10 errors

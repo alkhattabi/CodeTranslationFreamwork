@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:5:12: error: \u2018max\u2019 was not declared in this scope; did you mean \u2018std::max\u2019?\n    5 |     return max(0, value);\n      |            ^~~\n      |            std::max\nIn file included from /usr/include/c++/13/algorithm:61,\n                 from api.hpp:2,\n                 from main.cpp:1:\n/usr/include/c++/13/bits/stl_algo.h:5805:5: note: \u2018std::max\u2019 declared here\n 5805 |     max(initializer_list<_Tp> __l, _Compare __comp)\n      |     ^~~\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

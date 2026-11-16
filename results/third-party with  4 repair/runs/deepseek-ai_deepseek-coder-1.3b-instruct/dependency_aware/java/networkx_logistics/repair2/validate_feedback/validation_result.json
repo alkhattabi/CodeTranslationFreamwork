@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:1: error: class, interface, enum, or record expected\nHere is the Java equivalent of your Python code:\n^\nUtils.java:3: error: illegal character: '`'\n```java\n^\nUtils.java:3: error: illegal character: '`'\n```java\n ^\nUtils.java:3: error: illegal character: '`'\n```java\n  ^\nUtils.java:5: error: class, interface, enum, or record expected\nimport java.util.Map;\n^\nUtils.java:65: error: reached end of file while parsing\nService.java:1: error: class, interface, enum, or record expected\nIt seems like the Python code you provided is incomplete and contains a lot of syntax errors. Here is the corrected Java version of your Python code:\n^\nService.java:3: error: illegal character: '`'\n```java\n^\nService.java:3: error: illegal character: '`'\n```java\n ^\nService.java:3: error: illegal character: '`'\n```java\n  ^\nService.java:5: error: class, interface, enum, or record expected\nimport java.util.Map;\n^\nService.java:62: error: reached end of file while parsing\n            int neighbor = edge.getKey();\n                                         ^\nMain.java:1: error: class, interface, enum, or record expected\nHere is the Java equivalent of your Python code:\n^\nMain.java:3: error: illegal character: '`'\n```java\n^\nMain.java:3: error: illegal character: '`'\n```java\n ^\nMain.java:3: error: illegal character: '`'\n```java\n  ^\nMain.java:5: error: class, interface, enum, or record expected\nimport java.util.Map;\n^\nMain.java:65: error: reached end of file while parsing\n18 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

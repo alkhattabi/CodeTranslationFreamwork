@@ -1,0 +1,26 @@
+Here is the JavaScript ES-module source code for the provided Python file:
+
+```javascript
+import { billable_units } from "./utils.mjs";
+
+export function energy_charge(n) {
+    let units = billable_units(n);
+    let charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+```
+
+This JavaScript code exports a function named `energy_charge` that takes an integer `n` as an argument and returns an integer. The function first calculates the number of billable units using the `billable_units` function from the `utils.mjs` module. It then calculates the charge based on the billable units and returns the total charge.

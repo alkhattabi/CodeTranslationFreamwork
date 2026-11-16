@@ -1,0 +1,162 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+dge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                                              ^
+  symbol:   class DefaultWeightedEdge
+  location: class Main
+Main.java:7: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|10|" + Main.solve(10)); } catch (Throwable e) { System.out.println("main.solve|10|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:7: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.disruption_score|10|" + Service.disruption_score(10)); } catch (Throwable e) { System.out.println("service.disruption_score|10|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.route_cost|10|" + Utils.route_cost
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.disruption_score(n)
+  Utils.route_cost(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+import org.jgrapht.graph.DirectedAcyclicGraph;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+
+public class Main {
+
+    public static int solve(int n) {
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+        graph.addVertex(0);
+        graph.addVertex(1);
+        graph.addVertex(2);
+        graph.addVertex(3);
+        graph.addVertex(4);
+        graph.addVertex(5);
+        graph.addVertex(6);
+
+        graph.addEdge(0, 1, 3 + n % 3);
+        graph.addEdge(0, 2, 5 + n % 4);
+        graph.addEdge(1, 3, 4 + n % 2);
+        graph.addEdge(1, 4, 7);
+        graph.addEdge(2, 3, 1 + n % 5);
+        graph.addEdge(2, 4, 3 + n % 3);
+        graph.addEdge(3, 5, 6);
+        graph.addEdge(4, 5, 2 + n % 4);
+        graph.addEdge(5, 6, 1 + n % 2);
+        graph.addEdge(2, 6, 15);
+
+        int reachable = graph.vertexSet().stream().filter(v -> graph.outgoingEdgesOf(v).size() > 0).count();
+        int longest = graph.getDAGShortestPathLength(0, 6, "weight");
+
+        return routeCost(n) + 3 * reachable + longest;
+    }
+
+    // Assume this is a method from some external library
+    private static int routeCost(int n) {
+        // Implementation of routeCost method
+        return 0; // Placeholder
+    }
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+from service import disruption_score
+
+def solve(n: int) -> int:
+    graph = nx.Graph()
+    offset = abs(n) % 7
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + offset), (0, 2, 5), (1, 2, 1 + offset % 3),
+        (1, 3, 4), (2, 3, 2 + offset % 2), (3, 4, 6),
+        (2, 4, 8 + offset)
+    ])
+    tree = nx.minimum_spanning_tree(graph, weight="weight")
+    total = int(tree.size(weight="weight"))
+    return total + disruption_score(n) - route_cost(n)
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+import org.jgrapht.graph.DirectedAcyclicGraph;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+
+public class Service {
+
+    public static int disruptionScore(int n) {
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+        graph.addVertex(0);
+        graph.addVertex(1);
+        graph.addVertex(2);
+        graph.addVertex(3);
+        graph.addVertex(4);
+        graph.addVertex(5);
+        graph.addVertex(6);
+
+        graph.addEdge(0, 1, 3 + n % 3);
+        graph.addEdge(0, 2, 5 + n % 4);
+        graph.addEdge(1, 3, 4 + n % 2);
+        graph.addEdge(1, 4, 7);
+        graph.addEdge(2, 3, 1 + n % 5);
+        graph.addEdge(2, 4, 3 + n % 3);
+        graph.addEdge(3, 5, 6);
+        graph.addEdge(4, 5, 2 + n % 4);
+        graph.addEdge(5, 6, 1 + n % 2);
+        graph.addEdge(2, 6, 15);
+
+        int reachable = graph.vertexSet().stream().filter(v -> graph.outgoingEdgesOf(v).size() > 0).count();
+        int longest = graph.getDAGShortestPathLength(0, 6, "weight");
+
+        return routeCost(n) + 3 * reachable + longest;
+    }
+
+    // Assume this is a method from some external library
+    private static int routeCost(int n) {
+        // Implementation of routeCost method
+        return 0; // Placeholder
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int routeCost(int n) {
+        int x = Math.abs(n) % 13;
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+        graph.addEdge(0, 1, 3 + x % 3);
+        graph.addEdge(0, 2, 5 + x % 4);
+        graph.addEdge(1, 3, 4 + x % 2);
+        graph.addEdge(1, 4, 7);
+        graph.addEdge(2, 3, 1 + x % 5);
+        graph.addEdge(2, 4, 3 + x % 3);
+        graph.addEdge(3, 5, 6);
+        graph.addEdge(4, 5, 2 + x % 4);
+        graph.addEdge(5, 6, 1 + x % 2);
+        graph.addEdge(2, 6, 15);
+        return (int) NetworkX.shortestPathLength(graph, 0, 6, "weight");
+    }
+}

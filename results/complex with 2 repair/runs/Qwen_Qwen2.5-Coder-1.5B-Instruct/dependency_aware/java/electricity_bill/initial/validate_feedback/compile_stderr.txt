@@ -1,0 +1,60 @@
+Service.java:5: error: cannot find symbol
+        int units = Utils.billableUnits(n);
+                    ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator energyCharge = Service::energy_charge;
+                                        ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("utils.billable_units|101|" + Utils.billable_units(101)); } catch (Throwable e) { System.out.println("utils.billable_units|101|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("utils.billable_units|350|" + Utils.billable_units(350)); } catch (Throwable e) { System.out.println("utils.billable_units|350|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("utils.billable_units|400|" + Utils.billable_units(400)); } catch (Throwable e) { System.out.println("utils.billable_units|400|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("utils.billable_units|0|" + Utils.billable_units(0)); } catch (Throwable e) { System.out.println("utils.billable_units|0|ERR"); }
+                                                            ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("utils.billable_units|99|" + Utils.billable_units(99)); } catch (Throwable e) { System.out.println("utils.billable_units|99|ERR"); }
+                                                             ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("utils.billable_units|1|" + Utils.billable_units(1)); } catch (Throwable e) { System.out.println("utils.billable_units|1|ERR"); }
+                                                            ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.billable_units|700|" + Utils.billable_units(700)); } catch (Throwable e) { System.out.println("utils.billable_units|700|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:28: error: cannot find symbol
+  try { System.out.println("utils.billable_units|-50|" + Utils.billable_units(-50)); } catch (Throwable e) { System.out.println("utils.billable_units|-50|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:29: error: cannot find symbol
+  try { System.out.println("utils.billable_units|1000|" + Utils.billable_units(1000)); } catch (Throwable e) { System.out.println("utils.billable_units|1000|ERR"); }
+                                                               ^
+  symbol:   method billable_units(int)
+  location: class Utils
+12 errors

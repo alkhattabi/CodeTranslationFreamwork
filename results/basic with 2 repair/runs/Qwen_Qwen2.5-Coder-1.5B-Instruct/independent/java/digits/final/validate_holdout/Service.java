@@ -1,0 +1,5 @@
+public class Service {
+    public static int score_digits(int n) {
+        return digitSum(n) * 3;
+    }
+}

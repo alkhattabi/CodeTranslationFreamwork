@@ -1,0 +1,24 @@
+public class Main {
+    public static int solve(int n) {
+        int nights = validNights(n);
+        if (nights == 0) {
+            return -1;
+        }
+        int rooms = n / 100;
+        int charge = lodgingCharge(n);
+        int cleaning = rooms * 45;
+        int tax = (charge + cleaning) * 15 / 100;
+        return charge + cleaning + tax;
+    }
+
+    // Static methods of their respective classes
+    public static int validNights(int n) {
+        // Implementation here
+    }
+
+    public static int lodgingCharge(int n) {
+        // Implementation here
+    }
+}
+
+Note: The actual implementations of validNights and lodgingCharge methods are not provided in the Python code snippet, so they are represented as placeholders in the Java code.

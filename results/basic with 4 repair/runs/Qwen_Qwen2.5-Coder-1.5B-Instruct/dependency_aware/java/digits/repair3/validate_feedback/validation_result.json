@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nMain.java:5: error: cannot access Service\n        int value = Service.score_digits(n);\n                    ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nEvalRunner.java:11: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|0|\" + Utils.digit_sum(0)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|0|ERR\"); }\n                                                       ^\n  symbol:   method digit_sum(int)\n  location: class Utils\nEvalRunner.java:12: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|208|\" + Utils.digit_sum(208)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|208|ERR\"); }\n                                                         ^\n  symbol:   method digit_sum(int)\n  location: class Utils\nEvalRunner.java:13: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|1|\" + Utils.digit_sum(1)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|1|ERR\"); }\n                                                       ^\n  symbol:   method digit_sum(int)\n  location: class Utils\nEvalRunner.java:14: error: cannot find symbol\n  try { System.out.println(\"utils.digit_sum|-1|\" + Utils.digit_sum(-1)); } catch (Throwable e) { System.out.println(\"utils.digit_sum|-1|ERR\"); }\n                                                        ^\n  symbol:   method digit_sum(int)\n  location: class Utils\n6 errors\n",
+  "failed_modules": [
+    "service",
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

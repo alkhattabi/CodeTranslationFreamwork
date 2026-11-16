@@ -1,0 +1,24 @@
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}

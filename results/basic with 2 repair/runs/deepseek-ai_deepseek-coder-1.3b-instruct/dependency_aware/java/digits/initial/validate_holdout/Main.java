@@ -1,0 +1,21 @@
+public class Main {
+    public static int solve(int n) {
+        int value = Utils.digit_sum(n);
+        if (value % 2 == 0) {
+            return value + 1;
+        }
+        return value - 1;
+    }
+
+    public static class Utils {
+        public static int digit_sum(int n) {
+            n = Math.abs(n);
+            int total = 0;
+            while (n > 0) {
+                total += n % 10;
+                n /= 10;
+            }
+            return total;
+        }
+    }
+}

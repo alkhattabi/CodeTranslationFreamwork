@@ -1,0 +1,16 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { calculateTax } from "./service.js";
+import { taxableIncome } from "./utils.js";
+
+export function solve(n) {
+    const base = taxableIncome(n);
+    const tax = calculateTax(n);
+    const credit = n <= 2500 ? 100 : 0;
+    const payable = tax - credit;
+    return payable + (payable * (n > 10000 ? 2 : 0)) / 100;
+}
+```
+
+Please note that the JavaScript version of your Python code assumes that the `taxableIncome` function and `calculateTax` function are defined in the `utils.js` and `service.js` respectively. Also, the division operator `/` in JavaScript performs floating-point division, so the `2 / 100` in the return statement is equivalent to `2 / 100.0` in Python.

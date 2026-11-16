@@ -1,0 +1,42 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+Execution diagnostics: node:internal/modules/esm/resolve:275
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/digits/initial/validate_feedback/service.js' imported from /content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/digits/initial/validate_feedback/main.mjs
+    at finaliz
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function score_digits(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { digit_sum } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function score_digits(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { digit_sum } from "./utils.mjs";
+
+export function score_digits(n) {
+  return digit_sum(n) * 3;
+}
+
+
+ORIGINAL PYTHON:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+DEPENDENCY utils.mjs:
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}

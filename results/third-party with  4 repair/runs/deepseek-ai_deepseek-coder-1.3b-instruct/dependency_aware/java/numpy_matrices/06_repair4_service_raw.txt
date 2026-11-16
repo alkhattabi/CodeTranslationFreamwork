@@ -1,0 +1,18 @@
+Here is the corrected Java code:
+
+```java
+public class Service {
+    public static int matrix_energy(int n) {
+        n = Math.max(Math.min(100, n), -100);
+        int[] v = {n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int out = 0;
+        for (int i = 0; i < 3; i++) {
+            out += m[i / 3][i % 3] * v[i];
+        }
+        return Math.abs(out);
+    }
+}
+```
+
+This Java code is the same as the original Python code. It declares a public class `Service` with a public static method `matrix_energy`. The method takes an integer `n` as input and returns an integer. The method first checks if `n` is within the range of -100 to 100. If not, it adjusts `n` to be within this range. Then, it calculates the modulo of `n` by 11, the absolute value of `n` modulo 7, and `n` divided by 3 modulo 9. It multiplies these three values together and adds the result to `out`. Finally, it returns the absolute value of `out`.

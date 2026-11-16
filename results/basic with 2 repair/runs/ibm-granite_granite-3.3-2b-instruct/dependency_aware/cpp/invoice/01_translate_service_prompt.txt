@@ -1,0 +1,31 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int gross(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int gross(int n);
+int unit_price(int n);
+
+
+PYTHON FILE service.py:
+from utils import unit_price
+
+def gross(n: int) -> int:
+    if n < 0:
+        return 0
+    return n * unit_price(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#include "api.hpp"
+
+int unit_price(int n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}

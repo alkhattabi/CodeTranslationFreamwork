@@ -1,0 +1,7 @@
+Service.java:34: error: class, interface, enum, or record expected
+Note: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.
+^
+Main.java:32: error: class, interface, enum, or record expected
+Note: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.
+^
+2 errors

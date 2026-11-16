@@ -1,0 +1,24 @@
+Here is the corrected Java code:
+
+```java
+public class Service {
+    public static int discount(int n) {
+        return tier(n) * 5;
+    }
+
+    private static int tier(int n) {
+        if (n >= 100) {
+            return 3;
+        }
+        if (n >= 50) {
+            return 2;
+        }
+        if (n >= 10) {
+            return 1;
+        }
+        return 0;
+    }
+}
+```
+
+This code declares a public class `Service` with a public static method `discount` that takes an integer `n` and returns an integer. The `discount` method calculates the discount based on the `tier` method, which is a private static method of the `Service` class. The `tier` method returns a value based on the `n` parameter, which determines the discount.

@@ -1,0 +1,60 @@
+public class Service {
+    public static int riskPoints(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (luhnValid(n) == 0) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    private static int luhnValid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubled = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubled) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubled =!doubled;
+            n /= 10;
+        }
+        return 1 - (total % 10);
+    }
+}
+
+// Note: In Java, there's no direct equivalent to Python's `from... import...` syntax.
+// The `Utils` class from Python is represented as a separate `Utils.java` file in Java.
+// The `luhnValid` method in `Utils.java` is a direct translation of the Python's `luhn_valid` function.
+// The `riskPoints` method in `Service.java` mirrors the behavior of the Python's `risk_points` function.
+// The `private static` keyword is used to declare methods that are accessible only within the `Service` class.
+// The `this` keyword is implicitly used in Java for method calls on the current class instance.
+// Java does not have a direct equivalent to Python's `return` statement for functions, so we use `return` at the end of each method.
+// Java does not have a direct equivalent to Python's `if n <= 0`, so we use `if (n <= 0)` in Java.
+// Java does not have a direct equivalent to Python's `== 0`, so we use `== 0` in Java.
+// Java does not have a direct equivalent to Python's `==`, so we use `==` in Java.
+// Java does not have a direct equivalent to Python's `+=`, so we use `+=` in Java.
+// Java does not have a direct equivalent to Python's `if n % 11 == 0`, so we use `if (n % 11 == 0)` in Java.
+// Java does not have a direct equivalent to Python's `if n % 100 < 10`, so we use `if (n % 100 < 10)` in Java.
+// Java does not have a direct equivalent to Python's `if n < 1000`, so we use `if (n < 1000)` in Java.
+// Java does not have a direct equivalent to Python's `return score`, so we use `return score` at the end of each method in Java.
+// Java does not have a direct equivalent to Python's `def`, so we use `public static int riskPoints(int n) {` in Java.
+// Java does not have a direct equivalent to Python's `public class`, so we

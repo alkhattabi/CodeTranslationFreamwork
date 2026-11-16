@@ -1,0 +1,24 @@
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        Version allowedVersion = new Version(">=1.5,<4.0");
+        boolean inRange = allowedVersion.compareTo(version) >= 0;
+        boolean isStable =!version.getPrerelease();
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+    }
+}
+
+// Note: The Java code assumes that the upgrade_cost and release_rank methods from Service and Utils classes respectively, are already translated and available in the same package.
+
+// Note: The Version class is a standard Java library class, no external dependencies are needed.
+// Note: The SpecifierSet class from packaging library in Python is not directly available in Java, so the equivalent functionality is handled using Version class comparison.
+// Note: The floor-division and modulo operations in Python are directly translated to Java's integer division and modulus operators.
+// Note: The main method and package declaration are omitted as per the request.
+// Note: The code assumes that the required Version class and its methods are already available in the package.

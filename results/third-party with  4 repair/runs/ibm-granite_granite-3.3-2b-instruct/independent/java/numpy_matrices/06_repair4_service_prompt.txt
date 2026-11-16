@@ -1,0 +1,68 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:34: error: class, interface, enum, or record expected
+Note: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.
+^
+Main.java:32: error: class, interface, enum, or record expected
+Note: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.
+^
+2 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int matrix_energy(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.vector_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int matrix_energy(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int matrix_energy(int n) {
+        int x = Math.max(-100, Math.min(100, n));
+        int[] m = new int[]{
+            (x % 5), 2, -(x % 3),
+            3, (x % 7), 4,
+            1, 5, (x % 1)
+        };
+        int[][] matrix = {
+            {m[0], m[1], m[2]},
+            {m[3], m[4], m[5]},
+            {m[6], m[7], m[8]}
+        };
+
+        int squareSum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                squareSum += matrix[i][j] * matrix[i][j];
+            }
+        }
+
+        int diagonalSum = squareSum - (matrix[0][0] + matrix[1][1] + matrix[2][2]) + matrix[3][3] + matrix[4][4] + matrix[5][5];
+
+        return diagonalSum + vector_signature(n);
+    }
+
+    // Placeholder for vector_signature method
+    private static int vector_signature(int n) {
+        // Implementation of vector_signature method goes here
+        return 0;
+    }
+}
+
+Note: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+
+def matrix_energy(n: int) -> int:
+    x = max(-100, min(100, n))
+    m = np.array([[x % 5, 2, -1], [3, x % 7, 4], [1, 5, x % 3]], dtype=np.int64)
+    square = m @ m
+    diagonal = int(np.trace(square))
+    return diagonal + vector_signature(n)

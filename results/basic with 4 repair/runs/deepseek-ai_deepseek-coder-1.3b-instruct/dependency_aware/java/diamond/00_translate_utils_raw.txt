@@ -1,0 +1,14 @@
+Here is the Java equivalent of the provided Python code:
+
+```java
+public class Utils {
+    public static int normalize(int n) {
+        if (n < 0) {
+            return -n;
+        }
+        return n;
+    }
+}
+```
+
+This Java code does exactly the same thing as the Python code. It has a public class named `Utils` with a public static method `normalize` that takes an integer as a parameter and returns the same integer. If the input integer is negative, it returns the negative of the input integer. Otherwise, it returns the input integer as is.

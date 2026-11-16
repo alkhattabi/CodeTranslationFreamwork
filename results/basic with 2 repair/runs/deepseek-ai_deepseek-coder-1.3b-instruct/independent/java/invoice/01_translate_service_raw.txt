@@ -1,0 +1,30 @@
+Here is the Java version of the provided Python code:
+
+```java
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * Utils.unit_price(n);
+    }
+}
+```
+
+Please note that in Java, the import statement is not used to import classes or modules. Instead, you should use the fully qualified name of the class or method you want to use. In this case, you would import `Utils` from the package `com.example.utils`.
+
+```java
+import com.example.utils.Utils;
+```
+
+Also, please note that the `Utils.unit_price(n)` function is not defined in the provided Python code. You would need to define this function in the Utils class or another class that is imported by the Service class.
+
+```java
+public class Utils {
+    public static int unit_price(int n) {
+        // implementation
+    }
+}
+```
+
+Please replace the `unit_price(n)` function with the actual implementation.

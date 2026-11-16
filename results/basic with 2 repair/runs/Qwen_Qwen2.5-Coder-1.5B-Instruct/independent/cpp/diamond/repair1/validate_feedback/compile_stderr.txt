@@ -1,0 +1,21 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int normalize(int)’:
+service.cpp:8:14: error: ‘INT_MIN’ was not declared in this scope
+    8 |     if (n == INT_MIN) {
+      |              ^~~~~~~
+service.cpp:5:1: note: ‘INT_MIN’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+    4 | #include <cstdlib>
+  +++ |+#include <climits>
+    5 | 
+service.cpp:9:16: error: ‘INT_MAX’ was not declared in this scope
+    9 |         return INT_MAX;
+      |                ^~~~~~~
+service.cpp:9:16: note: ‘INT_MAX’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

@@ -1,0 +1,10 @@
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccHXnl1s.o: in function `vector_signature(int)':
+service.cpp:(.text+0x0): multiple definition of `vector_signature(int)'; /tmp/ccW4ZEzE.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccgE9GMd.o: in function `vector_signature(int)':
+main.cpp:(.text+0x0): multiple definition of `vector_signature(int)'; /tmp/ccW4ZEzE.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccgE9GMd.o: in function `matrix_energy(int)':
+main.cpp:(.text+0x54b): multiple definition of `matrix_energy(int)'; /tmp/ccHXnl1s.o:service.cpp:(.text+0x54b): first defined here
+collect2: error: ld returned 1 exit status

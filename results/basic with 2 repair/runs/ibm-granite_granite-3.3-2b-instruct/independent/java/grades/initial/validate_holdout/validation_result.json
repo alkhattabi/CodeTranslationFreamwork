@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\n        int base = clamp(n);\n                   ^\n  symbol:   method clamp(int)\n  location: class Service\nService.java:4: error: cannot find symbol\n        return clamp(base + 7);\n               ^\n  symbol:   method clamp(int)\n  location: class Service\nMain.java:3: error: cannot find symbol\n        return bonusScore(n) >= 60? 1 : 0;\n               ^\n  symbol:   method bonusScore(int)\n  location: class Main\n3 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

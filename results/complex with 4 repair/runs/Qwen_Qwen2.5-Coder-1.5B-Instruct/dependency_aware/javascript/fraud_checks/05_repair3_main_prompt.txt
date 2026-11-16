@@ -1,0 +1,105 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 3/33 development checks.
+main.solve(1230): expected 0, actual ERR: TypeError: Assignment to constant variable.
+main.solve(1016): expected 0, actual ERR: TypeError: Assignment to constant variable.
+main.solve(987654321): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(1234): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(799273): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(11): expected 3, actual ERR: TypeError: Assignment to constant variable.
+main.solve(121): expected 3, actual ERR: TypeError: Assignment to constant variable.
+main.solve(10): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(123456789): expected 2, actual ERR: TypeError: Assignment to constant variable.
+main.solve(125): expected 0, actual ERR: TypeError: Assignment to constant variable.
+service.risk_points(1230): expected 0, actual ERR: TypeError: Assignment to constant variable.
+service.risk_points(1016): expected 0, actual ERR: TypeError: Assignment to constant variable.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { risk_points } from "./service.mjs";
+  import { luhn_valid } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { risk_points } from "./service.mjs";
+import { luhn_valid } from "./utils.mjs";
+
+export function solve(n) {
+    const points = risk_points(n);
+    if (points >= 70) {
+        return 3;
+    }
+    if (points >= 40) {
+        return 2;
+    }
+    if (luhn_valid(n) === 1) {
+        return 0;
+    }
+    return 1;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import luhn_valid
+from service import risk_points
+
+def solve(n: int) -> int:
+    points = risk_points(n)
+    if points >= 70:
+        return 3
+    if points >= 40:
+        return 2
+    if luhn_valid(n) == 1:
+        return 0
+    return 1
+
+
+DEPENDENCY service.mjs:
+import { luhn_valid } from "./utils.mjs";
+
+export function risk_points(n) {
+    if (n <= 0) {
+        return 100;
+    }
+    let score = 0;
+    if (luhn_valid(n) === 0) {
+        score += 40;
+    }
+    if (n % 11 === 0) {
+        score += 20;
+    }
+    if (n % 100 < 10) {
+        score += 15;
+    }
+    if (n < 1000) {
+        score += 25;
+    }
+    return score;
+}
+
+
+DEPENDENCY utils.mjs:
+export function luhn_valid(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let total = 0;
+    let double = false;
+    while (n > 0) {
+        const digit = n % 10;
+        if (double) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double = !double;
+        n = Math.floor(n / 10);
+    }
+    return total % 10 === 0 ? 1 : 0;
+}

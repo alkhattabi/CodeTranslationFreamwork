@@ -1,0 +1,169 @@
+air.h:1039:38: error: ‘_Int’ was not declared in this scope
+ 1039 |     constexpr typename tuple_element<_Int, pair<_Tp1, _Tp2>>::type&&
+      |                                      ^~~~
+/usr/include/c++/13/bits/stl_pair.h:1039:59: error: template argument 1 is invalid
+ 1039 |     constexpr typename tuple_element<_Int, pair<_Tp1, _Tp2>>::type&&
+      |                                                           ^~
+/usr/include/c++/13/bits/stl_pair.h: In function ‘constexpr int&& std::get(pair<_Tp1, _Tp2>&&)’:
+/usr/include/c++/13/bits/stl_pair.h:1041:25: error: ‘_Int’ was not declared in this scope
+ 1041 |     { return __pair_get<_Int>::__move_get(std::move(__in)); }
+      |                         ^~~~
+/usr/include/c++/13/bits/stl_pair.h:1041:29: error: template argument 1 is invalid
+ 1041 |     { return __pair_get<_Int>::__move_get(std::move(__in)); }
+      |                             ^
+/usr/include/c++/13/bits/stl_pair.h: At global scope:
+/usr/include/c++/13/bits/stl_pair.h:1043:12: error: ‘size_t’ has not been declared
+ 1043 |   template<size_t _Int, class _Tp1, class _Tp2>
+      |            ^~~~~~
+/usr/include/c++/13/bits/stl_pair.h:1044:44: error: ‘_Int’ was not declared in this scope
+ 1044 |     constexpr const typename tuple_element<_Int, pair<_Tp1, _Tp2>>::type&
+      |                                            ^~~~
+/usr/include/c++/13/bits/stl_pair.h:1044:65: error: template argument 1 is invalid
+ 1044 |     constexpr const typename tuple_element<_Int, pair<_Tp1, _Tp2>>::type&
+      |                                                                 ^~
+/usr/include/c++/13/bits/stl_pair.h: In function ‘constexpr const int& std::get(const pair<_Tp1, _Tp2>&)’:
+/usr/include/c++/13/bits/stl_pair.h:1046:25: error: ‘_Int’ was not declared in this scope
+ 1046 |     { return __pair_get<_Int>::__const_get(__in); }
+      |                         ^~~~
+/usr/include/c++/13/bits/stl_pair.h:1046:29: error: template argument 1 is invalid
+ 1046 |     { return __pair_get<_Int>::__const_get(__in); }
+      |                             ^
+/usr/include/c++/13/bits/stl_pair.h: At global scope:
+/usr/include/c++/13/bits/stl_pair.h:1048:12: error: ‘size_t’ has not been declared
+ 1048 |   template<size_t _Int, class _Tp1, class _Tp2>
+      |            ^~~~~~
+/usr/include/c++/13/bits/stl_pair.h:1049:44: error: ‘_Int’ was not declared in this scope
+ 1049 |     constexpr const typename tuple_element<_Int, pair<_Tp1, _Tp2>>::type&&
+      |                                            ^~~~
+/usr/include/c++/13/bits/stl_pair.h:1049:65: error: template argument 1 is invalid
+ 1049 |     constexpr const typename tuple_element<_Int, pair<_Tp1, _Tp2>>::type&&
+      |                                                                 ^~
+/usr/include/c++/13/bits/stl_pair.h: In function ‘constexpr const int&& std::get(const pair<_Tp1, _Tp2>&&)’:
+/usr/include/c++/13/bits/stl_pair.h:1051:25: error: ‘_Int’ was not declared in this scope
+ 1051 |     { return __pair_get<_Int>::__const_move_get(std::move(__in)); }
+      |                         ^~~~
+/usr/include/c++/13/bits/stl_pair.h:1051:29: error: template argument 1 is invalid
+ 1051 |     { return __pair_get<_Int>::__const_move_get(std::move(__in)); }
+      |                             ^
+In file included from /usr/include/c++/13/bits/stl_algobase.h:65:
+/usr/include/c++/13/bits/stl_iterator_base_types.h: At global scope:
+/usr/include/c++/13/bits/stl_iterator_base_types.h:125:67: error: ‘ptrdiff_t’ does not name a type
+  125 |   template<typename _Category, typename _Tp, typename _Distance = ptrdiff_t,
+      |                                                                   ^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator_base_types.h:1:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+  +++ |+#include <cstddef>
+    1 | // Types used in iterator implementation -*- C++ -*-
+/usr/include/c++/13/bits/stl_iterator_base_types.h:214:15: error: ‘ptrdiff_t’ does not name a type
+  214 |       typedef ptrdiff_t                   difference_type;
+      |               ^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator_base_types.h:214:15: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+/usr/include/c++/13/bits/stl_iterator_base_types.h:225:15: error: ‘ptrdiff_t’ does not name a type
+  225 |       typedef ptrdiff_t                   difference_type;
+      |               ^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator_base_types.h:225:15: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+In file included from /usr/include/c++/13/bits/stl_algobase.h:66:
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:112:5: error: ‘ptrdiff_t’ does not name a type
+  112 |     ptrdiff_t
+      |     ^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:66:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+   65 | #include <debug/assertions.h>
+  +++ |+#include <cstddef>
+   66 | #include <bits/stl_iterator_base_types.h>
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:118:5: error: ‘ptrdiff_t’ does not name a type
+  118 |     ptrdiff_t
+      |     ^~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:118:5: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+In file included from /usr/include/c++/13/bits/stl_iterator.h:67,
+                 from /usr/include/c++/13/bits/stl_algobase.h:67:
+/usr/include/c++/13/bits/ptr_traits.h:163:47: error: ‘ptrdiff_t’ was not declared in this scope
+  163 |       using difference_type = __detected_or_t<ptrdiff_t, __diff_t, _Ptr>;
+      |                                               ^~~~~~~~~
+/usr/include/c++/13/bits/ptr_traits.h:1:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+  +++ |+#include <cstddef>
+    1 | // Pointer Traits -*- C++ -*-
+/usr/include/c++/13/bits/ptr_traits.h:163:72: error: template argument 1 is invalid
+  163 |       using difference_type = __detected_or_t<ptrdiff_t, __diff_t, _Ptr>;
+      |                                                                        ^
+/usr/include/c++/13/bits/ptr_traits.h:201:15: error: ‘ptrdiff_t’ does not name a type
+  201 |       typedef ptrdiff_t difference_type;
+      |               ^~~~~~~~~
+/usr/include/c++/13/bits/ptr_traits.h:201:15: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+/usr/include/c++/13/bits/stl_algobase.h:93:56: error: ‘size_t’ has not been declared
+   93 |     __memcmp(const _Tp* __first1, const _Up* __first2, size_t __num)
+      |                                                        ^~~~~~
+/usr/include/c++/13/bits/stl_algobase.h: In static member function ‘static _Up* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(_Tp*, _Tp*, _Up*)’:
+/usr/include/c++/13/bits/stl_algobase.h:435:17: error: ‘ptrdiff_t’ does not name a type
+  435 |           const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:77:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+   76 | # include <bit> // std::__bit_width
+  +++ |+#include <cstddef>
+   77 | #endif
+/usr/include/c++/13/bits/stl_algobase.h:436:32: error: ‘_Num’ was not declared in this scope
+  436 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+/usr/include/c++/13/bits/stl_algobase.h:441:29: error: ‘_Num’ was not declared in this scope
+  441 |           return __result + _Num;
+      |                             ^~~~
+/usr/include/c++/13/bits/stl_algobase.h: In static member function ‘static _Up* std::__copy_move_backward<_IsMove, true, std::random_access_iterator_tag>::__copy_move_b(_Tp*, _Tp*, _Up*)’:
+/usr/include/c++/13/bits/stl_algobase.h:746:17: error: ‘ptrdiff_t’ does not name a type
+  746 |           const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:746:17: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+/usr/include/c++/13/bits/stl_algobase.h:747:32: error: ‘_Num’ was not declared in this scope
+  747 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+/usr/include/c++/13/bits/stl_algobase.h:752:29: error: ‘_Num’ was not declared in this scope
+  752 |           return __result - _Num;
+      |                             ^~~~
+/usr/include/c++/13/bits/stl_algobase.h: In function ‘typename __gnu_cxx::__enable_if<std::__is_byte<_Tp>::__value, void>::__type std::__fill_a1(_Tp*, _Tp*, const _Tp&)’:
+/usr/include/c++/13/bits/stl_algobase.h:950:24: error: expected initializer before ‘__len’
+  950 |       if (const size_t __len = __last - __first)
+      |                        ^~~~~
+/usr/include/c++/13/bits/stl_algobase.h:950:23: error: expected ‘)’ before ‘__len’
+  950 |       if (const size_t __len = __last - __first)
+      |          ~            ^~~~~~
+      |                       )
+/usr/include/c++/13/bits/stl_algobase.h:951:70: error: ‘__len’ was not declared in this scope
+  951 |         __builtin_memset(__first, static_cast<unsigned char>(__tmp), __len);
+      |                                                                      ^~~~~
+/usr/include/c++/13/bits/stl_algobase.h: In static member function ‘static bool std::__equal<true>::equal(const _Tp*, const _Tp*, const _Tp*)’:
+/usr/include/c++/13/bits/stl_algobase.h:1184:28: error: expected initializer before ‘__len’
+ 1184 |           if (const size_t __len = (__last1 - __first1))
+      |                            ^~~~~
+/usr/include/c++/13/bits/stl_algobase.h:1184:28: error: expected ‘)’ before ‘__len’
+/usr/include/c++/13/bits/stl_algobase.h:1184:14: note: to match this ‘(’
+ 1184 |           if (const size_t __len = (__last1 - __first1))
+      |              ^
+/usr/include/c++/13/bits/stl_algobase.h:1185:55: error: ‘__len’ was not declared in this scope
+ 1185 |             return !std::__memcmp(__first1, __first2, __len);
+      |                                                       ^~~~~
+/usr/include/c++/13/bits/stl_algobase.h: At global scope:
+/usr/include/c++/13/bits/stl_algobase.h:1357:16: error: ‘ptrdiff_t’ does not name a type
+ 1357 |         static ptrdiff_t
+      |                ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:1357:16: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+In file included from /usr/include/c++/13/bits/algorithmfwd.h:39,
+                 from /usr/include/c++/13/bits/stl_algo.h:59,
+                 from /usr/include/c++/13/algorithm:61:
+/usr/include/c++/13/initializer_list:51:15: error: ‘size_t’ does not name a type
+   51 |       typedef size_t            size_type;
+      |               ^~~~~~
+/usr/include/c++/13/initializer_list:1:1: note: ‘size_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+  +++ |+#include <cstddef>
+    1 | // std::initializer_list support -*- C++ -*-
+/usr/include/c++/13/initializer_list:57:7: error: ‘size_type’ does not name a type; did you mean ‘true_type’?
+   57 |       size_type                 _M_len;
+      |       ^~~~~~~~~
+      |       true_type
+/usr/include/c++/13/initializer_list:60:54: error: ‘size_type’ has not been declared
+   60 |       constexpr initializer_list(const_iterator __a, size_type __l)
+      |                                                      ^~~~~~~~~
+/usr/include/c++/13/initializer_list:68:17: error: ‘size_type’ does not name a type; did you mean ‘true_type’?
+   68 |       constexpr size_type
+      |                 ^~~~~~~~~
+      |                 true_type
+/usr/include/c++/13/initializer_list:45:11: fatal error: definition of ‘class std::initializer_list<_E>’ does not match ‘#include <initializer_list>’
+   45 |     class initializer_list
+      |           ^~~~~~~~~~~~~~~~
+compilation terminated.

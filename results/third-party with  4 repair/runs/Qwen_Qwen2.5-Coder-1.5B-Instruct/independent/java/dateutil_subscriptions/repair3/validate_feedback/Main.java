@@ -1,0 +1,18 @@
+package com.example;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Main {
+    public static int solve(int n) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 2);
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(12345)); // Output will depend on the actual implementation of renewalDate and gracePeriod
+    }
+}

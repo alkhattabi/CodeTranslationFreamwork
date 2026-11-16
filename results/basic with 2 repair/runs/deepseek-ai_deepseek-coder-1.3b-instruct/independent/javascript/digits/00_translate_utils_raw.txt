@@ -1,0 +1,15 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+```
+
+This JavaScript function works similarly to the Python function you provided. It takes an integer as input, converts it to its absolute value, and then calculates the sum of its digits. The while loop continues until the number becomes 0, at which point it returns the total sum.

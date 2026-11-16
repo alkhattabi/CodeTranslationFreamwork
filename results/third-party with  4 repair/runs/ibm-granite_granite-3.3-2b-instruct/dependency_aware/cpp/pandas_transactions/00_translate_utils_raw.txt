@@ -1,0 +1,30 @@
+Here is the equivalent C++ code for the provided Python utility function:
+
+utils.cpp
+
+```cpp
+#include "api.hpp"
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    std::vector<std::pair<std::string, int>> frame = {
+        {"A", n},
+        {"B", 12},
+        {"A", n / 2},
+        {"C", -7},
+        {"B", n % 9},
+        {"C", 4},
+        {"A", -n / 3}
+    };
+
+    std::map<std::string, int> sums;
+    for (const auto& pair : frame) {
+        sums[pair.first] += pair.second;
+    }
+
+    return 2 * sums["A"] + sums["B"] - sums["C"];
+}
+```
+
+This C++ code defines the `category_balance` function, which behaves identically to the provided Python function. It uses a vector of pairs to simulate a pandas DataFrame, groups the data by category, and calculates the sum for each category. The result is then returned as an integer, following the same logic as the Python function.

@@ -1,0 +1,54 @@
+Main.java:27: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:34: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+        ^
+  symbol:   class List
+  location: class Utils
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+                                    ^
+  symbol:   class ArrayList
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+        ^
+  symbol:   class Map
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+                                        ^
+  symbol:   class HashMap
+  location: class Utils
+Utils.java:15: error: package frame does not exist
+            if (sums.containsKey(frame.category.get(amount))) {
+                                      ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                                                                   ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                              ^
+Utils.java:18: error: package frame does not exist
+                sums.put(frame.category.get(amount), amount);
+                              ^
+Main.java:3: error: cannot find symbol
+        int balance = categoryBalance(n);
+                      ^
+  symbol:   method categoryBalance(int)
+  location: class Main
+Main.java:4: error: cannot find symbol
+        int alert = rollingAlert(n);
+                    ^
+  symbol:   method rollingAlert(int)
+  location: class Main
+Main.java:21: error: cannot find symbol
+            return ranks;
+                   ^
+  symbol:   variable ranks
+  location: class Ranking
+13 errors

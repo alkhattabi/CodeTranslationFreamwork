@@ -1,0 +1,73 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { upgrade_cost } from "./service.mjs";
+  import { release_rank } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: packaging.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+from packaging.specifiers import SpecifierSet
+from packaging.version import Version
+from utils import release_rank
+from service import upgrade_cost
+
+def solve(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    allowed = SpecifierSet(">=1.5,<4.0")
+    in_range = 1 if version in allowed else 0
+    stable = 0 if version.is_prerelease else 1
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: service.mjs
+import { release_rank } from "./utils.mjs";
+
+export function upgrade_cost(n) {
+    const rank = release_rank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = Math.floor((n / 100) % 100);
+    const patch = n % 100;
+    const suffix = (patch % 4 === 0) ? "rc1" : "";
+    const version = `${major}.${minor}.${patch}${suffix}`;
+    const required = "2.1.0";
+    let penalty = 40;
+    if (version < required) {
+        return rank * 25 + minor + patch / 5 + penalty;
+    }
+    return rank * 25 + minor + patch / 5;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+export function release_rank(n) {
+    if (n < 0) {
+        return -1;
+    }
+    let major = Math.floor(n / 10000);
+    let minor = Math.floor((n / 100) % 100);
+    let patch = n % 100;
+    let suffix = (patch % 4 === 0) ? "rc1" : "";
+    let version = `${major}.${minor}.${patch}${suffix}`;
+    let reference = "2.1.0";
+    if (version < reference) {
+        return 1;
+    }
+    if (version === reference) {
+        return 2;
+    }
+    return 3;
+}

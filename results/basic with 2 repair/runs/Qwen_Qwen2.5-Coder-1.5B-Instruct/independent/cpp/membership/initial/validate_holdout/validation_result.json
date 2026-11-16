@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccHosWnd.o: in function `solve(int)':\nmain.cpp:(.text+0x2f): undefined reference to `discount(int)'\n/usr/bin/ld: /tmp/cc8IqfZF.o: in function `main':\nEvalRunner.cpp:(.text+0x188): undefined reference to `discount(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x1cd): undefined reference to `discount(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x212): undefined reference to `discount(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x257): undefined reference to `discount(int)'\n/usr/bin/ld: /tmp/cc8IqfZF.o:EvalRunner.cpp:(.text+0x29c): more undefined references to `discount(int)' follow\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,84 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int dijkstra(const std::vector<std::vector<int> >&, int, int)’:
+utils.cpp:13:10: error: ‘priority_queue’ is not a member of ‘std’
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |          ^~~~~~~~~~~~~~
+utils.cpp:6:1: note: ‘std::priority_queue’ is defined in header ‘<queue>’; did you forget to ‘#include <queue>’?
+    5 | #include <limits>
+  +++ |+#include <queue>
+    6 | 
+utils.cpp:13:44: error: expected primary-expression before ‘,’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                            ^
+utils.cpp:13:78: error: expected primary-expression before ‘,’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                              ^
+utils.cpp:13:93: error: expected primary-expression before ‘>’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                                             ^~
+utils.cpp:13:96: error: ‘pq’ was not declar
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int disruption_score(int n);
+int route_cost(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+// Helper function prototypes
+int disruption_score(int n);
+int route_cost(int n);
+
+// Main function
+int solve(int n);
+
+// Global variables
+extern std::vector<std::pair<int, int>> edges;
+extern int offset;
+
+// Helper function definitions
+int disruption_score(int n) {
+    // Implementation of disruption_score function
+    return n * 2; // Example implementation
+}
+
+int route_cost(int n) {
+    // Implementation of route_cost function
+    return n * 3; // Example implementation
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+from service import disruption_score
+
+def solve(n: int) -> int:
+    graph = nx.Graph()
+    offset = abs(n) % 7
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + offset), (0, 2, 5), (1, 2, 1 + offset % 3),
+        (1, 3, 4), (2, 3, 2 + offset % 2), (3, 4, 6),
+        (2, 4, 8 + offset)
+    ])
+    tree = nx.minimum_spanning_tree(graph, weight="weight")
+    total = int(tree.size(weight="weight"))
+    return total + disruption_score(n) - route_cost(n)

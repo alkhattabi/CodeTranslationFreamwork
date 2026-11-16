@@ -1,0 +1,70 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 3/24 development checks.
+main.solve(1000): expected 0, actual ERR: TypeError: Assignment to constant variable.
+main.solve(501): expected 0, actual ERR: TypeError: Assignment to constant variable.
+main.solve(15000): expected 2172, actual ERR: TypeError: Assignment to constant variable.
+main.solve(7000): expected 570, actual ERR: TypeError: Assignment to constant variable.
+main.solve(1500): expected 0, actual ERR: TypeError: Assignment to constant variable.
+service.calculate_tax(1000): expected 25, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.calculate_tax(3499): expected 149, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.calculate_tax(500): expected 0, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.calculate_tax(501): expected 0, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.calculate_tax(15000): expected 2130, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.calculate_tax(3500): expected 150, actual ERR: TypeError: modules[t.m][t.f] is not a function
+service.calculate_tax(7000): expected 570, actual ERR: TypeError: modules[t.m][t.f] is not a function
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function calculate_tax(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { taxable_income } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function calculate_tax(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { taxableIncome } from "./utils.mjs";
+
+export function calculateTax(n) {
+    const income = taxableIncome(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += Math.floor((income - 7000) * 20 / 100);
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += Math.floor((income - 3000) * 12 / 100);
+        income = 3000;
+    }
+    tax += Math.floor(income * 5 / 100);
+    return tax;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+
+def calculate_tax(n: int) -> int:
+    income = taxable_income(n)
+    tax = 0
+    if income > 7000:
+        tax += (income - 7000) * 20 // 100
+        income = 7000
+    if income > 3000:
+        tax += (income - 3000) * 12 // 100
+        income = 3000
+    tax += income * 5 // 100
+    return tax
+
+
+DEPENDENCY utils.mjs:
+export function taxableIncome(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    const income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}

@@ -1,0 +1,94 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:5: error: cannot find symbol
+        int units = Utils.billableUnits(n);
+                    ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator energyCharge = Service::energy_charge;
+                                        ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("utils.billable_units|101|" + Utils.billable_units(101)); } catch (Throwable e) { System.out.println("utils.billable_units|101|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("utils.billable_units|350|" + Utils.billable_units(350)); } catch (Throwable e) { System.out.println("utils.billable_units|350|ERR"); }
+                                                              ^
+  symbol:   method billable_units(int)
+  location: class Utils
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("utils.billable_units|400|" + Utils.billable_units(400)); } cat
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int energy_charge(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.billable_units(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int energy_charge(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+public class Service {
+    public static int energy_charge(int n) {
+        int units = Utils.billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+
+def energy_charge(n: int) -> int:
+    units = billable_units(n)
+    charge = 0
+    if units > 400:
+        charge += (units - 400) * 50
+        units = 400
+    if units > 200:
+        charge += (units - 200) * 30
+        units = 200
+    if units > 100:
+        charge += (units - 100) * 20
+        units = 100
+    charge += units * 10
+    return charge
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int billableUnits(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+}

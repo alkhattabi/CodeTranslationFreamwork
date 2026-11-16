@@ -1,0 +1,32 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int base = Utils.taxableIncome(n);
+        int tax = Service.calculateTax(n);
+        int credit = (base > 0 && base <= 2500) ? 100 : 0;
+        int payable = tax - credit;
+        if (payable < 0) {
+            payable = 0;
+        }
+        return payable + ((base > 10000) ? (payable * 2 / 100) : 0);
+    }
+}
+```
+
+Please note that in Java, we need to import the classes from the utils package to use them. Also, Java does not support the division operator for integers, so we use the double division operator (`/`) instead.
+
+The Java code also uses the `//` operator for integer division, which is equivalent to the `/` operator in Python.
+
+The `if` statement in Java is similar to the `if` statement in Python. The `&&` operator is used for logical AND in Java.
+
+The `? :` operator is a conditional operator in Java. It is used for ternary operation. The syntax is `condition ? expr1 : expr2`. If `condition` is true, it will return `expr1`, otherwise it will return `expr2`.
+
+The `//` operator is used for integer division in Java. It is equivalent to the `//` operator in Python.
+
+The `public` keyword is used to make a class public. The `static` keyword is used to make a method or variable static. The `public static int solve(int n)` is the method declaration. The `{ /* implementation */ }` is the body of the method.
+
+The `import` keyword is used to import classes from other packages. The `Utils` and `Service` are the classes to be imported.
+
+The `Utils` and `Service` are classes in the `utils` package. You need to create these classes in the `utils` package to compile this Java code.

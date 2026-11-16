@@ -1,0 +1,15 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function weight_blocks(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return Math.floor((n + 499) / 500);
+}
+```
+
+This code exports a function named `weight_blocks` that takes an integer `n` as an argument and returns an integer. The function first checks if `n` is less than or equal to 0, if so, it returns 0. If `n` is greater than 10000, it sets `n` to 10000. Then it calculates the result by adding 499 to `n` and dividing by 500, rounding down to the nearest whole number using `Math.floor`.

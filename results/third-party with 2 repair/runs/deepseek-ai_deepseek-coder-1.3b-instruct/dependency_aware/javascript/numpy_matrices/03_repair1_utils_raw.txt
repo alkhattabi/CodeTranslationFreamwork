@@ -1,0 +1,18 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function vector_signature(n) {
+  n = Math.max(-100, Math.min(100, n));
+  const v = [n % 11, Math.abs(n) % 7, Math.floor(n / 3) % 9];
+  const m = Array.from({length: 3}, (_, i) => Array(3).fill(i + 1)).map(arr => arr.fill(0));
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      m[i][j] += v[i] * v[j];
+    }
+  }
+  const out = m.flat();
+  return Math.abs(out.reduce((a, b) => a + b, 0));
+}
+```
+
+This JavaScript ES-module source code exports a function named `vector_signature` that takes an integer `n` as input and returns an integer. The function first clamps `n` between -100 and 100, then calculates the modulo of `n` with 11, the absolute value of `n` modulo 7, and the floor of `n` divided by 3 modulo 9. It then creates a 3x3 matrix `m` and multiplies the vector `v` by the matrix `m`. The function then flattens the matrix `m` and returns the sum of the absolute values of its elements.

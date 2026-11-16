@@ -1,0 +1,4 @@
+Service.java:22: error: class, interface, enum, or record expected
+ORIGINAL PYTHON:
+^
+1 error

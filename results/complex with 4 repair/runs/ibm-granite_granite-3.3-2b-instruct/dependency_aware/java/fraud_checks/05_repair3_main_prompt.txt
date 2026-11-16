@@ -1,0 +1,141 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("service.risk_points|1230|" + Service.risk_points(1230)); } catch (Throwable e) { System.out.println("service.risk_points|1230|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.risk_points|1016|" + Service.risk_points(1016)); } catch (Throwable e) { System.out.println("service.risk_points|1016|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.risk_points|1|" + Service.risk_points(1)); } catch (Throwable e) { System.out.println("service.risk_points|1|ERR"); }
+                                                             ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.risk_points|987654321|" + Service.risk_points(987654321)); } catch (Throwable e) { System.out.println("service.risk_points|987654321|ERR"); }
+                                                                     ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.risk_points(n)
+  Utils.luhn_valid(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int points = Utils.luhn_valid(n);
+        if (points >= 70) {
+            return 3;
+        } else if (points >= 40) {
+            return 2;
+        } else if (Service.riskPoints(n) == 1) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import luhn_valid
+from service import risk_points
+
+def solve(n: int) -> int:
+    points = risk_points(n)
+    if points >= 70:
+        return 3
+    if points >= 40:
+        return 2
+    if luhn_valid(n) == 1:
+        return 0
+    return 1
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int riskPoints(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (luhnValid(n) == 0) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    private static int luhnValid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubled = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubled) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubled =!doubled;
+            n /= 10;
+        }
+        return 1 - (total % 10);
+    }
+}
+
+// Note: In Java, there's no direct equivalent to Python's `from... import...` syntax.
+// The `Utils` class from Python is represented as a separate `Utils.java` file in Java.
+// The `luhnValid` method in `Utils.java` is a direct translation of the Python's `luhn_valid` function.
+// The `riskPoints` method in `Service.java` mirrors the behavior of the Python's `risk_points` function.
+// The `private static` keyword is used to declare methods that are accessible only within the `Service` class.
+// The `this` keyword is implicitly used in Java for method calls on the current class instance.
+// Java does not have a direct equivalent to Python's `return` statement for functions,
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubled = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubled) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubled =!doubled;
+            n /= 10;
+        }
+        return 1 - (total % 10);
+    }
+}

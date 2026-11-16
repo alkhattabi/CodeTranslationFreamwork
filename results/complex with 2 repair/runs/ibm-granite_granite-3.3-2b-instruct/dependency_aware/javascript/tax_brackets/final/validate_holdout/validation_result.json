@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.mjs\n/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/tax_brackets/final/validate_holdout/main.mjs:8\n    const credit = 100 if (base > 0 && base <= 2500) else 0;\n                       ^^\n\nSyntaxError: Unexpected token 'if'\n    at checkSyntax (node:internal/main/check_syntax:74:5)\n\nNode.js v22.23.4\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

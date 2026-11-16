@@ -1,0 +1,37 @@
+utils.cpp: In function ‘int route_cost(int)’:
+utils.cpp:5:5: error: ‘api’ has not been declared
+    5 |     api::DiGraph graph;
+      |     ^~~
+utils.cpp:6:5: error: ‘graph’ was not declared in this scope
+    6 |     graph.add_weighted_edges_from({
+      |     ^~~~~
+utils.cpp:18:45: error: ‘weight’ was not declared in this scope
+   18 |     return graph.shortest_path_length(0, 6, weight="weight");
+      |                                             ^~~~~~
+service.cpp: In function ‘int disruption_score(int)’:
+service.cpp:4:5: error: ‘api’ has not been declared
+    4 |     api::DiGraph graph;
+      |     ^~~
+service.cpp:5:5: error: ‘graph’ was not declared in this scope
+    5 |     graph.add_edges_from({
+      |     ^~~~~
+service.cpp:21:21: error: ‘nx’ has not been declared
+   21 |     int reachable = nx::descendants(graph, 0).size();
+      |                     ^~
+service.cpp:22:19: error: ‘nx’ has not been declared
+   22 |     int longest = nx::dag_longest_path_length(graph);
+      |                   ^~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:4:5: error: ‘api’ has not been declared
+    4 |     api::DiGraph graph;
+      |     ^~~
+main.cpp:6:5: error: ‘graph’ was not declared in this scope
+    6 |     graph.add_weighted_edges_from({
+      |     ^~~~~
+main.cpp:15:5: error: ‘api’ has not been declared
+   15 |     api::MinimumSpanningTree tree(graph);
+      |     ^~~
+main.cpp:16:12: error: ‘tree’ was not declared in this scope; did you mean ‘free’?
+   16 |     return tree.size() + disruption_score(n) - route_cost(n);
+      |            ^~~~
+      |            free

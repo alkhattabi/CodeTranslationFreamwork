@@ -1,0 +1,12 @@
+Here is the JavaScript ES-module source code for the provided Python file:
+
+```javascript
+import { clamp } from "./utils.mjs";
+
+export function bonus_score(n) {
+    const base = clamp(n);
+    return clamp(base + 7);
+}
+```
+
+This JavaScript code exports a function called `bonus_score` that takes an integer `n` as an argument. It first clamps the input using the `clamp` function from the `utils.mjs` module, and then adds 7 to the result. The `clamp` function ensures that the result is between 0 and 100, inclusive.

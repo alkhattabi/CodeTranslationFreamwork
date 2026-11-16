@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:14: error: ';' expected\n        int fee = 150 if band >= 3 else 350;\n                     ^\nMain.java:14: error: '(' expected\n        int fee = 150 if band >= 3 else 350;\n                        ^\nMain.java:14: error: ')' expected\n        int fee = 150 if band >= 3 else 350;\n                                  ^\nMain.java:14: error: not a statement\n        int fee = 150 if band >= 3 else 350;\n                                        ^\nMain.java:14: error: 'else' without 'if'\n        int fee = 150 if band >= 3 else 350;\n                                   ^\n5 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

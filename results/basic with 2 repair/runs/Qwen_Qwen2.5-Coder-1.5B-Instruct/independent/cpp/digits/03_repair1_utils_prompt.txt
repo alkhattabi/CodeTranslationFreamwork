@@ -1,0 +1,63 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccxWvJcK.o: in function `solve(int)':
+main.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccxNIiQL.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int digit_sum(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int score_digits(int n);
+int digit_sum(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int score_digits(int n);
+
+// Global C++ function declarations from api.hpp
+int digit_sum(int n);
+
+// Implementation of digit_sum function in utils.cpp
+int digit_sum(int n) {
+    n = std::abs(n);
+    int total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n /= 10;
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+def digit_sum(n: int) -> int:
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total

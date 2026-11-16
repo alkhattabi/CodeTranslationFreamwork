@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: package sympy.ntheory does not exist\nimport sympy.ntheory.factorint;\n                    ^\nMain.java:4: error: package sympy.ntheory does not exist\nimport sympy.ntheory.primetest;\n                    ^\nMain.java:9: error: cannot find symbol\n        int primeBonus = Primetest.isprime(value) ? 50 : 0;\n                         ^\n  symbol:   variable Primetest\n  location: class Main\nMain.java:11: error: incompatible types: int cannot be converted to BigInteger\n        nextPrime = nextPrime.intValue();\n                                      ^\nMain.java:12: error: bad operand types for binary operator '+'\n        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);\n                                              ^\n  first type:  int\n  second type: BigInteger\nMain.java:21: error: cannot find symbol\n        List<BigInteger> factors = factorint.factorint(n).values();\n                                   ^\n  symbol:   variable factorint\n  location: class Main\n6 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

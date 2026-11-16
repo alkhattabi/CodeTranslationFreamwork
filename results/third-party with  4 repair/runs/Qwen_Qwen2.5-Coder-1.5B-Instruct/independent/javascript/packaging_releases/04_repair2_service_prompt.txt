@@ -1,0 +1,54 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/packaging_releases/initial/validate_feedback/service.mjs:1
+import { releaseRank } from "./utils.mjs";
+         ^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'releaseRank'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at async onIm
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function upgrade_cost(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { release_rank } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function upgrade_cost(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { releaseRank } from "./utils.mjs";
+
+export function upgrade_cost(n) {
+    const rank = releaseRank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = Math.floor((n / 100) % 100);
+    const patch = n % 100;
+    const currentVersion = `${major}.${minor}.${patch}`;
+    const requiredVersion = "2.1.0";
+    let penalty = 0;
+    if (currentVersion < requiredVersion) {
+        penalty = 40;
+    }
+    return rank * 25 + minor + patch // 5 + penalty;
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+from utils import release_rank
+
+def upgrade_cost(n: int) -> int:
+    rank = release_rank(n)
+    if rank < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    current = Version(f"{major}.{minor}.{patch}")
+    required = Version("2.1.0")
+    penalty = 40 if current < required else 0
+    return rank * 25 + minor + patch // 5 + penalty

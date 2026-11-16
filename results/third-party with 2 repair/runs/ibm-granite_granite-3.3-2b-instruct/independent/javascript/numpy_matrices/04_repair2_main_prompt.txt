@@ -1,0 +1,46 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/numpy_matrices/initial/validate_feedback/main.mjs:2
+import { matrixEnergy } from "./service.mjs";
+         ^^^^^^^^^^^^
+SyntaxError: The requested module './service.mjs' does not provide an export named 'matrixEnergy'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at async o
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { matrix_energy } from "./service.mjs";
+  import { vector_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { matrixEnergy } from "./service.mjs";
+import { vectorSignature } from "./utils.mjs";
+
+export function solve(n) {
+    const energy = matrixEnergy(n);
+    const vector = [energy, vectorSignature(n), n].map(i => Math.floor(i)); // Preserve Python's floor division for negative numbers
+    const bounded = vector.map(v => Math.min(Math.max(v, -150), 250));
+    const positives = bounded.map(v => v > 0? v : -v);
+    return parseInt(positives.reduce((sum, val) => sum + val, 0) + (energy % 17));
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))

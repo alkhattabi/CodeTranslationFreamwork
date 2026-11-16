@@ -1,0 +1,99 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int renewal_date(int)’:
+utils.cpp:27:9: error: ‘date’ was not declared in this scope
+   27 |         date start = date(year, month, day);
+      |         ^~~~
+utils.cpp:28:13: error: expected ‘;’ before ‘end’
+   28 |         date end = start + relativedelta(months=1);
+      |             ^~~~
+      |             ;
+utils.cpp:29:16: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   29 |         return end.year * 10000 + end.month * 100 + end.day;
+      |                ^~~
+      |                std::end
+In file included from /usr/include/c++/13/bits/algorithmfwd.h:39,
+                 from /usr/include/c++/13/bits/stl_algo.h:59,
+                 from /usr/include/c++/13/algorithm:61,
+                 from api.hpp:2,
+                 from utils.cpp:2:
+/usr/include/c++/13/initializer_list:99:5: note: ‘std::end’ declared here
+   99 |     end(initializer_list<_Tp> __ils) noexcept
+      |     ^~~
+utils.cpp:30:14: error: ‘ValueError’ does not name a type
+   30 |     } catch (ValueError) {
+      |              ^~~~~~~~~~
+service.cpp:4:10: fatal error: dateutil/relativedelta.hpp: No such file or directory
+    4 | #include <dateutil/relativedelta.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+mai
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int renewal_date(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int grace_period(int n);
+int renewal_date(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+#include <cmath>
+
+int solve(int n) {
+    // Implementation of solve function
+    return n * n;
+}
+
+int grace_period(int n) {
+    // Implementation of grace_period function
+    return n / 2;
+}
+
+int renewal_date(int n) {
+    if (n < 19000101 || n > 20991231) {
+        return -1;
+    }
+    int year, month, day;
+    year = n / 10000;
+    month = (n / 100) % 100;
+    day = n % 100;
+    if (year < 0 || month < 0 || day < 0) {
+        return -1;
+    }
+    try {
+        date start = date(year, month, day);
+        date end = start + relativedelta(months=1);
+        return end.year * 10000 + end.month * 100 + end.day;
+    } catch (ValueError) {
+        return -1;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

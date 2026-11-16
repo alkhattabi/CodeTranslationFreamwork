@@ -1,0 +1,84 @@
+Here is the corrected Main.java file:
+
+```java
+package main;
+
+import utils.Utils;
+
+public class Main {
+    public static int solve(int n) {
+        int points = Service.risk_points(n);
+        if (points >= 70) {
+            return 3;
+        }
+        if (points >= 40) {
+            return 2;
+        }
+        if (Utils.luhn_valid(n) == 1) {
+            return 0;
+        }
+        return 1;
+    }
+}
+```
+
+And here is the Utils.java file:
+
+```java
+package utils;
+
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleDigit = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleDigit = !doubleDigit;
+            n /= 10;
+        }
+        return (total % 10 == 0) ? 1 : 0;
+    }
+}
+```
+
+And here is the Service.java file:
+
+```java
+package main;
+
+import utils.Utils;
+
+public class Service {
+    public static int risk_points(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (Utils.luhn_valid(n) == 0) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+}
+```
+
+Please note that the package names in the corrected files are `main` and `utils`. This is a common convention in Java to group related classes together. The `main` package is the default package, and it is used when no package statement is present in the file. The `utils` package is used to group related classes that are not part of the main application.

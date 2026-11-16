@@ -1,0 +1,51 @@
+Service.java:3: error: cannot find symbol
+        int income = Utils.taxable_income(n);
+                          ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+Main.java:4: error: cannot find symbol
+        int tax = Service.calculateTax(n);
+                         ^
+  symbol:   method calculateTax(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|1000|" + Utils.taxable_income(1000)); } catch (Throwable e) { System.out.println("utils.taxable_income|1000|ERR"); }
+                                                               ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|3499|" + Utils.taxable_income(3499)); } catch (Throwable e) { System.out.println("utils.taxable_income|3499|ERR"); }
+                                                               ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|500|" + Utils.taxable_income(500)); } catch (Throwable e) { System.out.println("utils.taxable_income|500|ERR"); }
+                                                              ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|501|" + Utils.taxable_income(501)); } catch (Throwable e) { System.out.println("utils.taxable_income|501|ERR"); }
+                                                              ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|15000|" + Utils.taxable_income(15000)); } catch (Throwable e) { System.out.println("utils.taxable_income|15000|ERR"); }
+                                                                ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|3500|" + Utils.taxable_income(3500)); } catch (Throwable e) { System.out.println("utils.taxable_income|3500|ERR"); }
+                                                               ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|7000|" + Utils.taxable_income(7000)); } catch (Throwable e) { System.out.println("utils.taxable_income|7000|ERR"); }
+                                                               ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("utils.taxable_income|1500|" + Utils.taxable_income(1500)); } catch (Throwable e) { System.out.println("utils.taxable_income|1500|ERR"); }
+                                                               ^
+  symbol:   method taxable_income(int)
+  location: class Utils
+10 errors

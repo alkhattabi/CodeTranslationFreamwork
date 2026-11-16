@@ -1,0 +1,288 @@
+{
+  "compiled": true,
+  "passed": 0,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 25,
+      "expected": 35,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 12,
+      "expected": 40,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -25,
+      "expected": 35,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 8,
+      "expected": 38,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -100,
+      "expected": 36,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -1,
+      "expected": 38,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -3,
+      "expected": 38,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2,
+      "expected": 39,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -7,
+      "expected": 35,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -11,
+      "expected": 38,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 7,
+      "expected": 35,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 6,
+      "expected": 37,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 3,
+      "expected": 38,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 25,
+      "expected": 31,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 12,
+      "expected": 34,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": -25,
+      "expected": 31,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 8,
+      "expected": 36,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": -100,
+      "expected": 34,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": -1,
+      "expected": 38,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": -3,
+      "expected": 39,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 2,
+      "expected": 39,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": -7,
+      "expected": 40,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": -11,
+      "expected": 41,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 7,
+      "expected": 40,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 6,
+      "expected": 37,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "service",
+      "function": "disruption_score",
+      "input": 3,
+      "expected": 39,
+      "actual": "ERR: TypeError: Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 25,
+      "expected": 11,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 12,
+      "expected": 11,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": -25,
+      "expected": 11,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 8,
+      "expected": 13,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": -100,
+      "expected": 14,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": -1,
+      "expected": 15,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": -3,
+      "expected": 16,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 2,
+      "expected": 16,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": -7,
+      "expected": 17,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": -11,
+      "expected": 18,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 7,
+      "expected": 17,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 6,
+      "expected": 14,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "module": "utils",
+      "function": "route_cost",
+      "input": 3,
+      "expected": 16,
+      "actual": "ERR: RangeError: Maximum call stack size exceeded"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+```java
+public class Main {
+    public static int solve(int n) {
+        int renewed = renewalDate(n);
+        int deadline = gracePeriod(n);
+        if (renewed < 0 || deadline < 0) {
+            return -1;
+        }
+        int y1 = renewed / 10000;
+        int m1 = (renewed / 100) % 100;
+        int d1 = renewed % 100;
+        int y2 = deadline / 10000;
+        int m2 = (deadline / 100) % 100;
+        int d2 = deadline % 100;
+        long days = (new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime()) / (1000 * 60 * 60 * 24);
+        return (int)(days * 100 + d2);
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(12345)); // Output will depend on the actual implementation of renewalDate and gracePeriod
+    }
+}
+```
+
+Note: The `Utils` and `Service` classes are assumed to be defined elsewhere in the project and are not included in this Java file. The `main` method is provided as an example of how to call the `solve` method from the `Main` class.

@@ -1,0 +1,46 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/invoice/initial/validate_feedback/main.mjs:2
+import { unit_price } from "./service.mjs";
+         ^^^^^^^^^^
+SyntaxError: The requested module './service.mjs' does not provide an export named 'unit_price'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at asyn
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function gross(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { unit_price } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function gross(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+import { unit_price } from "./utils.mjs";
+
+export function gross(n) {
+    if (n < 0) {
+        return 0;
+    }
+    return n * unit_price(n);
+}
+
+
+ORIGINAL PYTHON:
+from utils import unit_price
+
+def gross(n: int) -> int:
+    if n < 0:
+        return 0
+    return n * unit_price(n)
+
+
+DEPENDENCY utils.mjs:
+export function unit_price(n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}

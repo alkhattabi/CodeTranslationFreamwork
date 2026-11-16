@@ -1,0 +1,45 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 20/24 development checks.
+main.solve(3499): expected 149, actual 0
+main.solve(15000): expected 2172, actual 34
+main.solve(3500): expected 150, actual 0
+main.solve(7000): expected 570, actual 270
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int taxable_income(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int calculate_tax(int n);
+int taxable_income(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int taxable_income(int n) {
+    if (n <= 500) {
+        return 0;
+    }
+    int income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+
+
+ORIGINAL PYTHON:
+
+def taxable_income(n: int) -> int:
+    if n <= 500:
+        return 0
+    income = n - 500
+    if income > 20000:
+        income = 20000
+    return income

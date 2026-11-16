@@ -1,0 +1,60 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+main.solve(-100): expected -220, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(49): expected 163, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(-10): expected 6, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(100): expected 289, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(50): expected 180, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(20): expected 96, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(200): expected 500, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(1): expected 22, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(9): expected 60, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(21): expected 92, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(7): expected 56, actual ERR: TypeError: scores.map(...).rank is not a function
+main.solve(-20): expected -10, actual ERR: TypeError: scores.map(...).rank is not a function
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function category_balance(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function category_balance(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// utils.js
+
+export function categoryBalance(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const frame = [
+        {"category": "A", "amount": n},
+        {"category": "B", "amount": 12},
+        {"category": "A", "amount": n / 2},
+        {"category": "C", "amount": -7},
+        {"category": "B", "amount": 9 % 10},
+        {"category": "C", "amount": 4},
+        {"category": "A", "amount": -n / 3}
+    ];
+
+    const sums = frame.reduce((acc, curr) => {
+        acc[curr.category] = (acc[curr.category] || 0) + curr.amount;
+        return acc;
+    }, {});
+
+    return Math.floor(2 * sums["A"] + sums["B"] - sums["C"]);
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+
+def category_balance(n: int) -> int:
+    n = max(-200, min(200, n))
+    frame = pd.DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, n // 2, -7, n % 9, 4, -n // 3]
+    })
+    sums = frame.groupby("category", sort=True)["amount"].sum()
+    return int(2 * sums.loc["A"] + sums.loc["B"] - sums.loc["C"])

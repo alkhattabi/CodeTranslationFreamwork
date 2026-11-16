@@ -1,0 +1,27 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static int taxableIncome(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+
+    public static int calculateTax(int n) {
+        int income = taxableIncome(n);
+        if (income <= 10000) {
+            return 0;
+        }
+        int tax = income - 10000;
+        return tax;
+    }
+}
+```
+
+In the original Python code, the method `taxableIncome` was not declared as static. In Java, a method is declared as static if it is part of a class and not an instance method. The method `calculateTax` is also not declared as static, but it is a part of the `Utils` class, so it is an instance method.

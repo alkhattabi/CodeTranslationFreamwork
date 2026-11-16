@@ -1,0 +1,15 @@
+Here is the JavaScript ES-module source code for the main.mjs file:
+
+```javascript
+import { bonus_score } from "./service.mjs";
+
+export function solve(n) {
+    return bonus_score(n) >= 60 ? 1 : 0;
+}
+```
+
+This JavaScript file exports a function called solve that takes an integer n as an argument. It uses the function from the service.mjs module to calculate the bonus score of the input number. If the bonus score is 60 or more, it returns 1, otherwise it returns 0.
+
+The service.mjs file is imported from the current directory, and the function bonus_score is exported from it.
+
+The clamp function is not used in this file, so it is not required as a dependency.

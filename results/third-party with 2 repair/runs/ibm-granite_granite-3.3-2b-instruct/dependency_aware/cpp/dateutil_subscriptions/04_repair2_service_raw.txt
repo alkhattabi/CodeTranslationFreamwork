@@ -1,0 +1,16 @@
+```cpp
+#include "api.hpp"
+
+int grace_period(int n) {
+    int renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    int year = renewed / 10000;
+    int month = (renewed / 100) % 100;
+    int day = renewed % 100;
+    date due_date(year, month, day);
+    due_date += relativedelta(months=2, days=7);
+    return due_date.year() * 10000 + due_date.month() * 100 + due_date.day();
+}
+```

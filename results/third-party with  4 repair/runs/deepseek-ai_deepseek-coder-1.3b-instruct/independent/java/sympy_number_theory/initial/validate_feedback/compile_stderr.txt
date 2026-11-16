@@ -1,0 +1,25 @@
+Main.java:4: error: package sympy.ntheory does not exist
+import sympy.ntheory.factorint;
+                    ^
+Main.java:5: error: package sympy.ntheory does not exist
+import sympy.ntheory.primetest;
+                    ^
+Main.java:10: error: cannot find symbol
+        int primeBonus = Primetest.isprime(value) ? 50 : 0;
+                         ^
+  symbol:   variable Primetest
+  location: class Main
+Main.java:12: error: incompatible types: int cannot be converted to BigInteger
+        nextPrime = nextPrime.intValue();
+                                      ^
+Main.java:13: error: bad operand types for binary operator '+'
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+                                              ^
+  first type:  int
+  second type: BigInteger
+Main.java:22: error: cannot find symbol
+        List<BigInteger> factors = factorint.factorint(n).values();
+                                   ^
+  symbol:   variable factorint
+  location: class Main
+6 errors

@@ -1,0 +1,22 @@
+Here is the JavaScript ES-module source code for the given Python file:
+
+```javascript
+import { taxable_income } from "./utils.mjs";
+
+export function calculate_tax(n) {
+    const income = taxable_income(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the tax based on the income. If the income is greater than 7000, it deducts 20% of the excess from the income and adds it to the tax. If the income is greater than 3000, it deducts 12% of the excess from the income and adds it to the tax. The remaining income is then deducted 5% of it. The function returns the total tax.

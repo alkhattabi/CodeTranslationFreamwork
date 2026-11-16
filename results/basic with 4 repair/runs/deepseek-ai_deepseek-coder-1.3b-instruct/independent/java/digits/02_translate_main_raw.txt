@@ -1,0 +1,26 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int value = Service.scoreDigits(n);
+        if (value % 2 == 0) {
+            return value + 1;
+        }
+        return value - 1;
+    }
+}
+```
+
+And here is the `Service` class:
+
+```java
+public class Service {
+    public static int scoreDigits(int n) {
+        // implementation
+        return n;
+    }
+}
+```
+
+Please note that the `scoreDigits` method in the `Service` class is a placeholder. You need to implement this method according to your logic.

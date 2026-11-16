@@ -1,0 +1,16 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int digit_sum(int)’:
+service.cpp:4:16: error: ‘abs’ was not declared in this scope
+    4 |         sum += abs(n % 10);
+      |                ^~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:12:9: warning: #pragma once in main file
+   12 | #pragma once
+      |         ^~~~
+main.cpp:24:9: warning: #pragma once in main file
+   24 | #pragma once
+      |         ^~~~

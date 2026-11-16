@@ -1,0 +1,61 @@
+Service.java:3: error: cannot find symbol
+        int demand = Utils.weeklyDemand(n);
+                          ^
+  symbol:   method weeklyDemand(int)
+  location: class Utils
+Main.java:7: error: cannot find symbol
+        int demand = Utils.weeklyDemand(n);
+                          ^
+  symbol:   method weeklyDemand(int)
+  location: class Utils
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println("service.order_quantity|41|" + Service.order_quantity(41)); } catch (Throwable e) { System.out.println("service.order_quantity|41|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("service.order_quantity|1|" + Service.order_quantity(1)); } catch (Throwable e) { System.out.println("service.order_quantity|1|ERR"); }
+                                                                ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.order_quantity|19|" + Service.order_quantity(19)); } catch (Throwable e) { System.out.println("service.order_quantity|19|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.order_quantity|70|" + Service.order_quantity(70)); } catch (Throwable e) { System.out.println("service.order_quantity|70|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.order_quantity|55|" + Service.order_quantity(55)); } catch (Throwable e) { System.out.println("service.order_quantity|55|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.order_quantity|14|" + Service.order_quantity(14)); } catch (Throwable e) { System.out.println("service.order_quantity|14|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println("service.order_quantity|7|" + Service.order_quantity(7)); } catch (Throwable e) { System.out.println("service.order_quantity|7|ERR"); }
+                                                                ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println("service.order_quantity|28|" + Service.order_quantity(28)); } catch (Throwable e) { System.out.println("service.order_quantity|28|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("service.order_quantity|20|" + Service.order_quantity(20)); } catch (Throwable e) { System.out.println("service.order_quantity|20|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("service.order_quantity|21|" + Service.order_quantity(21)); } catch (Throwable e) { System.out.println("service.order_quantity|21|ERR"); }
+                                                                 ^
+  symbol:   method order_quantity(int)
+  location: class Service
+12 errors

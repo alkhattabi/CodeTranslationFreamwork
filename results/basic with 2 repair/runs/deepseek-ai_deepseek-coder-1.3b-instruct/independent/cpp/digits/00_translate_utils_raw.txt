@@ -1,0 +1,18 @@
+Here is the C++ implementation of the Python function `digit_sum`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int digit_sum(int n) {
+    n = std::abs(n);
+    int total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n /= 10;
+    }
+    return total;
+}
+```
+
+This C++ function works by taking the absolute value of the input number `n`, then iterating over each digit of `n`. For each digit, it adds it to `total`. The loop continues until `n` is no longer greater than 0, at which point it returns `total`.

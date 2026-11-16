@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "/usr/bin/ld: /tmp/ccKIL9X3.o: in function `luhn_valid(int)':\nservice.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/cctse2PX.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cco0Symy.o: in function `luhn_valid(int)':\nmain.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/cctse2PX.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cco0Symy.o: in function `risk_points(int)':\nmain.cpp:(.text+0xd1): multiple definition of `risk_points(int)'; /tmp/ccKIL9X3.o:service.cpp:(.text+0xd1): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,4 @@
+Main.java:22: error: billableUnits(int) has private access in Service
+        int units = Service.billableUnits(n);
+                           ^
+1 error

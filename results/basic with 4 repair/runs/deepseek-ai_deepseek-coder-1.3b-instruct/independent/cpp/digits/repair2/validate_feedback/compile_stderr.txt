@@ -1,0 +1,32 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:14:9: warning: #pragma once in main file
+   14 | #pragma once
+      |         ^~~~
+service.cpp:21:9: warning: #pragma once in main file
+   21 | #pragma once
+      |         ^~~~
+service.cpp:28:9: warning: #pragma once in main file
+   28 | #pragma once
+      |         ^~~~
+service.cpp:31:2: error: #endif without #if
+   31 | #endif
+      |  ^~~~~
+service.cpp:33:2: error: #endif without #if
+   33 | #endif
+      |  ^~~~~
+service.cpp:35:2: error: #endif without #if
+   35 | #endif
+      |  ^~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:17: error: ‘scoreDigits’ was not declared in this scope; did you mean ‘score_digits’?
+    5 |     int value = scoreDigits(n);
+      |                 ^~~~~~~~~~~
+      |                 score_digits

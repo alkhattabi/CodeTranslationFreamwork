@@ -1,0 +1,27 @@
+// service.mjs
+
+import { release_rank } from "./utils.mjs";
+
+function upgrade_cost(n) {
+    const rank = release_rank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = (n / 100) % 100;
+    const patch = n % 100;
+    let suffix = "rc1";
+    if (patch % 4 === 0) {
+        suffix = "";
+    }
+    const version = `v${major}.${minor}.${patch}${suffix}`;
+    const required = new Version("2.1.0");
+    const current = new Version(version);
+    let penalty = 0;
+    if (current < required) {
+        penalty = 40;
+    }
+    return rank * 25 + minor + patch / 5 + penalty;
+}
+
+export function upgrade_cost(n) { /* implementation */ }

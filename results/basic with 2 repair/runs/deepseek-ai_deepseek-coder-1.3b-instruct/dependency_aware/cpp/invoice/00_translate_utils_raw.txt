@@ -1,0 +1,16 @@
+Here is the C++ implementation of the Python file utils.py:
+
+```cpp
+#pragma once
+
+#include "api.hpp"
+
+int unit_price(int n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}
+```
+
+This C++ file includes the "api.hpp" header file, which is assumed to contain the global declarations for the helper functions. The function `unit_price` takes an integer input `n` and returns an integer. If `n` is greater than or equal to 10, it returns 10. Otherwise, it returns 12.

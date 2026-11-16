@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:9:9: warning: #pragma once in main file\n    9 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cca0WwjO.o: in function `discount(int)':\nmain.cpp:(.text+0x70): multiple definition of `discount(int)'; /tmp/ccZjm3TV.o:service.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

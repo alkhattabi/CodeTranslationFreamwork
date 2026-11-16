@@ -1,0 +1,7 @@
+package com.example;
+
+public class Service {
+    public static int score_digits(int n) {
+        return Utils.digitSum(n) * 3;
+    }
+}

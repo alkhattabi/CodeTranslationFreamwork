@@ -1,0 +1,19 @@
+Main.java:13: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                           ^
+Main.java:13: error: '(' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                              ^
+Main.java:13: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                           ^
+Main.java:13: error: not a statement
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                 ^
+Main.java:13: error: ';' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                  ^
+Main.java:13: error: 'else' without 'if'
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                            ^
+6 errors

@@ -1,0 +1,20 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int tier(int n) {
+        if (n >= 100) {
+            return 3;
+        }
+        if (n >= 50) {
+            return 2;
+        }
+        if (n >= 10) {
+            return 1;
+        }
+        return 0;
+    }
+}
+```
+
+This Java code does exactly the same thing as your Python code. It checks the input integer `n` and returns a tier based on the conditions. If `n` is not within the range of 0-99, 50-99, 10-49, or 100, it returns 0.

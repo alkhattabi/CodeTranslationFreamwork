@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:19: error: invalid method reference\n        IntUnaryOperator energyCharge = Utils::energy_charge;\n                                        ^\n  cannot find symbol\n    symbol:   method energy_charge(int)\n    location: class Utils\nUtils.java:21: error: cannot find symbol\n            System.out.println(\"utils.billable_units|101|\" + Utils.billable_units(101));\n                                                                  ^\n  symbol:   method billable_units(int)\n  location: class Utils\nUtils.java:26: error: cannot find symbol\n            System.out.println(\"utils.billable_units|350|\" + Utils.billable_units(350));\n                                                                  ^\n  symbol:   method billable_units(int)\n  location: class Utils\nUtils.java:31: error: cannot find symbol\n            System.out.println(\"utils.billable_units|400|\" + Utils.billable_units(400));\n                                                                  ^\n  symbol:   method billable_units(int)\n  location: class Utils\nUtils.java:5: error: duplicate class: com.example.Utils\npublic class Utils {\n       ^\nMain.java:5: error: cannot access Utils\n        IntUnaryOperator billableUnits = Utils::billableUnits;\n                                         ^\n  bad source file: ./Utils.java\n    file does not contain class Utils\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nService.java:3: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nMain.java:6: error: cannot access Service\n        IntUnaryOperator energyCharge = Service::energy_charge;\n                                        ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n8 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

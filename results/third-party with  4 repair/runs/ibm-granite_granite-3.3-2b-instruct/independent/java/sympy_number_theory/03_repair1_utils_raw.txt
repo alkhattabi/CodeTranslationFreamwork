@@ -1,0 +1,28 @@
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<Integer, Integer> factors = new PrimeFactorization(value).getPrimeFactors();
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+
+    private static class PrimeFactorization {
+        public Map<Integer, Integer> getPrimeFactors(int number) {
+            Map<Integer, Integer> factors = new HashMap<>();
+            for (int i = 2; i <= number; i++) {
+                while (number % i == 0) {
+                    int count = 0;
+                    while (number % i == 0) {
+                        number /= i;
+                        count++;
+                    }
+                    factors.put(i, count);
+                }
+            }
+            return factors;
+        }
+    }
+}

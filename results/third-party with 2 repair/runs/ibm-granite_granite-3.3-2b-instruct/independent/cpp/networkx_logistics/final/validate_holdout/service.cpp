@@ -1,0 +1,25 @@
+#include "api.hpp"
+
+int disruption_score(int n) {
+    // Create a directed graph
+    nx::DiGraph graph;
+    graph.add_edges_from({{0, 1}, {0, 2}, {1, 3}, {2, 3},
+                           {3, 4}, {4, 5}, {2, 5}, {5, 6}});
+
+    // Remove edges based on conditions
+    if (n % 3 == 0) {
+        graph.remove_edge(2, 5);
+    }
+    if (n % 5 == 0) {
+        graph.remove_edge(0, 2);
+    }
+
+    // Calculate reachable nodes from node 0
+    int reachable = nx::descendants(graph, 0).size();
+
+    // Calculate longest path length in the graph
+    int longest = nx::dag_longest_path_length(graph);
+
+    // Return the disruption score
+    return route_cost(n) + 3 * reachable + longest;
+}

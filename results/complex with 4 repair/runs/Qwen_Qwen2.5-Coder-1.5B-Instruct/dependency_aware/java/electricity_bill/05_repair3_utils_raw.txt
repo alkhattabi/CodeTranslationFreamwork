@@ -1,0 +1,38 @@
+```java
+package com.example;
+
+import java.util.function.IntUnaryOperator;
+
+public class Utils {
+
+    public static int billableUnits(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        IntUnaryOperator energyCharge = Utils::energy_charge;
+        try {
+            System.out.println("utils.billable_units|101|" + Utils.billable_units(101));
+        } catch (Throwable e) {
+            System.out.println("utils.billable_units|101|ERR");
+        }
+        try {
+            System.out.println("utils.billable_units|350|" + Utils.billable_units(350));
+        } catch (Throwable e) {
+            System.out.println("utils.billable_units|350|ERR");
+        }
+        try {
+            System.out.println("utils.billable_units|400|" + Utils.billable_units(400));
+        } catch (Throwable e) {
+            System.out.println("utils.billable_units|400|ERR");
+        }
+    }
+}
+```

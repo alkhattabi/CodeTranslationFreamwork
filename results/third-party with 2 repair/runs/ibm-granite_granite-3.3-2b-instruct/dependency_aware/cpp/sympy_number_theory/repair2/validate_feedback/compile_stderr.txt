@@ -1,0 +1,55 @@
+utils.cpp: In function ‘int factor_signature(int)’:
+utils.cpp:5:10: error: ‘map’ is not a member of ‘std’
+    5 |     std::map<int, int> factors = sp::factorint(value);
+      |          ^~~
+utils.cpp:2:1: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+    1 | #include "api.hpp"
+  +++ |+#include <map>
+    2 | 
+utils.cpp:5:14: error: expected primary-expression before ‘int’
+    5 |     std::map<int, int> factors = sp::factorint(value);
+      |              ^~~
+utils.cpp:7:29: error: ‘factors’ was not declared in this scope; did you mean ‘acos’?
+    7 |     for (const auto& pair : factors) {
+      |                             ^~~~~~~
+      |                             acos
+utils.cpp:10:24: error: ‘factors’ was not declared in this scope; did you mean ‘acos’?
+   10 |     return score + 3 * factors.size();
+      |                        ^~~~~~~
+      |                        acos
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:5:24: error: ‘totient’ is not a member of ‘std’
+    5 |     int phi = int(std::totient(value));
+      |                        ^~~~~~~
+service.cpp:6:34: error: ‘divisor_count’ is not a member of ‘std’
+    6 |     int divisor_count = int(std::divisor_count(value));
+      |                                  ^~~~~~~~~~~~~
+service.cpp: In function ‘int factor_signature(int)’:
+service.cpp:12:10: error: ‘map’ is not a member of ‘std’
+   12 |     std::map<int, int> factors = sp::factorint(value);
+      |          ^~~
+service.cpp:2:1: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+    1 | #include "api.hpp"
+  +++ |+#include <map>
+    2 | 
+service.cpp:12:14: error: expected primary-expression before ‘int’
+   12 |     std::map<int, int> factors = sp::factorint(value);
+      |              ^~~
+service.cpp:14:29: error: ‘factors’ was not declared in this scope; did you mean ‘acos’?
+   14 |     for (const auto& pair : factors) {
+      |                             ^~~~~~~
+      |                             acos
+service.cpp:17:24: error: ‘factors’ was not declared in this scope; did you mean ‘acos’?
+   17 |     return score + 3 * factors.size();
+      |                        ^~~~~~~
+      |                        acos
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:26: error: expected ‘,’ or ‘;’ before ‘if’
+    5 |     int prime_bonus = 50 if (is_prime(value)) {
+      |                          ^~
+main.cpp:7:7: error: ‘else’ without a previous ‘if’
+    7 |     } else {
+      |       ^~~~
+main.cpp:10:32: error: ‘next_prime’ cannot be used as a function
+   10 |     int next_prime = next_prime(value);
+      |                      ~~~~~~~~~~^~~~~~~

@@ -1,0 +1,20 @@
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int solve(int n);
+int matrix_energy(int n);
+int vector_signature(int n);
+
+// Global C++ functions declared in api.hpp
+int solve(int n);
+int matrix_energy(int n);
+int vector_signature(int n);
+```
+
+```cpp
+#include "service.cpp"
+```

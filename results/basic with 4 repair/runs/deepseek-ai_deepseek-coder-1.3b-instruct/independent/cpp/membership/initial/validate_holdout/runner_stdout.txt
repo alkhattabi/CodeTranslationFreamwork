@@ -1,0 +1,15 @@
+main.solve|-5|0
+main.solve|9|36
+main.solve|99|386
+main.solve|50|190
+main.solve|12|43
+service.discount|-5|0
+service.discount|9|0
+service.discount|99|10
+service.discount|50|10
+service.discount|12|5
+utils.tier|-5|0
+utils.tier|9|0
+utils.tier|99|2
+utils.tier|50|2
+utils.tier|12|1

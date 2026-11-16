@@ -1,0 +1,12 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function unit_price(n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}
+```
+
+This code exports a function named `unit_price` that takes an integer `n` as an argument and returns an integer. If `n` is greater than or equal to 10, it returns 10. Otherwise, it returns 12.

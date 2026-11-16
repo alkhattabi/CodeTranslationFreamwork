@@ -1,0 +1,21 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int discount(int n) {
+    if (n >= 100) {
+        return 5;
+    }
+    if (n >= 50) {
+        return 4;
+    }
+    if (n >= 10) {
+        return 3;
+    }
+    return 2;
+}
+```
+
+The `discount` function calculates the discount based on the tier of the input number `n`. The tier function is defined in the `api.hpp` file and is used in the `discount` function. The discount values are defined in the `api.hpp` file as well.

@@ -1,0 +1,83 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int rolling_alert(int)’:
+service.cpp:20:10: error: ‘vector’ is not a member of ‘std’
+   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |          ^~~~~~
+service.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+service.cpp:20:17: error: expected primary-expression before ‘int’
+   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};
+      |                 ^~~
+service.cpp:21:25: error: ‘accumulate’ is not a member of ‘std’
+   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);
+      |                         ^~~~~~~~~~
+service.cpp:21:36: error: ‘series’ was not declared in this scope
+   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);
+      |                                    ^~~~~~
+main.cpp: In function ‘int rolling_alert(int)’:
+main.cpp:6:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    6 | }
+      | ^
+main.cpp: In function ‘int category_balance(int)’:
+main.cpp:11:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   11 | }
+  
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int rolling_alert(int n) {
+    // Implementation of rolling_alert function
+    // ...
+}
+
+int category_balance(int n) {
+    // Implementation of category_balance function
+    // ...
+}
+
+int solve(int n) {
+    int balance = category_balance(n);
+    int alert = rolling_alert(n);
+    std::vector<int> scores = {std::abs(balance) % 50, alert, std::abs(n) % 50};
+    std::sort(scores.begin(), scores.end());
+    int rank1 = scores[0];
+    int rank2 = scores[1];
+    int penalty = rank1 * 7 + rank2 * 3;
+    return balance + alert - penalty;
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty

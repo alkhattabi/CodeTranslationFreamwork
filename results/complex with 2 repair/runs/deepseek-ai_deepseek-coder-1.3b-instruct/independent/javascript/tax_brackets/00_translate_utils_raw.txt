@@ -1,0 +1,16 @@
+Here is the JavaScript equivalent of the Python code:
+
+```javascript
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+```
+
+This JavaScript function `taxable_income` takes an integer `n` as input and returns the taxable income after deducting the taxable income limit (500). If the income is more than 20000, it is set to 20000.

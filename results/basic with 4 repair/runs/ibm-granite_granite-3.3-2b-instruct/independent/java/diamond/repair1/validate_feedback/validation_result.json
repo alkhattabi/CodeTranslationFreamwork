@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: cannot find symbol\n        return weighted(n) + normalize(n);\n               ^\n  symbol:   method weighted(int)\n  location: class Main\nMain.java:3: error: cannot find symbol\n        return weighted(n) + normalize(n);\n                             ^\n  symbol:   method normalize(int)\n  location: class Main\nMain.java:19: error: cannot find symbol\n            int x = normalize(n);\n                    ^\n  symbol:   method normalize(int)\n  location: class Service\n3 errors\n",
+  "failed_modules": [
+    "main",
+    "service"
+  ],
+  "case_failures": []
+}

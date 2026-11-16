@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "service.mjs\n/content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/pandas_transactions/final/validate_holdout/service.mjs:6\n    let rolling = series.reduce((a, b) => a + b, 0);\n    ^^^\n\nSyntaxError: Unexpected strict mode reserved word\n    at checkSyntax (node:internal/main/check_syntax:74:5)\n\nNode.js v22.23.4\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

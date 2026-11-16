@@ -1,0 +1,29 @@
+Here is the C++ implementation of the Python code. Note that the C++ version of the code uses the C++ Standard Library and the C++ Standard Template Library (STL) instead of Python's built-in libraries.
+
+```cpp
+#pragma once
+#include <map>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int factor_signature(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    std::map<int, int> factors = sp::factorint(value);
+    int score = 0;
+    for(auto& pair : factors) {
+        score += pair.first * pair.second;
+    }
+    return score + 3 * factors.size();
+}
+```
+
+Please note that the `sp::factorint` function is not a standard C++ function. It is a function from the `sympy` library, which is not included in the standard C++ library. You need to include the `sympy` library in your project to use this function.
+
+Also, the `sp::totient` and `sp::divisor_count` functions are not standard C++ functions. They are functions from the `sympy` library. You need to include the `sympy` library in your project to use these functions.
+
+Please note that the `factor_signature` function is not a standard C++ function. It is a function from the `utils` library, which is not included in the standard C++ library. You need to include the `utils` library in your project to use this function.
+
+Please note that the `number_strength` function is not a standard C++ function. It is a function from the `service` library, which is not included in the standard C++ library. You need to include the `service` library in your project to use this function.
+
+Please note that the `solve` function is not a standard C++ function. It is a function from the `service` library, which is not included in the standard C++ library. You need to include the `service` library in your project to use this function.

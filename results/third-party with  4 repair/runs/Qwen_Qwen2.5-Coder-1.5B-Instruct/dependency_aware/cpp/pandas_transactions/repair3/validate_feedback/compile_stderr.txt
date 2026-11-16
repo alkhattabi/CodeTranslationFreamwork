@@ -1,0 +1,71 @@
+ar>, const _Allocator&) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Allocator = std::allocator<wchar_t>]’
+/usr/include/c++/13/bits/fs_path.h:1166:40:   required from ‘std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::filesystem::__cxx11::path::string(const _Allocator&) const [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Allocator = std::allocator<wchar_t>]’
+/usr/include/c++/13/bits/fs_path.h:1174:49:   required from here
+/usr/include/c++/13/bits/locale_conv.h:72:20: error: ‘class std::__cxx11::basic_string<wchar_t>’ has no member named ‘resize’
+   72 |           __outstr.resize(__outstr.size() + (__last - __next) * __maxlen);
+      |           ~~~~~~~~~^~~~~~
+/usr/include/c++/13/bits/locale_conv.h:72:36: error: ‘class std::__cxx11::basic_string<wchar_t>’ has no member named ‘size’
+   72 |           __outstr.resize(__outstr.size() + (__last - __next) * __maxlen);
+      |                           ~~~~~~~~~^~~~
+/usr/include/c++/13/bits/locale_conv.h:80:36: error: ‘class std::__cxx11::basic_string<wchar_t>’ has no member named ‘size’
+   80 |              && ptrdiff_t(__outstr.size() - __outchars) < __maxlen);
+      |                           ~~~~~~~~~^~~~
+/usr/include/c++/13/bits/locale_conv.h:99:16: error: ‘class std::__cxx11::basic_string<wchar_t>’ has no member named ‘resize’
+   99 |       __outstr.resize(__outchars);
+      |       ~~~~~~~~~^~~~~~
+/usr/include/c++/13/bits/locale_conv.h: In instantiation of ‘bool std::__do_str_codecvt(const _InChar*, const _InChar*, _OutStr&, const _Codecvt&, _State&, size_t&, _Fn) [with _OutStr = __cxx11::basic_string<char16_t>; _InChar = char; _Codecvt = codecvt<char16_t, char, __mbstate_t>; _State = __mbstate_t; _Fn = codecvt_base::result (codecvt<char16_t, char, __mbstate_t>::*)(__mbstate_t&, const char*, const char*, const char*&, char16_t*, char16_t*, char16_t*&) const; size_t = long unsigned int]’:
+/usr/include/c++/13/bits/locale_conv.h:118:30:   required from ‘bool std::__str_codecvt_in(const char*, const char*, __cxx11::basic_string<_CharT, _Traits, _Allocator>&, const codecvt<_CharT, char, _State>&, _State&, size_t&) [with _CharT = char16_t; _Traits = char_traits<char16_t>; _Alloc = allocator<char16_t>; _State = __mbstate_t; size_t = long unsigned int]’
+/usr/include/c++/13/bits/locale_conv.h:143:30:   required from ‘bool std::__str_codecvt_in_all(const char*, const char*, __cxx11::basic_string<_CharT, _Traits, _Allocator>&, const codecvt<_CharT, char, _State>&) [with _CharT = char16_t; _Traits = char_traits<char16_t>; _Alloc = allocator<char16_t>; _State = __mbstate_t]’
+/usr/include/c++/13/bits/fs_path.h:1151:32:   required from ‘static std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::filesystem::__cxx11::path::_S_str_convert(std::basic_string_view<char>, const _Allocator&) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Allocator = std::allocator<char16_t>]’
+/usr/include/c++/13/bits/fs_path.h:1166:40:   required from ‘std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::filesystem::__cxx11::path::string(const _Allocator&) const [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Allocator = std::allocator<char16_t>]’
+/usr/include/c++/13/bits/fs_path.h:1200:52:   required from here
+/usr/include/c++/13/bits/locale_conv.h:72:20: error: ‘class std::__cxx11::basic_string<char16_t>’ has no member named ‘resize’
+   72 |           __outstr.resize(__outstr.size() + (__last - __next) * __maxlen);
+      |           ~~~~~~~~~^~~~~~
+/usr/include/c++/13/bits/locale_conv.h:72:36: error: ‘class std::__cxx11::basic_string<char16_t>’ has no member named ‘size’
+   72 |           __outstr.resize(__outstr.size() + (__last - __next) * __maxlen);
+      |                           ~~~~~~~~~^~~~
+/usr/include/c++/13/bits/locale_conv.h:80:36: error: ‘class std::__cxx11::basic_string<char16_t>’ has no member named ‘size’
+   80 |              && ptrdiff_t(__outstr.size() - __outchars) < __maxlen);
+      |                           ~~~~~~~~~^~~~
+/usr/include/c++/13/bits/locale_conv.h:99:16: error: ‘class std::__cxx11::basic_string<char16_t>’ has no member named ‘resize’
+   99 |       __outstr.resize(__outchars);
+      |       ~~~~~~~~~^~~~~~
+/usr/include/c++/13/bits/locale_conv.h: In instantiation of ‘bool std::__do_str_codecvt(const _InChar*, const _InChar*, _OutStr&, const _Codecvt&, _State&, size_t&, _Fn) [with _OutStr = __cxx11::basic_string<char32_t>; _InChar = char; _Codecvt = codecvt<char32_t, char, __mbstate_t>; _State = __mbstate_t; _Fn = codecvt_base::result (codecvt<char32_t, char, __mbstate_t>::*)(__mbstate_t&, const char*, const char*, const char*&, char32_t*, char32_t*, char32_t*&) const; size_t = long unsigned int]’:
+/usr/include/c++/13/bits/locale_conv.h:118:30:   required from ‘bool std::__str_codecvt_in(const char*, const char*, __cxx11::basic_string<_CharT, _Traits, _Allocator>&, const codecvt<_CharT, char, _State>&, _State&, size_t&) [with _CharT = char32_t; _Traits = char_traits<char32_t>; _Alloc = allocator<char32_t>; _State = __mbstate_t; size_t = long unsigned int]’
+/usr/include/c++/13/bits/locale_conv.h:143:30:   required from ‘bool std::__str_codecvt_in_all(const char*, const char*, __cxx11::basic_string<_CharT, _Traits, _Allocator>&, const codecvt<_CharT, char, _State>&) [with _CharT = char32_t; _Traits = char_traits<char32_t>; _Alloc = allocator<char32_t>; _State = __mbstate_t]’
+/usr/include/c++/13/bits/fs_path.h:1151:32:   required from ‘static std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::filesystem::__cxx11::path::_S_str_convert(std::basic_string_view<char>, const _Allocator&) [with _CharT = char32_t; _Traits = std::char_traits<char32_t>; _Allocator = std::allocator<char32_t>]’
+/usr/include/c++/13/bits/fs_path.h:1166:40:   required from ‘std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::filesystem::__cxx11::path::string(const _Allocator&) const [with _CharT = char32_t; _Traits = std::char_traits<char32_t>; _Allocator = std::allocator<char32_t>]’
+/usr/include/c++/13/bits/fs_path.h:1203:52:   required from here
+/usr/include/c++/13/bits/locale_conv.h:72:20: error: ‘class std::__cxx11::basic_string<char32_t>’ has no member named ‘resize’
+   72 |           __outstr.resize(__outstr.size() + (__last - __next) * __maxlen);
+      |           ~~~~~~~~~^~~~~~
+/usr/include/c++/13/bits/locale_conv.h:72:36: error: ‘class std::__cxx11::basic_string<char32_t>’ has no member named ‘size’
+   72 |           __outstr.resize(__outstr.size() + (__last - __next) * __maxlen);
+      |                           ~~~~~~~~~^~~~
+/usr/include/c++/13/bits/locale_conv.h:80:36: error: ‘class std::__cxx11::basic_string<char32_t>’ has no member named ‘size’
+   80 |              && ptrdiff_t(__outstr.size() - __outchars) < __maxlen);
+      |                           ~~~~~~~~~^~~~
+/usr/include/c++/13/bits/locale_conv.h:99:16: error: ‘class std::__cxx11::basic_string<char32_t>’ has no member named ‘resize’
+   99 |       __outstr.resize(__outchars);
+      |       ~~~~~~~~~^~~~~~
+/usr/include/c++/13/bits/new_allocator.h: In instantiation of ‘_Tp* std::__new_allocator<_Tp>::allocate(int, const void*) [with _Tp = std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic>]’:
+/usr/include/c++/13/bits/alloc_traits.h:482:28:   required from ‘static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(allocator_type&, int) [with _Tp = std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic>; pointer = std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic>*; allocator_type = std::allocator<std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic> >]’
+/usr/include/c++/13/bits/allocated_ptr.h:98:60:   required from ‘std::__allocated_ptr<_Alloc> std::__allocate_guarded(_Alloc&) [with _Alloc = allocator<_Sp_counted_ptr_inplace<mutex, allocator<void>, __gnu_cxx::_S_atomic> >]’
+/usr/include/c++/13/bits/shared_ptr_base.h:969:42:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = std::mutex; _Alloc = std::allocator<void>; _Args = {}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {}; _Tp = std::mutex; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {}; _Tp = std::mutex]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<typename std::enable_if<(! std::is_array< <template-parameter-1-1> >::value), _Tp>::type> std::make_shared(_Args&& ...) [with _Tp = mutex; _Args = {}; typename enable_if<(! is_array< <template-parameter-1-1> >::value), _Tp>::type = mutex]’
+/usr/include/c++/13/condition_variable:285:64:   required from here
+/usr/include/c++/13/bits/new_allocator.h:134:42: error: ‘class std::__new_allocator<std::_Sp_counted_ptr_inplace<std::mutex, std::allocator<void>, __gnu_cxx::_S_atomic> >’ has no member named ‘_M_max_size’
+  134 |         if (__builtin_expect(__n > this->_M_max_size(), false))
+      |                                    ~~~~~~^~~~~~~~~~~
+/usr/include/c++/13/bits/new_allocator.h: In instantiation of ‘_Tp* std::__new_allocator<_Tp>::allocate(int, const void*) [with _Tp = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, std::allocator<void>, __gnu_cxx::_S_atomic>]’:
+/usr/include/c++/13/bits/alloc_traits.h:482:28:   required from ‘static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(allocator_type&, int) [with _Tp = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, std::allocator<void>, __gnu_cxx::_S_atomic>; pointer = std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, std::allocator<void>, __gnu_cxx::_S_atomic>*; allocator_type = std::allocator<std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, std::allocator<void>, __gnu_cxx::_S_atomic> >]’
+/usr/include/c++/13/bits/allocated_ptr.h:98:60:   required from ‘std::__allocated_ptr<_Alloc> std::__allocate_guarded(_Alloc&) [with _Alloc = allocator<_Sp_counted_ptr_inplace<__future_base::_State_baseV2, allocator<void>, __gnu_cxx::_S_atomic> >]’
+/usr/include/c++/13/bits/shared_ptr_base.h:969:42:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = std::__future_base::_State_baseV2; _Alloc = std::allocator<void>; _Args = {}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr_base.h:1712:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {}; _Tp = std::__future_base::_State_baseV2; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/13/bits/shared_ptr.h:464:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<void>; _Args = {}; _Tp = std::__future_base::_State_baseV2]’
+/usr/include/c++/13/bits/shared_ptr.h:1009:14:   required from ‘std::shared_ptr<typename std::enable_if<(! std::is_array< <template-parameter-1-1> >::value), _Tp>::type> std::make_shared(_Args&& ...) [with _Tp = __future_base::_State_baseV2; _Args = {}; typename enable_if<(! is_array< <template-parameter-1-1> >::value), _Tp>::type = enable_if<true, __future_base::_State_baseV2>::type]’
+/usr/include/c++/13/future:1318:43:   required from here
+/usr/include/c++/13/bits/new_allocator.h:134:42: error: ‘class std::__new_allocator<std::_Sp_counted_ptr_inplace<std::__future_base::_State_baseV2, std::allocator<void>, __gnu_cxx::_S_atomic> >’ has no member named ‘_M_max_size’

@@ -1,0 +1,10 @@
+Main.java:1: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|11|" + Main.solve(11)); } catch (Throwable e) { System.out.println("main.solve|11|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors

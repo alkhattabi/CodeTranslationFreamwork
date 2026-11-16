@@ -1,0 +1,19 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+import { weight_blocks } from "./utils.mjs";
+
+export function transport_cost(n) {
+    const blocks = weight_blocks(n);
+    let price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+```
+
+This JavaScript ES-module source file exports a function named `transport_cost` that takes an integer `n` as a parameter and returns an integer. The function calculates the price of transport based on the weight of the blocks and the cost per block. If the number of blocks is more than 5, it adds an additional fee for each additional block beyond 5. If the number of blocks is more than 12, it also adds an additional fee for each additional block beyond 12. The function uses the `weight_blocks` function from the `utils.mjs` module.

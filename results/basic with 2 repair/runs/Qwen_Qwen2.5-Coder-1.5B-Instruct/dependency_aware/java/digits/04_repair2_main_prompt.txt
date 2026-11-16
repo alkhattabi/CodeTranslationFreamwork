@@ -1,0 +1,85 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:20: error: duplicate class: Utils
+class Utils {
+^
+Service.java:5: error: cannot find symbol
+        return Utils.digitSum(n) * 3;
+               ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:5: error: cannot access Service
+        int value = Service.score_digits(n);
+                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:11: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|0|" + Utils.digit_sum(0)); } catch (Throwable e) { System.out.println("utils.digit_sum|0|ERR"); }
+                                                       ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|208|" + Utils.digit_sum(208)); } catch (Throwable e) { System.out.println("utils.digit_sum|208|ERR"); }
+                                                         ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|1|" + Utils.digit_sum(1)); } catch (Throwable e) { System.out.println("utils.digit_sum|1|ERR")
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.score_digits(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+import java.util.function.IntUnaryOperator;
+
+public class Main {
+    public static int solve(int n) {
+        int value = Service.score_digits(n);
+        if (value % 2 == 0) {
+            return value + 1;
+        }
+        return value - 1;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(123)); // Output: 456
+        System.out.println(solve(-123)); // Output: -456
+        System.out.println(solve(0)); // Output: 0
+    }
+}
+
+class Utils {
+    public static int digitSum(int n) {
+        return String.valueOf(Math.abs(n)).chars().map(Character::getNumericValue).sum();
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import score_digits
+
+def solve(n: int) -> int:
+    value = score_digits(n)
+    if value % 2 == 0:
+        return value + 1
+    return value - 1
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+public class Service {
+    public static int score_digits(int n) {
+        return Utils.digitSum(n) * 3;
+    }
+}

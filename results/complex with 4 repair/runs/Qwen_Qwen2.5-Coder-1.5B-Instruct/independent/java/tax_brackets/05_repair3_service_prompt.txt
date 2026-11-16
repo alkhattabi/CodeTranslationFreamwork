@@ -1,0 +1,80 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:13: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                           ^
+Main.java:13: error: '(' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                              ^
+Main.java:13: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                           ^
+Main.java:13: error: not a statement
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                 ^
+Main.java:13: error: ';' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                  ^
+Main.java:13: error: 'else' without 'if'
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                            ^
+6 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int calculate_tax(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.taxable_income(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int calculate_tax(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int calculateTax(int n) {
+        int income = taxableIncome(n);
+        int tax = 0;
+        if (income > 7000) {
+            tax += (income - 7000) * 20 / 100;
+            income = 7000;
+        }
+        if (income > 3000) {
+            tax += (income - 3000) * 12 / 100;
+            income = 3000;
+        }
+        tax += income * 5 / 100;
+        return tax;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+
+def calculate_tax(n: int) -> int:
+    income = taxable_income(n)
+    tax = 0
+    if income > 7000:
+        tax += (income - 7000) * 20 // 100
+        income = 7000
+    if income > 3000:
+        tax += (income - 3000) * 12 // 100
+        income = 3000
+    tax += income * 5 // 100
+    return tax
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int taxable_income(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+}

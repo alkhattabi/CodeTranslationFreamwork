@@ -1,0 +1,25 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    return weighted(n) + normalize(n);
+}
+```
+
+In the C++ version, we don't have the `normalize` function, so we'll just return the result of `weighted(n)`. If `normalize(n)` is not defined in the `api.hpp` file, you'll need to implement it or remove the `normalize` function call.
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    return weighted(n);
+}
+```
+
+In the C++ version, we don't have the `weighted` function, so we'll just return the result of `weighted(n)`. If `weighted(n)` is not defined in the `api.hpp` file, you'll need to implement it or remove the `weighted(n)` function call.
+
+Please note that the `api.hpp` file should contain the definitions of the `normalize` and `weighted` functions.

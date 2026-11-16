@@ -1,0 +1,15 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int value = n * 4 - discount(n);
+    return max(0, value);
+}
+
+int discount(int n) {
+    return tier(n) * 5;
+}
+
+int tier(int n) {
+    // Implementation of tier function goes here
+    return 0;
+}

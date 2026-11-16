@@ -1,0 +1,58 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+                                                                                            ^
+Main.java:18: error: illegal character: '`'
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class or a third-party library that provides version range comparison functionality similar to Python's `packaging.specifiers`.
+                                                                                                                                                                                                                                                                         ^
+Main.java:18: error: '{' expected
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class or a third-party library that provides version range comparison functionality similar to Python's `packaging.specifiers`.
+                                                                               
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.upgrade_cost(n)
+  Utils.release_rank(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        SpecifierSet allowed = SpecifierSet.createVersionRange(">=1.5,<4.0");
+        boolean in_range = version.isGreaterThanOrEqualTo(allowed.version_spec());
+        boolean stable =!version.isPrerelease();
+        return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+    }
+}
+
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class or a third-party library that provides version range comparison functionality similar to Python's `packaging.specifiers`.
+
+
+ORIGINAL PYTHON:
+from packaging.specifiers import SpecifierSet
+from packaging.version import Version
+from utils import release_rank
+from service import upgrade_cost
+
+def solve(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    allowed = SpecifierSet(">=1.5,<4.0")
+    in_range = 1 if version in allowed else 0
+    stable = 0 if version.is_prerelease else 1
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n)

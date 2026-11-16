@@ -1,0 +1,127 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:7: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Utils.java:7: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+Service.java:11: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Service.java:11: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+Main.java:11: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Main.java:11: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+6 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.number_strength(n)
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+import java.util.Map;
+
+public class Main {
+    public static int solve(int n) {
+        // Convert input to absolute value and then take modulo 1500
+        int value = Math.abs(n) % 1500;
+        
+        // Calculate the number of factors using sympy's factorint function
+        import org.sympy.ntheory.factor.FactorInteger;
+        FactorInteger factorInt = new FactorInteger();
+        Map<Integer, Integer> factors = factorInt.factor(value);
+        
+        // Calculate the score based on the number of factors and their exponents
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        
+        // Add a bonus for the number of factors
+        score += 3 * factors.size();
+        
+        return score;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+import java.util.Map;
+
+public class Service {
+    public static int number_strength(int n) {
+        // Convert input to absolute value and then take modulo 1500
+        int value = Math.abs(n) % 1500;
+        
+        // Calculate the number of factors using sympy's factorint function
+        import org.sympy.ntheory.factor.FactorInteger;
+        FactorInteger factorInt = new FactorInteger();
+        Map<Integer, Integer> factors = factorInt.factor(value);
+        
+        // Calculate the score based on the number of factors and their exponents
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        
+        // Add a bonus for the number of factors
+        score += 3 * factors.size();
+        
+        return score;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int factor_signature(int n) {
+        // Convert input to absolute value and then take modulo 1500
+        int value = Math.abs(n) % 1500;
+        
+        // Calculate the number of factors using sympy's factorint function
+        import org.sympy.ntheory.factor.FactorInteger;
+        FactorInteger factorInt = new FactorInteger();
+        Map<Integer, Integer> factors = factorInt.factor(value);
+        
+        // Calculate the score based on the number of factors and their exponents
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        
+        // Add a bonus for the number of factors
+        score += 3 * factors.size();
+        
+        return score;
+    }
+}

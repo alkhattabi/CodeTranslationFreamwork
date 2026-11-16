@@ -1,0 +1,9 @@
+package com.example;
+
+import com.example.Service;
+
+public class Main {
+    public static int solve(int n) {
+        return 1 if Service.bonus_score(n) >= 60 else 0;
+    }
+}

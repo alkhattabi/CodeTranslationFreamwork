@@ -1,0 +1,80 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:514:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+/usr/include/c++/13/bits/stl_iterator.h:1725:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr bool std::operator>(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)’
+ 1725 |     operator>(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1725:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::move_iterator<_IteratorL>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+/usr/include/c++/13/bits/stl_iterator.h:1784:5: note: candidate: ‘template<class _Iterator> constexpr bool std::operator>(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)’
+ 1784 |     operator>(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterat
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int vector_signature(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int matrix_energy(int n);
+int vector_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+#include <vector>
+#include <numeric>
+#include <cmath>
+
+// Helper function to calculate matrix energy
+int matrix_energy(int n) {
+    int sum = 0;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            sum += std::pow(n / (i + j + 1), 2);
+        }
+    }
+    return sum;
+}
+
+// Helper function to calculate vector signature
+int vector_signature(int n) {
+    n = std::max(-100, std::min(100, n));
+    std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+    std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    std::vector<int> out = {};
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            out.push_back(m[i][j] * v[j]);
+        }
+    }
+    int result = 0;
+    for (int num : out) {
+        result += std::abs(num);
+    }
+    return result;
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+
+def vector_signature(n: int) -> int:
+    n = max(-100, min(100, n))
+    v = np.array([n % 11, abs(n) % 7, (n // 3) % 9], dtype=np.int64)
+    m = np.arange(1, 10, dtype=np.int64).reshape(3, 3)
+    out = m @ v
+    return int(np.abs(out).sum())

@@ -1,0 +1,4 @@
+Main.java:23: error: class, interface, enum, or record expected
+Note: The actual implementations of orderQuantity and weeklyDemand methods are not provided as they were not specified in the Python code. You need to translate these methods as well, maintaining the same logic and behavior.
+^
+1 error

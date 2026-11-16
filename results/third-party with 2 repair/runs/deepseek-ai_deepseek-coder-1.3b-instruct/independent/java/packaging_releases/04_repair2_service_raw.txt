@@ -1,0 +1,43 @@
+Here is the corrected Java code:
+
+```java
+package service;
+
+public class Service {
+    public static int upgrade_cost(int n) {
+        int rank = release_rank(n);
+        if (rank < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        Version current = new Version(major, minor, patch);
+        Version required = new Version("2.1.0");
+        int penalty = 0;
+        if (current.compareTo(required) < 0) {
+            penalty = 40;
+        }
+        return rank * 25 + minor + patch / 5 + penalty;
+    }
+
+    private static int release_rank(int n) {
+        // Implementation of release_rank method
+        // This method should be implemented in the Service class
+        // as it is a static method of the Service class
+        return -1;
+    }
+}
+```
+
+Please note that the `Version` class is not defined in the provided Python code. You need to define it in your Java project or import it from a third-party library.
+
+Also, the `release_rank` method is not defined in the provided Python code. You need to implement it in the `Service` class.
+
+The `compareTo` method is not a valid method in Java. You need to use the `compareTo` method of the `Version` class to compare two versions.
+
+The `major`, `minor`, and `patch` variables are not defined in the provided Python code. You need to define them in the `upgrade_cost` method.
+
+The `upgrade_cost` method is not defined in the provided Python code. You need to implement it in the `Service` class.
+
+The `release_rank` method is not defined in the provided Python code. You need to implement it in the `Service` class.

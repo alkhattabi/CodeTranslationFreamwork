@@ -1,0 +1,18 @@
+```javascript
+// service.mjs
+import { renewal_date } from "./utils.mjs";
+
+export function grace_period(n) {
+    const renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    const year = renewed / 10000;
+    const month = (renewed / 100) % 100;
+    const day = renewed % 100;
+    const due = new Date(year, month - 1, day); // date.js built-in
+    due.addMonths(2).addDays(7);
+    return due.getFullYear() * 10000 + due.getMonth() * 100 + due.getDate();
+}
+```
+Note: The JavaScript equivalent of Python's `relativedelta` is not directly available in JavaScript's built-in Date object. The JavaScript solution uses JavaScript's Date object and its methods to achieve similar functionality. The month in JavaScript is zero-based, so we subtract 1 when setting the month in the Date constructor.

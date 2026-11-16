@@ -1,0 +1,22 @@
+// service.mjs
+import { vector_signature } from "./utils.mjs";
+
+export function matrix_energy(n) {
+    const x = Math.floor(Math.max(-100, Math.min(100, n)));
+    const m = [
+        [x % 5, 2, -1],
+        [3, x % 7, 4],
+        [1, 5, x % 3],
+    ].map(row => row.map(val => Math.floor(val)));
+
+    const square = m.reduce((acc, row) => acc.concat(row), []);
+    const squareMatrix = [
+      ...new Array(square.length).keys().map(() => square.map(num => acc[num])),
+    ];
+
+    const diagonal = squareMatrix.reduce((acc, row, i) => {
+        return acc + (i === row.indexOf(row[row.length - 1]))? row[row.length - 1] : 0;
+    }, 0);
+
+    return diagonal + vector_signature(n);
+}

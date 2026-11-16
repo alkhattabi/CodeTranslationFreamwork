@@ -1,0 +1,22 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { number_strength } from "./service.mjs";
+import { factor_signature } from "./utils.mjs";
+
+export function solve(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let prime_bonus = (value % 2 === 0) ? 50 : 0;
+  let next_prime = Math.floor(Math.sqrt(value)) + 1;
+  while(value % 2 === 0) {
+    next_prime = Math.floor(Math.sqrt(value)) + 1;
+  }
+  return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the value of `n`, adds a bonus based on whether `n` is a prime number, and then finds the next prime number after `n`. The function then returns the result of calling `number_strength`, `prime_bonus`, and `next_prime` with `n` as the argument.
+
+Please note that the `factor_signature` function is not defined in the provided Python code, so it is not included in the JavaScript code. If it was defined in another file, you would need to import it here.
+
+Also, the `sp.nextprime` function in Python uses the `math.sqrt` function to find the next prime number, which is not the same as the `nextprime` function in JavaScript. The `nextprime` function in JavaScript uses a while loop to find the next prime number.

@@ -1,0 +1,81 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:44:5: error: ‘nights’ was not declared in this scope
+   44 |     nights = valid_nights(n);
+      |     ^~~~~~
+main.cpp:48:5: error: ‘rooms’ was not declared in this scope
+   48 |     rooms = n / 100;
+      |     ^~~~~
+main.cpp:49:5: error: ‘charge’ was not declared in this scope; did you mean ‘char’?
+   49 |     charge = lodging_charge(n);
+      |     ^~~~~~
+      |     char
+main.cpp:50:5: error: ‘cleaning’ was not declared in this scope
+   50 |     cleaning = rooms * 45;
+      |     ^~~~~~~~
+main.cpp:51:5: error: ‘tax’ was not declared in this scope; did you mean ‘tan’?
+   51 |     tax = (charge + cleaning) * 15 / 100;
+      |     ^~~
+      |     tan
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int valid_nights(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int lodging_charge(int n);
+int valid_nights(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int lodging_charge(int n);
+
+// Global declaration of valid_nights function
+int valid_nights(int n);
+
+// Implementation of valid_nights function
+int valid_nights(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}
+
+
+ORIGINAL PYTHON:
+
+def valid_nights(n: int) -> int:
+    if n <= 0:
+        return 0
+    rooms = n // 100
+    nights = n % 100
+    if rooms < 1 or rooms > 20 or nights < 1 or nights > 30:
+        return 0
+    return nights

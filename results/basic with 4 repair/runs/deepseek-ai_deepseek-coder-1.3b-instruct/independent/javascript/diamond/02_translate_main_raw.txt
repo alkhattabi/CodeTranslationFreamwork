@@ -1,0 +1,12 @@
+Here is the JavaScript version of your Python code:
+
+```javascript
+import { weighted } from "./service.mjs";
+import { normalize } from "./utils.mjs";
+
+export function solve(n) {
+  return weighted(n) + normalize(n);
+}
+```
+
+Please note that the import statements are relative to the file where the `solve` function is defined. Also, the `weighted` and `normalize` functions from `service.mjs` and `utils.mjs` respectively are assumed to be defined elsewhere in your codebase.

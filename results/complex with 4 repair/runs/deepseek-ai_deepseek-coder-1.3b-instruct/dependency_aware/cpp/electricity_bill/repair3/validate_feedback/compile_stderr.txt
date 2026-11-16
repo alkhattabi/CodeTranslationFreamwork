@@ -1,0 +1,20 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:23:9: warning: #pragma once in main file
+   23 | #pragma once
+      |         ^~~~
+main.cpp:36:9: warning: #pragma once in main file
+   36 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccIQvQ3L.o: in function `energy_charge(int)':
+main.cpp:(.text+0x0): multiple definition of `energy_charge(int)'; /tmp/cc2jazWg.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccIQvQ3L.o: in function `billable_units(int)':
+main.cpp:(.text+0x93): multiple definition of `billable_units(int)'; /tmp/ccFN6Rz8.o:utils.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

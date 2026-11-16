@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "service.mjs\n/content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/numpy_matrices/repair2/validate_feedback/service.mjs:17\nexport function matrix_energy(n) { /* implementation */ }\n       ^\n\nSyntaxError: Identifier 'matrix_energy' has already been declared\n    at checkSyntax (node:internal/main/check_syntax:74:5)\n\nNode.js v22.23.4\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

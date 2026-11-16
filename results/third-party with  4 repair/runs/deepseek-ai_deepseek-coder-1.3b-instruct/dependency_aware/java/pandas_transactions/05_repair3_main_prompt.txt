@@ -1,0 +1,127 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|-100|" + Main.solve(-100)); } catch (Throwable e) { System.out.println("main.solve|-100|ERR"); }
+                                                ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.rolling_alert|-100|" + Service.rolling_alert(-100)); } catch (Throwable e) { System.out.println("service.rolling_alert|-100|ERR"); }
+                                                           ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.rolling_alert(n)
+  Utils.category_balance(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(Math.min(200, n), -200);
+        Map<String, Integer> frame = new HashMap<>();
+        frame.put("A", n);
+        frame.put("B", 12);
+        frame.put("C", n / 2);
+        frame.put("D", -7);
+        frame.put("E", n % 9);
+        frame.put("F", 4);
+        frame.put("G", -n / 3);
+        int sumA = frame.get("A");
+        int sumB = frame.get("B");
+        int sumC = frame.get("C");
+        int sumD = frame.get("D");
+        int sumE = frame.get("E");
+        int sumF = frame.get("F");
+        int sumG = frame.get("G");
+        return 2 * sumA + sumB - sumC - sumD + sumE - sumF + sumG;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty
+
+
+DEPENDENCY Service.java:
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(Math.min(200, n), -200);
+        Map<String, Integer> frame = new HashMap<>();
+        frame.put("A", n);
+        frame.put("B", 12);
+        frame.put("C", n / 2);
+        frame.put("D", -7);
+        frame.put("E", n % 9);
+        frame.put("F", 4);
+        frame.put("G", -n / 3);
+        int sumA = frame.get("A");
+        int sumB = frame.get("B");
+        int sumC = frame.get("C");
+        int sumD = frame.get("D");
+        int sumE = frame.get("E");
+        int sumF = frame.get("F");
+        int sumG = frame.get("G");
+        return 2 * sumA + sumB - sumC - sumD + sumE - sumF + sumG;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(Math.min(200, n), -200);
+        Map<String, Integer> frame = new HashMap<>();
+        frame.put("A", n);
+        frame.put("B", 12);
+        frame.put("C", n / 2);
+        frame.put("D", -7);
+        frame.put("E", n % 9);
+        frame.put("F", 4);
+        frame.put("G", -n / 3);
+        int sumA = frame.get("A");
+        int sumB = frame.get("B");
+        int sumC = frame.get("C");
+        int sumD = frame.get("D");
+        int sumE = frame.get("E");
+        int sumF = frame.get("F");
+        int sumG = frame.get("G");
+        return 2 * sumA + sumB - sumC - sumD + sumE - sumF + sumG;
+    }
+}

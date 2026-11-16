@@ -1,0 +1,26 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = 15;
+    if (demand < 100) {
+        safety = 35;
+    }
+    int available = n;
+    if (n < 0) {
+        available = 0;
+    }
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+```
+
+This C++ code does the same thing as the Python code. It calculates the number of packs needed to fulfill the order quantity based on the demand and safety levels. The function `weekly_demand` is a global function from the `api.hpp` file.

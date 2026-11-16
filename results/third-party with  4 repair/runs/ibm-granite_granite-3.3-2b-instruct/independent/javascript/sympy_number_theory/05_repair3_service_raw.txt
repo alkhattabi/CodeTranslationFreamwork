@@ -1,0 +1,13 @@
+```javascript
+// Importing required module
+import { factor_signature } from "./utils.mjs";
+
+// Exporting the function
+export function number_strength(n) {
+    let value = Math.abs(n) % 1500 + 2;
+    let phi = Math.floor(Math.totent(value)); // Using Math.totent for totient function
+    let divisorCount = Math.floor(Math.divisorCount(value));
+    return phi + 5 * divisorCount + factor_signature(n);
+}
+```
+Note: In JavaScript, there is no built-in `totient` function like in Python's `sympy`. Instead, we use `Math.totent` (which is available in ECMAScript 2020) or `mathjs.totient` for the totient function. Similarly, `divisor_count` is replaced with `mathjs.divisorCount`.

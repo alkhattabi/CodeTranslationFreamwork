@@ -1,0 +1,13 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int bonus_score(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}
+```
+
+The `bonus_score` function takes an integer `n` as input and returns the result of clamping the base value of `n` plus 7. The `clamp` function is defined in the `api.hpp` file and returns the input `n` if it is within the range 0 to 100, otherwise it returns 0 or 100 respectively.

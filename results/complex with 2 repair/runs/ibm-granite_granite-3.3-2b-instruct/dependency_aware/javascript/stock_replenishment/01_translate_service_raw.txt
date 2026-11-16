@@ -1,0 +1,25 @@
+// service.mjs
+export function order_quantity(n) {
+    const demand = weekly_demand(n);
+    const safety = 15;
+    const available = n > 0? n : 0;
+    const shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    const packs = (shortage + 11) / 12;
+    return Math.floor(packs) * 12;
+}
+
+// utils.mjs (no changes needed)
+export function weekly_demand(n) {
+    if (n < 0) {
+        return 0;
+    }
+    let base = n * 3;
+    let extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += Math.floor(n / 4);
+    }
+    return base + extra;
+}

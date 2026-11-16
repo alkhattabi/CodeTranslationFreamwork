@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/sympy_number_theory/repair2/validate_feedback/main.mjs:5
+export function solve(n: number): number {
+                       ^
+
+SyntaxError: Unexpected token ':'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

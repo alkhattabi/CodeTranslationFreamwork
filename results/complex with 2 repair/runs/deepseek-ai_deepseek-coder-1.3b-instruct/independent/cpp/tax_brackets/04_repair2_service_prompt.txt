@@ -1,0 +1,93 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int calculate_tax(int)’:
+service.cpp:12:18: error: ‘taxable_income’ was not declared in this scope
+   12 |     int income = taxable_income(n);
+      |                  ^~~~~~~~~~~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int calculate_tax(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int calculate_tax(int n);
+int taxable_income(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+int solve(int n) {
+    // Implementation of solve function
+    return n * n;
+}
+
+int calculate_tax(int n) {
+    int income = taxable_income(n);
+    int tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+
+int taxable_income(int n) {
+    // Implementation of taxable_income function
+    return n * n;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+
+def calculate_tax(n: int) -> int:
+    income = taxable_income(n)
+    tax = 0
+    if income > 7000:
+        tax += (income - 7000) * 20 // 100
+        income = 7000
+    if income > 3000:
+        tax += (income - 3000) * 12 // 100
+        income = 3000
+    tax += income * 5 // 100
+    return tax
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include "api.hpp"
+
+int taxable_income(int n) {
+    if (n <= 500) {
+        return 0;
+    }
+    int income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}

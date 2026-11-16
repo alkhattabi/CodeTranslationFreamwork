@@ -1,0 +1,17 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}
+```
+
+This Java code does exactly the same thing as your Python code. It defines a public class `Utils` with a public static method `clamp` that takes an integer as input and returns the same integer if it is between 0 and 100, inclusive. If the input is less than 0, it returns 0. If the input is greater than 100, it returns 100.

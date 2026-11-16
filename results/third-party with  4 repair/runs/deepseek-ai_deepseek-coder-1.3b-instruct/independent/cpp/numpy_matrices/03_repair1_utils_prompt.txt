@@ -1,0 +1,56 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccU4zECv.o: in function `vector_signature(int)':
+service.cpp:(.text+0x56f): multiple definition of `vector_signature(int)'; /tmp/ccRfZVQj.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccgYXbzA.o: in function `solve(int)':
+main.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccU4zECv.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int vector_signature(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int matrix_energy(int n);
+int vector_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+#include <cmath>
+#include <vector>
+
+int vector_signature(int n) {
+    n = std::max(std::min(n, 100), -100);
+    std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+    std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int out = 0;
+    for (int i = 0; i < 3; i++) {
+        out += m[i % 3][i] * v[i];
+    }
+    return std::abs(out);
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+
+def vector_signature(n: int) -> int:
+    n = max(-100, min(100, n))
+    v = np.array([n % 11, abs(n) % 7, (n // 3) % 9], dtype=np.int64)
+    m = np.arange(1, 10, dtype=np.int64).reshape(3, 3)
+    out = m @ v
+    return int(np.abs(out).sum())

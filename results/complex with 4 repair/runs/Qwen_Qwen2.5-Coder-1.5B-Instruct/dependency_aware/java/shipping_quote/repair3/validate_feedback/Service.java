@@ -1,0 +1,34 @@
+package com.example;
+
+import java.util.function.IntUnaryOperator;
+
+public class Service {
+
+    public static int transport_cost(int n) {
+        IntUnaryOperator weightBlocks = Utils::weight_blocks;
+        int blocks = weightBlocks.applyAsInt(n);
+        if (blocks == 0) {
+            return 0;
+        }
+        int price = 1200 + blocks * 180;
+        if (blocks > 5) {
+            price += (blocks - 5) * 70;
+        }
+        if (blocks > 12) {
+            price += (blocks - 12) * 90;
+        }
+        return price;
+    }
+}
+
+class Utils {
+    public static int weight_blocks(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n > 10000) {
+            n = 10000;
+        }
+        return (n + 499) / 500;
+    }
+}

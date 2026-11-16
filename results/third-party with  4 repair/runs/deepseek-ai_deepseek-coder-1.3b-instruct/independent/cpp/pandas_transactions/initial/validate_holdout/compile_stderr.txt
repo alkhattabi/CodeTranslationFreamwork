@@ -1,0 +1,14 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:19:35: error: ‘category_balance’ was not declared in this scope
+   19 |     return alerts * 10 + std::abs(category_balance(n)) % 23;
+      |                                   ^~~~~~~~~~~~~~~~
+service.cpp: In function ‘int rolling_alert(int)’:
+service.cpp:35:35: error: ‘category_balance’ was not declared in this scope
+   35 |     return alerts * 10 + std::abs(category_balance(n)) % 23;
+      |                                   ^~~~~~~~~~~~~~~~

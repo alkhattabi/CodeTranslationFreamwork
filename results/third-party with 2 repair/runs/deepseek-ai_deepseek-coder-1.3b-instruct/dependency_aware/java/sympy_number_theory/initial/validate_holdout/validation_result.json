@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:5: error: class Utils is public, should be declared in a file named Utils.java\npublic class Utils {\n       ^\nMain.java:5: error: class Utils is public, should be declared in a file named Utils.java\npublic class Utils {\n       ^\nEvalRunner.java:3: error: cannot access Main\n  try { System.out.println(\"main.solve|-999|\" + Main.solve(-999)); } catch (Throwable e) { System.out.println(\"main.solve|-999|ERR\"); }\n                                                ^\n  bad source file: ./Main.java\n    file does not contain class Main\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nEvalRunner.java:15: error: cannot access Service\n  try { System.out.println(\"service.number_strength|-999|\" + Service.number_strength(-999)); } catch (Throwable e) { System.out.println(\"service.number_strength|-999|ERR\"); }\n                                                             ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n4 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

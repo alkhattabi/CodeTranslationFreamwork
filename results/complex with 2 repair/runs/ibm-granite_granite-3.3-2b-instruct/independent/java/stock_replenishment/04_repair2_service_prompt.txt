@@ -1,0 +1,74 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 11/30 development checks.
+main.solve(41): expected 4000, actual 800
+main.solve(1): expected 920, actual 1000
+main.solve(19): expected 2360, actual 1000
+main.solve(70): expected 5200, actual 800
+main.solve(55): expected 4900, actual 800
+main.solve(14): expected 1640, actual 1000
+main.solve(7): expected 1280, actual 1000
+main.solve(28): expected 2360, actual 1000
+main.solve(20): expected 2360, actual 1000
+main.solve(21): expected 2000, actual 1000
+service.order_quantity(41): expected 144, actual 24
+service.order_quantity(19): expected 72, actual 24
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int order_quantity(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.weekly_demand(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int order_quantity(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int order_quantity(int n) {
+        int demand = weeklyDemand(n);
+        int safety = demand < 100? 15 : 35;
+        int available = n > 0? n : 0;
+        int shortage = demand + safety - available;
+        if (shortage <= 0) {
+            return 0;
+        }
+        int packs = (shortage + 11) / 12;
+        return packs * 12;
+    }
+
+    // Dummy method for weekly_demand, assuming it's in the same file
+    private static int weeklyDemand(int n) {
+        // Placeholder implementation
+        return n;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weekly_demand
+
+def order_quantity(n: int) -> int:
+    demand = weekly_demand(n)
+    safety = 15 if demand < 100 else 35
+    available = n if n > 0 else 0
+    shortage = demand + safety - available
+    if shortage <= 0:
+        return 0
+    packs = (shortage + 11) // 12
+    return packs * 12
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int weekly_demand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}

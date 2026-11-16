@@ -1,0 +1,6 @@
+Service.java:19: error: cannot find symbol
+        return diagonal + vector_signature(n);
+                          ^
+  symbol:   method vector_signature(int)
+  location: class Service
+1 error

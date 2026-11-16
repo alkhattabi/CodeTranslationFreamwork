@@ -1,0 +1,19 @@
+import { disruption_score } from "./service.mjs";
+import { route_cost } from "./utils.mjs";
+
+export function solve(n) {
+  let graph = new Map();
+  let offset = Math.abs(n) % 7;
+  graph.set([0, 1], 3 + offset);
+  graph.set([0, 2], 5);
+  graph.set([1, 2], 1 + offset % 3);
+  graph.set([1, 3], 4);
+  graph.set([2, 3], 2 + offset % 2);
+  graph.set([3, 4], 6);
+  graph.set([2, 4], 8 + offset);
+
+  let tree = new Map(Array.from(graph.keys()).map(key => [[key[0], key[1]], graph.get(key)]));
+  let total = Array.from(tree.keys()).reduce((a, b) => a + tree.get(b), 0);
+
+  return total + disruption_score(n) - route_cost(n);
+}

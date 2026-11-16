@@ -1,0 +1,52 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:6: error: cannot find symbol
+        return n * unitPrice(n);
+                   ^
+  symbol:   method unitPrice(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int cost = gross(n);
+                   ^
+  symbol:   method gross(int)
+  location: class Main
+2 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int gross(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.unit_price(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int gross(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * unitPrice(n);
+    }
+}
+
+
+ORIGINAL PYTHON:
+from utils import unit_price
+
+def gross(n: int) -> int:
+    if n < 0:
+        return 0
+    return n * unit_price(n)
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int unit_price(int n) {
+        if (n >= 10) {
+            return 10;
+        }
+        return 12;
+    }
+}

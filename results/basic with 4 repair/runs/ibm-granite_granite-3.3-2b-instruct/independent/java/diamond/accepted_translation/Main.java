@@ -1,0 +1,21 @@
+public class Main {
+    public static int solve(int n) {
+        return weighted(n) + normalize(n);
+    }
+
+    // Example of a utility class
+    public static class Utils {
+        public static int normalize(int n) {
+            // Implementation of normalize function
+            return 0;
+        }
+    }
+
+    // Example of a service class
+    public static class Service {
+        public static int weighted(int n) {
+            // Implementation of weighted function
+            return 0;
+        }
+    }
+}

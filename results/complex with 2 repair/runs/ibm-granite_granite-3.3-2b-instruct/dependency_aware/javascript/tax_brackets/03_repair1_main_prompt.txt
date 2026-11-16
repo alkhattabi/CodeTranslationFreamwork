@@ -1,0 +1,86 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/tax_brackets/initial/validate_feedback/main.mjs:8
+    const credit = 100 if (base > 0 && base <= 2500) else 0;
+                       ^^
+
+SyntaxError: Unexpected token 'if'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { calculate_tax } from "./service.mjs";
+  import { taxable_income } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { taxable_income } from "./utils.mjs";
+import { calculate_tax } from "./service.mjs";
+
+export function solve(n) {
+    const base = taxable_income(n);
+    const tax = calculate_tax(n);
+    const credit = 100 if (base > 0 && base <= 2500) else 0;
+    const payable = tax - credit;
+    if (payable < 0) {
+        payable = 0;
+    }
+    return payable + (payable * 2 / 100 if (base > 10000) else 0);
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+from service import calculate_tax
+
+def solve(n: int) -> int:
+    base = taxable_income(n)
+    tax = calculate_tax(n)
+    credit = 100 if base > 0 and base <= 2500 else 0
+    payable = tax - credit
+    if payable < 0:
+        payable = 0
+    return payable + (payable * 2 // 100 if base > 10000 else 0)
+
+
+DEPENDENCY service.mjs:
+// service.mjs
+import { taxable_income } from "./utils.mjs";
+
+export function calculate_tax(n) {
+    const income = taxable_income(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}

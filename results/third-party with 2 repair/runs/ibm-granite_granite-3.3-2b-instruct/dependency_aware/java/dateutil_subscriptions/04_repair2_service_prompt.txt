@@ -1,0 +1,107 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:10: error: cannot find symbol
+            Date date = new Date(year, month, day);
+            ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+            Date date = new Date(year, month, day);
+                            ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+        ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+                       ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+                            ^
+  symbol:   variable date
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int renewed = renewal_date(n);
+                      ^
+  symbol:   method renewal_date(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Date end = new Date(year, month, day);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Date end = new Date(year, month, day);
+                       ^
+  symbol
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int grace_period(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.renewal_date(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int grace_period(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int grace_period(int n) {
+        int renewed = renewal_date(n);
+        if (renewed < 0) {
+            return -1;
+        }
+        int year = renewed / 10000;
+        int month = (renewed / 100) % 100;
+        int day = renewed % 100;
+        Date end = new Date(year, month, day);
+        end.setTime(end.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+        int yearEnd = end.getYear() * 10000;
+        int monthEnd = end.getMonth() + 1;
+        int dayEnd = end.getDate();
+        return yearEnd * 10000 + monthEnd * 100 + dayEnd;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            Date date = new Date(year, month, day);
+        } catch (Exception e) {
+            return -1;
+        }
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+        int yearEnd = end.getYear() * 10000;
+        int monthEnd = end.getMonth() + 1;
+        int dayEnd = end.getDate();
+        return yearEnd * 10000 + monthEnd * 100 + dayEnd;
+    }
+}

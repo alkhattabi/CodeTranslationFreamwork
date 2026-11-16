@@ -1,0 +1,9 @@
+service.mjs
+/content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/packaging_releases/repair2/validate_feedback/service.mjs:27
+export function upgrade_cost(n) { /* implementation */ }
+       ^
+
+SyntaxError: Identifier 'upgrade_cost' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

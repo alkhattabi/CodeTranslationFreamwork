@@ -1,0 +1,17 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    int prime_bonus = (std::isprime(value)) ? 50 : 0;
+    int next_prime = static_cast<int>(std::nextprime(value));
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}
+```
+
+Please note that the `std::isprime` and `std::nextprime` functions are not part of the C++ standard library, so you need to include the `<cmath>` header to use them. Also, the `factor_signature` function is not defined in the provided Python code, so it is not included in the C++ code. You may need to define it or remove it if it's not needed in your program.

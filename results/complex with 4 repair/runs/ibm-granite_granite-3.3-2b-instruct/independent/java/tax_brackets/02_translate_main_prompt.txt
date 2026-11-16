@@ -1,0 +1,22 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.calculate_tax(n)
+  Utils.taxable_income(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON FILE main.py:
+
+from utils import taxable_income
+from service import calculate_tax
+
+def solve(n: int) -> int:
+    base = taxable_income(n)
+    tax = calculate_tax(n)
+    credit = 100 if base > 0 and base <= 2500 else 0
+    payable = tax - credit
+    if payable < 0:
+        payable = 0
+    return payable + (payable * 2 // 100 if base > 10000 else 0)

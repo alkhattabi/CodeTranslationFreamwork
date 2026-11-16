@@ -1,0 +1,81 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:15: error: cannot find symbol
+        calendar.setTime(start);
+                         ^
+  symbol:   variable start
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+                       ^
+  symbol:   method renewalDate(int)
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+        ^
+  symbol:   class Calendar
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+                            ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:9: error: cannot find symbol
+        calendar.add(Calendar.MONTH, 2);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:10: error: cannot find symbol
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                            ^
+  symbol:   variable Calendar
+  location: c
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int grace_period(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.renewal_date(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int grace_period(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int grace_period(int n) {
+        Date renewed = renewalDate(n);
+        if (renewed == null || renewed.getTime() < 0) {
+            return -1;
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(renewed);
+        calendar.add(Calendar.MONTH, 2);
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day

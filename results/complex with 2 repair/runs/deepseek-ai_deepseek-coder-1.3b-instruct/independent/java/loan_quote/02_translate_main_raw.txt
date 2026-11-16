@@ -1,0 +1,21 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int band = Utils.creditBand(n);
+        if (band == 0) {
+            return -1;
+        }
+        int principal = 10000 + (n - 300) * 10;
+        int interest = Service.yearlyInterest(n);
+        int fee = band >= 3 ? 150 : 350;
+        int total = principal + interest + fee;
+        return (total + 11) / 12;
+    }
+}
+```
+
+Please note that in Java, division of two integers results in an integer. So, the result of the division operation is truncated. If you want to get a floating point result, you should use a double instead of an int.
+
+Also, please note that the `Utils.creditBand(n)` and `Service.yearlyInterest(n)` methods are assumed to be present in the `Utils` and `Service` classes respectively.

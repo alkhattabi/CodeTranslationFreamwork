@@ -1,0 +1,38 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:26: error: class, interface, enum, or record expected
+Note: The actual implementations of billableUnits and energyCharge methods are not provided in the Python code snippet, so they are represented as placeholders in the Java code.
+^
+1 error
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int billable_units(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int billable_units(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int billable_units(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def billable_units(n: int) -> int:
+    if n < 0:
+        return 0
+    if n > 1200:
+        return 1200
+    return n

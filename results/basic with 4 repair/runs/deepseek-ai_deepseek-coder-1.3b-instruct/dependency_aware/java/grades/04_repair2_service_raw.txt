@@ -1,0 +1,24 @@
+Here is the corrected Service.java file:
+
+```java
+public class Utils {
+    public static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}
+
+public class Service {
+    public static int bonus_score(int n) {
+        int base = Utils.clamp(n);
+        return Utils.clamp(base + 7);
+    }
+}
+```
+
+This code declares public classes `Utils` and `Service`. The `Utils` class has a public static method `clamp` that takes an integer as a parameter and returns a clamped integer. The `Service` class has a public static method `bonus_score` that takes an integer as a parameter and returns an integer. The `bonus_score` method uses the `clamp` method to ensure that the input is within a valid range.

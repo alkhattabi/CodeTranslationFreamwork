@@ -1,0 +1,13 @@
+Here is the Java version of the provided Python code:
+
+```java
+public class Service {
+    public static int discount(int n) {
+        return tier(n) * 5;
+    }
+}
+```
+
+Please note that the `tier` function is not defined in the provided Python code, so it is assumed that it is a static method of the `Utils` class. If it is not, you will need to import it from the `Utils` class.
+
+Also, please note that in Java, the return type of a method is determined by the type of the expression that the method returns. In this case, the method returns an integer, so the return type of the `discount` method is `int`.

@@ -1,0 +1,46 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+2 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.discount(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int value = n * 4 - discount(n);
+        return Math.max(0, value);
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import discount
+
+def solve(n: int) -> int:
+    value = n * 4 - discount(n)
+    return max(0, value)
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int discount(int n) {
+        return tier(n) * 5;
+    }
+}

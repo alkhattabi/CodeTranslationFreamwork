@@ -1,0 +1,25 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int valid_date(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int valid_date(int n) { /* implementation */ } }
+
+PYTHON FILE utils.py:
+
+def valid_date(n: int) -> int:
+    if n < 10000101 or n > 99991231:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    if month < 1 or month > 12 or day < 1:
+        return 0
+    days = 31
+    if month == 4 or month == 6 or month == 9 or month == 11:
+        days = 30
+    if month == 2:
+        leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+        days = 29 if leap else 28
+    return 1 if day <= days else 0

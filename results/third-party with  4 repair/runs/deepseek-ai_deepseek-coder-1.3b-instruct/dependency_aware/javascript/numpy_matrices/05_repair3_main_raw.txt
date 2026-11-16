@@ -1,0 +1,16 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { matrix_energy } from "./service.mjs";
+import { vector_signature } from "./utils.mjs";
+
+export function solve(n) {
+  const energy = matrix_energy(n);
+  const vector = [energy, vector_signature(n), n];
+  const bounded = vector.map(x => Math.max(-150, Math.min(250, x))).filter(x => x >= 0);
+  const positives = bounded.map(x => (x > 0 ? x : -x));
+  return positives.reduce((a, b) => a + b, 0) + (energy % 17);
+}
+```
+
+This code is exporting a function `solve` that takes an integer `n` as input and returns an integer. The function calculates the energy of a matrix, the signature of a vector, and the remainder of the energy divided by 17. The energy is calculated using the `matrix_energy` function from the `service.mjs` module, and the signature is calculated using the `vector_signature` function from the `utils.mjs` module. The `bounded` array is filtered to ensure that the values are within the range -150 to 250, and the `positives` array is created by replacing negative values with their positive counterparts. The `reduce` method is used to sum up the elements of the `positives` array and the remainder of the energy divided by 17.

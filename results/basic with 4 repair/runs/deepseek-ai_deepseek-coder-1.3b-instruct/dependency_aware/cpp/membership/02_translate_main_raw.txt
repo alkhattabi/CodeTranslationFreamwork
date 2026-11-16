@@ -1,0 +1,13 @@
+Here is the C++ implementation of the Python file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    int value = n * 4 - discount(n);
+    return std::max(0, value);
+}
+```
+
+The `discount` function is defined in the `api.hpp` file and is used in the `solve` function. The `std::max` function is used to ensure that the result is always non-negative.

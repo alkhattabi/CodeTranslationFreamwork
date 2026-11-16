@@ -1,0 +1,11 @@
+Main.java:3: error: cannot find symbol
+        int base = Utils.taxableIncome(n);
+                        ^
+  symbol:   method taxableIncome(int)
+  location: class Utils
+Main.java:4: error: cannot find symbol
+        int tax = Service.calculateTax(n);
+                         ^
+  symbol:   method calculateTax(int)
+  location: class Service
+2 errors

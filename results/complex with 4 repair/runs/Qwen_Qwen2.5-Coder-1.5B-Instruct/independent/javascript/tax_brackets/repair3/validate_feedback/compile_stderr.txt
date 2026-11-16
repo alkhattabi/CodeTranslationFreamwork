@@ -1,0 +1,9 @@
+service.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/tax_brackets/repair3/validate_feedback/service.mjs:20
+export function taxableIncome(n) {
+       ^
+
+SyntaxError: Identifier 'taxableIncome' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

@@ -1,0 +1,56 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:22: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+2 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int credit_band(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int credit_band(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int credit_band(int n) {
+        if (n < 300 || n > 850) {
+            return 0;
+        }
+        if (n >= 750) {
+            return 4;
+        }
+        if (n >= 650) {
+            return 3;
+        }
+        if (n >= 550) {
+            return 2;
+        }
+        if (n >= 450) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def credit_band(n: int) -> int:
+    if n < 300 or n > 850:
+        return 0
+    if n >= 750:
+        return 4
+    if n >= 650:
+        return 3
+    if n >= 550:
+        return 2
+    if n >= 450:
+        return 1
+    return 0

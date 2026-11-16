@@ -1,0 +1,125 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:5: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:5: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|127|" + Main.solve(127)); } catch (Throwable e) { System.out.println("main.solve|127|ERR"); }
+                                               ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.number_strength|127|" + Service.number_strength(127)); } catch (Throwable e) { System.out.println("service.number_strength|127|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.number_strength(n)
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)
+
+
+DEPENDENCY Service.java:
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}
+
+
+DEPENDENCY Utils.java:
+import java.math.BigInteger;
+import java.util.Map;
+import java.util.HashMap;
+
+public class Utils {
+    public static int factor_signature(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        Map<BigInteger, Integer> factors = new HashMap<>();
+        BigInteger i = BigInteger.valueOf(value);
+        String str = i.toString();
+        for (int j = 0; j < str.length(); j++) {
+            char c = str.charAt(j);
+            if (c != '0') {
+                BigInteger factor = new BigInteger(String.valueOf(c));
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+            }
+        }
+        int score = 0;
+        for (Map.Entry<BigInteger, Integer> entry : factors.entrySet()) {
+            score += entry.getKey().intValue() * entry.getValue();
+        }
+        return score + 3 * factors.size();
+    }
+}

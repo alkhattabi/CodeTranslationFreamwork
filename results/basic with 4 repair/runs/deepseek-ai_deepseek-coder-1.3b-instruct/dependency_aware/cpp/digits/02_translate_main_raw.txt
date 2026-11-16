@@ -1,0 +1,16 @@
+Here is the C++ implementation of the Python file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    int value = score_digits(n);
+    if (value % 2 == 0) {
+        return value + 1;
+    }
+    return value - 1;
+}
+```
+
+The C++ file includes the "api.hpp" header file, which includes the definition of the "solve" function. The function takes an integer as input and returns an integer. The function first calls the "score_digits" function to calculate the value, then checks if the result is even. If it is, the function returns the result plus one. If it's not, the function returns the result minus one.

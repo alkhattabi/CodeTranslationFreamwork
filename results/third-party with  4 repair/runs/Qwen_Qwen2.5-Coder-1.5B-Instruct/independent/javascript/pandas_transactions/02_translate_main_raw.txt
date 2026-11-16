@@ -1,0 +1,10 @@
+```javascript
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = new Array(3).fill(Math.abs(balance) % 50).concat(alert, Math.abs(n) % 50);
+    const ranks = scores.map(score => score === 0 ? 0 : Math.floor((scores.indexOf(score) + 1) / 2));
+    const penalty = ranks[0] * 7 + ranks[1] * 3;
+    return balance + alert - penalty;
+}
+```

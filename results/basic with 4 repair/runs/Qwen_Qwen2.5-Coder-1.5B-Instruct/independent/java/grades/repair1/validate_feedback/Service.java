@@ -1,0 +1,6 @@
+public class Service {
+    public static int bonus_score(int n) {
+        int base = clamp(n);
+        return clamp(base + 7);
+    }
+}

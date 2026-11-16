@@ -1,0 +1,55 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/sympy_number_theory/initial/validate_feedback/main.mjs:2
+import { factorSignature } from "./utils.mjs";
+         ^^^^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'factorSignature'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function factor_signature(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function factor_signature(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// utils.js
+
+function factor_signature(n) {
+    const value = Math.abs(n) % 1500 + 2;
+    const factors = {};
+    for (let i = 2; i <= value; i++) {
+        while (value % i === 0) {
+            if (factors[i]) {
+                factors[i] += 1;
+            } else {
+                factors[i] = 1;
+            }
+            value /= i;
+        }
+    }
+
+    let score = 0;
+    for (const prime in factors) {
+        score += prime * factors[prime];
+    }
+    return score + 3 * Object.keys(factors).length;
+}
+
+export { factor_signature };
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+
+def factor_signature(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    factors = sp.factorint(value)
+    score = sum(int(prime) * int(exponent) for prime, exponent in factors.items())
+    return score + 3 * len(factors)

@@ -1,0 +1,13 @@
+// service.mjs
+export function weighted(n) {
+    const x = normalize(n);
+    return x * 2 + 1;
+}
+
+// utils.mjs (no changes needed)
+export function normalize(n) {
+    if (n < 0) {
+        return -n;
+    }
+    return n;
+}

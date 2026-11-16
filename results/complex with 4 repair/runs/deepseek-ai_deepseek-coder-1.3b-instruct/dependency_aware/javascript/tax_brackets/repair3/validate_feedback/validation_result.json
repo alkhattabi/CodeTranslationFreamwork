@@ -1,0 +1,56 @@
+{
+  "compiled": true,
+  "passed": 18,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 3499,
+      "expected": 149,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 15000,
+      "expected": 2172,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 3500,
+      "expected": 150,
+      "actual": "120"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 7000,
+      "expected": 570,
+      "actual": "456"
+    },
+    {
+      "module": "service",
+      "function": "calculate_tax",
+      "input": 3499,
+      "expected": 149,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "calculate_tax",
+      "input": 501,
+      "expected": 0,
+      "actual": "ERR: Error: result must be a safe integer"
+    }
+  ]
+}

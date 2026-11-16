@@ -1,0 +1,8 @@
+#pragma once
+
+#include "api.hpp"
+
+int solve(int n) {
+    int cost = gross(n);
+    return cost + (cost * 15) / 100;
+}

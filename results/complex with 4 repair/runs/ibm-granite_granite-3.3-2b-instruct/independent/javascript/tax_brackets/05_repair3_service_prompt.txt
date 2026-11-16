@@ -1,0 +1,70 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/tax_brackets/initial/validate_feedback/main.mjs:16
+    return payable + (payable * 2 / 100 if (base > 10000) else 0);
+                                        ^^
+
+SyntaxError: Unexpected token 'if'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function calculate_tax(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { taxable_income } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function calculate_tax(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+import { taxable_income } from "./utils.mjs";
+
+export function calculate_tax(n) {
+    const income = taxable_income(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+
+def calculate_tax(n: int) -> int:
+    income = taxable_income(n)
+    tax = 0
+    if income > 7000:
+        tax += (income - 7000) * 20 // 100
+        income = 7000
+    if income > 3000:
+        tax += (income - 3000) * 12 // 100
+        income = 3000
+    tax += income * 5 // 100
+    return tax
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}

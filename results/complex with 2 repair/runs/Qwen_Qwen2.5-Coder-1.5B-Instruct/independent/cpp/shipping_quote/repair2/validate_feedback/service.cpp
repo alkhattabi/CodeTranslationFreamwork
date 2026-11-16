@@ -1,0 +1,45 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declaration from api.hpp
+int solve(int n);
+
+// Global C++ function declaration from api.hpp
+int transport_cost(int n);
+
+// Global C++ function declaration from api.hpp
+int weight_blocks(int n);
+
+// Implementation of weight_blocks function
+int weight_blocks(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}
+
+// Global C++ function definition from api.hpp
+int solve(int n) {
+    // Your existing logic here
+}
+
+// Global C++ function definition from api.hpp
+int transport_cost(int n) {
+    int blocks = weight_blocks(n);
+    if (blocks == 0) {
+        return 0;
+    }
+    price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}

@@ -1,0 +1,52 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 6/15 development checks.
+main.solve(10): expected 35, actual 37
+main.solve(49): expected 191, actual 193
+main.solve(150): expected 585, actual 595
+main.solve(100): expected 385, actual 395
+service.discount(0): expected 0, actual 2
+service.discount(10): expected 5, actual 3
+service.discount(49): expected 5, actual 3
+service.discount(150): expected 15, actual 5
+service.discount(100): expected 15, actual 5
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int tier(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int discount(int n);
+int tier(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int tier(int n) {
+    if (n >= 100) {
+        return 3;
+    }
+    if (n >= 50) {
+        return 2;
+    }
+    if (n >= 10) {
+        return 1;
+    }
+    return 0;
+}
+
+
+ORIGINAL PYTHON:
+def tier(n: int) -> int:
+    if n >= 100:
+        return 3
+    if n >= 50:
+        return 2
+    if n >= 10:
+        return 1
+    return 0

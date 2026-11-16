@@ -1,0 +1,13 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function discount(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { tier } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function discount(n) { /* implementation */ }
+
+PYTHON FILE service.py:
+from utils import tier
+
+def discount(n: int) -> int:
+    return tier(n) * 5

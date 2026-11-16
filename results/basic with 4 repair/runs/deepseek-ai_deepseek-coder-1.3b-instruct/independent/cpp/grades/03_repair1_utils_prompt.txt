@@ -1,0 +1,56 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc6TCFin.o: in function `bonus_score(int)':
+main.cpp:(.text+0x0): multiple definition of `bonus_score(int)'; /tmp/cc6nj3wJ.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccQUS1eJ.o: in function `main':
+EvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int clamp(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int bonus_score(int n);
+int clamp(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int clamp(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 100) {
+        return 100;
+    }
+    return n;
+}
+
+
+ORIGINAL PYTHON:
+def clamp(n: int) -> int:
+    if n < 0:
+        return 0
+    if n > 100:
+        return 100
+    return n

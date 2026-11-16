@@ -1,0 +1,17 @@
+Here is the corrected version of Utils.java:
+
+```java
+public class Utils {
+    public static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}
+```
+
+This Java code declares a public class named Utils and includes a public static method named clamp. The method takes an integer as a parameter and returns an integer. If the input integer is less than 0, it returns 0. If the input integer is greater than 100, it returns 100. Otherwise, it returns the input integer.

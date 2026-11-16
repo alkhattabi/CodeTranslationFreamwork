@@ -1,0 +1,44 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 8/12 development checks.
+main.solve(53): expected 1, actual 60
+main.solve(60): expected 1, actual 67
+main.solve(100): expected 1, actual 100
+main.solve(130): expected 1, actual 100
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int bonus_score(int n);
+int clamp(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}
+
+
+ORIGINAL PYTHON:
+from service import bonus_score
+
+def solve(n: int) -> int:
+    return 1 if bonus_score(n) >= 60 else 0
+
+
+DEPENDENCY service.cpp:
+#pragma once
+#include "api.hpp"
+
+int bonus_score(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}

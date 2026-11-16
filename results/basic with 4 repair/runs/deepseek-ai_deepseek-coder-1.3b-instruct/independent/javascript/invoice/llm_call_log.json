@@ -1,0 +1,104 @@
+[
+  {
+    "module": "utils",
+    "phase": "translate",
+    "elapsed_s": 0.6934963709998101,
+    "prompt_tokens": 221,
+    "new_tokens": 104,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "service",
+    "phase": "translate",
+    "elapsed_s": 0.8037724450000496,
+    "prompt_tokens": 236,
+    "new_tokens": 121,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "main",
+    "phase": "translate",
+    "elapsed_s": 1.0481095169998298,
+    "prompt_tokens": 233,
+    "new_tokens": 158,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "main",
+    "phase": "repair1",
+    "elapsed_s": 0.7047635239998726,
+    "prompt_tokens": 459,
+    "new_tokens": 105,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "main"
+    ],
+    "before_feedback_passed": 9,
+    "candidate_feedback_passed": 9,
+    "candidate_compiled": true,
+    "accepted_feedback_passed": 9,
+    "candidate_error_category": "semantic_or_runtime"
+  },
+  {
+    "module": "utils",
+    "phase": "repair2",
+    "elapsed_s": 0.38829499600001327,
+    "prompt_tokens": 371,
+    "new_tokens": 58,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "utils",
+      "service",
+      "main"
+    ],
+    "before_feedback_passed": 9,
+    "candidate_feedback_passed": 9,
+    "candidate_compiled": true,
+    "accepted_feedback_passed": 9,
+    "candidate_error_category": "semantic_or_runtime"
+  },
+  {
+    "module": "service",
+    "phase": "repair3",
+    "elapsed_s": 1.082172385999911,
+    "prompt_tokens": 455,
+    "new_tokens": 162,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "service",
+      "main"
+    ],
+    "before_feedback_passed": 9,
+    "candidate_feedback_passed": 9,
+    "candidate_compiled": true,
+    "accepted_feedback_passed": 9,
+    "candidate_error_category": "semantic_or_runtime"
+  },
+  {
+    "module": "main",
+    "phase": "repair4",
+    "elapsed_s": 0.7008420170000136,
+    "prompt_tokens": 459,
+    "new_tokens": 105,
+    "output_limit_hit": false,
+    "input_limit_hit": false,
+    "accepted": false,
+    "affected_modules_retested": [
+      "main"
+    ],
+    "before_feedback_passed": 9,
+    "candidate_feedback_passed": 9,
+    "candidate_compiled": true,
+    "accepted_feedback_passed": 9,
+    "candidate_error_category": "semantic_or_runtime"
+  }
+]

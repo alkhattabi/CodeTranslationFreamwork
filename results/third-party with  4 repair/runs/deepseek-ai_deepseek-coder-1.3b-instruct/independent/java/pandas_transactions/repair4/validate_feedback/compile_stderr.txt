@@ -1,0 +1,29 @@
+Main.java:1: error: package utils does not exist
+import utils.Utils;
+            ^
+Main.java:5: error: cannot find symbol
+        int balance = Utils.categoryBalance(n);
+                           ^
+  symbol:   method categoryBalance(int)
+  location: class Utils
+Main.java:6: error: cannot find symbol
+        int alert = service.rollingAlert(n);
+                    ^
+  symbol:   variable service
+  location: class Main
+Main.java:7: error: cannot find symbol
+        series scores = series.of(Math.abs(balance) % 50, alert, Math.abs(n) % 50);
+        ^
+  symbol:   class series
+  location: class Main
+Main.java:7: error: cannot find symbol
+        series scores = series.of(Math.abs(balance) % 50, alert, Math.abs(n) % 50);
+                        ^
+  symbol:   variable series
+  location: class Main
+Main.java:8: error: cannot find symbol
+        series ranks = scores.rank("dense", true);
+        ^
+  symbol:   class series
+  location: class Main
+6 errors

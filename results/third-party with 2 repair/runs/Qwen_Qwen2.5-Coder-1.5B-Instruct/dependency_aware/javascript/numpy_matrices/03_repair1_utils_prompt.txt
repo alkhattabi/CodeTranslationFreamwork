@@ -1,0 +1,43 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/numpy_matrices/initial/validate_feedback/service.mjs:2
+import { vectorSignature } from "./utils.mjs";
+         ^^^^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'vectorSignature'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function vector_signature(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function vector_signature(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+export function vector_signature(n) {
+    n = Math.max(-100, Math.min(100, n));
+    const v = [n % 11, Math.abs(n) % 7, Math.floor(n / 3) % 9];
+    const m = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    const out = m.map(row => row.reduce((acc, val) => acc + val * v[row.indexOf(val)], 0));
+    return Math.abs(out.reduce((acc, val) => acc + val, 0));
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+
+def vector_signature(n: int) -> int:
+    n = max(-100, min(100, n))
+    v = np.array([n % 11, abs(n) % 7, (n // 3) % 9], dtype=np.int64)
+    m = np.arange(1, 10, dtype=np.int64).reshape(3, 3)
+    out = m @ v
+    return int(np.abs(out).sum())

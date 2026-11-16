@@ -1,0 +1,36 @@
+{"k":"main.solve|-1001","v":3}
+{"k":"main.solve|799273982","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|99","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|101","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|9","v":3}
+{"k":"main.solve|10009","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|42","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|87654323","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|12345678","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|-1","v":3}
+{"k":"main.solve|222","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|0","v":3}
+{"k":"service.risk_points|-1001","v":100}
+{"k":"service.risk_points|799273982","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|99","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|101","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|9","v":80}
+{"k":"service.risk_points|10009","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|42","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|87654323","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|12345678","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|-1","v":100}
+{"k":"service.risk_points|222","error":"TypeError: Assignment to constant variable."}
+{"k":"service.risk_points|0","v":100}
+{"k":"utils.luhn_valid|-1001","v":0}
+{"k":"utils.luhn_valid|799273982","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|99","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|101","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|9","v":0}
+{"k":"utils.luhn_valid|10009","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|42","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|87654323","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|12345678","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|-1","v":0}
+{"k":"utils.luhn_valid|222","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.luhn_valid|0","v":0}

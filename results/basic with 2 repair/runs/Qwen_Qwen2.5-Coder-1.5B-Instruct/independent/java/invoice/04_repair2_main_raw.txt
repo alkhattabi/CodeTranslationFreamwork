@@ -1,0 +1,12 @@
+```java
+package com.example;
+
+import com.example.Service;
+
+public class Main {
+    public static int solve(int n) {
+        int cost = Service.gross(n);
+        return cost + (cost * 15) / 100;
+    }
+}
+```

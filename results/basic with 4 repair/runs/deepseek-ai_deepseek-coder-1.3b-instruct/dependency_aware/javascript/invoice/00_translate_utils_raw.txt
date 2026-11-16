@@ -1,0 +1,12 @@
+Here is the JavaScript equivalent of the Python code:
+
+```javascript
+export function unit_price(n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}
+```
+
+This JavaScript function `unit_price` takes an integer `n` as input and returns `10` if `n` is greater than or equal to `10`, otherwise it returns `12`.

@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:18: error: class, interface, enum, or record expected\nNote: The taxable_income method from the utils module is assumed to be implemented in Java and is not provided here.\n^\nMain.java:44: error: class, interface, enum, or record expected\nNote: The taxable_income method from the utils module is assumed to be implemented in Java and is not provided here.\n^\nMain.java:46: error: unclosed character literal\nThis Java code mirrors the functionality of the provided Python code, translating the logic and dependencies into Java syntax. The classes are placed in the default package, and there's no main method or extra public classes. The function names and structure are preserved as closely as possible, with the understanding that Java does not support Python's syntax for type hints or docstrings.\n                                                                                                                                                                                       ^\nMain.java:46: error: class, interface, enum, or record expected\nThis Java code mirrors the functionality of the provided Python code, translating the logic and dependencies into Java syntax. The classes are placed in the default package, and there's no main method or extra public classes. The function names and structure are preserved as closely as possible, with the understanding that Java does not support Python's syntax for type hints or docstrings.\n                                                                                                                                                                                                                         ^\nMain.java:46: error: unclosed character literal\nThis Java code mirrors the functionality of the provided Python code, translating the logic and dependencies into Java syntax. The classes are placed in the default package, and there's no main method or extra public classes. The function names and structure are preserved as closely as possible, with the understanding that Java does not support Python's syntax for type hints or docstrings.\n                                                                                                                                                                                                                                                                                                                                                                 ^\n5 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

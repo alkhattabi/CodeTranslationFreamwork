@@ -1,0 +1,89 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+cation: class Main
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+                             ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:13: error: cannot find symbol
+        Tree tree = graph.minimumSpanningTree("weight");
+        ^
+  symbol:   class Tree
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                       ^
+  symbol:   method disruptionScore(int)
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                                            ^
+  symbol:   method routeCost(int)
+  location: class Main
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.disruption_score|10|" + Service.disruption_score(10)); } catch (Throwable e) { System.out.println("service.disruption_score|10|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.route_cost|10|" + Utils.route_cost
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int disruption_score(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.route_cost(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int disruption_score(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+public class Service {
+    public static int disruption_score(int n) {
+        Networkx.Graph graph = new Networkx.DiGraph();
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 5);
+        graph.addEdge(2, 5);
+        graph.addEdge(5, 6);
+
+        if (n % 3 == 0) {
+            graph.removeEdge(2, 5);
+        }
+        if (n % 5 == 0) {
+            graph.removeEdge(0, 2);
+        }
+
+        long reachable = Networkx.descendants(graph, 0).size();
+        long longest = Networkx.dagLongestPathLength(graph);
+        return routeCost(n) + 3 * reachable + (longest / 1L);
+    }
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)

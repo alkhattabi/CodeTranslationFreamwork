@@ -1,0 +1,15 @@
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * unit_price(n);
+    }
+
+    public static int unit_price(int n) {
+        if (n >= 10) {
+            return 10;
+        }
+        return 12;
+    }
+}

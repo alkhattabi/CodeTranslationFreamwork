@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: bad operand type int for unary operator '!'\n        if (!Utils.valid_date(n)) {\n            ^\nMain.java:3: error: cannot find symbol\n        if (!Utils.validDate(n)) {\n                  ^\n  symbol:   method validDate(int)\n  location: class Utils\nMain.java:8: error: cannot find symbol\n        return quarter * 1000 + Service.dayOfYear(n);\n                                       ^\n  symbol:   method dayOfYear(int)\n  location: class Service\n3 errors\n",
+  "failed_modules": [
+    "service",
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

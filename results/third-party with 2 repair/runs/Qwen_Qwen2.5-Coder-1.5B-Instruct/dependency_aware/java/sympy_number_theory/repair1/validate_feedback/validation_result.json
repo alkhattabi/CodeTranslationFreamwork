@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:11: error: illegal start of expression\n        import org.sympy.ntheory.factor.FactorInteger;\n        ^\nUtils.java:11: error: not a statement\n        import org.sympy.ntheory.factor.FactorInteger;\n                                       ^\nService.java:11: error: illegal start of expression\n        import org.sympy.ntheory.factor.FactorInteger;\n        ^\nService.java:11: error: not a statement\n        import org.sympy.ntheory.factor.FactorInteger;\n                                       ^\nMain.java:11: error: illegal start of expression\n        import org.sympy.ntheory.factor.FactorInteger;\n        ^\nMain.java:11: error: not a statement\n        import org.sympy.ntheory.factor.FactorInteger;\n                                       ^\n6 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

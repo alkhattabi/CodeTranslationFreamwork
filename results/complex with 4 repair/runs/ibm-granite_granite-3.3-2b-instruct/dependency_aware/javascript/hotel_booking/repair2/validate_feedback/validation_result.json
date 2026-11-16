@@ -1,0 +1,133 @@
+{
+  "compiled": true,
+  "passed": 13,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1015,
+      "expected": 22641,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 130,
+      "expected": 4709,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 214,
+      "expected": 4450,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 101,
+      "expected": 224,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2010,
+      "expected": 30532,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 307,
+      "expected": 3415,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 107,
+      "expected": 1138,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 1015,
+      "expected": 19238,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": -201,
+      "expected": 0,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 130,
+      "expected": 4050,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 214,
+      "expected": 3780,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 101,
+      "expected": 150,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 2010,
+      "expected": 25650,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 307,
+      "expected": 2835,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 1,
+      "expected": 0,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": 107,
+      "expected": 945,
+      "actual": "ERR: ReferenceError: require is not defined"
+    },
+    {
+      "module": "service",
+      "function": "lodging_charge",
+      "input": -1,
+      "expected": 0,
+      "actual": "ERR: ReferenceError: require is not defined"
+    }
+  ]
+}

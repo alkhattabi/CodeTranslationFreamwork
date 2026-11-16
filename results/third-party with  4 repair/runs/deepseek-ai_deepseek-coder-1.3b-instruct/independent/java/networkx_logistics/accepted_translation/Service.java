@@ -1,0 +1,48 @@
+import java.util.*;
+import networkx.*;
+import utils.*;
+
+public class Service {
+    public static int disruption_score(int n) {
+        DiGraph<Integer, DefaultEdge> graph = new DiGraph<>(DefaultEdge.class);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 5);
+        graph.addEdge(2, 5);
+        graph.addEdge(5, 6);
+
+        if (n % 3 == 0) {
+            graph.removeEdge(2, 5);
+        }
+
+        if (n % 5 == 0) {
+            graph.removeEdge(0, 2);
+        }
+
+        int reachable = descendants(graph, 0).size();
+        int longest = dagLongestPathLength(graph);
+
+        return routeCost(n) + 3 * reachable + longest;
+    }
+
+    private static int routeCost(int n) {
+        // Implementation of routeCost method
+        // This is a placeholder, replace with actual implementation
+        return n;
+    }
+
+    private static Set<Integer> descendants(DiGraph<Integer, DefaultEdge> graph, int node) {
+        // Implementation of descendants method
+        // This is a placeholder, replace with actual implementation
+        return new HashSet<>();
+    }
+
+    private static int dagLongestPathLength(DiGraph<Integer, DefaultEdge> graph) {
+        // Implementation of dagLongestPathLength method
+        // This is a placeholder, replace with actual implementation
+        return 0;
+    }
+}

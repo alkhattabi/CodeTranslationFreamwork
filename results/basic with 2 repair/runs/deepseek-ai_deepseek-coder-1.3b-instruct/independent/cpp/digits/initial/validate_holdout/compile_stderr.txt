@@ -1,0 +1,15 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int digit_sum(int)’:
+service.cpp:4:16: error: ‘abs’ was not declared in this scope
+    4 |         sum += abs(n % 10);
+      |                ^~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:17: error: ‘scoreDigits’ was not declared in this scope; did you mean ‘score_digits’?
+    5 |     int value = scoreDigits(n);
+      |                 ^~~~~~~~~~~
+      |                 score_digits

@@ -1,0 +1,16 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        return bonusScore(n);
+    }
+
+    public static int bonusScore(int n) {
+        // Implementation of bonusScore method
+        return 0;
+    }
+}
+```
+
+Please note that the `bonusScore` method is not provided in the provided Python code. You need to implement this method according to your business logic.

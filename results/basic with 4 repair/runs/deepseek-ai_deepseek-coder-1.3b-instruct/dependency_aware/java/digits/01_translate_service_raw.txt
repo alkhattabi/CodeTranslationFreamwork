@@ -1,0 +1,27 @@
+Here is the Java version of the provided Python code:
+
+```java
+public class Utils {
+    public static int digit_sum(int n) {
+        n = Math.abs(n);
+        int total = 0;
+        while (n > 0) {
+            total += n % 10;
+            n /= 10;
+        }
+        return total;
+    }
+}
+```
+
+And here is the Java version of the `score_digits` function:
+
+```java
+public class Service {
+    public static int score_digits(int n) {
+        return Utils.digit_sum(n) * 3;
+    }
+}
+```
+
+Please note that the `Utils` class is declared as `public` and `static`, which means it can be accessed directly from any other class. The `digit_sum` method is also `public` and `static`, which means it can be accessed directly from any other class.

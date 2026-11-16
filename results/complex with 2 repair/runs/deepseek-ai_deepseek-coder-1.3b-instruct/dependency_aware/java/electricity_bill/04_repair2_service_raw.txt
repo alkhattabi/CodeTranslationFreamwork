@@ -1,0 +1,47 @@
+public class Service {
+    public static int energy_charge(int n) {
+        int units = Utils.billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+
+The provided Python code is translated to Java as follows:
+
+```java
+public class Service {
+    public static int energy_charge(int n) {
+        int units = Utils.billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+```
+
+The provided Python code imports the `billable_units` function from the `utils` module. The Java code declares a public static method `energy_charge` that takes an integer `n` as a parameter and returns an integer. The code calculates the `units` of energy consumed based on the `billable_units` function, and then calculates the `charge` based on the conditions specified in the Python code. The `units` are then returned as the result of the `energy_charge` method.

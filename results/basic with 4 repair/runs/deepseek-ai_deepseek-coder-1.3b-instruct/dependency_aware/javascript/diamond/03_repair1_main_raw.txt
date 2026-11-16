@@ -1,0 +1,26 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+// utils.js
+export function normalize(n) {
+    return n < 0 ? -n : n;
+}
+
+// service.js
+import { normalize } from "./utils.js";
+
+export function weighted(n) {
+    const x = normalize(n);
+    return x * 2 + 1;
+}
+
+// main.js
+import { weighted } from "./service.js";
+import { normalize } from "./utils.js";
+
+export function solve(n) {
+    return weighted(n) + normalize(n);
+}
+```
+
+The error message indicates that the identifier 'normalize' has already been declared in the scope of the file it was imported from. This is a syntax error in JavaScript, and it's not something that can be fixed without changing the original source code.

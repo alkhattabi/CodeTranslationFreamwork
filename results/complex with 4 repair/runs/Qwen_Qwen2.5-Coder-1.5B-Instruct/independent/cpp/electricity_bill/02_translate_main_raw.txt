@@ -1,0 +1,28 @@
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int energy_charge(int n);
+int billable_units(int n);
+
+// Main function implementation
+int solve(int n) {
+    int units = billable_units(n);
+    if (units == 0) {
+        return 0;
+    }
+    int charge = energy_charge(n);
+    int service_fee = 200;
+    if (units > 400) {
+        service_fee = 500;
+    }
+    int rebate = charge / 20;
+    if (units >= 100) {
+        rebate = 0;
+    }
+    return charge + service_fee - rebate;
+}
+```

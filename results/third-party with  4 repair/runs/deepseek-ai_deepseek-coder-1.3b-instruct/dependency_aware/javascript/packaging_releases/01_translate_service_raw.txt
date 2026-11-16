@@ -1,0 +1,25 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+import { release_rank } from "./utils.mjs";
+
+export function upgrade_cost(n) {
+    const rank = release_rank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = Math.floor((n / 100) % 100);
+    const patch = n % 100;
+    const suffix = (patch % 4 === 0) ? "rc1" : "";
+    const version = `${major}.${minor}.${patch}${suffix}`;
+    const required = "2.1.0";
+    let penalty = 40;
+    if (version < required) {
+        return rank * 25 + minor + patch / 5 + penalty;
+    }
+    return rank * 25 + minor + patch / 5;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the upgrade cost based on the release rank of a given number. If the release rank is less than 0, it returns -1. Otherwise, it calculates the major, minor, and patch versions of the number, checks if the version is less than the required version, and if it is, it calculates the penalty and returns the upgrade cost. If the version is equal to the required version, it returns the upgrade cost without the penalty.

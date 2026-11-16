@@ -1,0 +1,81 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/27 development checks.
+Execution diagnostics: file:///content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/shipping_quote/initial/validate_feedback/service.mjs:2
+import { weight_blocks } from "./utils.mjs";
+         ^^^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'weight_blocks'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { transport_cost } from "./service.mjs";
+  import { weight_blocks } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { transport_cost } from "./service.mjs";
+import { weight_blocks } from "./utils.mjs";
+
+export function solve(n) {
+    const blocks = weight_blocks(n);
+    if (blocks === 0) {
+        return 0;
+    }
+    const cost = transport_cost(n);
+    const fuel = (cost * 8 + 99) / 100;
+    const insurance = blocks >= 10? 300 : 100;
+    return cost + fuel + insurance;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weight_blocks
+from service import transport_cost
+
+def solve(n: int) -> int:
+    blocks = weight_blocks(n)
+    if blocks == 0:
+        return 0
+    cost = transport_cost(n)
+    fuel = (cost * 8 + 99) // 100
+    insurance = 300 if blocks >= 10 else 100
+    return cost + fuel + insurance
+
+
+DEPENDENCY service.mjs:
+// service.mjs
+import { weight_blocks } from "./utils.mjs";
+
+export function transport_cost(n) {
+    const blocks = weight_blocks(n);
+    if (blocks === 0) {
+        return 0;
+    }
+    let price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+
+
+DEPENDENCY utils.mjs:
+// utils.js
+export function weightBlocks(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}

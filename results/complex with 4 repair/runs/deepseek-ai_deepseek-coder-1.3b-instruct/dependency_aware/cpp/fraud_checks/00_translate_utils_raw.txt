@@ -1,0 +1,28 @@
+Here is the C++ implementation of the Python function `luhn_valid`:
+
+```cpp
+#include "api.hpp"
+
+int luhn_valid(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int total = 0;
+    bool double_digit = false;
+    while (n > 0) {
+        int digit = n % 10;
+        if (double_digit) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double_digit = !double_digit;
+        n /= 10;
+    }
+    return (total % 10 == 0) ? 1 : 0;
+}
+```
+
+This function checks if a number is valid according to the Luhn algorithm. The algorithm works by starting from the rightmost digit and doubling every second digit from the right, and then adding those doubled digits together. If the total ends in 0 (a multiple of 10), then the number is valid.

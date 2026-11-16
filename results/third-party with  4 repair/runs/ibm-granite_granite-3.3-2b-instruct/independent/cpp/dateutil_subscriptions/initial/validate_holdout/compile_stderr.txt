@@ -1,0 +1,22 @@
+utils.cpp: In function ‘int renewal_date(int)’:
+utils.cpp:11:9: error: ‘date’ was not declared in this scope
+   11 |         date start_date(year, month, day);
+      |         ^~~~
+utils.cpp:15:5: error: ‘date’ was not declared in this scope
+   15 |     date end_date = start_date + relativedelta(months=1);
+      |     ^~~~
+utils.cpp:16:12: error: ‘end_date’ was not declared in this scope
+   16 |     return end_date.year() * 10000 + end_date.month() * 100 + end_date.day();
+      |            ^~~~~~~~
+service.cpp: In function ‘int grace_period(int)’:
+service.cpp:11:36: error: ‘months’ was not declared in this scope; did you mean ‘month’?
+   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+      |                                    ^~~~~~
+      |                                    month
+service.cpp:11:46: error: ‘days’ was not declared in this scope; did you mean ‘day’?
+   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+      |                                              ^~~~
+      |                                              day
+service.cpp:11:22: error: ‘relativedelta’ was not declared in this scope
+   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+      |                      ^~~~~~~~~~~~~

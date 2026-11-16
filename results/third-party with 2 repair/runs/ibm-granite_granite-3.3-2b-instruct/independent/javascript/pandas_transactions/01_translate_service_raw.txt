@@ -1,0 +1,21 @@
+```javascript
+// service.mjs
+import { categoryBalance } from "./utils.mjs";
+
+export function rollingAlert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const series = [n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7];
+    const rolling = series.reduce((acc, curr, i) => {
+        acc[i] = acc[i] || 0;
+        acc[i] += curr;
+        return acc;
+    }, []);
+
+    const windowSize = 3;
+    const alerts = (rolling.map(x => x >= 15).reduce((sum, isAlert) => sum + isAlert, 0) * 10) + categoryBalance(n) % 23;
+
+    return alerts;
+}
+```
+
+Note: The JavaScript implementation uses array methods like `reduce` and `map` to mimic the behavior of pandas' Series operations. The modulo and division operations handle negative numbers as expected, preserving the Python floor-division and modulo semantics. The `categoryBalance` function is assumed to be implemented in the `utils.mjs` file and is directly imported and used in the `rollingAlert` function.

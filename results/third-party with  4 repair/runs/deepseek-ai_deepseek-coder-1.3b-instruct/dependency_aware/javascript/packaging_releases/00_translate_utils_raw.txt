@@ -1,0 +1,24 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+export function release_rank(n) {
+    if (n < 0) {
+        return -1;
+    }
+    let major = Math.floor(n / 10000);
+    let minor = Math.floor((n / 100) % 100);
+    let patch = n % 100;
+    let suffix = (patch % 4 === 0) ? "rc1" : "";
+    let version = `${major}.${minor}.${patch}${suffix}`;
+    let reference = "2.1.0";
+    if (version < reference) {
+        return 1;
+    }
+    if (version === reference) {
+        return 2;
+    }
+    return 3;
+}
+```
+
+This JavaScript function does the same thing as the Python function. It checks if the input number is negative, if so, it returns -1. Otherwise, it extracts the major, minor, and patch versions from the number and checks if the version is less than the reference version. If it is, it returns 1. If the version is equal to the reference, it returns 2. Otherwise, it returns 3.

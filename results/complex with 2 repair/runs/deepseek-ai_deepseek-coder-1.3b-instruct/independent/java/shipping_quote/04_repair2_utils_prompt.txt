@@ -1,0 +1,45 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:3: error: cannot find symbol
+        int blocks = Utils.weightBlocks(n);
+                          ^
+  symbol:   method weightBlocks(int)
+  location: class Utils
+Main.java:7: error: cannot find symbol
+        int cost = transportCost(n);
+                   ^
+  symbol:   method transportCost(int)
+  location: class Main
+2 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int weight_blocks(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int weight_blocks(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int weight_blocks(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n > 10000) {
+            n = 10000;
+        }
+        return (n + 499) / 500;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def weight_blocks(n: int) -> int:
+    if n <= 0:
+        return 0
+    if n > 10000:
+        n = 10000
+    return (n + 499) // 500

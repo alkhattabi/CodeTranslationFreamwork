@@ -1,0 +1,20 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { lodging_charge } from "./service.mjs";
+import { valid_nights } from "./utils.mjs";
+
+export function solve(n) {
+    const nights = valid_nights(n);
+    if (nights === 0) {
+        return -1;
+    }
+    const rooms = Math.floor(n / 100);
+    const charge = lodging_charge(n);
+    const cleaning = rooms * 45;
+    const tax = (charge + cleaning) * 15 / 100;
+    return charge + cleaning + tax;
+}
+```
+
+This code exports a function `solve` that takes an integer `n` as an argument and returns an integer. It uses imports from other local modules when needed. The `lodging_charge` and `valid_nights` functions are also imported.

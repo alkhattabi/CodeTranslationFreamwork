@@ -1,0 +1,21 @@
+package com.example;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Service {
+    public static int grace_period(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        Calendar start = Calendar.getInstance();
+        start.set(year - 1900, month - 1, day);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(start);
+        calendar.add(Calendar.MONTH, 1);
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+    }
+}

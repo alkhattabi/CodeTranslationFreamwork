@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:12: error: ';' expected\n        int quarter = (month - 1) // 3 + 1;\n                                 ^\n1 error\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

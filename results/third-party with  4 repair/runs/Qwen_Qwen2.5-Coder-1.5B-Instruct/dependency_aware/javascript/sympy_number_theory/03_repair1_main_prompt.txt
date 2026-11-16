@@ -1,0 +1,107 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/sympy_number_theory/initial/validate_feedback/main.mjs:5
+export function solve(n: number): number {
+                       ^
+
+SyntaxError: Unexpected token ':'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { number_strength } from "./service.mjs";
+  import { factor_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+// main.mjs
+import { number_strength } from "./service.mjs";
+import { factor_signature } from "./utils.mjs";
+
+export function solve(n: number): number {
+    const value = Math.abs(n) % 1500 + 2;
+    const primeBonus = 50 if Number.isInteger(sp.prime(value)) else 0;
+    const nextPrime = Number.parseInt(sp.nextprime(value));
+    return number_strength(n) + primeBonus + nextPrime - factor_signature(n);
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)
+
+
+DEPENDENCY service.mjs:
+// service.mjs
+export function number_strength(n) {
+    const absN = Math.abs(n);
+    let value = absN % 1500 + 2;
+    const phi = parseInt(sp.totient(value));
+    const divisorCount = parseInt(sp.divisor_count(value));
+    return phi + 5 * divisorCount + factorSignature(n);
+}
+
+// utils.mjs
+function factorSignature(n) {
+    const absN = Math.abs(n);
+    let value = absN % 1500 + 2;
+    const factors = {};
+    for (let i = 2; i <= Math.sqrt(value); i++) {
+        while (value % i === 0) {
+            if (!factors[i]) {
+                factors[i] = 0;
+            }
+            factors[i]++;
+            value /= i;
+        }
+    }
+    if (value > 1) {
+        factors[value] = 1;
+    }
+    let score = 0;
+    for (const [prime, exponent] of Object.entries(factors)) {
+        score += parseInt(prime) * parseInt(exponent);
+    }
+    return score + 3 * Object.keys(factors).length;
+}
+
+
+DEPENDENCY utils.mjs:
+export function factor_signature(n) {
+    const absN = Math.abs(n);
+    let value = absN % 1500 + 2;
+    const factors = {};
+    for (let i = 2; i <= Math.sqrt(value); i++) {
+        while (value % i === 0) {
+            if (!factors[i]) {
+                factors[i] = 0;
+            }
+            factors[i]++;
+            value /= i;
+        }
+    }
+    if (value > 1) {
+        factors[value] = 1;
+    }
+    let score = 0;
+    for (const [prime, exponent] of Object.entries(factors)) {
+        score += parseInt(prime) * parseInt(exponent);
+    }
+    return score + 3 * Object.keys(factors).length;
+}

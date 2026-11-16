@@ -1,0 +1,63 @@
+utils.cpp: In function ‘int route_cost(int)’:
+utils.cpp:5:5: error: ‘api’ has not been declared
+    5 |     api::DiGraph graph;
+      |     ^~~
+utils.cpp:6:5: error: ‘graph’ was not declared in this scope
+    6 |     graph.add_weighted_edges_from({
+      |     ^~~~~
+utils.cpp:18:45: error: ‘weight’ was not declared in this scope
+   18 |     return graph.shortest_path_length(0, 6, weight="weight");
+      |                                             ^~~~~~
+service.cpp: In function ‘int disruption_score(int)’:
+service.cpp:5:5: error: ‘nx’ has not been declared
+    5 |     nx::DiGraph graph;
+      |     ^~
+service.cpp:6:5: error: ‘graph’ was not declared in this scope
+    6 |     graph.add_edges_from({{0, 1}, {0, 2}, {1, 3}, {2, 3},
+      |     ^~~~~
+service.cpp:18:21: error: ‘nx’ has not been declared
+   18 |     int reachable = nx::descendants(graph, 0).size();
+      |                     ^~
+service.cpp:21:19: error: ‘nx’ has not been declared
+   21 |     int longest = nx::dag_longest_path_length(graph);
+      |                   ^~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<std::pair<int, int>> edges = {
+      |          ^~~~~~
+main.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+main.cpp:5:35: error: expected primary-expression before ‘>’ token
+    5 |     std::vector<std::pair<int, int>> edges = {
+      |                                   ^~
+main.cpp:5:38: error: ‘edges’ was not declared in this scope
+    5 |     std::vector<std::pair<int, int>> edges = {
+      |                                      ^~~~~
+main.cpp:15:10: error: ‘vector’ is not a member of ‘std’
+   15 |     std::vector<int> weights;
+      |          ^~~~~~
+main.cpp:15:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:15:17: error: expected primary-expression before ‘int’
+   15 |     std::vector<int> weights;
+      |                 ^~~
+main.cpp:17:9: error: ‘weights’ was not declared in this scope
+   17 |         weights.push_back(edge.second);
+      |         ^~~~~~~
+main.cpp:20:10: error: ‘vector’ is not a member of ‘std’
+   20 |     std::vector<int> tree_weights;
+      |          ^~~~~~
+main.cpp:20:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:20:17: error: expected primary-expression before ‘int’
+   20 |     std::vector<int> tree_weights;
+      |                 ^~~
+main.cpp:21:5: error: ‘api’ has not been declared
+   21 |     api::nx::minimum_spanning_tree(weights, tree_weights);
+      |     ^~~
+main.cpp:21:36: error: ‘weights’ was not declared in this scope
+   21 |     api::nx::minimum_spanning_tree(weights, tree_weights);
+      |                                    ^~~~~~~
+main.cpp:21:45: error: ‘tree_weights’ was not declared in this scope
+   21 |     api::nx::minimum_spanning_tree(weights, tree_weights);
+      |                                             ^~~~~~~~~~~~

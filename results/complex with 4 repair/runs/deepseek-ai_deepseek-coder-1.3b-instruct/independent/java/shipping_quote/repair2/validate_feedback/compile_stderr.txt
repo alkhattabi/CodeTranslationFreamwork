@@ -1,0 +1,56 @@
+Service.java:3: error: cannot find symbol
+        int blocks = Utils.weight_blocks(n);
+                          ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+Main.java:7: error: cannot find symbol
+        int cost = transportCost(n);
+                   ^
+  symbol:   method transportCost(int)
+  location: class Main
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|10000|" + Utils.weight_blocks(10000)); } catch (Throwable e) { System.out.println("utils.weight_blocks|10000|ERR"); }
+                                                               ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|500|" + Utils.weight_blocks(500)); } catch (Throwable e) { System.out.println("utils.weight_blocks|500|ERR"); }
+                                                             ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|1001|" + Utils.weight_blocks(1001)); } catch (Throwable e) { System.out.println("utils.weight_blocks|1001|ERR"); }
+                                                              ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|5000|" + Utils.weight_blocks(5000)); } catch (Throwable e) { System.out.println("utils.weight_blocks|5000|ERR"); }
+                                                              ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|2500|" + Utils.weight_blocks(2500)); } catch (Throwable e) { System.out.println("utils.weight_blocks|2500|ERR"); }
+                                                              ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|1000|" + Utils.weight_blocks(1000)); } catch (Throwable e) { System.out.println("utils.weight_blocks|1000|ERR"); }
+                                                              ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|999|" + Utils.weight_blocks(999)); } catch (Throwable e) { System.out.println("utils.weight_blocks|999|ERR"); }
+                                                             ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:28: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|2499|" + Utils.weight_blocks(2499)); } catch (Throwable e) { System.out.println("utils.weight_blocks|2499|ERR"); }
+                                                              ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+EvalRunner.java:29: error: cannot find symbol
+  try { System.out.println("utils.weight_blocks|-1|" + Utils.weight_blocks(-1)); } catch (Throwable e) { System.out.println("utils.weight_blocks|-1|ERR"); }
+                                                            ^
+  symbol:   method weight_blocks(int)
+  location: class Utils
+11 errors

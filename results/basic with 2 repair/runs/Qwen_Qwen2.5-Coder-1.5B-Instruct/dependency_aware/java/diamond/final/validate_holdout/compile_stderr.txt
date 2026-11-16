@@ -1,0 +1,15 @@
+Service.java:5: error: cannot find symbol
+        int x = Utils.normalize(n);
+                ^
+  symbol:   variable Utils
+  location: class Service
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:6: error: cannot access Service
+        IntUnaryOperator weighted = Service::weighted;
+                                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+3 errors

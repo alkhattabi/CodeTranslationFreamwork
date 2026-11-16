@@ -1,0 +1,68 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:34: error: class, interface, enum, or record expected
+Note: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.
+^
+Main.java:32: error: class, interface, enum, or record expected
+Note: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.
+^
+2 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.matrix_energy(n)
+  Utils.vector_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int energy = matrixEnergy(n);
+        int[] vector = new int[]{energy, vectorSignature(n), n};
+        int[] bounded = clip(vector, -150, 250);
+        int[] positives = new int[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            positives[i] = bounded[i] > 0? bounded[i] : -bounded[i];
+        }
+        return positives.sum() + (energy % 17);
+    }
+
+    private static int matrixEnergy(int n) {
+        // Placeholder for the original matrix_energy function
+        return 0;
+    }
+
+    private static int vectorSignature(int n) {
+        // Placeholder for the original vector_signature function
+        return 0;
+    }
+
+    private static int[] clip(int[] vector, int min, int max) {
+        int[] result = new int[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            result[i] = Math.min(Math.max(vector[i], min), max);
+        }
+        return result;
+    }
+}
+
+Note: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))

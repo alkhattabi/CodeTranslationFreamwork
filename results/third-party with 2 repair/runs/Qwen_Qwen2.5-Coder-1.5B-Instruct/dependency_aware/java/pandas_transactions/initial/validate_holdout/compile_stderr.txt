@@ -1,0 +1,25 @@
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                    ^
+Utils.java:14: error: not a statement
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                     ^
+Utils.java:14: error: ';' expected
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                             ^
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                                     ^
+Service.java:28: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                    ^
+Service.java:28: error: not a statement
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                     ^
+Service.java:28: error: ';' expected
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                             ^
+Service.java:28: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                                     ^
+8 errors

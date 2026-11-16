@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:6:22: error: expected \u2018,\u2019 or \u2018;\u2019 before \u2018if\u2019\n    6 |     int credit = 100 if (base > 0 && base <= 2500) else 0;\n      |                      ^~\nmain.cpp:11:35: error: expected \u2018;\u2019 before \u2018if\u2019\n   11 |     payable += (payable * 2 / 100) if (base > 10000) else 0;\n      |                                   ^~~\n      |                                   ;\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,15 @@
+Here is the C++ implementation of the Python function `normalize`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int normalize(int n) {
+    if (n < 0) {
+        return -n;
+    }
+    return n;
+}
+```
+
+This function takes an integer `n` as input and returns the same integer if it is positive, otherwise it returns the negative of `n`.

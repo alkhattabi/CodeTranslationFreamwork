@@ -1,0 +1,18 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc1PvxQw.o: in function `solve(int)':
+main.cpp:(.text+0x2f): undefined reference to `discount(int)'
+/usr/bin/ld: /tmp/ccztVnwu.o: in function `main':
+EvalRunner.cpp:(.text+0x188): undefined reference to `discount(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x1cd): undefined reference to `discount(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x212): undefined reference to `discount(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x257): undefined reference to `discount(int)'
+/usr/bin/ld: /tmp/ccztVnwu.o:EvalRunner.cpp:(.text+0x29c): more undefined references to `discount(int)' follow
+collect2: error: ld returned 1 exit status

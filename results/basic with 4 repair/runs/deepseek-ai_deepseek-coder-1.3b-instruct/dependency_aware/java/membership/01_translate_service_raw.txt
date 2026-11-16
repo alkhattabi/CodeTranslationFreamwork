@@ -1,0 +1,17 @@
+Here is the Java version of the provided Python code:
+
+```java
+public class Service {
+    public static int discount(int n) {
+        return Utils.tier(n) * 5;
+    }
+}
+```
+
+The `Utils` class is assumed to be in the same package as the `Service` class. If it's in a different package, you'll need to import it properly.
+
+The `tier` method in the `Utils` class is a static method, so it can be called directly on the `Utils` class without creating an instance of the class.
+
+The `discount` method in the `Service` class takes an integer `n` as input and returns the result of `Utils.tier(n) * 5`.
+
+Please note that this code assumes that the `Utils` class is in the same package as the `Service` class. If it's in a different package, you'll need to import it properly.

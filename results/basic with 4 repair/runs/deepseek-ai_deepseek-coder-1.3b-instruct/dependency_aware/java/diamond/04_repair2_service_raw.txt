@@ -1,0 +1,12 @@
+Here is the corrected Service.java file:
+
+```java
+public class Service {
+    public static int weighted(int n) {
+        int x = Utils.normalize(n);
+        return x * 2 + 1;
+    }
+}
+```
+
+In this corrected version, the Service class is public, and the weighted method is public and static, which aligns with the original Python code. The Utils class is imported as a public static method, which is the correct way to import a method from another class in Java. The method Utils.normalize is used in the weighted method, which is a dependency of the Service class.

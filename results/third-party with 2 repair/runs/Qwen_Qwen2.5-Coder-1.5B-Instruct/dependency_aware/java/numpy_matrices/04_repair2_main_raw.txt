@@ -1,0 +1,27 @@
+```java
+package com.example;
+
+public class Main {
+    public static int solve(int n) {
+        int energy = matrixEnergy(n);
+        int[] vector = new int[]{energy, vectorSignature(n), n};
+        int[] bounded = new int[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            bounded[i] = Math.min(Math.max(vector[i], -150), 250);
+        }
+        int[] positives = new int[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            if (bounded[i] > 0) {
+                positives[i] = bounded[i];
+            } else {
+                positives[i] = -bounded[i];
+            }
+        }
+        return positives[0] + positives[1] + positives[2] + (energy % 17);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solve(10)); // Example usage
+    }
+}
+```

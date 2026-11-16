@@ -1,0 +1,63 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:17:25: error: expected ‘,’ or ‘;’ before ‘if’
+   17 |     int insurance = 300 if blocks >= 10 else 100;
+      |                         ^~
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int weight_blocks(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int transport_cost(int n);
+int weight_blocks(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int solve(int n);
+int transport_cost(int n);
+
+// Global declaration of weight_blocks function
+int weight_blocks(int n);
+
+// Implementation of weight_blocks function
+int weight_blocks(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return (n + 499) / 500;
+}
+
+
+ORIGINAL PYTHON:
+
+def weight_blocks(n: int) -> int:
+    if n <= 0:
+        return 0
+    if n > 10000:
+        n = 10000
+    return (n + 499) // 500

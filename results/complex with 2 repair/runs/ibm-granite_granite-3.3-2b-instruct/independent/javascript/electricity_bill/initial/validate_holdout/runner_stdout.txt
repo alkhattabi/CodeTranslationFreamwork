@@ -1,0 +1,27 @@
+{"k":"main.solve|401","error":"Error: result must be a safe integer"}
+{"k":"main.solve|1500","v":47050}
+{"k":"main.solve|201","error":"Error: result must be a safe integer"}
+{"k":"main.solve|200","v":3050}
+{"k":"main.solve|50","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|100","v":1150}
+{"k":"main.solve|49","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|199","v":3031}
+{"k":"main.solve|-1","v":0}
+{"k":"service.energy_charge|401","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|1500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|201","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|200","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|50","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|100","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|49","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|199","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|-1","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|401","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|1500","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|201","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|200","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|50","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|100","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|49","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|199","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.billable_units|-1","error":"TypeError: modules[t.m][t.f] is not a function"}

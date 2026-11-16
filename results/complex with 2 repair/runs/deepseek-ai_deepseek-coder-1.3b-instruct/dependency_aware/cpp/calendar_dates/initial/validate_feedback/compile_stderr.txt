@@ -1,0 +1,5 @@
+/usr/bin/ld: /tmp/cc7CLe1N.o: in function `valid_date(int)':
+main.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/cc6NGz9z.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc7CLe1N.o: in function `day_of_year(int)':
+main.cpp:(.text+0x183): multiple definition of `day_of_year(int)'; /tmp/cc4XLbfN.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

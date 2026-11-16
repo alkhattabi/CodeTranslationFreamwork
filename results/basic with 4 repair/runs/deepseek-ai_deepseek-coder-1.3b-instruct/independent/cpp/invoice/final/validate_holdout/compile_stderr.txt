@@ -1,0 +1,27 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int gross(int)’:
+main.cpp:6:1: warning: no return statement in function returning non-void [-Wreturn-type]
+    6 | }
+      | ^
+main.cpp: In function ‘int unit_price(int)’:
+main.cpp:10:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   10 | }
+      | ^
+/usr/bin/ld: /tmp/ccAR1vgq.o: in function `gross(int)':
+main.cpp:(.text+0x0): multiple definition of `gross(int)'; /tmp/ccrTI5f1.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccAR1vgq.o: in function `unit_price(int)':
+main.cpp:(.text+0xd): multiple definition of `unit_price(int)'; /tmp/ccP2Od8m.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cczLVLht.o: in function `main':
+EvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'
+/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'
+collect2: error: ld returned 1 exit status

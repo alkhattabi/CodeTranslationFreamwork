@@ -1,0 +1,41 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'mathjs' imported from /content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/sympy_number_theory/initial/validate_feedback/utils.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/mod
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function factor_signature(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function factor_signature(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { factorint } from 'mathjs';
+
+export function factor_signature(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let factors = factorint(value);
+  let score = Object.keys(factors).reduce((sum, prime) => {
+    return sum + prime * factors[prime];
+  }, 0);
+  return score + 3 * Object.keys(factors).length;
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+
+def factor_signature(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    factors = sp.factorint(value)
+    score = sum(int(prime) * int(exponent) for prime, exponent in factors.items())
+    return score + 3 * len(factors)

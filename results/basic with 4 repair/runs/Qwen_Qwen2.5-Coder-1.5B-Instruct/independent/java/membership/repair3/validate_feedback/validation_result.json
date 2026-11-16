@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\n        return tier(n) * 5;\n               ^\n  symbol:   method tier(int)\n  location: class Service\nMain.java:3: error: cannot find symbol\n        int value = n * 4 - discount(n);\n                            ^\n  symbol:   method discount(int)\n  location: class Main\nUtils.java:3: error: duplicate class: com.example.Utils\npublic class Utils {\n       ^\nEvalRunner.java:13: error: cannot access Utils\n  try { System.out.println(\"utils.tier|0|\" + Utils.tier(0)); } catch (Throwable e) { System.out.println(\"utils.tier|0|ERR\"); }\n                                             ^\n  bad source file: ./Utils.java\n    file does not contain class Utils\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n4 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

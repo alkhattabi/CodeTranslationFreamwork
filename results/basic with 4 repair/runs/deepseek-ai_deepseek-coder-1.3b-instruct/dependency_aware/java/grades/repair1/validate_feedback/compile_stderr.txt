@@ -1,0 +1,10 @@
+Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:13: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+3 errors

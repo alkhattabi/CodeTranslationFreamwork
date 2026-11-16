@@ -1,0 +1,10 @@
+Service.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:5: error: cannot access Service
+        int alert = Service.rolling_alert(n);
+                    ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors

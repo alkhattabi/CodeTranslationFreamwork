@@ -1,0 +1,23 @@
+public class Service {
+    public static int gracePeriod(int n) {
+        int renewed = renewalDate(n);
+        if (renewed < 0) {
+            return -1;
+        }
+        int year = renewed / 10000;
+        int month = (renewed / 100) % 100;
+        int day = renewed % 100;
+        int dueDate = dayOfYearToDate(year, month, day) + 2 * 30; // Assuming 30 days for 2 months
+        return dueDate * 10000 + month * 100 + day;
+    }
+
+    private static int renewalDate(int n) {
+        // Placeholder for the actual implementation from utils.
+        return n;
+    }
+
+    private static int dayOfYearToDate(int year, int month, int day) {
+        // Placeholder for the actual implementation.
+        return day;
+    }
+}

@@ -1,0 +1,36 @@
+Here is the corrected Java code:
+
+```java
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Main {
+    public static int solve(int n) {
+        int renewed = renewalDate(n);
+        int deadline = gracePeriod(n);
+        if (renewed < 0 || deadline < 0) {
+            return -1;
+        }
+        int y1 = renewed / 10000;
+        int m1 = (renewed / 100) % 100;
+        int d1 = renewed % 100;
+        int y2 = deadline / 10000;
+        int m2 = (deadline / 100) % 100;
+        int d2 = deadline % 100;
+        Period period = Period.between(LocalDate.of(y1, m1, d1), LocalDate.of(y2, m2, d2));
+        return period.getDays() * 100 + d2;
+    }
+
+    public static int renewalDate(int n) {
+        // Implementation of renewalDate method
+        return -1;
+    }
+
+    public static int gracePeriod(int n) {
+        // Implementation of gracePeriod method
+        return -1;
+    }
+}
+```
+
+In the original Python code, the `renewal_date` and `grace_period` methods were not found. I have added the missing methods in the corrected Java code. The `renewalDate` and `gracePeriod` methods are not implemented in the corrected code, so they are replaced with `-1`.

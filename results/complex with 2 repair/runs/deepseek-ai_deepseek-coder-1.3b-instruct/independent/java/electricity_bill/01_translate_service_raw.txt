@@ -1,0 +1,26 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int energy_charge(int n) {
+        int units = Utils.billable_units(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+```
+
+Please note that the `Utils` class is assumed to be in the same package as the `Service` class. If it's in a different package, you'll need to import it using the fully qualified name.

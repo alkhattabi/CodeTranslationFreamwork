@@ -1,0 +1,19 @@
+```cpp
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int weighted(int n);
+
+// Global C++ functions declared in api.hpp
+int normalize(int n) {
+    if (n < 0) {
+        return -n;
+    }
+    return n;
+}
+```

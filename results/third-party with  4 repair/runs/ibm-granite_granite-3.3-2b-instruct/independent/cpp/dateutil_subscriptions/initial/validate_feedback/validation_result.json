@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp: In function \u2018int renewal_date(int)\u2019:\nutils.cpp:11:9: error: \u2018date\u2019 was not declared in this scope\n   11 |         date start_date(year, month, day);\n      |         ^~~~\nutils.cpp:15:5: error: \u2018date\u2019 was not declared in this scope\n   15 |     date end_date = start_date + relativedelta(months=1);\n      |     ^~~~\nutils.cpp:16:12: error: \u2018end_date\u2019 was not declared in this scope\n   16 |     return end_date.year() * 10000 + end_date.month() * 100 + end_date.day();\n      |            ^~~~~~~~\nservice.cpp: In function \u2018int grace_period(int)\u2019:\nservice.cpp:11:36: error: \u2018months\u2019 was not declared in this scope; did you mean \u2018month\u2019?\n   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;\n      |                                    ^~~~~~\n      |                                    month\nservice.cpp:11:46: error: \u2018days\u2019 was not declared in this scope; did you mean \u2018day\u2019?\n   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;\n      |                                              ^~~~\n      |                                              day\nservice.cpp:11:22: error: \u2018relativedelta\u2019 was not declared in this scope\n   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;\n      |                      ^~~~~~~~~~~~~\n",
+  "failed_modules": [
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

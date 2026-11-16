@@ -1,0 +1,64 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 19/27 development checks.
+main.solve(10000): expected 7396, actual 7196
+main.solve(500): expected 1591, actual 1791
+main.solve(1001): expected 1980, actual 2180
+main.solve(5000): expected 3918, actual 3718
+main.solve(2500): expected 2368, actual 2568
+main.solve(1000): expected 1785, actual 1985
+main.solve(999): expected 1785, actual 1985
+main.solve(2499): expected 2368, actual 2568
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function transport_cost(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { weight_blocks } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function transport_cost(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { weight_blocks } from "./utils.mjs";
+
+export function transport_cost(n) {
+    const blocks = weight_blocks(n);
+    if (blocks === 0) {
+        return 0;
+    }
+    let price = 1200 + blocks * 180;
+    if (blocks > 5) {
+        price += (blocks - 5) * 70;
+    }
+    if (blocks > 12) {
+        price += (blocks - 12) * 90;
+    }
+    return price;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weight_blocks
+
+def transport_cost(n: int) -> int:
+    blocks = weight_blocks(n)
+    if blocks == 0:
+        return 0
+    price = 1200 + blocks * 180
+    if blocks > 5:
+        price += (blocks - 5) * 70
+    if blocks > 12:
+        price += (blocks - 12) * 90
+    return price
+
+
+DEPENDENCY utils.mjs:
+export function weight_blocks(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return Math.floor((n + 499) / 500);
+}

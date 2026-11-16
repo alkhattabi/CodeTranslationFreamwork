@@ -1,0 +1,7 @@
+Main.java:3: error: '.' expected
+import utils;
+            ^
+Main.java:4: error: '.' expected
+import service;
+              ^
+2 errors

@@ -1,0 +1,14 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static int unit_price(int n) {
+        if (n >= 10) {
+            return 10;
+        }
+        return 12;
+    }
+}
+```
+
+The original Python code was not provided, so I can't provide a specific feedback on the validation. However, the provided Java code should compile and run without any syntax errors.

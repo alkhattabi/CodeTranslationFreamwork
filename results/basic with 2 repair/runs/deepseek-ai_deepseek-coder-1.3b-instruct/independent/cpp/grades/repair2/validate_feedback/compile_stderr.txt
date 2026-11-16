@@ -1,0 +1,476 @@
+   ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:9:9: warning: #pragma once in main file
+    9 | #pragma once
+      |         ^~~~
+service.cpp:22:9: warning: #pragma once in main file
+   22 | #pragma once
+      |         ^~~~
+service.cpp:29:9: warning: #pragma once in main file
+   29 | #pragma once
+      |         ^~~~
+service.cpp:32:2: error: #endif without #if
+   32 | #endif
+      |  ^~~~~
+service.cpp:34:2: error: #endif without #if
+   34 | #endif
+      |  ^~~~~
+service.cpp:36:2: error: #endif without #if
+   36 | #endif
+      |  ^~~~~
+service.cpp:38:2: error: #endif without #if
+   38 | #endif
+      |  ^~~~~
+service.cpp:40:2: error: #endif without #if
+   40 | #endif
+      |  ^~~~~
+service.cpp:42:2: error: #endif without #if
+   42 | #endif
+      |  ^~~~~
+service.cpp:44:2: error: #endif without #if
+   44 | #endif
+      |  ^~~~~
+service.cpp:46:2: error: #endif without #if
+   46 | #endif
+      |  ^~~~~
+service.cpp:48:2: error: #endif without #if
+   48 | #endif
+      |  ^~~~~
+service.cpp:50:2: error: #endif without #if
+   50 | #endif
+      |  ^~~~~
+service.cpp:52:2: error: #endif without #if
+   52 | #endif
+      |  ^~~~~
+service.cpp:54:2: error: #endif without #if
+   54 | #endif
+      |  ^~~~~
+service.cpp:56:2: error: #endif without #if
+   56 | #endif
+      |  ^~~~~
+service.cpp:58:2: error: #endif without #if
+   58 | #endif
+      |  ^~~~~
+service.cpp:60:2: error: #endif without #if
+   60 | #endif
+      |  ^~~~~
+service.cpp:62:2: error: #endif without #if
+   62 | #endif
+      |  ^~~~~
+service.cpp:64:2: error: #endif without #if
+   64 | #endif
+      |  ^~~~~
+service.cpp:66:2: error: #endif without #if
+   66 | #endif
+      |  ^~~~~
+service.cpp:68:2: error: #endif without #if
+   68 | #endif
+      |  ^~~~~
+service.cpp:70:2: error: #endif without #if
+   70 | #endif
+      |  ^~~~~
+service.cpp:72:2: error: #endif without #if
+   72 | #endif
+      |  ^~~~~
+service.cpp:74:2: error: #endif without #if
+   74 | #endif
+      |  ^~~~~
+service.cpp:76:2: error: #endif without #if
+   76 | #endif
+      |  ^~~~~
+service.cpp:78:2: error: #endif without #if
+   78 | #endif
+      |  ^~~~~
+service.cpp:80:2: error: #endif without #if
+   80 | #endif
+      |  ^~~~~
+service.cpp:82:2: error: #endif without #if
+   82 | #endif
+      |  ^~~~~
+service.cpp:84:2: error: #endif without #if
+   84 | #endif
+      |  ^~~~~
+service.cpp:86:2: error: #endif without #if
+   86 | #endif
+      |  ^~~~~
+service.cpp:88:2: error: #endif without #if
+   88 | #endif
+      |  ^~~~~
+service.cpp:90:2: error: #endif without #if
+   90 | #endif
+      |  ^~~~~
+service.cpp:92:2: error: #endif without #if
+   92 | #endif
+      |  ^~~~~
+service.cpp:94:2: error: #endif without #if
+   94 | #endif
+      |  ^~~~~
+service.cpp:96:2: error: #endif without #if
+   96 | #endif
+      |  ^~~~~
+service.cpp:98:2: error: #endif without #if
+   98 | #endif
+      |  ^~~~~
+service.cpp:100:2: error: #endif without #if
+  100 | #endif
+      |  ^~~~~
+service.cpp:102:2: error: #endif without #if
+  102 | #endif
+      |  ^~~~~
+service.cpp:104:2: error: #endif without #if
+  104 | #endif
+      |  ^~~~~
+service.cpp:106:2: error: #endif without #if
+  106 | #endif
+      |  ^~~~~
+service.cpp:108:2: error: #endif without #if
+  108 | #endif
+      |  ^~~~~
+service.cpp:110:2: error: #endif without #if
+  110 | #endif
+      |  ^~~~~
+service.cpp:112:2: error: #endif without #if
+  112 | #endif
+      |  ^~~~~
+service.cpp:114:2: error: #endif without #if
+  114 | #endif
+      |  ^~~~~
+service.cpp:116:2: error: #endif without #if
+  116 | #endif
+      |  ^~~~~
+service.cpp:118:2: error: #endif without #if
+  118 | #endif
+      |  ^~~~~
+service.cpp:120:2: error: #endif without #if
+  120 | #endif
+      |  ^~~~~
+service.cpp:122:2: error: #endif without #if
+  122 | #endif
+      |  ^~~~~
+service.cpp:124:2: error: #endif without #if
+  124 | #endif
+      |  ^~~~~
+service.cpp:126:2: error: #endif without #if
+  126 | #endif
+      |  ^~~~~
+service.cpp:128:2: error: #endif without #if
+  128 | #endif
+      |  ^~~~~
+service.cpp:130:2: error: #endif without #if
+  130 | #endif
+      |  ^~~~~
+service.cpp:132:2: error: #endif without #if
+  132 | #endif
+      |  ^~~~~
+service.cpp:134:2: error: #endif without #if
+  134 | #endif
+      |  ^~~~~
+service.cpp:136:2: error: #endif without #if
+  136 | #endif
+      |  ^~~~~
+service.cpp:138:2: error: #endif without #if
+  138 | #endif
+      |  ^~~~~
+service.cpp:140:2: error: #endif without #if
+  140 | #endif
+      |  ^~~~~
+service.cpp:142:2: error: #endif without #if
+  142 | #endif
+      |  ^~~~~
+service.cpp:144:2: error: #endif without #if
+  144 | #endif
+      |  ^~~~~
+service.cpp:146:2: error: #endif without #if
+  146 | #endif
+      |  ^~~~~
+service.cpp:148:2: error: #endif without #if
+  148 | #endif
+      |  ^~~~~
+service.cpp:150:2: error: #endif without #if
+  150 | #endif
+      |  ^~~~~
+service.cpp:152:2: error: #endif without #if
+  152 | #endif
+      |  ^~~~~
+service.cpp:154:2: error: #endif without #if
+  154 | #endif
+      |  ^~~~~
+service.cpp:156:2: error: #endif without #if
+  156 | #endif
+      |  ^~~~~
+service.cpp:158:2: error: #endif without #if
+  158 | #endif
+      |  ^~~~~
+service.cpp:160:2: error: #endif without #if
+  160 | #endif
+      |  ^~~~~
+service.cpp:162:2: error: #endif without #if
+  162 | #endif
+      |  ^~~~~
+service.cpp:164:2: error: #endif without #if
+  164 | #endif
+      |  ^~~~~
+service.cpp:166:2: error: #endif without #if
+  166 | #endif
+      |  ^~~~~
+service.cpp:168:2: error: #endif without #if
+  168 | #endif
+      |  ^~~~~
+service.cpp:170:2: error: #endif without #if
+  170 | #endif
+      |  ^~~~~
+service.cpp:172:2: error: #endif without #if
+  172 | #endif
+      |  ^~~~~
+service.cpp:174:2: error: #endif without #if
+  174 | #endif
+      |  ^~~~~
+service.cpp:176:2: error: #endif without #if
+  176 | #endif
+      |  ^~~~~
+service.cpp:178:2: error: #endif without #if
+  178 | #endif
+      |  ^~~~~
+service.cpp:180:2: error: #endif without #if
+  180 | #endif
+      |  ^~~~~
+service.cpp:182:2: error: #endif without #if
+  182 | #endif
+      |  ^~~~~
+service.cpp:184:2: error: #endif without #if
+  184 | #endif
+      |  ^~~~~
+service.cpp:186:2: error: #endif without #if
+  186 | #endif
+      |  ^~~~~
+service.cpp:188:2: error: #endif without #if
+  188 | #endif
+      |  ^~~~~
+service.cpp:190:2: error: #endif without #if
+  190 | #endif
+      |  ^~~~~
+service.cpp:192:2: error: #endif without #if
+  192 | #endif
+      |  ^~~~~
+service.cpp:194:2: error: #endif without #if
+  194 | #endif
+      |  ^~~~~
+service.cpp:196:2: error: #endif without #if
+  196 | #endif
+      |  ^~~~~
+service.cpp:198:2: error: #endif without #if
+  198 | #endif
+      |  ^~~~~
+service.cpp:200:2: error: #endif without #if
+  200 | #endif
+      |  ^~~~~
+service.cpp:202:2: error: #endif without #if
+  202 | #endif
+      |  ^~~~~
+service.cpp:204:2: error: #endif without #if
+  204 | #endif
+      |  ^~~~~
+service.cpp:206:2: error: #endif without #if
+  206 | #endif
+      |  ^~~~~
+service.cpp:208:2: error: #endif without #if
+  208 | #endif
+      |  ^~~~~
+service.cpp:210:2: error: #endif without #if
+  210 | #endif
+      |  ^~~~~
+service.cpp:212:2: error: #endif without #if
+  212 | #endif
+      |  ^~~~~
+service.cpp:214:2: error: #endif without #if
+  214 | #endif
+      |  ^~~~~
+service.cpp:216:2: error: #endif without #if
+  216 | #endif
+      |  ^~~~~
+service.cpp:218:2: error: #endif without #if
+  218 | #endif
+      |  ^~~~~
+service.cpp:220:2: error: #endif without #if
+  220 | #endif
+      |  ^~~~~
+service.cpp:222:2: error: #endif without #if
+  222 | #endif
+      |  ^~~~~
+service.cpp:224:2: error: #endif without #if
+  224 | #endif
+      |  ^~~~~
+service.cpp:226:2: error: #endif without #if
+  226 | #endif
+      |  ^~~~~
+service.cpp:228:2: error: #endif without #if
+  228 | #endif
+      |  ^~~~~
+service.cpp:230:2: error: #endif without #if
+  230 | #endif
+      |  ^~~~~
+service.cpp:232:2: error: #endif without #if
+  232 | #endif
+      |  ^~~~~
+service.cpp:234:2: error: #endif without #if
+  234 | #endif
+      |  ^~~~~
+service.cpp:236:2: error: #endif without #if
+  236 | #endif
+      |  ^~~~~
+service.cpp:238:2: error: #endif without #if
+  238 | #endif
+      |  ^~~~~
+service.cpp:240:2: error: #endif without #if
+  240 | #endif
+      |  ^~~~~
+service.cpp:242:2: error: #endif without #if
+  242 | #endif
+      |  ^~~~~
+service.cpp:244:2: error: #endif without #if
+  244 | #endif
+      |  ^~~~~
+service.cpp:246:2: error: #endif without #if
+  246 | #endif
+      |  ^~~~~
+service.cpp:248:2: error: #endif without #if
+  248 | #endif
+      |  ^~~~~
+service.cpp:250:2: error: #endif without #if
+  250 | #endif
+      |  ^~~~~
+service.cpp:252:2: error: #endif without #if
+  252 | #endif
+      |  ^~~~~
+service.cpp:254:2: error: #endif without #if
+  254 | #endif
+      |  ^~~~~
+service.cpp:256:2: error: #endif without #if
+  256 | #endif
+      |  ^~~~~
+service.cpp:258:2: error: #endif without #if
+  258 | #endif
+      |  ^~~~~
+service.cpp:260:2: error: #endif without #if
+  260 | #endif
+      |  ^~~~~
+service.cpp:262:2: error: #endif without #if
+  262 | #endif
+      |  ^~~~~
+service.cpp:264:2: error: #endif without #if
+  264 | #endif
+      |  ^~~~~
+service.cpp:266:2: error: #endif without #if
+  266 | #endif
+      |  ^~~~~
+service.cpp:268:2: error: #endif without #if
+  268 | #endif
+      |  ^~~~~
+service.cpp:270:2: error: #endif without #if
+  270 | #endif
+      |  ^~~~~
+service.cpp:272:2: error: #endif without #if
+  272 | #endif
+      |  ^~~~~
+service.cpp:274:2: error: #endif without #if
+  274 | #endif
+      |  ^~~~~
+service.cpp:276:2: error: #endif without #if
+  276 | #endif
+      |  ^~~~~
+service.cpp:278:2: error: #endif without #if
+  278 | #endif
+      |  ^~~~~
+service.cpp:280:2: error: #endif without #if
+  280 | #endif
+      |  ^~~~~
+service.cpp:282:2: error: #endif without #if
+  282 | #endif
+      |  ^~~~~
+service.cpp:284:2: error: #endif without #if
+  284 | #endif
+      |  ^~~~~
+service.cpp:286:2: error: #endif without #if
+  286 | #endif
+      |  ^~~~~
+service.cpp:288:2: error: #endif without #if
+  288 | #endif
+      |  ^~~~~
+service.cpp:290:2: error: #endif without #if
+  290 | #endif
+      |  ^~~~~
+service.cpp:292:2: error: #endif without #if
+  292 | #endif
+      |  ^~~~~
+service.cpp:294:2: error: #endif without #if
+  294 | #endif
+      |  ^~~~~
+service.cpp:296:2: error: #endif without #if
+  296 | #endif
+      |  ^~~~~
+service.cpp:298:2: error: #endif without #if
+  298 | #endif
+      |  ^~~~~
+service.cpp:300:2: error: #endif without #if
+  300 | #endif
+      |  ^~~~~
+service.cpp:302:2: error: #endif without #if
+  302 | #endif
+      |  ^~~~~
+service.cpp:304:2: error: #endif without #if
+  304 | #endif
+      |  ^~~~~
+service.cpp:306:2: error: #endif without #if
+  306 | #endif
+      |  ^~~~~
+service.cpp:308:2: error: #endif without #if
+  308 | #endif
+      |  ^~~~~
+service.cpp:310:2: error: #endif without #if
+  310 | #endif
+      |  ^~~~~
+service.cpp:312:2: error: #endif without #if
+  312 | #endif
+      |  ^~~~~
+service.cpp:314:2: error: #endif without #if
+  314 | #endif
+      |  ^~~~~
+service.cpp:316:2: error: #endif without #if
+  316 | #endif
+      |  ^~~~~
+service.cpp:318:2: error: #endif without #if
+  318 | #endif
+      |  ^~~~~
+service.cpp:320:2: error: #endif without #if
+  320 | #endif
+      |  ^~~~~
+service.cpp:322:2: error: #endif without #if
+  322 | #endif
+      |  ^~~~~
+service.cpp:324:2: error: #endif without #if
+  324 | #endif
+      |  ^~~~~
+service.cpp:326:2: error: #endif without #if
+  326 | #endif
+      |  ^~~~~
+service.cpp:328:2: error: #endif without #if
+  328 | #endif
+      |  ^~~~~
+service.cpp:330:2: error: #endif without #if
+  330 | #endif
+      |  ^~~~~
+service.cpp:332:2: error: #endif without #if
+  332 | #endif
+      |  ^~~~~
+service.cpp:334:2: error: #endif without #if
+  334 | #endif
+      |  ^~~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:27:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   27 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

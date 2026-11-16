@@ -1,0 +1,13 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int weighted(int n) {
+    int x = normalize(n);
+    return x * 2 + 1;
+}
+```
+
+The `normalize` function is a global function declared in `api.hpp`. It's not defined in this file, so you need to include it in your project.

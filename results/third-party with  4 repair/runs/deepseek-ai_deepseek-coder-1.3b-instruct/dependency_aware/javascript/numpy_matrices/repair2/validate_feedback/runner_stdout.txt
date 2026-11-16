@@ -1,0 +1,36 @@
+{"k":"main.solve|10","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-10","error":"Error: result must be a safe integer"}
+{"k":"main.solve|21","error":"Error: result must be a safe integer"}
+{"k":"main.solve|999","error":"Error: result must be a safe integer"}
+{"k":"main.solve|5","error":"Error: result must be a safe integer"}
+{"k":"main.solve|1","error":"Error: result must be a safe integer"}
+{"k":"main.solve|12","error":"Error: result must be a safe integer"}
+{"k":"main.solve|2","error":"Error: result must be a safe integer"}
+{"k":"main.solve|7","error":"Error: result must be a safe integer"}
+{"k":"main.solve|11","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-51","error":"Error: result must be a safe integer"}
+{"k":"main.solve|3","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|10","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-10","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|21","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|999","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|5","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|1","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|12","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|2","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|7","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|11","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-51","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|3","error":"Error: result must be a safe integer"}
+{"k":"utils.vector_signature|10","v":256}
+{"k":"utils.vector_signature|-10","v":121}
+{"k":"utils.vector_signature|21","v":289}
+{"k":"utils.vector_signature|999","v":81}
+{"k":"utils.vector_signature|5","v":121}
+{"k":"utils.vector_signature|1","v":4}
+{"k":"utils.vector_signature|12","v":100}
+{"k":"utils.vector_signature|2","v":16}
+{"k":"utils.vector_signature|7","v":81}
+{"k":"utils.vector_signature|11","v":49}
+{"k":"utils.vector_signature|-51","v":169}
+{"k":"utils.vector_signature|3","v":49}

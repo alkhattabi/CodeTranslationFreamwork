@@ -1,0 +1,16 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+```
+
+This code exports a function named `taxable_income` that takes an integer `n` as an argument and returns an integer. The function first checks if `n` is less than or equal to 500. If it is, the function returns 0. If `n` is greater than 500, the function calculates the income by subtracting 500 from `n`. If the income is greater than 20000, the function sets the income to 20000. Finally, the function returns the income.

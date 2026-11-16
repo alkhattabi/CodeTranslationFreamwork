@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/membership/repair4/validate_feedback/main.mjs:21
+import { discount } from "./service.mjs";
+         ^^^^^^^^
+
+SyntaxError: Identifier 'discount' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

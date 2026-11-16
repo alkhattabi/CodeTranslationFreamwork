@@ -1,0 +1,23 @@
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix;
+    if (patch % 4 == 0) {
+        suffix = "rc1";
+    }
+    std::string version = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    packaging::SpecifierSet allowed(">=1.5,<4.0");
+    bool in_range = (allowed.includes(version));
+    bool stable = (version.find("rc") == std::string::npos);
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+}
+```
+
+Note: This translation assumes that the `packaging` library and its `SpecifierSet` class are available in the C++ environment, which might not be the case. The translation also assumes that the `std::to_string` function is available for converting integers to strings. If these are not the case, additional context or libraries would be required.

@@ -1,0 +1,15 @@
+Service.java:32: error: cannot find symbol
+        int vectorSignature = vector_signature(n);
+                              ^
+  symbol:   method vector_signature(int)
+  location: class Service
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:27: error: cannot access Utils
+  try { System.out.println("utils.vector_signature|10|" + Utils.vector_signature(10)); } catch (Throwable e) { System.out.println("utils.vector_signature|10|ERR"); }
+                                                          ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+3 errors

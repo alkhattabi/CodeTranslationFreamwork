@@ -1,0 +1,17 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int digit_sum(int n) {
+        n = Math.abs(n);
+        int total = 0;
+        while (n > 0) {
+            total += n % 10;
+            n /= 10;
+        }
+        return total;
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It calculates the sum of the digits of a given integer. It uses the `Math.abs` function to ensure that the input is always positive, and it uses integer division (`/`) instead of floating-point division (`//`) to ensure that the integer division operation is performed as an integer division.

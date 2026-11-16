@@ -1,0 +1,39 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 19/27 development checks.
+main.solve(10000): expected 7396, actual 7196
+main.solve(500): expected 1591, actual 1791
+main.solve(1001): expected 1980, actual 2180
+main.solve(5000): expected 3918, actual 3718
+main.solve(2500): expected 2368, actual 2568
+main.solve(1000): expected 1785, actual 1985
+main.solve(999): expected 1785, actual 1985
+main.solve(2499): expected 2368, actual 2568
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function weight_blocks(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function weight_blocks(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function weight_blocks(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return Math.floor((n + 499) / 500);
+}
+
+
+ORIGINAL PYTHON:
+
+def weight_blocks(n: int) -> int:
+    if n <= 0:
+        return 0
+    if n > 10000:
+        n = 10000
+    return (n + 499) // 500

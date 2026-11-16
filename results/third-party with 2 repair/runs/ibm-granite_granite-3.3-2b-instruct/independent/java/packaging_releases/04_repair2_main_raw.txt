@@ -1,0 +1,16 @@
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0? "rc1" : "";
+        Version version = new Version(String.format("%d.%d.%d%s", major, minor, patch, suffix));
+        SpecifierSet allowed = SpecifierSet.createVersionRange(">=1.5,<4.0");
+        boolean in_range = version.isGreaterThanOrEqualTo(allowed.version_spec());
+        boolean stable =!version.isPrerelease();
+        return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+    }
+}

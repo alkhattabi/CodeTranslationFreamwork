@@ -1,0 +1,17 @@
+JavaScript file:
+
+```javascript
+// Importing required module
+const { factor_signature } = require("./utils.js");
+const { totient } = require("mathjs");
+
+// Exporting the function
+export function number_strength(n) {
+    let value = Math.abs(n) % 1500 + 2;
+    let phi = Math.floor(totient(value));
+    let divisorCount = Math.floor(mathjs.divisorCount(value));
+    return phi + 5 * divisorCount + factor_signature(n);
+}
+```
+
+Note: The `mathjs` package is used for `totient` and `divisorCount` functions in JavaScript, as there's no direct built-in equivalent in JavaScript. This is a direct translation and preservation of the Python code's behavior, including handling of negative numbers and floor division semantics.

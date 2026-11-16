@@ -1,0 +1,53 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 20/30 development checks.
+main.solve(41): expected 4000, actual 4720
+main.solve(1): expected 920, actual 800
+main.solve(19): expected 2360, actual 2000
+main.solve(70): expected 5200, actual 6160
+main.solve(55): expected 4900, actual 5800
+main.solve(14): expected 1640, actual 1400
+main.solve(7): expected 1280, actual 1100
+main.solve(28): expected 2360, actual 2000
+main.solve(20): expected 2360, actual 2000
+main.solve(21): expected 2000, actual 1700
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int weekly_demand(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int order_quantity(int n);
+int weekly_demand(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include "api.hpp"
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}
+
+
+ORIGINAL PYTHON:
+
+def weekly_demand(n: int) -> int:
+    if n < 0:
+        return 0
+    base = n * 3
+    extra = (n % 7) * 2
+    if n >= 40:
+        base += n // 4
+    return base + extra

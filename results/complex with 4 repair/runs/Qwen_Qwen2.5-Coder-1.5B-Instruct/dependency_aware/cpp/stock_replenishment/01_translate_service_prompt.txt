@@ -1,0 +1,51 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int order_quantity(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int order_quantity(int n);
+int weekly_demand(int n);
+
+
+PYTHON FILE service.py:
+
+from utils import weekly_demand
+
+def order_quantity(n: int) -> int:
+    demand = weekly_demand(n)
+    safety = 15 if demand < 100 else 35
+    available = n if n > 0 else 0
+    shortage = demand + safety - available
+    if shortage <= 0:
+        return 0
+    packs = (shortage + 11) // 12
+    return packs * 12
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int order_quantity(int n);
+
+// Global C++ functions declared in api.hpp
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}

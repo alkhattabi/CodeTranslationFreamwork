@@ -1,0 +1,22 @@
+Here is the C++ implementation of the Python function `vector_signature`:
+
+```cpp
+#include "api.hpp"
+#include <cmath>
+#include <vector>
+
+int vector_signature(int n) {
+    n = std::max(std::min(n, 100), -100);
+    std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+    std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int out = 0;
+    for (int i = 0; i < 3; i++) {
+        out += m[i % 3][i] * v[i];
+    }
+    return std::abs(out);
+}
+```
+
+This C++ function does the same thing as the Python function. It takes an integer `n`, clamps it between -100 and 100, calculates a vector `v` with the modulo and absolute values of `n`, and then multiplies the matrix `m` with the vector `v`. The result is the sum of the absolute values of the elements in the resulting matrix.
+
+Please note that this code assumes that the matrix `m` is a 3x3 matrix and that the elements of `m` are integers. If these assumptions are not true, you will need to adjust the code accordingly.

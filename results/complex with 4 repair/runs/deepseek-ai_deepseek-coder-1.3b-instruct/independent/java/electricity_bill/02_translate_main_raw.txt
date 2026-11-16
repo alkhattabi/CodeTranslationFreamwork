@@ -1,0 +1,38 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int units = Utils.billableUnits(n);
+        if (units == 0) {
+            return 0;
+        }
+        int charge = energyCharge(n);
+        int serviceFee = (units <= 400) ? 200 : 500;
+        int rebate = (units < 100) ? (charge / 20) : 0;
+        return charge + serviceFee - rebate;
+    }
+}
+```
+
+Please note that in Java, we need to import the classes from the utils package to use them. Also, Java does not support default imports, so we need to import all classes from the utils package.
+
+```java
+import utils.Utils;
+import service.Service;
+
+public class Main {
+    public static int solve(int n) {
+        int units = Utils.billableUnits(n);
+        if (units == 0) {
+            return 0;
+        }
+        int charge = Service.energyCharge(n);
+        int serviceFee = (units <= 400) ? 200 : 500;
+        int rebate = (units < 100) ? (charge / 20) : 0;
+        return charge + serviceFee - rebate;
+    }
+}
+```
+
+Please note that the import statements and the class names in the Java version are different from the Python version. The class names in the Java version are in camel case, while the Python version is in snake case. The method names in the Java version are the same as in the Python version, and the variable names in the Java version are the same as in the Python version.

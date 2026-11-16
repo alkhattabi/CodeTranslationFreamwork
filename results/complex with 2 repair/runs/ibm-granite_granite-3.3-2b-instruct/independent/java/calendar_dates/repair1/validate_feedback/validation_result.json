@@ -1,0 +1,41 @@
+{
+  "compiled": true,
+  "passed": 26,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": [
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20000229,
+      "expected": 60,
+      "actual": "0"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20280101,
+      "expected": 1,
+      "actual": "0"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20261231,
+      "expected": 365,
+      "actual": "0"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20281231,
+      "expected": 366,
+      "actual": "0"
+    }
+  ]
+}

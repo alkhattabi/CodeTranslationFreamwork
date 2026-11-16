@@ -1,0 +1,5 @@
+import { bonus_score } from "./service.mjs";
+
+export function solve(n) {
+  return bonus_score(n) >= 60 ? 1 : 0;
+}

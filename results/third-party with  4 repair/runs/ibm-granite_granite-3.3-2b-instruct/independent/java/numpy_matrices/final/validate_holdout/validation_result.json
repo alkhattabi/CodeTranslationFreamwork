@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:34: error: class, interface, enum, or record expected\nNote: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.\n^\nMain.java:32: error: class, interface, enum, or record expected\nNote: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.\n^\n2 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

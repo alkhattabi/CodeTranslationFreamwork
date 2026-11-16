@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:8: error: cannot find symbol\n        return quarter * 1000 + day_of_year(n);\n                                ^\n  symbol:   method day_of_year(int)\n  location: class Main\n1 error\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

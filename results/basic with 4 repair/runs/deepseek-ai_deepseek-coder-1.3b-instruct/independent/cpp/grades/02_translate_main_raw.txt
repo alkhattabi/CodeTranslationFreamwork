@@ -1,0 +1,37 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    return bonus_score(n) >= 60 ? 1 : 0;
+}
+```
+
+And here is the implementation of the helper function `bonus_score`:
+
+```cpp
+#pragma once
+#include <cmath>
+
+int bonus_score(int n) {
+    // Implementation of bonus_score function
+    // This is just a placeholder, replace it with your actual implementation
+    return std::abs(n);
+}
+```
+
+And here is the implementation of the `clamp` function:
+
+```cpp
+#pragma once
+
+int clamp(int n) {
+    // Implementation of clamp function
+    // This is just a placeholder, replace it with your actual implementation
+    return n < 0 ? 0 : n > 100 ? 100 : n;
+}
+```
+
+Please note that the `bonus_score` and `clamp` functions are placeholders and you need to implement them according to your actual requirements.

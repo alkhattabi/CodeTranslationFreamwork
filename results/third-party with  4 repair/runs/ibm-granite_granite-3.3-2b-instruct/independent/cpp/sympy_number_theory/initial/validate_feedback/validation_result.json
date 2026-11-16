@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp: In function \u2018int factor_signature(int)\u2019:\nutils.cpp:5:10: error: \u2018map\u2019 is not a member of \u2018std\u2019\n    5 |     std::map<int, int> factors = sp::factorint(value);\n      |          ^~~\nutils.cpp:2:1: note: \u2018std::map\u2019 is defined in header \u2018<map>\u2019; did you forget to \u2018#include <map>\u2019?\n    1 | #include \"api.hpp\"\n  +++ |+#include <map>\n    2 | \nutils.cpp:5:14: error: expected primary-expression before \u2018int\u2019\n    5 |     std::map<int, int> factors = sp::factorint(value);\n      |              ^~~\nutils.cpp:7:29: error: \u2018factors\u2019 was not declared in this scope; did you mean \u2018acos\u2019?\n    7 |     for (const auto& pair : factors) {\n      |                             ^~~~~~~\n      |                             acos\nutils.cpp:10:24: error: \u2018factors\u2019 was not declared in this scope; did you mean \u2018acos\u2019?\n   10 |     return score + 3 * factors.size();\n      |                        ^~~~~~~\n      |                        acos\nservice.cpp: In function \u2018int number_strength(int)\u2019:\nservice.cpp:5:25: error: \u2018totient\u2019 is not a member of \u2018std\u2019\n    5 |     int phi = (int)std::totient(value);\n      |                         ^~~~~~~\nservice.cpp:6:35: error: \u2018divisor_count\u2019 is not a member of \u2018std\u2019\n    6 |     int divisor_count = (int)std::divisor_count(value);\n      |                                   ^~~~~~~~~~~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:5:24: error: \u2018sp\u2019 has not been declared\n    5 |     int prime_bonus = (sp::isprime(value)? 50 : 0);\n      |                        ^~\nmain.cpp:6:39: error: \u2018sp\u2019 has not been declared\n    6 |     int next_prime = static_cast<int>(sp::nextprime(value));\n      |                                       ^~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

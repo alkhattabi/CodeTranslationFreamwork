@@ -1,0 +1,20 @@
+import { upgrade_cost } from "./service.mjs";
+import { release_rank } from "./utils.mjs";
+
+export function solve(n) {
+    if (n < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = (n / 100) % 100;
+    const patch = n % 100;
+    let suffix = "rc1";
+    if (patch % 4 === 0) {
+        suffix = "";
+    }
+    const version = `v${major}.${minor}.${patch}${suffix}`;
+    const allowed = new Set(">=1.5,<4.0");
+    let in_range = version.match(new RegExp(`^${allowed.toString()}$`))? 1 : 0;
+    let stable = version.match(/^\d+\.\d+\d*(-\d+(\.\d+)*)?$/);?!stable : 0;
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+}

@@ -1,0 +1,35 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int cost = Service.gross(n);
+        return cost + (cost * 15) / 100;
+    }
+}
+```
+
+And here is the Java version of the `gross` method in the `Service` class:
+
+```java
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * Utils.unitPrice(n);
+    }
+}
+```
+
+And here is the Java version of the `unitPrice` method in the `Utils` class:
+
+```java
+public class Utils {
+    public static int unitPrice(int n) {
+        // Implementation of unitPrice method
+    }
+}
+```
+
+Please note that the `unitPrice` method is not provided in the provided Python code. You need to implement this method according to your business logic.

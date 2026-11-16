@@ -1,0 +1,17 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static int billableUnits(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+}
+```
+
+The original Python code was missing the `public` keyword for the `Utils` class, which is required in Java. The `billable_units` method was also missing the `public` keyword, which is also required in Java. The method was also missing the return type, which is required in Java.

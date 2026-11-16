@@ -1,0 +1,25 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { category_balance } from "./utils.mjs";
+
+export function rolling_alert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    let series = [n % 13, (n // 2) % 13, n % 17, Math.abs(n) % 11, n % 7];
+    let rolling = series.reduce((a, b) => a + b, 0);
+    let alerts = Math.floor(rolling / 15) * 10 + Math.abs(category_balance(n)) % 23;
+    return alerts;
+}
+```
+
+This JavaScript code does the same thing as your Python code. It takes an integer `n`, clamps it between -200 and 200, calculates a rolling sum of the modulo of `n` with 13, 2, 17, 11, and 7, and then calculates the number of times the rolling sum is greater than or equal to 15. It then multiplies this number by 10 and adds it to the absolute value of the result of `category_balance(n)` modulo 23.
+
+Please note that the `Math.abs()` function is used to get the absolute value of `n`, as JavaScript does not have a built-in function for this.
+
+Also, the `Math.floor()` function is used to get the largest integer less than or equal to `rolling / 15`, as JavaScript does not have a built-in function for this.
+
+The `reduce()` function is used to calculate the sum of the array, as JavaScript does not have a built-in function for this.
+
+The `filter()` function is used to get the sum of negative values, as JavaScript does not have a built-in function for this.
+
+The `Math.abs()` function is used to get the absolute value of `category_balance(n)`, as JavaScript does not have a built-in function for this.

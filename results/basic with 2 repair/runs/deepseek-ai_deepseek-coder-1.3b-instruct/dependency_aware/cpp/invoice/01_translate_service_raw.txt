@@ -1,0 +1,24 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+
+#include "api.hpp"
+
+int gross(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    return n * unit_price(n);
+}
+```
+
+And the corresponding api.hpp file:
+
+```cpp
+#pragma once
+
+int unit_price(int n);
+```
+
+The `unit_price` function is defined in the api.hpp file. It is used in the `gross` function to calculate the gross amount. The `gross` function checks if the input number is negative, and if it is, it returns 0. Otherwise, it multiplies the input number by the `unit_price` function.

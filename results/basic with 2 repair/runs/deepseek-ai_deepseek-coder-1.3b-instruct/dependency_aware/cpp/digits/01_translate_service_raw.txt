@@ -1,0 +1,20 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int score_digits(int n) {
+    return digit_sum(n) * 3;
+}
+```
+
+And here is the corresponding api.hpp file:
+
+```cpp
+#pragma once
+
+int digit_sum(int n);
+```
+
+The `digit_sum` function is defined in the api.hpp file. It calculates the sum of the digits of a given number. The function takes an integer as input and returns an integer as output. The function uses the modulo operator (%) to extract the last digit of the number, and then divides the number by 10 to remove the last digit. The process is repeated until the number is greater than 0. The sum of the digits is then returned. The function also uses the absolute value function (std::abs) to ensure that the function works correctly for both positive and negative numbers.

@@ -1,0 +1,84 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/27 development checks.
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int energy_charge(int n);
+int billable_units(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    int units = billable_units(n);
+    if (units == 0) {
+        return 0;
+    }
+    int charge = energy_charge(n);
+    int service_fee = 200;
+    if (units <= 400) {
+        service_fee = 500;
+    }
+    int rebate = (charge / 20) * (units < 100? 1 : 0);
+    return charge + service_fee - rebate;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+from service import energy_charge
+
+def solve(n: int) -> int:
+    units = billable_units(n)
+    if units == 0:
+        return 0
+    charge = energy_charge(n)
+    service_fee = 200 if units <= 400 else 500
+    rebate = charge // 20 if units < 100 else 0
+    return charge + service_fee - rebate
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int energy_charge(int n) {
+    int units = solve(n);
+    int charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int billable_units(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}

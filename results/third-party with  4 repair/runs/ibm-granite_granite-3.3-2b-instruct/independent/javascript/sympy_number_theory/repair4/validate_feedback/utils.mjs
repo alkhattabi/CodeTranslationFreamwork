@@ -1,0 +1,22 @@
+// utils.mjs
+
+export function factor_signature(n) {
+    const value = Math.abs(n) % 1500 + 2;
+    const factors = {};
+    for (let i = 2; i <= value; i++) {
+        while (value % i === 0) {
+            if (factors[i]) {
+                factors[i] += 1;
+            } else {
+                factors[i] = 1;
+            }
+            value /= i;
+        }
+    }
+
+    let score = 0;
+    for (const prime in factors) {
+        score += parseInt(prime) * parseInt(factors[prime]);
+    }
+    return score + 3 * Object.keys(factors).length;
+}

@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp: In function \u2018int route_cost(int)\u2019:\nutils.cpp:5:5: error: \u2018api\u2019 has not been declared\n    5 |     api::DiGraph graph;\n      |     ^~~\nutils.cpp:6:5: error: \u2018graph\u2019 was not declared in this scope\n    6 |     graph.add_weighted_edges_from({\n      |     ^~~~~\nutils.cpp:18:45: error: \u2018weight\u2019 was not declared in this scope\n   18 |     return graph.shortest_path_length(0, 6, weight=\"weight\");\n      |                                             ^~~~~~\nservice.cpp: In function \u2018int disruption_score(int)\u2019:\nservice.cpp:4:5: error: \u2018api\u2019 has not been declared\n    4 |     api::DiGraph graph;\n      |     ^~~\nservice.cpp:5:5: error: \u2018graph\u2019 was not declared in this scope\n    5 |     graph.add_edges_from({\n      |     ^~~~~\nservice.cpp:21:21: error: \u2018nx\u2019 has not been declared\n   21 |     int reachable = nx::descendants(graph, 0).size();\n      |                     ^~\nservice.cpp:22:19: error: \u2018nx\u2019 has not been declared\n   22 |     int longest = nx::dag_longest_path_length(graph);\n      |                   ^~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:4:5: error: \u2018api\u2019 has not been declared\n    4 |     api::DiGraph graph;\n      |     ^~~\nmain.cpp:6:5: error: \u2018graph\u2019 was not declared in this scope\n    6 |     graph.add_weighted_edges_from({\n      |     ^~~~~\nmain.cpp:15:5: error: \u2018api\u2019 has not been declared\n   15 |     api::MinimumSpanningTree tree(graph);\n      |     ^~~\nmain.cpp:16:12: error: \u2018tree\u2019 was not declared in this scope; did you mean \u2018free\u2019?\n   16 |     return tree.size() + disruption_score(n) - route_cost(n);\n      |            ^~~~\n      |            free\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,55 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.matrix_energy(n)
+  Utils.vector_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: numpy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+public class Utils {
+    public static int vector_signature(int n) {
+        n = Math.max(Math.min(100, n), -100);
+        int[] v = {n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int out = 0;
+        for (int i = 0; i < 3; i++) {
+            out += m[i / 3][i % 3] * v[i];
+        }
+        return Math.abs(out);
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int vector_signature(int n) {
+        n = Math.max(Math.min(100, n), -100);
+        int[] v = {n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int out = 0;
+        for (int i = 0; i < 3; i++) {
+            out += m[i / 3][i % 3] * v[i];
+        }
+        return Math.abs(out);
+    }
+}

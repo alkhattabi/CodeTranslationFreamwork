@@ -1,0 +1,40 @@
+public class Service {
+    public static int matrix_energy(int n) {
+        n = Math.max(-100, Math.min(100, n));
+        int[][] m = {
+            {n % 5, 2, -1},
+            {3, n % 7, 4},
+            {1, 5, n % 3}
+        };
+        int[] square = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                square[i][j] = (int) (m[i][j] * m[j][i]);
+            }
+        }
+        int diagonal = 0;
+        for (int i = 0; i < 3; i++) {
+            diagonal += square[i][i];
+        }
+        return diagonal + vector_signature(n);
+    }
+
+    private static int vector_signature(int n) {
+        n = Math.max(-100, Math.min(100, n));
+        int[] v = new int[]{n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[] m = {
+            {1, 0, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+        int[] out = new int[]{0, 0, 0};
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                out[i] += m[i][j] * v[j];
+            }
+        }
+        return Math.abs(out[0] + out[1] + out[2]);
+    }
+}
+
+Note: The behavior of numpy in Python is replicated using basic array operations in Java. The floor division and modulo operations in Python are preserved using the standard Java operators.

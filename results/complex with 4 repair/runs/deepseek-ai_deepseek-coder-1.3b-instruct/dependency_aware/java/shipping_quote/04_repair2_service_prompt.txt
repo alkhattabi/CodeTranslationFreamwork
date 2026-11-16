@@ -1,0 +1,76 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:13: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+Main.java:32: error: cannot find symbol
+        int blocks = Utils.weightBlocks(n);
+                          ^
+  symbol:   method weightBlocks(int)
+  location: class Utils
+Main.java:36: error: cannot find symbol
+        int cost = Service.transportCost(n);
+                          ^
+  symbol:   method transportCost(int)
+  location: class Service
+4 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int transport_cost(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.weight_blocks(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int transport_cost(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int transport_cost(int n) {
+        int blocks = Utils.weight_blocks(n);
+        if (blocks == 0) {
+            return 0;
+        }
+        int price = 1200 + blocks * 180;
+        if (blocks > 5) {
+            price += (blocks - 5) * 70;
+        }
+        if (blocks > 12) {
+            price += (blocks - 12) * 90;
+        }
+        return price;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weight_blocks
+
+def transport_cost(n: int) -> int:
+    blocks = weight_blocks(n)
+    if blocks == 0:
+        return 0
+    price = 1200 + blocks * 180
+    if blocks > 5:
+        price += (blocks - 5) * 70
+    if blocks > 12:
+        price += (blocks - 12) * 90
+    return price
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int weight_blocks(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n > 10000) {
+            n = 10000;
+        }
+        return (n + 499) / 500;
+    }
+}

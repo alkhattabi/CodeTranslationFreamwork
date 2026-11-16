@@ -1,0 +1,23 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { creditBand } from "./utils.js";
+import { yearlyInterest } from "./service.js";
+
+export function solve(n) {
+    const band = creditBand(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const interest = yearlyInterest(n);
+    let fee = 150;
+    if (band >= 3) {
+        fee = 350;
+    }
+    const total = principal + interest + fee;
+    return Math.floor((total + 11) / 12);
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the total amount of a loan, including the interest and the fee. The fee is different depending on the credit band. The function `creditBand` is imported from `./utils.js` and `yearlyInterest` is imported from `./service.js`. The `Math.floor` function is used to round down to the nearest whole number, as JavaScript does not have a built-in round function.

@@ -1,0 +1,36 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int transport_cost(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.weight_blocks(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int transport_cost(int n) { /* implementation */ } }
+
+PYTHON FILE service.py:
+
+from utils import weight_blocks
+
+def transport_cost(n: int) -> int:
+    blocks = weight_blocks(n)
+    if blocks == 0:
+        return 0
+    price = 1200 + blocks * 180
+    if blocks > 5:
+        price += (blocks - 5) * 70
+    if blocks > 12:
+        price += (blocks - 12) * 90
+    return price
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int weight_blocks(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n > 10000) {
+            n = 10000;
+        }
+        return (n + 499) / 500;
+    }
+}

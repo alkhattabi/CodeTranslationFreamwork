@@ -1,0 +1,179 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:20: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                    ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                     ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                                                                             
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.disruption_score(n)
+  Utils.route_cost(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static int solve(int n) {
+        Map<Integer, List<WeightedEdge>> graph = new HashMap<>();
+        int offset = Math.abs(n) % 7;
+        graph.put(0, Arrays.asList(
+                new WeightedEdge(1, 3 + offset),
+                new WeightedEdge(1, 5)
+        ));
+        graph.put(0, Arrays.asList(graph.get(0)));
+        graph.put(1, Arrays.asList(
+                new WeightedEdge(2, 1 + offset % 3),
+                new WeightedEdge(1, 4)
+        ));
+        graph.put(2, Arrays.asList(
+                new WeightedEdge(3, 2 + offset % 2),
+                new WeightedEdge(2, 3),
+                new WeightedEdge(3, 6)
+        ));
+        graph.put(3, Arrays.asList(
+                new WeightedEdge(4, 8 + offset),
+                new WeightedEdge(3, 7)
+        ));
+        graph.put(4, Arrays.asList(
+                new WeightedEdge(5, 6),
+                new WeightedEdge(4, 2 + offset % 2)
+        ));
+        graph.put(5, Arrays.asList(
+                new WeightedEdge(6, 1 + offset % 3),
+                new WeightedEdge(5, 15)
+        ));
+        graph.put(2, Arrays.asList(
+                new WeightedEdge(4, 8 + offset)
+        ));
+
+        Graph tree = new Graph();
+        tree.setEdges(graph.get(0));
+        for (Map.Entry<Integer, List<WeightedEdge>> entry : graph.entrySet()) {
+            if (entry.getKey()!= 0 && entry.getValue().size() > 0) {
+                tree.setEdges(entry.getValue());
+            }
+        }
+
+        int total = tree.size();
+        return total + disruptionScore(n) - routeCost(n);
+    }
+
+    private static int disruptionScore(int n) {
+        Graph graph = new Graph();
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 5);
+        graph.addEdge(2, 5);
+        graph.addEdge(5, 6);
+
+        if (n % 3 == 0) {
+            graph.removeEdge(2, 5);
+        }
+        if (n % 5 == 0) {
+            graph.removeEdge(0, 2);
+        }
+
+        int reachable = nx.getDescendants(graph, 0).size();
+        int longest = nx.getLongestPathLength(graph);
+
+        return routeCost(n) + 3 * reachable + longest;
+    }
+
+    private static int routeCost(int n) {
+        int x = Math.abs(n) % 13;
+        Graph graph = new DefaultGraph();
+        graph.addWeightedEdge(0, 1, 3 + x % 3);
+        graph.addWeightedEdge(0, 2, 5 + x % 4);
+        graph.addWeightedEdge(1, 3, 4 + x % 2);
+        graph.addWeightedEdge(1, 4, 7);
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+from service import disruption_score
+
+def solve(n: int) -> int:
+    graph = nx.Graph()
+    offset = abs(n) % 7
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + offset), (0, 2, 5), (1, 2, 1 + offset % 3),
+        (1, 3, 4), (2, 3, 2 + offset % 2), (3, 4, 6),
+        (2, 4, 8 + offset)
+    ])
+    tree = nx.minimum_spanning_tree(graph, weight="weight")
+    total = int(tree.size(weight="weight"))
+    return total + disruption_score(n) - route_cost(n)
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int disruption_score(int n) {
+        Graph graph = new Graph();
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 5);
+        graph.addEdge(2, 5);
+        graph.addEdge(5, 6);
+
+        if (n % 3 == 0) {
+            graph.removeEdge(2, 5);
+        }
+        if (n % 5 == 0) {
+            graph.removeEdge(0, 2);
+        }
+
+        int reachable = nx.getDescendants(graph, 0).size();
+        int longest = nx.getLongestPathLength(graph);
+
+        return route_cost(n) + 3 * reachable + longest;
+    }
+}
+
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int route_cost(int n) {
+        int x = Math.abs(n) % 13;
+        Graph graph = new DefaultGraph();
+        graph.addWeightedEdge(0, 1, 3 + x % 3);
+        graph.addWeightedEdge(0, 2, 5 + x % 4);
+        graph.addWeightedEdge(1, 3, 4 + x % 2);
+        graph.addWeightedEdge(1, 4, 7);
+        graph.addWeightedEdge(2, 3, 1 + x % 5);
+        graph.addWeightedEdge(2, 4, 3 + x % 3);
+        graph.addWeightedEdge(3, 5, 6);
+        graph.addWeightedEdge(4, 5, 2 + x % 4);
+        graph.addWeightedEdge(5, 6, 1 + x % 2);
+        graph.addWeightedEdge(2, 6, 15);
+
+        return IntStream.range(0, 6).map(i -> graph.get(i, i + 1)).filter(e -> e!= null).mapToInt(Object::intValue).sum();
+    }
+}
+
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.

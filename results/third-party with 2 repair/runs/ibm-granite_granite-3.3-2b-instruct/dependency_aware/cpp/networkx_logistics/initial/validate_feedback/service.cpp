@@ -1,0 +1,24 @@
+#include "api.hpp"
+
+int disruption_score(int n) {
+    api::DiGraph graph;
+    graph.add_edges_from({
+        {0, 1},
+        {0, 2},
+        {1, 3},
+        {2, 3},
+        {3, 4},
+        {4, 5},
+        {2, 5},
+        {5, 6}
+    });
+    if (n % 3 == 0) {
+        graph.remove_edge(2, 5);
+    }
+    if (n % 5 == 0) {
+        graph.remove_edge(0, 2);
+    }
+    int reachable = nx::descendants(graph, 0).size();
+    int longest = nx::dag_longest_path_length(graph);
+    return route_cost(n) + 3 * reachable + longest;
+}

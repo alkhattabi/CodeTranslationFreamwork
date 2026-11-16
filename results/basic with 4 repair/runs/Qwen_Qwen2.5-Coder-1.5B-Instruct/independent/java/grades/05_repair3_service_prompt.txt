@@ -1,0 +1,57 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:3: error: ';' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                ^
+Main.java:3: error: '(' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                   ^
+Main.java:3: error: ')' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                                       ^
+Main.java:3: error: not a statement
+        return 1 if bonusScore(n) >= 60 else 0;
+                                             ^
+Main.java:3: error: 'else' without 'if'
+        return 1 if bonusScore(n) >= 60 else 0;
+                                        ^
+5 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int bonus_score(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.clamp(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int bonus_score(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int bonus_score(int n) {
+        int base = clamp(n);
+        return clamp(base + 7);
+    }
+}
+
+
+ORIGINAL PYTHON:
+from utils import clamp
+
+def bonus_score(n: int) -> int:
+    base = clamp(n)
+    return clamp(base + 7)
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}

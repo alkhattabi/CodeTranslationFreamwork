@@ -1,0 +1,95 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int renewal_date(int)’:
+utils.cpp:27:9: error: ‘date’ was not declared in this scope
+   27 |         date start = date(year, month, day);
+      |         ^~~~
+utils.cpp:28:13: error: expected ‘;’ before ‘end’
+   28 |         date end = start + relativedelta(months=1);
+      |             ^~~~
+      |             ;
+utils.cpp:29:16: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   29 |         return end.year * 10000 + end.month * 100 + end.day;
+      |                ^~~
+      |                std::end
+In file included from /usr/include/c++/13/bits/algorithmfwd.h:39,
+                 from /usr/include/c++/13/bits/stl_algo.h:59,
+                 from /usr/include/c++/13/algorithm:61,
+                 from api.hpp:2,
+                 from utils.cpp:2:
+/usr/include/c++/13/initializer_list:99:5: note: ‘std::end’ declared here
+   99 |     end(initializer_list<_Tp> __ils) noexcept
+      |     ^~~
+utils.cpp:30:14: error: ‘ValueError’ does not name a type
+   30 |     } catch (ValueError) {
+      |              ^~~~~~~~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In functi
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int grace_period(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int grace_period(int n);
+int renewal_date(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    // Implementation of solve function
+    return n * n;
+}
+
+int grace_period(int n) {
+    int renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    int year = renewed / 10000;
+    int month = (renewed / 100) % 100;
+    int day = renewed % 100;
+    int due_year = year + (month < 12 ? 2 : 1);
+    int due_month = (month + 2) % 12;
+    int due_day = std::min(day, std::min((due_month < 6 ? 30 : (due_month == 12 ? 31 : 31)), (due_year % 4 == 0 && due_year % 100 != 0 || due_year % 400 == 0) ? 29 : 28));
+    return due_year * 10000 + due_month * 100 + due_day;
+}
+
+int renewal_date(int n) {
+    // Implementation of renewal_date function
+    return n;
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day

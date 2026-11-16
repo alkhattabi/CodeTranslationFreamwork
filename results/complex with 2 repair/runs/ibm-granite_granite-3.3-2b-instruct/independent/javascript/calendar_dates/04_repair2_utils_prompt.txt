@@ -1,0 +1,62 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/calendar_dates/initial/validate_feedback/main.mjs:9
+    const quarter = (month - 1) / 3 + 1;
+    ^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function valid_date(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function valid_date(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// utils.js
+export function valid_date(n) {
+    if (n < 10000101 || n > 99991231) {
+        return 0;
+    }
+    let year = Math.floor(n / 10000);
+    let month = Math.floor((n % 100) / 100);
+    let day = n % 100;
+    if (month < 1 || month > 12 || day < 1) {
+        return 0;
+    }
+    let days = 31;
+    if (month === 4 || month === 6 || month === 9 || month === 11) {
+        days = 30;
+    }
+    if (month === 2) {
+        let leap = (year % 4 === 0 && year % 100!== 0) || year % 400 === 0;
+        days = leap? 29 : 28;
+    }
+    return day <= days? 1 : 0;
+}
+
+
+ORIGINAL PYTHON:
+
+def valid_date(n: int) -> int:
+    if n < 10000101 or n > 99991231:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    if month < 1 or month > 12 or day < 1:
+        return 0
+    days = 31
+    if month == 4 or month == 6 or month == 9 or month == 11:
+        days = 30
+    if month == 2:
+        leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+        days = 29 if leap else 28
+    return 1 if day <= days else 0

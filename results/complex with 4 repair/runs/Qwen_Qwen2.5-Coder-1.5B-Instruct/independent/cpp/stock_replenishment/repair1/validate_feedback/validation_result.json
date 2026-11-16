@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccJGRlL9.o: in function `order_quantity(int)':\nmain.cpp:(.text+0x6e): multiple definition of `order_quantity(int)'; /tmp/ccEhu8mm.o:service.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccJGRlL9.o: in function `weekly_demand(int)':\nmain.cpp:(.text+0xed): multiple definition of `weekly_demand(int)'; /tmp/ccv7GiwP.o:utils.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

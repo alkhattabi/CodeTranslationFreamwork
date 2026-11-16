@@ -1,0 +1,23 @@
+Here is the C++ implementation of the Python file utils.py:
+
+```cpp
+#pragma once
+#include <map>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int factor_signature(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    std::map<int, int> factors = sp::factorint(value);
+    int score = 0;
+    for(auto& pair : factors) {
+        score += pair.first * pair.second;
+    }
+    return score + 3 * factors.size();
+}
+```
+
+Please note that the `sp::factorint` function is not a standard C++ function, it is a function from the sympy library. You need to include the sympy library in your project to use this function.
+
+Also, the `factor_signature` function is not returning a value, it's modifying the global state. If you want to use the result of the function, you need to declare it as a global variable or pass it as a parameter.

@@ -1,0 +1,24 @@
+Here is the JavaScript version of your Python code:
+
+```javascript
+import { taxable_income } from "./utils.mjs";
+import { calculate_tax } from "./service.mjs";
+
+export function solve(n) {
+    if (typeof n !== 'number' || n % 1 !== 0) {
+        throw new Error('Input must be an integer');
+    }
+
+    const base = taxable_income(n);
+    const tax = calculate_tax(n);
+    const credit = n <= 2500 ? 100 : 0;
+    const payable = tax - credit;
+    const payableWith20PercentDiscount = payable < 0 ? 0 : payable * 0.8;
+    const additionalDiscount = base > 10000 ? (payableWith20PercentDiscount * 0.2) : 0;
+    return payableWith20PercentDiscount + additionalDiscount;
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the payable amount after applying tax and credit, and then applies a 20% discount if the base income is more than 10000. The result is the payable amount after all these operations.
+
+Please note that the `solve` function checks if the input is an integer and throws an error if it's not. This is to maintain the behavior of your Python code, as it only accepts integer inputs.

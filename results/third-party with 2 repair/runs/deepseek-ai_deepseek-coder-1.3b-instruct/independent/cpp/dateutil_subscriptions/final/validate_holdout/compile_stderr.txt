@@ -1,0 +1,64 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int renewal_date(int)’:
+utils.cpp:27:9: error: ‘date’ was not declared in this scope
+   27 |         date start = date(year, month, day);
+      |         ^~~~
+utils.cpp:28:13: error: expected ‘;’ before ‘end’
+   28 |         date end = start + relativedelta(months=1);
+      |             ^~~~
+      |             ;
+utils.cpp:29:16: error: ‘end’ was not declared in this scope; did you mean ‘std::end’?
+   29 |         return end.year * 10000 + end.month * 100 + end.day;
+      |                ^~~
+      |                std::end
+In file included from /usr/include/c++/13/bits/algorithmfwd.h:39,
+                 from /usr/include/c++/13/bits/stl_algo.h:59,
+                 from /usr/include/c++/13/algorithm:61,
+                 from api.hpp:2,
+                 from utils.cpp:2:
+/usr/include/c++/13/initializer_list:99:5: note: ‘std::end’ declared here
+   99 |     end(initializer_list<_Tp> __ils) noexcept
+      |     ^~~
+utils.cpp:30:14: error: ‘ValueError’ does not name a type
+   30 |     } catch (ValueError) {
+      |              ^~~~~~~~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:7:19: error: ‘renewal_date’ was not declared in this scope
+    7 |     int renewed = renewal_date(n);
+      |                   ^~~~~~~~~~~~
+main.cpp:8:20: error: ‘grace_period’ was not declared in this scope
+    8 |     int deadline = grace_period(n);
+      |                    ^~~~~~~~~~~~
+main.cpp:20:10: error: ‘time_t’ is not a member of ‘std’; did you mean ‘size_t’?
+   20 |     std::time_t t1 = std::mktime(std::tm{y1, m1, d1, 0, 0, 0, 0, 0, 0});
+      |          ^~~~~~
+      |          size_t
+main.cpp:20:71: error: expected primary-expression before ‘)’ token
+   20 |     std::time_t t1 = std::mktime(std::tm{y1, m1, d1, 0, 0, 0, 0, 0, 0});
+      |                                                                       ^
+main.cpp:21:10: error: ‘time_t’ is not a member of ‘std’; did you mean ‘size_t’?
+   21 |     std::time_t t2 = std::mktime(std::tm{y2, m2, d2, 0, 0, 0, 0, 0, 0});
+      |          ^~~~~~
+      |          size_t
+main.cpp:21:71: error: expected primary-expression before ‘)’ token
+   21 |     std::time_t t2 = std::mktime(std::tm{y2, m2, d2, 0, 0, 0, 0, 0, 0});
+      |                                                                       ^
+main.cpp:22:21: error: ‘difftime’ is not a member of ‘std’
+   22 |     int days = std::difftime(t2, t1);
+      |                     ^~~~~~~~
+main.cpp:22:30: error: ‘t2’ was not declared in this scope; did you mean ‘d2’?
+   22 |     int days = std::difftime(t2, t1);
+      |                              ^~
+      |                              d2
+main.cpp:22:34: error: ‘t1’ was not declared in this scope; did you mean ‘d1’?
+   22 |     int days = std::difftime(t2, t1);
+      |                                  ^~
+      |                                  d1

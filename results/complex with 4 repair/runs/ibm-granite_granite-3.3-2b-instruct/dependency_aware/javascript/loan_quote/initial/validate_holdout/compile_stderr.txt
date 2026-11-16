@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/loan_quote/initial/validate_holdout/main.mjs:13
+    const fee = 150 if (band >= 3) else 350;
+                    ^^
+
+SyntaxError: Unexpected token 'if'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

@@ -1,0 +1,92 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 18/27 development checks.
+main.solve(101): expected 1220, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(350): expected 7700, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(400): expected 9200, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(0): expected 0, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(99): expected 1141, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(1): expected 210, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(700): expected 24500, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(-50): expected 0, actual ERR: TypeError: modules[t.m][t.f] is not a function
+main.solve(1000): expected 39500, actual ERR: TypeError: modules[t.m][t.f] is not a function
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { energy_charge } from "./service.mjs";
+  import { billable_units } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { billable_units } from "./utils.mjs";
+
+export function energy_charge(n) {
+    let units = billable_units(n);
+    let charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+from service import energy_charge
+
+def solve(n: int) -> int:
+    units = billable_units(n)
+    if units == 0:
+        return 0
+    charge = energy_charge(n)
+    service_fee = 200 if units <= 400 else 500
+    rebate = charge // 20 if units < 100 else 0
+    return charge + service_fee - rebate
+
+
+DEPENDENCY service.mjs:
+import { billable_units } from "./utils.mjs";
+
+export function energy_charge(n) {
+    let units = billable_units(n);
+    let charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+
+
+DEPENDENCY utils.mjs:
+export function billable_units(n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}

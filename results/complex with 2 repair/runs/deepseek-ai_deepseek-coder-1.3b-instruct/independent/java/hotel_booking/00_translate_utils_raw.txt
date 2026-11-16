@@ -1,0 +1,19 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int valid_nights(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int rooms = n / 100;
+        int nights = n % 100;
+        if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+            return 0;
+        }
+        return nights;
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It checks if the input `n` is a valid number of nights for a hotel booking. If `n` is less than or equal to 0, it returns 0. If `n` is not a valid number of nights, it also returns 0. Otherwise, it returns the number of nights.

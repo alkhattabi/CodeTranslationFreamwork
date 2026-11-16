@@ -1,0 +1,16 @@
+Main.java:14: error: ';' expected
+        int fee = 150 if band >= 3 else 350;
+                     ^
+Main.java:14: error: '(' expected
+        int fee = 150 if band >= 3 else 350;
+                        ^
+Main.java:14: error: ')' expected
+        int fee = 150 if band >= 3 else 350;
+                                  ^
+Main.java:14: error: not a statement
+        int fee = 150 if band >= 3 else 350;
+                                        ^
+Main.java:14: error: 'else' without 'if'
+        int fee = 150 if band >= 3 else 350;
+                                   ^
+5 errors

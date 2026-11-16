@@ -1,0 +1,77 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:30: error: class, interface, enum, or record expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+^
+Utils.java:30: error: unclosed character literal
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                      ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                       ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                             
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.number_strength(n)
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        boolean isPrime = isPrime(value);
+        int nextPrime = nextPrime(value);
+        int primeBonus = isPrime? 50 : 0;
+        int factorSignature = factor_signature(n);
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature;
+    }
+
+    private static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    private static int nextPrime(int num) {
+        num++;
+        while (!isPrime(num)) {
+            num++;
+        }
+        return num;
+    }
+
+    private static int numberStrength(int n) {
+        // Placeholder for the original implementation
+        return 0;
+    }
+
+    private static int factor_signature(int n) {
+        // Placeholder for the original implementation
+        return 0;
+    }
+}
+
+Note: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)

@@ -1,0 +1,84 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp: In function ‘int route_cost(int)’:
+utils.cpp:5:5: error: ‘api’ has not been declared
+    5 |     api::DiGraph graph;
+      |     ^~~
+utils.cpp:6:5: error: ‘graph’ was not declared in this scope
+    6 |     graph.add_weighted_edges_from({
+      |     ^~~~~
+utils.cpp:18:45: error: ‘weight’ was not declared in this scope
+   18 |     return graph.shortest_path_length(0, 6, weight="weight");
+      |                                             ^~~~~~
+service.cpp: In function ‘int disruption_score(int)’:
+service.cpp:5:5: error: ‘nx’ has not been declared
+    5 |     nx::DiGraph graph;
+      |     ^~
+service.cpp:6:5: error: ‘graph’ was not declared in this scope
+    6 |     graph.add_edges_from({{0, 1}, {0, 2}, {1, 3}, {2, 3},
+      |     ^~~~~
+service.cpp:18:21: error: ‘nx’ has not been declared
+   18 |     int reachable = nx::descendants(graph, 0).size();
+      |                     ^~
+service.cpp:21:19: error: ‘nx’ has not been declared
+   21 |     int longest = nx::dag_longest_path_length(graph);
+      |                   ^~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<std::pair<int, int>> edges = {
+      |          ^~~~~~
+main.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int route_cost(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int disruption_score(int n);
+int route_cost(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int route_cost(int n) {
+    int x = abs(n) % 13;
+    api::DiGraph graph;
+    graph.add_weighted_edges_from({
+        {0, 1, 3 + x % 3},
+        {0, 2, 5 + x % 4},
+        {1, 3, 4 + x % 2},
+        {1, 4, 7},
+        {2, 3, 1 + x % 5},
+        {2, 4, 3 + x % 3},
+        {3, 5, 6},
+        {4, 5, 2 + x % 4},
+        {5, 6, 1 + x % 2},
+        {2, 6, 15}
+    });
+    return graph.shortest_path_length(0, 6, weight="weight");
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+
+def route_cost(n: int) -> int:
+    x = abs(n) % 13
+    graph = nx.DiGraph()
+    graph.add_weighted_edges_from([
+        (0, 1, 3 + x % 3), (0, 2, 5 + x % 4),
+        (1, 3, 4 + x % 2), (1, 4, 7),
+        (2, 3, 1 + x % 5), (2, 4, 3 + x % 3),
+        (3, 5, 6), (4, 5, 2 + x % 4),
+        (5, 6, 1 + x % 2), (2, 6, 15)
+    ])
+    return int(nx.shortest_path_length(graph, 0, 6, weight="weight"))

@@ -1,0 +1,79 @@
+Main.java:1: error: package packaging.specifiers does not exist
+import packaging.specifiers.SpecifierSet;
+                           ^
+Main.java:2: error: package packaging.version does not exist
+import packaging.version.Version;
+                        ^
+Main.java:4: error: package service does not exist
+import service.Service;
+              ^
+Utils.java:14: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:16: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                                                      ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:16: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                       ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:3: error: duplicate class: utils.Utils
+public class Utils {
+       ^
+Service.java:3: error: cannot access Utils
+        int rank = Utils.release_rank(n);
+                   ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:14: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Service
+Service.java:14: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Service
+Main.java:16: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet(">=1.5,<4.0");
+        ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:16: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet(">=1.5,<4.0");
+                                   ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:17: error: cannot find symbol
+        boolean inRange = allowed.contains(new Version(version));
+                                               ^
+  symbol:   class Version
+  location: class Main
+Main.java:18: error: cannot find symbol
+        boolean stable = !new Version(version).isPrerelease();
+                              ^
+  symbol:   class Version
+  location: class Main
+Main.java:19: error: bad operand types for binary operator '*'
+        return Service.upgrade_cost(n) + 100 * inRange + 10 * stable + Utils.release_rank(n);
+                                             ^
+  first type:  int
+  second type: boolean
+Main.java:19: error: bad operand types for binary operator '*'
+        return Service.upgrade_cost(n) + 100 * inRange + 10 * stable + Utils.release_rank(n);
+                                                            ^
+  first type:  int
+  second type: boolean
+17 errors

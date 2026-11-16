@@ -1,0 +1,211 @@
+{
+  "compiled": true,
+  "passed": 8,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19991231,
+      "expected": 6707,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240130,
+      "expected": 6706,
+      "actual": "-3070"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20231231,
+      "expected": 6707,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000131,
+      "expected": 6605,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20010228,
+      "expected": 6804,
+      "actual": "-2772"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000229,
+      "expected": 6805,
+      "actual": "-2871"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240630,
+      "expected": 6907,
+      "actual": "-2970"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240229,
+      "expected": 6805,
+      "actual": "-2871"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20991231,
+      "expected": 6607,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230229,
+      "expected": -1,
+      "actual": "-3071"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240131,
+      "expected": 6706,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230228,
+      "expected": 6804,
+      "actual": "-2772"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19991231,
+      "expected": 20000407,
+      "actual": "20000331"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240130,
+      "expected": 20240506,
+      "actual": "20240501"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20231231,
+      "expected": 20240407,
+      "actual": "20240331"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000131,
+      "expected": 19000505,
+      "actual": "19000503"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20010228,
+      "expected": 20010604,
+      "actual": "20010528"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20000229,
+      "expected": 20000605,
+      "actual": "20000529"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240630,
+      "expected": 20241007,
+      "actual": "20240930"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240229,
+      "expected": 20240605,
+      "actual": "20240529"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20991231,
+      "expected": 21000407,
+      "actual": "21000331"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230229,
+      "expected": -1,
+      "actual": "20230601"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240131,
+      "expected": 20240506,
+      "actual": "20240502"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230228,
+      "expected": 20230604,
+      "actual": "20230528"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20240130,
+      "expected": 20240229,
+      "actual": "20240301"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 19000131,
+      "expected": 19000228,
+      "actual": "19000303"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20230229,
+      "expected": -1,
+      "actual": "20230401"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20240131,
+      "expected": 20240229,
+      "actual": "20240302"
+    }
+  ]
+}

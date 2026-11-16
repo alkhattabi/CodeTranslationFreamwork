@@ -1,0 +1,21 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { category_balance } from "./utils.mjs";
+import { rolling_alert } from "./service.mjs";
+
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = [Math.abs(balance) % 50, alert, Math.abs(n) % 50];
+    const ranks = scores.map(score => {
+        const series = [score % 13, (score // 2) % 13, score % 17, Math.abs(score) % 11, score % 7];
+        const rolling = series.reduce((a, b) => a + b, 0);
+        return Math.floor(rolling / 15) * 10 + Math.abs(category_balance(n)) % 23;
+    });
+    const penalty = ranks.reduce((a, b) => a + b, 0);
+    return balance + alert - penalty;
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the penalty for each category based on the scores and ranks, and then returns the total score. The `Math.abs()` function is used to handle negative numbers, and the `Math.floor()` function is used to handle floor division. The `Math.abs()` function is used to handle negative numbers in the `category_balance` function. The `Math.floor()` function is used to handle floor division in the `rolling_alert` function. The `Math.abs()` function is used to handle negative numbers in the `solve` function.

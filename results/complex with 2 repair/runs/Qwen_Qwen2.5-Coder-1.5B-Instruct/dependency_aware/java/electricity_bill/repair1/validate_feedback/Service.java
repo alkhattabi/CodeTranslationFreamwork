@@ -1,0 +1,24 @@
+package com.example;
+
+import java.util.function.IntUnaryOperator;
+
+public class Service {
+    public static int energy_charge(int n) {
+        int units = Utils.billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}

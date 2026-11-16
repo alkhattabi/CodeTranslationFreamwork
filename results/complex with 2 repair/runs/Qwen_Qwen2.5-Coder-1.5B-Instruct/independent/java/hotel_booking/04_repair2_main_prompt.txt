@@ -1,0 +1,95 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 27/30 development checks.
+main.solve(1015): expected 22641, actual -1
+main.solve(2010): expected 30532, actual -1
+main.solve(1): expected -1, actual 0
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.lodging_charge(n)
+  Utils.valid_nights(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int nights = validNights(n);
+        if (nights == 0) {
+            return -1;
+        }
+        int rooms = n / 100;
+        int charge = lodgingCharge(n);
+        int cleaning = rooms * 45;
+        int tax = (charge + cleaning) * 15 / 100;
+        return charge + cleaning + tax;
+    }
+
+    private static int validNights(int n) {
+        return n >= 0 && n <= 365 ? n : 0;
+    }
+
+    private static int lodgingCharge(int n) {
+        // Assuming lodging_charge is a static method of some class named Service
+        return Service.lodging_charge(n);
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(200)); // Output should be the calculated value based on the logic in solve method
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_nights
+from service import lodging_charge
+
+def solve(n: int) -> int:
+    nights = valid_nights(n)
+    if nights == 0:
+        return -1
+    rooms = n // 100
+    charge = lodging_charge(n)
+    cleaning = rooms * 45
+    tax = (charge + cleaning) * 15 // 100
+    return charge + cleaning + tax
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int lodging_charge(int n) {
+        int nights = Utils.valid_nights(n);
+        if (nights == 0) {
+            return 0;
+        }
+        int rooms = n / 100;
+        int charge = rooms * nights * 150;
+        if (nights >= 7) {
+            charge -= charge / 10;
+        }
+        if (rooms >= 5) {
+            charge -= charge / 20;
+        }
+        return charge;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int valid_nights(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int rooms = n / 100;
+        int nights = n % 100;
+        if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+            return 0;
+        }
+        return nights;
+    }
+}

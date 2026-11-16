@@ -1,0 +1,88 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:20: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                    ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                     ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                                                                             
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int disruption_score(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.route_cost(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int disruption_score(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int disruption_score(int n) {
+        int graph[][] = {{0, 1, 0, 1, 0},
+                         {0, 0, 0, 0, 1},
+                         {0, 0, 0, 1, 0},
+                         {0, 0, 1, 0, 1},
+                         {0, 0, 0, 1, 0}};
+
+        int reachable = 0;
+        int longest = 0;
+
+        for (int i = 0; i < 6; i++) {
+            if (graph[0][i] == 1) {
+                reachable++;
+            }
+        }
+
+        for (int i = 0; i < 6; i++) {
+            longest = Math.max(longest, dfs(graph, i, -1));
+        }
+
+        if (n % 3 == 0) {
+            graph[2][0] = 0;
+        }
+        if (n % 5 == 0) {
+            graph[0][2] = 0;
+        }
+
+        return route_cost(n) + 3 * reachable + longest;
+    }
+
+    private static int dfs(int graph[][], int v, int parent) {
+        int count = 1;
+        for (int i = 0; i < 6; i++) {
+            if (graph[v][i] == 1 && i!= parent) {
+                count += dfs(graph, i, v);
+            }
+        }
+        return count;
+    }
+}
+
+Note: In Java, we don't have a direct equivalent to Python's networkx library. Instead, we use adjacency matrix representation for the graph. Also, Java doesn't have a built-in function for longest path in a directed graph like Python's nx.dag_longest_path_length, so we implement a depth-first search (DFS) to find the longest path.
+
+Please replace 'route_cost' with its actual Java method implementation.
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)

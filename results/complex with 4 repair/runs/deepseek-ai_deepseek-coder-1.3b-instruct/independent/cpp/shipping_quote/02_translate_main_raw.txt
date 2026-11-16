@@ -1,0 +1,22 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    int blocks = weight_blocks(n);
+    if (blocks == 0) {
+        return 0;
+    }
+    int cost = transport_cost(n);
+    int fuel = (cost * 8 + 99) / 100;
+    int insurance = (blocks >= 10) ? 300 : 100;
+    return cost + fuel + insurance;
+}
+```
+
+Please note that the division operator `/` in C++ performs integer division, so we need to use `/` instead of `//`. Also, the `//` operator in Python performs floor division, so we need to use `/` instead of `//`.

@@ -1,0 +1,157 @@
+utils.cpp: In function ‘int vector_signature(int)’:
+utils.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+      |          ^~~~~~
+utils.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+utils.cpp:5:17: error: expected primary-expression before ‘int’
+    5 |     std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+      |                 ^~~
+utils.cpp:6:10: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+      |          ^~~~~~
+utils.cpp:6:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+utils.cpp:6:22: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+      |                      ^~~~~~
+utils.cpp:6:22: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+utils.cpp:6:29: error: expected primary-expression before ‘int’
+    6 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+      |                             ^~~
+utils.cpp:11:23: error: ‘m’ was not declared in this scope
+   11 |             result += m[i][j] * v[i * 3 + j];
+      |                       ^
+utils.cpp:11:33: error: ‘v’ was not declared in this scope
+   11 |             result += m[i][j] * v[i * 3 + j];
+      |                                 ^
+service.cpp: In function ‘int matrix_energy(int)’:
+service.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+      |          ^~~~~~
+service.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+service.cpp:5:22: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+      |                      ^~~~~~
+service.cpp:5:22: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+service.cpp:5:29: error: expected primary-expression before ‘int’
+    5 |     std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+      |                             ^~~
+service.cpp:6:10: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+      |          ^~~~~~
+service.cpp:6:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+service.cpp:6:22: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+      |                      ^~~~~~
+service.cpp:6:22: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+service.cpp:6:29: error: expected primary-expression before ‘int’
+    6 |     std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+      |                             ^~~
+service.cpp:8:28: error: ‘m’ was not declared in this scope
+    8 |     for (size_t i = 0; i < m.size(); ++i) {
+      |                            ^
+service.cpp:10:13: error: ‘square’ was not declared in this scope
+   10 |             square[i][j] = m[i][j];
+      |             ^~~~~~
+service.cpp:14:28: error: ‘square’ was not declared in this scope
+   14 |     for (size_t i = 0; i < square.size(); ++i) {
+      |                            ^~~~~~
+service.cpp:21:28: error: ‘square’ was not declared in this scope
+   21 |     for (size_t i = 0; i < square.size(); ++i) {
+      |                            ^~~~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:10: error: ‘vector’ is not a member of ‘std’
+    5 |     std::vector<int> vector = {energy, vector_signature(n), n};
+      |          ^~~~~~
+main.cpp:2:1: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+    1 | #include "api.hpp"
+  +++ |+#include <vector>
+    2 | 
+main.cpp:5:17: error: expected primary-expression before ‘int’
+    5 |     std::vector<int> vector = {energy, vector_signature(n), n};
+      |                 ^~~
+main.cpp:6:10: error: ‘vector’ is not a member of ‘std’
+    6 |     std::vector<int> bounded(vector.begin(), vector.end());
+      |          ^~~~~~
+main.cpp:6:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:6:17: error: expected primary-expression before ‘int’
+    6 |     std::vector<int> bounded(vector.begin(), vector.end());
+      |                 ^~~
+main.cpp:7:20: error: ‘bounded’ was not declared in this scope
+    7 |     std::transform(bounded.begin(), bounded.end(), bounded.begin(),
+      |                    ^~~~~~~
+main.cpp:10:10: error: ‘vector’ is not a member of ‘std’
+   10 |     std::vector<int> positives(vector.size(), 0);
+      |          ^~~~~~
+main.cpp:10:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:10:17: error: expected primary-expression before ‘int’
+   10 |     std::vector<int> positives(vector.size(), 0);
+      |                 ^~~
+main.cpp:11:52: error: ‘positives’ was not declared in this scope
+   11 |     std::transform(bounded.begin(), bounded.end(), positives.begin(),
+      |                                                    ^~~~~~~~~
+main.cpp: In function ‘int matrix_energy(int)’:
+main.cpp:24:10: error: ‘vector’ is not a member of ‘std’
+   24 |     std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+      |          ^~~~~~
+main.cpp:24:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:24:22: error: ‘vector’ is not a member of ‘std’
+   24 |     std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+      |                      ^~~~~~
+main.cpp:24:22: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:24:29: error: expected primary-expression before ‘int’
+   24 |     std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+      |                             ^~~
+main.cpp:25:10: error: ‘vector’ is not a member of ‘std’
+   25 |     std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+      |          ^~~~~~
+main.cpp:25:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:25:22: error: ‘vector’ is not a member of ‘std’
+   25 |     std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+      |                      ^~~~~~
+main.cpp:25:22: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:25:29: error: expected primary-expression before ‘int’
+   25 |     std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+      |                             ^~~
+main.cpp:27:28: error: ‘m’ was not declared in this scope
+   27 |     for (size_t i = 0; i < m.size(); ++i) {
+      |                            ^
+main.cpp:29:13: error: ‘square’ was not declared in this scope
+   29 |             square[i][j] = m[i][j];
+      |             ^~~~~~
+main.cpp:33:28: error: ‘square’ was not declared in this scope
+   33 |     for (size_t i = 0; i < square.size(); ++i) {
+      |                            ^~~~~~
+main.cpp:40:28: error: ‘square’ was not declared in this scope
+   40 |     for (size_t i = 0; i < square.size(); ++i) {
+      |                            ^~~~~~
+main.cpp: In function ‘int vector_signature(int)’:
+main.cpp:49:10: error: ‘vector’ is not a member of ‘std’
+   49 |     std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+      |          ^~~~~~
+main.cpp:49:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:49:17: error: expected primary-expression before ‘int’
+   49 |     std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+      |                 ^~~
+main.cpp:50:10: error: ‘vector’ is not a member of ‘std’
+   50 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+      |          ^~~~~~
+main.cpp:50:10: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:50:22: error: ‘vector’ is not a member of ‘std’
+   50 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+      |                      ^~~~~~
+main.cpp:50:22: note: ‘std::vector’ is defined in header ‘<vector>’; did you forget to ‘#include <vector>’?
+main.cpp:50:29: error: expected primary-expression before ‘int’
+   50 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+      |                             ^~~
+main.cpp:55:23: error: ‘m’ was not declared in this scope
+   55 |             result += m[i][j] * v[i * 3 + j];
+      |                       ^
+main.cpp:55:33: error: ‘v’ was not declared in this scope
+   55 |             result += m[i][j] * v[i * 3 + j];
+      |                                 ^

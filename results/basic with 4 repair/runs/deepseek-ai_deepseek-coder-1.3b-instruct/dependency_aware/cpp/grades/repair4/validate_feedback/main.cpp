@@ -1,0 +1,76 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}
+
+int main() {
+    std::cout << solve(53) << std::endl;
+    std::cout << solve(60) << std::endl;
+    std::cout << solve(100) << std::endl;
+    std::cout << solve(130) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+        return 1;
+    }
+    int n = std::atoi(argv[1]);
+    std::cout << solve(n) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+        return 1;
+    }
+    int n = std::atoi(argv[1]);
+    std::cout << solve(n) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+        return 1;
+    }
+    int n = std::atoi(argv[1]);
+    std::cout << solve(n) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+        return 1;
+    }
+    int n = std::atoi(argv[1]);
+    std::cout << solve(n) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+        return 1;
+    }
+    int n = std::atoi(argv[1]);
+    std::cout << solve(n) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: " << argv[0] << " <n>" << std::endl;
+        return 1;
+    }
+    int n = std::atoi(argv[1]);
+    std::cout << solve(n) << std::endl;
+    return 0;
+}
+
+int main(int argc, char* argv[]) {

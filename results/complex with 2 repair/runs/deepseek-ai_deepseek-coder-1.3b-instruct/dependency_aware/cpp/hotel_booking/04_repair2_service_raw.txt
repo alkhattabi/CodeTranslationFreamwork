@@ -1,0 +1,23 @@
+Here is the corrected source code for service.cpp:
+
+```cpp
+#include "api.hpp"
+
+int lodging_charge(int n) {
+    int nights = valid_nights(n);
+    if (nights == 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int charge = rooms * nights * 150;
+    if (nights >= 7) {
+        charge -= charge / 10;
+    }
+    if (rooms >= 5) {
+        charge -= charge / 20;
+    }
+    return charge;
+}
+```
+
+This code includes the header file "api.hpp" and defines the function "lodging_charge". It uses the function "valid_nights" to calculate the number of nights and rooms. The charge is calculated based on the number of nights and rooms. If the number of nights is greater than or equal to 7, the charge is reduced by 10%. If the number of rooms is greater than or equal to 5, the charge is reduced by 20%. The function returns the calculated charge.

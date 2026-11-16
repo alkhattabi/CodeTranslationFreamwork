@@ -1,0 +1,20 @@
+Utils.java:3: error: cannot find symbol
+import java.util.Service;
+                ^
+  symbol:   class Service
+  location: package java.util
+Utils.java:5: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+Service.java:3: error: cannot access Utils
+        if (!Utils.valid_date(n)) {
+             ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Main.java:8: error: cannot find symbol
+        return quarter * 1000 + Service.dayOfYear(n);
+                                       ^
+  symbol:   method dayOfYear(int)
+  location: class Service
+4 errors

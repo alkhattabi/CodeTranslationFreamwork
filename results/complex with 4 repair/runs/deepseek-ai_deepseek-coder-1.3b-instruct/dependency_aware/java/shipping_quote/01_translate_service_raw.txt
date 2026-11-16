@@ -1,0 +1,38 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int transport_cost(int n) {
+        int blocks = Utils.weight_blocks(n);
+        if (blocks == 0) {
+            return 0;
+        }
+        int price = 1200 + blocks * 180;
+        if (blocks > 5) {
+            price += (blocks - 5) * 70;
+        }
+        if (blocks > 12) {
+            price += (blocks - 12) * 90;
+        }
+        return price;
+    }
+}
+```
+
+And here is the Java version of the Utils class:
+
+```java
+public class Utils {
+    public static int weight_blocks(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        if (n > 10000) {
+            n = 10000;
+        }
+        return (n + 499) / 500;
+    }
+}
+```
+
+Please note that the Java version of the Utils class is in the same package as the Service class, so you can call the Utils class directly without importing it.

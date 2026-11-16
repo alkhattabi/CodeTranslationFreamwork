@@ -1,0 +1,19 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+import { weekly_demand } from "./utils.mjs";
+
+export function order_quantity(n) {
+    const demand = weekly_demand(n);
+    const safety = demand < 100 ? 15 : 35;
+    const available = n > 0 ? n : 0;
+    const shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    const packs = Math.floor(shortage / 12);
+    return packs * 12;
+}
+```
+
+This JavaScript ES-module source file exports a function named `order_quantity` that takes an integer `n` as a parameter and returns an integer. The function uses imports from the `utils.mjs` module to access the `weekly_demand` function. The `weekly_demand` function is used to calculate the demand for the order quantity. The function calculates the safety factor based on the demand, the available quantity, and the shortage. If the shortage is less than or equal to zero, the function returns zero. Otherwise, it calculates the number of packs needed and returns the total quantity.

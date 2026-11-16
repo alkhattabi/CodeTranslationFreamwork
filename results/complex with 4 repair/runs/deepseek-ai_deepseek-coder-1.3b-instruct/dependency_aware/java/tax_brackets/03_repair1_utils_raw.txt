@@ -1,0 +1,18 @@
+Here is the corrected version of Utils.java:
+
+```java
+public class Utils {
+    public static int taxableIncome(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+}
+```
+
+This Java code declares a public class named Utils with a public static method named taxableIncome. The method takes an integer as a parameter and returns an integer. The method first checks if the input number is less than or equal to 500. If it is, the method returns 0. If the input number is greater than 500, the method calculates the income by subtracting 500 from the input number. If the calculated income is greater than 20000, the method sets the income to 20000. Finally, the method returns the calculated income.

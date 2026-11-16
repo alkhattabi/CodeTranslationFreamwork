@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:34:9: warning: #pragma once in main file\n   34 | #pragma once\n      |         ^~~~\nmain.cpp:33:1: error: \u2018DEPENDENCY\u2019 does not name a type\n   33 | DEPENDENCY utils.cpp:\n      | ^~~~~~~~~~\nmain.cpp:45:5: error: redefinition of \u2018int rolling_alert(int)\u2019\n   45 | int rolling_alert(int n) {\n      |     ^~~~~~~~~~~~~\nmain.cpp:12:5: note: \u2018int rolling_alert(int)\u2019 previously defined here\n   12 | int rolling_alert(int n) {\n      |     ^~~~~~~~~~~~~\nmain.cpp:50:5: error: redefinition of \u2018int category_balance(int)\u2019\n   50 | int category_balance(int n) {\n      |     ^~~~~~~~~~~~~~~~\nmain.cpp:22:5: note: \u2018int category_balance(int)\u2019 previously defined here\n   22 | int category_balance(int n) {\n      |     ^~~~~~~~~~~~~~~~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

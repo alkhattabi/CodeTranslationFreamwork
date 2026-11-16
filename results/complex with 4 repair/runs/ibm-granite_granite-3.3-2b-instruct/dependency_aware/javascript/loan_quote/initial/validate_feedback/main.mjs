@@ -1,0 +1,16 @@
+// main.mjs
+export function solve(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    let principal = 10000 + (n - 300) * 10;
+    let rate = 18 - band * 3;
+    let interest = principal * rate / 100;
+    if (principal > 14000) {
+        interest += 125;
+    }
+    const fee = 150 if (band >= 3) else 350;
+    let total = principal + interest + fee;
+    return (total + 11) / 12;
+}

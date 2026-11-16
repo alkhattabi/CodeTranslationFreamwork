@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:42:5: error: \u2018base\u2019 was not declared in this scope\n   42 |     base = taxable_income(n);\n      |     ^~~~\nmain.cpp:43:5: error: \u2018tax\u2019 was not declared in this scope; did you mean \u2018tan\u2019?\n   43 |     tax = calculate_tax(n);\n      |     ^~~\n      |     tan\nmain.cpp:44:5: error: \u2018credit\u2019 was not declared in this scope\n   44 |     credit = 100 if base > 0 && base <= 2500 else 0;\n      |     ^~~~~~\nmain.cpp:45:5: error: \u2018payable\u2019 was not declared in this scope\n   45 |     payable = tax - credit;\n      |     ^~~~~~~\nmain.cpp:46:8: error: expected \u2018(\u2019 before \u2018payable\u2019\n   46 |     if payable < 0) {\n      |        ^~~~~~~\n      |        (\nmain.cpp:49:34: error: expected \u2018)\u2019 before \u2018}\u2019 token\n   49 |     return payable + (payable * 2 // 100 if base > 10000 else 0);\n      |                      ~           ^\n      |                                  )\n   50 | }\n      | ~                                 \nmain.cpp:49:34: error: expected \u2018;\u2019 before \u2018}\u2019 token\n   49 |     return payable + (payable * 2 // 100 if base > 10000 else 0);\n      |                                  ^\n      |                                  ;\n   50 | }\n      | ~                                 \n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

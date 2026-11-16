@@ -1,0 +1,4 @@
+Main.java:31: error: class, interface, enum, or record expected
+Note: The actual implementations of yearlyInterest and credit_band methods are not provided as they were not specified in the Python code. You need to replace the placeholder return values with the actual logic.
+^
+1 error

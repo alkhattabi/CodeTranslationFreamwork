@@ -1,0 +1,182 @@
+{
+  "compiled": true,
+  "passed": 12,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -999,
+      "expected": 1769,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 12,
+      "expected": 43,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 0,
+      "expected": 64,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 101,
+      "expected": 269,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -2000,
+      "expected": 773,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 3,
+      "expected": 71,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2,
+      "expected": 22,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -256,
+      "expected": 387,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2000,
+      "expected": 773,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 11,
+      "expected": 89,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 9,
+      "expected": 83,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": 67,
+      "actual": "ERR: ReferenceError: sp is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": -999,
+      "expected": 800,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 12,
+      "expected": 41,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 0,
+      "expected": 16,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 101,
+      "expected": 218,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": -2000,
+      "expected": 529,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 3,
+      "expected": 22,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 2,
+      "expected": 24,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": -256,
+      "expected": 181,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 2000,
+      "expected": 529,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 11,
+      "expected": 38,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 9,
+      "expected": 34,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "number_strength",
+      "input": 1,
+      "expected": 18,
+      "actual": "ERR: ReferenceError: factorSignature is not defined"
+    }
+  ]
+}

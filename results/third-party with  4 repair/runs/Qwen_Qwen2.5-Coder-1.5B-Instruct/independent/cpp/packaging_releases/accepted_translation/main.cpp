@@ -1,0 +1,25 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+
+// Helper function declarations from api.hpp
+int upgrade_cost(int n);
+int release_rank(int n);
+
+// Main function implementation
+int solve(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix = patch % 4 == 0 ? "rc1" : "";
+    std::string versionStr = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    Version version(versionStr);
+    SpecifierSet allowed(">=1.5,<4.0");
+    bool inRange = allowed.contains(version);
+    bool stable = !version.is_prerelease();
+    return upgrade_cost(n) + 100 * inRange + 10 * stable + release_rank(n);
+}

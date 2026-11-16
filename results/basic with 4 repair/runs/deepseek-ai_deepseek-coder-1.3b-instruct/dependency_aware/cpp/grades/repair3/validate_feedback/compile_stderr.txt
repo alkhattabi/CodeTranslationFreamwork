@@ -1,0 +1,129 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:9:9: warning: #pragma once in main file
+    9 | #pragma once
+      |         ^~~~
+service.cpp:22:9: warning: #pragma once in main file
+   22 | #pragma once
+      |         ^~~~
+service.cpp:32:9: warning: #pragma once in main file
+   32 | #pragma once
+      |         ^~~~
+service.cpp:45:9: warning: #pragma once in main file
+   45 | #pragma once
+      |         ^~~~
+service.cpp:53:9: warning: #pragma once in main file
+   53 | #pragma once
+      |         ^~~~
+service.cpp:61:9: warning: #pragma once in main file
+   61 | #pragma once
+      |         ^~~~
+service.cpp:69:9: warning: #pragma once in main file
+   69 | #pragma once
+      |         ^~~~
+service.cpp:77:9: warning: #pragma once in main file
+   77 | #pragma once
+      |         ^~~~
+service.cpp:85:9: warning: #pragma once in main file
+   85 | #pragma once
+      |         ^~~~
+service.cpp:93:9: warning: #pragma once in main file
+   93 | #pragma once
+      |         ^~~~
+service.cpp:101:9: warning: #pragma once in main file
+  101 | #pragma once
+      |         ^~~~
+service.cpp:109:9: warning: #pragma once in main file
+  109 | #pragma once
+      |         ^~~~
+service.cpp:117:9: warning: #pragma once in main file
+  117 | #pragma once
+      |         ^~~~
+service.cpp:125:9: warning: #pragma once in main file
+  125 | #pragma once
+      |         ^~~~
+service.cpp:133:9: warning: #pragma once in main file
+  133 | #pragma once
+      |         ^~~~
+service.cpp:35:5: error: redefinition of ‘int clamp(int)’
+   35 | int clamp(int n) {
+      |     ^~~~~
+service.cpp:12:5: note: ‘int clamp(int)’ previously defined here
+   12 | int clamp(int n) {
+      |     ^~~~~
+service.cpp:48:5: error: redefinition of ‘int solve(int)’
+   48 | int solve(int n) {
+      |     ^~~~~
+service.cpp:27:5: note: ‘int solve(int)’ previously defined here
+   27 | int solve(int n) {
+      |     ^~~~~
+service.cpp:56:5: error: redefinition of ‘int bonus_score(int)’
+   56 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:4:5: note: ‘int bonus_score(int)’ previously defined here
+    4 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:64:5: error: redefinition of ‘int solve(int)’
+   64 | int solve(int n) {
+      |     ^~~~~
+service.cpp:27:5: note: ‘int solve(int)’ previously defined here
+   27 | int solve(int n) {
+      |     ^~~~~
+service.cpp:72:5: error: redefinition of ‘int bonus_score(int)’
+   72 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:4:5: note: ‘int bonus_score(int)’ previously defined here
+    4 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:80:5: error: redefinition of ‘int solve(int)’
+   80 | int solve(int n) {
+      |     ^~~~~
+service.cpp:27:5: note: ‘int solve(int)’ previously defined here
+   27 | int solve(int n) {
+      |     ^~~~~
+service.cpp:88:5: error: redefinition of ‘int bonus_score(int)’
+   88 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:4:5: note: ‘int bonus_score(int)’ previously defined here
+    4 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:96:5: error: redefinition of ‘int solve(int)’
+   96 | int solve(int n) {
+      |     ^~~~~
+service.cpp:27:5: note: ‘int solve(int)’ previously defined here
+   27 | int solve(int n) {
+      |     ^~~~~
+service.cpp:104:5: error: redefinition of ‘int bonus_score(int)’
+  104 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:4:5: note: ‘int bonus_score(int)’ previously defined here
+    4 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:112:5: error: redefinition of ‘int solve(int)’
+  112 | int solve(int n) {
+      |     ^~~~~
+service.cpp:27:5: note: ‘int solve(int)’ previously defined here
+   27 | int solve(int n) {
+      |     ^~~~~
+service.cpp:120:5: error: redefinition of ‘int bonus_score(int)’
+  120 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:4:5: note: ‘int bonus_score(int)’ previously defined here
+    4 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:128:5: error: redefinition of ‘int solve(int)’
+  128 | int solve(int n) {
+      |     ^~~~~
+service.cpp:27:5: note: ‘int solve(int)’ previously defined here
+   27 | int solve(int n) {
+      |     ^~~~~
+service.cpp:136:5: error: redefinition of ‘int bonus_score(int)’
+  136 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~
+service.cpp:4:5: note: ‘int bonus_score(int)’ previously defined here
+    4 | int bonus_score(int n) {
+      |     ^~~~~~~~~~~

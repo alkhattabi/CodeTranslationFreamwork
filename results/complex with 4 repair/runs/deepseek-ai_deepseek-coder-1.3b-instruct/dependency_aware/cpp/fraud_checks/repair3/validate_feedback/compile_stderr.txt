@@ -1,0 +1,10 @@
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc8t3p7O.o: in function `luhn_valid(int)':
+service.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/cctThhLp.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccKFTapM.o: in function `luhn_valid(int)':
+main.cpp:(.text+0x0): multiple definition of `luhn_valid(int)'; /tmp/cctThhLp.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccKFTapM.o: in function `risk_points(int)':
+main.cpp:(.text+0xd1): multiple definition of `risk_points(int)'; /tmp/cc8t3p7O.o:service.cpp:(.text+0xd1): first defined here
+collect2: error: ld returned 1 exit status

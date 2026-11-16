@@ -1,0 +1,31 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { renewal_date } from "./utils.mjs";
+
+export function solve(n) {
+    const renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    const year1 = Math.floor(renewed / 10000);
+    const month1 = Math.floor((renewed / 100) % 100);
+    const day1 = renewed % 100;
+    const year2 = Math.floor(n / 10000);
+    const month2 = Math.floor((n / 100) % 100);
+    const day2 = n % 100;
+    const date1 = new Date(year1, month1 - 1, day1);
+    const date2 = new Date(year2, month2 - 1, day2);
+    const diff = date2.getTime() - date1.getTime();
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    return days * 100 + day2;
+}
+```
+
+This JavaScript ES-module source code exports a function `solve` that takes an integer `n` and returns an integer. The function calculates the number of days between the current date and the renewal date of a service. If the renewal date is in the past, it returns -1. Otherwise, it returns the number of days after the renewal date.
+
+The `renewal_date` function is a dependency of `solve` and it's responsible for calculating the renewal date of a service. It takes an integer `n` and returns the renewal date as an integer. If the renewal date is in the past, it returns -1. Otherwise, it returns the renewal date.
+
+The `renewal_date` function uses the `Date` object to calculate the renewal date. It takes the year, month, and day from the input integer `n` and returns the renewal date as an integer. If the renewal date is in the past, it returns -1. Otherwise, it returns the renewal date.
+
+The `solve` function uses the `renewal_date` function to calculate the renewal date of a service. It takes the renewal date as an integer and returns the number of days after the renewal date. If the renewal date is in the past, it returns -1. Otherwise, it returns the number of days after the renewal date.

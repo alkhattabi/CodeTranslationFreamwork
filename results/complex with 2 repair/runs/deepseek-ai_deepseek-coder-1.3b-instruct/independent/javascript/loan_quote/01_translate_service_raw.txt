@@ -1,0 +1,21 @@
+Here is the JavaScript ES-module source code for the given Python file:
+
+```javascript
+import { credit_band } from "./utils.mjs";
+
+export function yearly_interest(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const rate = 18 - band * 3;
+    const interest = (principal * rate) / 100;
+    if (principal > 14000) {
+        interest += 125;
+    }
+    return interest;
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the interest for a given credit band (`band`) and returns it. The `credit_band` function is imported from the `utils.mjs` module. If the credit band is 0, it returns -1. Otherwise, it calculates the principal amount, the rate, and the interest based on the formula `principal * rate / 100`. If the principal amount is greater than 14000, it adds 125 to the interest. Finally, it returns the calculated interest.

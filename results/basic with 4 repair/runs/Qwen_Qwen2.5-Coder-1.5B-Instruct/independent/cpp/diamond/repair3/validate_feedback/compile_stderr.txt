@@ -1,0 +1,46 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int normalize(int)’:
+service.cpp:8:14: error: ‘INT_MIN’ was not declared in this scope
+    8 |     if (n == INT_MIN) {
+      |              ^~~~~~~
+service.cpp:5:1: note: ‘INT_MIN’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+    4 | #include <cstdlib>
+  +++ |+#include <climits>
+    5 | 
+service.cpp:9:16: error: ‘INT_MAX’ was not declared in this scope
+    9 |         return INT_MAX;
+      |                ^~~~~~~
+service.cpp:9:16: note: ‘INT_MAX’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:22:9: warning: #pragma once in main file
+   22 | #pragma once
+      |         ^~~~
+main.cpp:42:9: warning: #pragma once in main file
+   42 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int normalize(int)’:
+main.cpp:29:14: error: ‘INT_MIN’ was not declared in this scope
+   29 |     if (n == INT_MIN) {
+      |              ^~~~~~~
+main.cpp:26:1: note: ‘INT_MIN’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+   25 | #include <cstdlib>
+  +++ |+#include <climits>
+   26 | 
+main.cpp:30:16: error: ‘INT_MAX’ was not declared in this scope
+   30 |         return INT_MAX;
+      |                ^~~~~~~
+main.cpp:30:16: note: ‘INT_MAX’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+main.cpp: At global scope:
+main.cpp:53:5: error: redefinition of ‘int normalize(int)’
+   53 | int normalize(int n) {
+      |     ^~~~~~~~~
+main.cpp:28:5: note: ‘int normalize(int)’ previously defined here
+   28 | int normalize(int n) {
+      |     ^~~~~~~~~

@@ -1,0 +1,36 @@
+{"k":"main.solve|10","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|1","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|9","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|5","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|0","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|11","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|100","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|-5","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|-9","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|-2","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|-12","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"main.solve|4","error":"ReferenceError: disruptionScore is not defined"}
+{"k":"service.disruption_score|10","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|1","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|9","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|5","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|0","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|11","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|100","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|-5","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|-9","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|-2","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|-12","error":"ReferenceError: routeCost is not defined"}
+{"k":"service.disruption_score|4","error":"ReferenceError: routeCost is not defined"}
+{"k":"utils.route_cost|10","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|1","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|9","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|5","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|0","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|11","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|100","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|-5","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|-9","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|-2","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|-12","error":"Error: result must be a safe integer"}
+{"k":"utils.route_cost|4","error":"Error: result must be a safe integer"}

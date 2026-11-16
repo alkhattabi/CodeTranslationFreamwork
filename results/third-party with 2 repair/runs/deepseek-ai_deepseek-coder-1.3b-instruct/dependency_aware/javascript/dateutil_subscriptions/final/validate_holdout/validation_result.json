@@ -1,0 +1,176 @@
+{
+  "compiled": true,
+  "passed": 16,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "-3071"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "-3071"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20241110,
+      "expected": 6917,
+      "actual": "-2990"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20260228,
+      "expected": 6804,
+      "actual": "-2772"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000228,
+      "expected": 6804,
+      "actual": "-2772"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240228,
+      "expected": 6804,
+      "actual": "-2872"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000131,
+      "expected": 6706,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20251231,
+      "expected": 6607,
+      "actual": "-3069"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240430,
+      "expected": 6806,
+      "actual": "-2970"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230430,
+      "expected": 6806,
+      "actual": "-2970"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "19000601"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "20260601"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20241110,
+      "expected": 20250217,
+      "actual": "20250210"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20260228,
+      "expected": 20260604,
+      "actual": "20260528"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000228,
+      "expected": 19000604,
+      "actual": "19000528"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240228,
+      "expected": 20240604,
+      "actual": "20240528"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20000131,
+      "expected": 20000506,
+      "actual": "20000502"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20251231,
+      "expected": 20260407,
+      "actual": "20260331"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240430,
+      "expected": 20240806,
+      "actual": "20240730"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230430,
+      "expected": 20230806,
+      "actual": "20230730"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 19000229,
+      "expected": -1,
+      "actual": "19000401"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20260229,
+      "expected": -1,
+      "actual": "20260401"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20000131,
+      "expected": 20000229,
+      "actual": "20000302"
+    }
+  ]
+}

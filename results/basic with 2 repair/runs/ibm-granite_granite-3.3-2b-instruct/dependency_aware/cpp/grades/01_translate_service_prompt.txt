@@ -1,0 +1,32 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int bonus_score(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int bonus_score(int n);
+int clamp(int n);
+
+
+PYTHON FILE service.py:
+from utils import clamp
+
+def bonus_score(n: int) -> int:
+    base = clamp(n)
+    return clamp(base + 7)
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#include "api.hpp"
+
+int clamp(int n) {
+    if (n < 0) {
+        return 0;
+    } else if (n > 100) {
+        return 100;
+    }
+    return n;
+}

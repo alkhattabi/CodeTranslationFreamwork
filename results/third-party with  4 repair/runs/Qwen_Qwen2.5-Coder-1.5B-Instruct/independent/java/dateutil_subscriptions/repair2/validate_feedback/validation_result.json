@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:15: error: cannot find symbol\n        calendar.setTime(start);\n                         ^\n  symbol:   variable start\n  location: class Utils\nMain.java:3: error: cannot find symbol\n        int renewed = renewalDate(n);\n                      ^\n  symbol:   method renewalDate(int)\n  location: class Main\nMain.java:4: error: cannot find symbol\n        int deadline = gracePeriod(n);\n                       ^\n  symbol:   method gracePeriod(int)\n  location: class Main\nMain.java:14: error: cannot find symbol\n        long days = (new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime()) / (1000 * 60 * 60 * 24);\n                         ^\n  symbol:   class Date\n  location: class Main\nMain.java:14: error: cannot find symbol\n        long days = (new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime()) / (1000 * 60 * 60 * 24);\n                                                          ^\n  symbol:   class Date\n  location: class Main\nService.java:6: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nEvalRunner.java:15: error: cannot access Service\n  try { System.out.println(\"service.grace_period|19991231|\" + Service.grace_period(19991231)); } catch (Throwable e) { System.out.println(\"service.grace_period|19991231|ERR\"); }\n                                                              ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nNote: Utils.java uses or overrides a deprecated API.\nNote: Recompile with -Xlint:deprecation for details.\n7 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

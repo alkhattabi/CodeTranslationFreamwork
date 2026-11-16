@@ -1,0 +1,22 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function vector_signature(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function vector_signature(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: numpy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE utils.py:
+import numpy as np
+
+def vector_signature(n: int) -> int:
+    n = max(-100, min(100, n))
+    v = np.array([n % 11, abs(n) % 7, (n // 3) % 9], dtype=np.int64)
+    m = np.arange(1, 10, dtype=np.int64).reshape(3, 3)
+    out = m @ v
+    return int(np.abs(out).sum())

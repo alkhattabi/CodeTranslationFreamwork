@@ -1,0 +1,17 @@
+// service.mjs
+import { taxable_income } from "./utils.mjs";
+
+export function calculate_tax(n) {
+    const income = taxable_income(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 0.2;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 0.12;
+        income = 3000;
+    }
+    tax += income * 0.05;
+    return tax;
+}

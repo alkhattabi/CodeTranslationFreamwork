@@ -1,0 +1,36 @@
+{"k":"main.solve|101","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|-11","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|-1","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|-200","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|11","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|99","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|-50","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|2","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|10","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|-21","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|0","error":"ReferenceError: DataFrame is not defined"}
+{"k":"main.solve|-101","error":"ReferenceError: DataFrame is not defined"}
+{"k":"service.rolling_alert|101","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-11","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-1","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-200","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|11","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|99","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-50","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|2","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|10","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-21","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|0","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"service.rolling_alert|-101","error":"TypeError: (rolling >= 15).reduce is not a function"}
+{"k":"utils.category_balance|101","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|-11","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|-1","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|-200","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|11","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|99","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|-50","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|2","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|10","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|-21","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|0","error":"ReferenceError: DataFrame is not defined"}
+{"k":"utils.category_balance|-101","error":"ReferenceError: DataFrame is not defined"}

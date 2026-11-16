@@ -1,0 +1,25 @@
+Main.java:13: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                           ^
+Main.java:13: error: '(' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                              ^
+Main.java:13: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                           ^
+Main.java:13: error: not a statement
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                 ^
+Main.java:13: error: ';' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                  ^
+Main.java:13: error: 'else' without 'if'
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                            ^
+Main.java:22: error: class, interface, enum, or record expected
+DEPENDENCY Service.java:
+^
+Main.java:41: error: class, interface, enum, or record expected
+DEPENDENCY Utils.java:
+^
+8 errors

@@ -1,0 +1,24 @@
+package com.example;
+
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleFlag = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleFlag) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleFlag = !doubleFlag;
+            n /= 10;
+        }
+        return total % 10 == 0 ? 1 : 0;
+    }
+}

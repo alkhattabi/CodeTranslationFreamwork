@@ -1,0 +1,18 @@
+Here is the C++ implementation of the Python file utils.py:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int clamp(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 100) {
+        return 100;
+    }
+    return n;
+}
+```
+
+This C++ file includes the "api.hpp" header file, which is assumed to contain the definition of the clamp function. The clamp function checks if the input number is less than 0 or greater than 100, and if so, returns 0 or 100 respectively. If the number is between 0 and 100, it is returned as is.

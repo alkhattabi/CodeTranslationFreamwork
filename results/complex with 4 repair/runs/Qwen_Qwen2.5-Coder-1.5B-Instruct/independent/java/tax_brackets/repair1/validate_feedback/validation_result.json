@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:13: error: ')' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                           ^\nMain.java:13: error: '(' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                              ^\nMain.java:13: error: ')' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                           ^\nMain.java:13: error: not a statement\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                                 ^\nMain.java:13: error: ';' expected\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                                  ^\nMain.java:13: error: 'else' without 'if'\n        return payable + (payable * 2 / 100 if base > 10000 else 0);\n                                                            ^\nMain.java:22: error: class, interface, enum, or record expected\nDEPENDENCY Service.java:\n^\nMain.java:41: error: class, interface, enum, or record expected\nDEPENDENCY Utils.java:\n^\n8 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

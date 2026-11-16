@@ -1,0 +1,11 @@
+Main.java:3: error: cannot find symbol
+        int blocks = Utils.weightBlocks(n);
+                          ^
+  symbol:   method weightBlocks(int)
+  location: class Utils
+Main.java:7: error: cannot find symbol
+        int cost = transportCost(n);
+                   ^
+  symbol:   method transportCost(int)
+  location: class Main
+2 errors

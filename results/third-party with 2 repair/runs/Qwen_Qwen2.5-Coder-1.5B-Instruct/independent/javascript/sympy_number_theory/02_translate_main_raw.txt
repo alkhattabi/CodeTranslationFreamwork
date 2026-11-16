@@ -1,0 +1,12 @@
+```javascript
+export function solve(n) {
+    const absN = Math.abs(n);
+    let value = absN % 1500 + 2;
+    let primeBonus = 50;
+    if (sp.isPrime(value)) {
+        primeBonus = 0;
+    }
+    let nextPrime = sp.nextprime(value);
+    return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+}
+```

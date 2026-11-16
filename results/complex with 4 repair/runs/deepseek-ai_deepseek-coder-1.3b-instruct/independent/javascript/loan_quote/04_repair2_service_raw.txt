@@ -1,0 +1,21 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { credit_band } from "./utils.mjs";
+
+export function yearly_interest(n) {
+    const band = credit_band(n);
+    if (band === 0) {
+        return -1;
+    }
+    const principal = 10000 + (n - 300) * 10;
+    const rate = 18 - band * 3;
+    const interest = (principal * rate) / 100;
+    if (principal > 14000) {
+        interest += 125;
+    }
+    return interest;
+}
+```
+
+This code exports a function `yearly_interest` that takes an integer `n` as an argument and returns an integer. The function uses the `credit_band` function from the `utils.mjs` module to calculate the credit band for the given `n`. If the credit band is 0, the function returns -1. Otherwise, it calculates the principal amount, the rate, and the interest based on the given formula. If the principal amount is greater than 14000, it adds 125 to the interest. Finally, it returns the calculated interest.

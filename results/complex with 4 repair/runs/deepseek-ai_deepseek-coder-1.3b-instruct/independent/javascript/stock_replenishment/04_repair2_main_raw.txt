@@ -1,0 +1,29 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { order_quantity } from "./service.mjs";
+import { weekly_demand } from "./utils.mjs";
+
+export function solve(n) {
+    const quantity = order_quantity(n);
+    if (quantity === 0) {
+        return 0;
+    }
+    const demand = weekly_demand(n);
+    let unit_cost;
+    if (quantity >= 120) {
+        unit_cost = 25;
+    } else {
+        unit_cost = 30;
+    }
+    let shipping;
+    if (demand > 100) {
+        shipping = 400;
+    } else {
+        shipping = 200;
+    }
+    return quantity * unit_cost + shipping;
+}
+```
+
+This code exports a function `solve` that takes an integer `n` as an argument and returns an integer. The function uses the `order_quantity` function from the `service.mjs` module and the `weekly_demand` function from the `utils.mjs` module. The `order_quantity` function calculates the quantity of items to order based on the demand and safety levels, and the `weekly_demand` function calculates the total demand based on the number of items. The quantities and shipping costs are then multiplied by the unit cost and added together to get the total cost.

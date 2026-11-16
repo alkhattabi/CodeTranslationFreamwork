@@ -1,0 +1,98 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/calendar_dates/initial/validate_feedback/main.mjs:4
+export function solve(n: number): number {
+                       ^
+
+SyntaxError: Unexpected token ':'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { day_of_year } from "./service.mjs";
+  import { valid_date } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { dayOfYear } from "./service.mjs";
+import { validDate } from "./utils.mjs";
+
+export function solve(n: number): number {
+    if (!validDate(n)) {
+        return -1;
+    }
+    const month = Math.floor((n / 100) % 100);
+    const quarter = Math.ceil((month - 1) / 3) + 1;
+    return quarter * 1000 + dayOfYear(n);
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_date
+from service import day_of_year
+
+def solve(n: int) -> int:
+    if valid_date(n) == 0:
+        return -1
+    month = (n // 100) % 100
+    quarter = (month - 1) // 3 + 1
+    return quarter * 1000 + day_of_year(n)
+
+
+DEPENDENCY service.mjs:
+import { validDate } from "./utils.mjs";
+
+export function day_of_year(n) {
+    if (!validDate(n)) {
+        return 0;
+    }
+    const year = Math.floor(n / 10000);
+    const month = Math.floor((n / 100) % 100);
+    const day = n % 100;
+    let total = day;
+    let m = 1;
+    while (m < month) {
+        const days = 31;
+        if (m === 4 || m === 6 || m === 9 || m === 11) {
+            days = 30;
+        }
+        if (m === 2) {
+            const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+            days = leap ? 29 : 28;
+        }
+        total += days;
+        m += 1;
+    }
+    return total;
+}
+
+
+DEPENDENCY utils.mjs:
+export function valid_date(n) {
+    if (n < 10000101 || n > 99991231) {
+        return 0;
+    }
+    const year = Math.floor(n / 10000);
+    const month = Math.floor((n / 100) % 100);
+    const day = n % 100;
+    if (month < 1 || month > 12 || day < 1) {
+        return 0;
+    }
+    let days = 31;
+    if (month === 4 || month === 6 || month === 9 || month === 11) {
+        days = 30;
+    }
+    if (month === 2) {
+        const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        days = leap ? 29 : 28;
+    }
+    return day <= days ? 1 : 0;
+}

@@ -1,0 +1,71 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/27 development checks.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int energy_charge(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int energy_charge(int n);
+int billable_units(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int energy_charge(int n) {
+    int units = solve(n);
+    int charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import billable_units
+
+def energy_charge(n: int) -> int:
+    units = billable_units(n)
+    charge = 0
+    if units > 400:
+        charge += (units - 400) * 50
+        units = 400
+    if units > 200:
+        charge += (units - 200) * 30
+        units = 200
+    if units > 100:
+        charge += (units - 100) * 20
+        units = 100
+    charge += units * 10
+    return charge
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int billable_units(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}

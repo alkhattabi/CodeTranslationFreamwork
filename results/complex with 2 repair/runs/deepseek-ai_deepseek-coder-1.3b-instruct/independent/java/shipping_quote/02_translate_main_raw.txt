@@ -1,0 +1,22 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int blocks = Utils.weightBlocks(n);
+        if (blocks == 0) {
+            return 0;
+        }
+        int cost = transportCost(n);
+        int fuel = (cost * 8 + 99) / 100;
+        int insurance = (blocks >= 10) ? 300 : 100;
+        return cost + fuel + insurance;
+    }
+}
+```
+
+Please note that in Java, division of two integers results in an integer value. So, the fuel calculation is done with integer division (`/`) and not a floating point division (`//`).
+
+Also, please note that the `transportCost` function is not defined in the provided Python code. You need to define this function in the same module as `Main` or import it from a separate module.
+
+Lastly, please note that the `weightBlocks` function is not defined in the provided Python code. You need to define this function in the same module as `Main` or import it from a separate module.

@@ -1,0 +1,12 @@
+public class Main {
+    public static int solve(int n) {
+        int units = Utils.billable_units(n);
+        if (units == 0) {
+            return 0;
+        }
+        int charge = Service.energy_charge(n);
+        int service_fee = units <= 400? 200 : 500;
+        int rebate = units < 100? 0 : (charge / 20);
+        return charge + service_fee - rebate;
+    }
+}

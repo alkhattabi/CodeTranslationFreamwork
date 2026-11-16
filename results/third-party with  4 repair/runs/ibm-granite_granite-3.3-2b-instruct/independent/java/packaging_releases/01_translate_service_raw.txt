@@ -1,0 +1,17 @@
+public class Service {
+    public static int upgrade_cost(int n) {
+        int rank = release_rank(n);
+        if (rank < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        Version currentVersion = new Version(String.format("%d.%d.%d", major, minor, patch));
+        Version requiredVersion = new Version("2.1.0");
+        int penalty = currentVersion.compareTo(requiredVersion) < 0? 40 : 0;
+        return rank * 25 + minor + patch / 5 + penalty;
+    }
+}
+
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.

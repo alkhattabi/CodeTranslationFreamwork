@@ -1,0 +1,72 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int factor_signature(int)’:
+utils.cpp:9:34: error: ‘sp’ has not been declared
+    9 |     std::map<int, int> factors = sp::factorint(value);
+      |                                  ^~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:15:32: error: ‘sp’ has not been declared
+   15 |     int phi = static_cast<int>(sp::totient(value));
+      |                                ^~
+service.cpp:16:42: error: ‘sp’ has not been declared
+   16 |     int divisor_count = static_cast<int>(sp::divisor_count(value));
+      |                                          ^~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:8:29: error: ‘isprime’ is not a member of ‘std’
+    8 |     int prime_bonus = (std::isprime(value)) ? 50 : 0;
+      |                             ^~~~~~~
+main.cpp:9:44: error: ‘nextprime’ is not a member of ‘std’
+    9 |     int next_prime = static_cast<int>(std::nextprime(value));
+      |                                            ^~~~~~~~~
+
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int factor_signature(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int number_strength(int n);
+int factor_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <map>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int factor_signature(int n) {
+    int value = std::abs(n) % 1500 + 2;
+    std::map<int, int> factors = sp::factorint(value);
+    int score = 0;
+    for(auto& pair : factors) {
+        score += pair.first * pair.second;
+    }
+    return score + 3 * factors.size();
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+
+def factor_signature(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    factors = sp.factorint(value)
+    score = sum(int(prime) * int(exponent) for prime, exponent in factors.items())
+    return score + 3 * len(factors)

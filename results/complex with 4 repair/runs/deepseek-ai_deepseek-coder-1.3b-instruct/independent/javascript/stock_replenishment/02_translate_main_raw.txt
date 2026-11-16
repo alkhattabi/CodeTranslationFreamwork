@@ -1,0 +1,29 @@
+Here is the JavaScript ES-module source code for the given Python file:
+
+```javascript
+import { order_quantity } from "./service.mjs";
+import { weekly_demand } from "./utils.mjs";
+
+export function solve(n) {
+    const quantity = order_quantity(n);
+    if (quantity === 0) {
+        return 0;
+    }
+    const demand = weekly_demand(n);
+    let unit_cost;
+    if (quantity >= 120) {
+        unit_cost = 25;
+    } else {
+        unit_cost = 30;
+    }
+    let shipping;
+    if (demand > 100) {
+        shipping = 400;
+    } else {
+        shipping = 200;
+    }
+    return quantity * unit_cost + shipping;
+}
+```
+
+This JavaScript code exports a function named `solve` that takes an integer `n` as an argument and returns an integer. The function uses the `order_quantity` and `weekly_demand` functions from the `service.mjs` and `utils.mjs` modules, respectively. The `order_quantity` function calculates the quantity of items to be ordered based on the input `n`, and the `weekly_demand` function calculates the weekly demand based on the input `n`. The function then calculates the total cost of the order by multiplying the quantity by the unit cost and adding the shipping cost.

@@ -1,0 +1,48 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static boolean luhnValid(int n) {
+        if (n <= 0) {
+            return false;
+        }
+        int total = 0;
+        boolean doubleDigit = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleDigit = !doubleDigit;
+            n /= 10;
+        }
+        return (total % 10 == 0) ? true : false;
+    }
+}
+```
+
+The original Python code was not syntactically correct, so I corrected it to the correct Java syntax. The main changes are:
+
+1. The method name was changed from `luhn_valid` to `luhnValid`.
+2. The return type of the method was changed from `int` to `boolean`.
+3. The if condition was changed from `n <= 0` to `n <= 0`.
+4. The total calculation was corrected to return `true` or `false` instead of `1` or `0`.
+5. The `//` operator was replaced with `/` for integer division in Java.
+6. The `%` operator was replaced with `%` for modulus operation in Java.
+7. The `//=` operator was replaced with `/=` for integer division and assignment in Java.
+8. The `not` keyword was replaced with `!` in Java.
+
+Please note that the original Python code was not syntactically correct, so I corrected it to the correct Java syntax. The main changes are:
+
+1. The method name was changed from `luhn_valid` to `luhnValid`.
+2. The return type of the method was changed from `int` to `boolean`.
+3. The if condition was changed from `n <= 0` to `n <= 0`.
+4. The total calculation was corrected to return `true` or `false` instead of `1` or `0`.
+5. The `//` operator was replaced with `/` for integer division in Java.
+6. The `%` operator was replaced with `%` for modulus operation in Java.
+7. The `//=` operator was replaced with `/=` for integer division and assignment in Java.
+8. The `not` keyword was replaced with `!` in Java.

@@ -1,0 +1,20 @@
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+Service.java:3: error: cannot access Utils
+        int x = Utils.normalize(n);
+                ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+               ^
+  symbol:   method weighted(int)
+  location: class Main
+Main.java:3: error: cannot find symbol
+        return weighted(n) + normalize(n);
+                             ^
+  symbol:   method normalize(int)
+  location: class Main
+4 errors

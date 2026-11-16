@@ -1,0 +1,82 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 18/24 development checks.
+main.solve(3499): expected 149, actual ERR: Error: result must be a safe integer
+main.solve(15000): expected 2172, actual ERR: Error: result must be a safe integer
+main.solve(3500): expected 150, actual 120
+main.solve(7000): expected 570, actual 456
+service.calculate_tax(3499): expected 149, actual ERR: Error: result must be a safe integer
+service.calculate_tax(501): expected 0, actual ERR: Error: result must be a safe integer
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { calculate_tax } from "./service.mjs";
+  import { taxable_income } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { taxable_income } from "./utils.mjs";
+import { calculate_tax } from "./service.mjs";
+
+export function solve(n) {
+    if (typeof n !== 'number' || n % 1 !== 0) {
+        throw new Error('Input must be an integer');
+    }
+
+    const base = taxable_income(n);
+    const tax = calculate_tax(n);
+    const credit = n <= 2500 ? 100 : 0;
+    const payable = tax - credit;
+    const payableWith20PercentDiscount = payable < 0 ? 0 : payable * 0.8;
+    const additionalDiscount = base > 10000 ? (payableWith20PercentDiscount * 0.2) : 0;
+    return payableWith20PercentDiscount + additionalDiscount;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+from service import calculate_tax
+
+def solve(n: int) -> int:
+    base = taxable_income(n)
+    tax = calculate_tax(n)
+    credit = 100 if base > 0 and base <= 2500 else 0
+    payable = tax - credit
+    if payable < 0:
+        payable = 0
+    return payable + (payable * 2 // 100 if base > 10000 else 0)
+
+
+DEPENDENCY service.mjs:
+import { taxable_income } from "./utils.mjs";
+
+export function calculate_tax(n) {
+    let income = taxable_income(n);
+    let tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+
+
+DEPENDENCY utils.mjs:
+export function taxable_income(n) {
+    if (n <= 500) {
+        return 0;
+    }
+    let income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}

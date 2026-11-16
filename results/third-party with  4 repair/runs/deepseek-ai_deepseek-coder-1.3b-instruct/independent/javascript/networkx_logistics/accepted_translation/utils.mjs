@@ -1,0 +1,19 @@
+import { DiGraph } from 'graphlib';
+
+function route_cost(n) {
+  const x = Math.abs(n) % 13;
+  const graph = new DiGraph();
+  graph.setWeightedEdgesFrom([
+    [0, 1, 3 + x % 3],
+    [0, 2, 5 + x % 4],
+    [1, 3, 4 + x % 2],
+    [1, 4, 7],
+    [2, 3, 1 + x % 5],
+    [2, 4, 3 + x % 3],
+    [3, 5, 6],
+    [4, 5, 2 + x % 4],
+    [5, 6, 1 + x % 2],
+    [2, 6, 15]
+  ]);
+  return Number(nx.shortestPathLength(graph, 0, 6, {weight: 'weight'}));
+}

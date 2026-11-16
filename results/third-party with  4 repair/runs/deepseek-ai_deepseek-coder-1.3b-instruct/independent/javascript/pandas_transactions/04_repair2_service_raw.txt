@@ -1,0 +1,15 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { category_balance } from "./utils.mjs";
+
+export function rolling_alert(n) {
+  n = Math.max(-200, Math.min(200, n));
+  let series = [n % 13, (n >> 1) % 13, n % 17, Math.abs(n) % 11, n % 7];
+  let rolling = series.reduce((a, b) => a + b, 0);
+  let alerts = Math.floor(rolling / 15);
+  return alerts * 10 + Math.abs(category_balance(n)) % 23;
+}
+```
+
+This code is exporting a function `rolling_alert` that takes an integer `n` as input and returns an integer. It first clamps `n` between -200 and 200, then calculates a series of values based on the modulo operations of `n`, `n >> 1`, `n % 17`, `Math.abs(n) % 11`, and `n % 7`. It then calculates the sum of the series, rounds it to the nearest integer, and multiplies it by 10. Finally, it adds the result of `category_balance(n)` modulo 23 to the result.

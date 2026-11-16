@@ -1,0 +1,13 @@
+import { energyCharge } from "./service.mjs";
+import { billableUnits } from "./utils.mjs";
+
+export function solve(n: number): number {
+    const units = billableUnits(n);
+    if (units === 0) {
+        return 0;
+    }
+    const charge = energyCharge(n);
+    const serviceFee = units <= 400 ? 200 : 500;
+    const rebate = units < 100 ? Math.floor(charge / 20) : 0;
+    return charge + serviceFee - rebate;
+}

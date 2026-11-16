@@ -1,0 +1,21 @@
+import { luhnValid } from './utils.mjs';
+
+export function risk_points(n) {
+    if (n <= 0) {
+        return 100;
+    }
+    let score = 0;
+    if (luhnValid(n) === 0) {
+        score += 40;
+    }
+    if (n % 11 === 0) {
+        score += 20;
+    }
+    if (n % 100 < 10) {
+        score += 15;
+    }
+    if (n < 1000) {
+        score += 25;
+    }
+    return score;
+}

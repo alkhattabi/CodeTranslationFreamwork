@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:1: error: class Utils is public, should be declared in a file named Utils.java\npublic class Utils {\n       ^\nMain.java:10: error: class Service is public, should be declared in a file named Service.java\npublic class Service {\n       ^\n2 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

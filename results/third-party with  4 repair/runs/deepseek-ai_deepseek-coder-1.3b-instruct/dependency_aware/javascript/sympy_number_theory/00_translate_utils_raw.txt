@@ -1,0 +1,18 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+import { factorint } from 'mathjs';
+
+export function factor_signature(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let factors = factorint(value);
+  let score = Object.keys(factors).reduce((sum, prime) => {
+    return sum + prime * factors[prime];
+  }, 0);
+  return score + 3 * Object.keys(factors).length;
+}
+```
+
+This JavaScript code uses the `factorint` function from the `mathjs` library to calculate the prime factorization of the input number. It then calculates the score by multiplying each prime factor by its corresponding exponent, and sums these up. The score is then returned as the result of the function.
+
+Please note that this code assumes that the input number is a non-negative integer. If the input can be a negative number, you may need to add additional code to handle this case.

@@ -1,0 +1,24 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+// service.mjs
+export function discount(n) {
+    return tier(n) * 5;
+}
+
+// utils.mjs
+export function tier(n) {
+    if (n >= 100) {
+        return 3;
+    }
+    if (n >= 50) {
+        return 2;
+    }
+    if (n >= 10) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+The error message indicates that the identifier 'discount' has already been declared. This is because the 'discount' function is being declared in the 'service.mjs' file, which is not allowed in JavaScript. The correct way to declare a function in JavaScript is to use the 'function' keyword.

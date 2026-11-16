@@ -1,0 +1,6 @@
+public class Service {
+    public static int weighted(int n) {
+        int x = Utils.normalize(n);
+        return x * 2 + 1;
+    }
+}

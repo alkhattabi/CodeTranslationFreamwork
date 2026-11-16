@@ -1,0 +1,20 @@
+Service.java:3: error: cannot find symbol
+        return tier(n) * 5;
+               ^
+  symbol:   method tier(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int value = n * 4 - discount(n);
+                            ^
+  symbol:   method discount(int)
+  location: class Main
+Utils.java:3: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:13: error: cannot access Utils
+  try { System.out.println("utils.tier|0|" + Utils.tier(0)); } catch (Throwable e) { System.out.println("utils.tier|0|ERR"); }
+                                             ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors

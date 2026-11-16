@@ -1,0 +1,10 @@
+// utils.mjs
+export function category_balance(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const frame = new DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, Math.floor(n / 2), -7, n % 9, 4, -Math.floor(n / 3)]
+    });
+    const sums = frame.groupby("category", sort=true).sum();
+    return parseInt(2 * sums.get("A") + sums.get("B") - sums.get("C"));
+}

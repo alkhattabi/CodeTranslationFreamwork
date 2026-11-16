@@ -1,0 +1,79 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int rolling_alert(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);
+
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: pandas.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+import pandas as pd
+from utils import category_balance
+
+def rolling_alert(n: int) -> int:
+    n = max(-200, min(200, n))
+    series = pd.Series([n % 13, (n // 2) % 13, n % 17, abs(n) % 11, n % 7])
+    rolling = series.rolling(window=3, min_periods=1).sum()
+    alerts = int((rolling >= 15).sum())
+    return alerts * 10 + abs(category_balance(n)) % 23
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+// Helper function to calculate the sum of amounts for each category
+int calculate_category_sum(const std::vector<int>& amounts) {
+    int sum_A = 0;
+    int sum_B = 0;
+    int sum_C = 0;
+
+    for (int amount : amounts) {
+        if (amount >= 0) {
+            if (amount % 3 == 0) {
+                sum_A += amount;
+            } else if (amount % 3 == 1) {
+                sum_B += amount;
+            } else {
+                sum_C += amount;
+            }
+        } else {
+            if (-amount % 3 == 0) {
+                sum_A -= amount;
+            } else if (-amount % 3 == 1) {
+                sum_B -= amount;
+            } else {
+                sum_C -= amount;
+            }
+        }
+    }
+
+    return sum_A + sum_B - sum_C;
+}
+
+// Function to calculate the category balance based on the given input
+int category_balance(int n) {
+    // Ensure the input is within the valid range
+    n = std::max(-200, std::min(200, n));
+
+    // Create a vector with the given amounts
+    std::vector<int> amounts = {n, 12, n / 2, -7, n % 9, 4, -n / 3};
+
+    // Calculate the total sum of amounts for each category
+    int total_sum = calculate_category_sum(amounts);
+
+    // Return twice the sum of amounts for category A minus the sum of amounts for categories B and C
+    return 2 * total_sum - calculate_category_sum({0, 0, 0});
+}

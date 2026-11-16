@@ -1,0 +1,6 @@
+Service.java:3: error: cannot find symbol
+        int blocks = weight_blocks(n);
+                     ^
+  symbol:   method weight_blocks(int)
+  location: class Service
+1 error

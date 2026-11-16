@@ -1,0 +1,60 @@
+#include "api.hpp"
+
+int solve(int n) {
+    int energy = matrix_energy(n);
+    std::vector<int> vector = {energy, vector_signature(n), n};
+    std::vector<int> bounded(vector.begin(), vector.end());
+    std::transform(bounded.begin(), bounded.end(), bounded.begin(),
+                   [n](int x) { return std::max(-150, std::min(250, x)); });
+
+    std::vector<int> positives(vector.size(), 0);
+    std::transform(bounded.begin(), bounded.end(), positives.begin(),
+                   [n](int x) { return std::max(x, -x); });
+
+    int sum = 0;
+    for (int i : positives) {
+        sum += i;
+    }
+
+    return sum + (energy % 17);
+}
+
+int matrix_energy(int n) {
+    int x = std::max(-100, std::min(100, n));
+    std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+    std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+
+    for (size_t i = 0; i < m.size(); ++i) {
+        for (size_t j = 0; j < m.size(); ++j) {
+            square[i][j] = m[i][j];
+        }
+    }
+
+    for (size_t i = 0; i < square.size(); ++i) {
+        for (size_t j = 0; j < square.size(); ++j) {
+            square[i][j] *= square[i][j];
+        }
+    }
+
+    int diagonal = 0;
+    for (size_t i = 0; i < square.size(); ++i) {
+        diagonal += square[i][i];
+    }
+
+    return diagonal + vector_signature(n);
+}
+
+int vector_signature(int n) {
+    n = std::max(-100, std::min(100, n));
+    std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};
+    std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    int result = 0;
+    for (size_t i = 0; i < 3; ++i) {
+        for (size_t j = 0; j < 3; ++j) {
+            result += m[i][j] * v[i * 3 + j];
+        }
+    }
+
+    return std::abs(result);
+}

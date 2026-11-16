@@ -1,0 +1,19 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+import { weekly_demand } from "./utils.mjs";
+
+export function order_quantity(n) {
+    const demand = weekly_demand(n);
+    const safety = 15;
+    const available = n > 0 ? n : 0;
+    const shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    const packs = Math.ceil(shortage / 12);
+    return packs * 12;
+}
+```
+
+This JavaScript ES-module source file exports exactly the function order_quantity(n), taking and returning an integer. It uses imports from other local modules when needed.

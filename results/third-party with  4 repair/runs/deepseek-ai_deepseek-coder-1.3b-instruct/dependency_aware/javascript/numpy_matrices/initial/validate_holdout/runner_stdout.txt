@@ -1,0 +1,36 @@
+{"k":"main.solve|99","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-7","error":"Error: result must be a safe integer"}
+{"k":"main.solve|0","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-30","error":"Error: result must be a safe integer"}
+{"k":"main.solve|100","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-11","error":"Error: result must be a safe integer"}
+{"k":"main.solve|30","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-3","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-1","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-100","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-12","error":"Error: result must be a safe integer"}
+{"k":"main.solve|51","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|99","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-7","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|0","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-30","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|100","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-11","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|30","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-3","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-1","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-100","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|-12","error":"Error: result must be a safe integer"}
+{"k":"service.matrix_energy|51","error":"Error: result must be a safe integer"}
+{"k":"utils.vector_signature|99","v":49}
+{"k":"utils.vector_signature|-7","v":100}
+{"k":"utils.vector_signature|0","v":0}
+{"k":"utils.vector_signature|-30","v":49}
+{"k":"utils.vector_signature|100","v":81}
+{"k":"utils.vector_signature|-11","v":0}
+{"k":"utils.vector_signature|30","v":121}
+{"k":"utils.vector_signature|-3","v":1}
+{"k":"utils.vector_signature|-1","v":1}
+{"k":"utils.vector_signature|-100","v":36}
+{"k":"utils.vector_signature|-12","v":0}
+{"k":"utils.vector_signature|51","v":289}

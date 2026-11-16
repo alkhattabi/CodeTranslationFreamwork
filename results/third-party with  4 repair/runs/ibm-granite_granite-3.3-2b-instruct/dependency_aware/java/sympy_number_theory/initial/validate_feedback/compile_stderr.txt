@@ -1,0 +1,28 @@
+Utils.java:30: error: class, interface, enum, or record expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+^
+Utils.java:30: error: unclosed character literal
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                      ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                       ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                                         ^
+Service.java:44: error: class, interface, enum, or record expected
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+^
+Service.java:44: error: '{' expected
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+                                                                     ^
+Service.java:44: error: unclosed character literal
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+                                                                                            ^
+Service.java:44: error: unclosed character literal
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+                                                                                                                                                                                                           ^
+Service.java:44: error: '{' expected
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+                                                                                                                                                                                                                                                                                 ^
+9 errors

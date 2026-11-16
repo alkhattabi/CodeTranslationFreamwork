@@ -1,0 +1,11 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccO3COsN.o: in function `credit_band(int)':
+main.cpp:(.text+0x11a): multiple definition of `credit_band(int)'; /tmp/cctGcdpL.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccO3COsN.o: in function `yearly_interest(int)':
+main.cpp:(.text+0x93): multiple definition of `yearly_interest(int)'; /tmp/ccaz1QI4.o:service.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status

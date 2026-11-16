@@ -1,0 +1,95 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+                                    ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = releaseRank(n);
+                   ^
+  symbol:   method releaseRank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(String.format("%d.%d.%d", major, minor, patch));
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(String.format("%d.%d.%d", major, minor, patch));
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version("2.1.0");
+        ^
+  symbol:   class Ve
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int release_rank(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int release_rank(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int release_rank(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = patch % 4 == 0 ? "rc1" : "";
+        String versionStr = major + "." + minor + "." + patch + suffix;
+        try {
+            Version version = new Version(versionStr);
+            Version reference = new Version("2.1.0");
+            if (version.compareTo(reference) < 0) {
+                return 1;
+            }
+            if (version.equals(reference)) {
+                return 2;
+            }
+            return 3;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid version string", e);
+        }
+    }
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+
+def release_rank(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    reference = Version("2.1.0")
+    if version < reference:
+        return 1
+    if version == reference:
+        return 2
+    return 3

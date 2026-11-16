@@ -1,0 +1,19 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function definitions from api.hpp
+int solve(int n);
+int clamp(int n);
+
+int bonus_score(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}
+
+// Original Python function definition
+int bonus_score(int n) {
+    base = clamp(n);
+    return clamp(base + 7);
+}

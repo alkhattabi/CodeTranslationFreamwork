@@ -1,0 +1,17 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+export function valid_nights(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let rooms = Math.floor(n / 100);
+    let nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}
+```
+
+This JavaScript function does the same thing as your Python function. It checks if the input number is valid for the number of nights. If the number is less than or equal to 0, it returns 0. Otherwise, it calculates the number of rooms and the number of nights, and returns the number of nights. If the number of rooms or nights is not within the valid range (1-20 and 1-30), it returns 0.

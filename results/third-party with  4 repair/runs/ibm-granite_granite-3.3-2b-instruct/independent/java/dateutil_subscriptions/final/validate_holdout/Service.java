@@ -1,0 +1,25 @@
+public class Service {
+    public static int gracePeriod(int n) {
+        int renewed = renewalDate(n);
+        if (renewed < 0) {
+            return -1;
+        }
+        int year = renewed / 10000;
+        int month = (renewed / 100) % 100;
+        int day = renewed % 100;
+        int dueDate = dayOfYearToDate(year, month, day) + relativedelta(months=2, days=7);
+        return dueDate.getYear() * 10000 + dueDate.getMonth() * 100 + dueDate.getDay();
+    }
+
+    private static int renewalDate(int n) {
+        // Placeholder for the actual implementation from utils.
+        return n;
+    }
+
+    private static Date dayOfYearToDate(int year, int month, int day) {
+        // Placeholder for the actual implementation.
+        return new Date(year, month - 1, day);
+    }
+}
+
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.

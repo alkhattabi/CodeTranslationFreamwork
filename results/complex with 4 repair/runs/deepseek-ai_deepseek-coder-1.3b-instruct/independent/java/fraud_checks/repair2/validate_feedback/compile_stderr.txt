@@ -1,0 +1,111 @@
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("service.risk_points|1230|" + Service.risk_points(1230)); } catch (Throwable e) { System.out.println("service.risk_points|1230|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.risk_points|1016|" + Service.risk_points(1016)); } catch (Throwable e) { System.out.println("service.risk_points|1016|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.risk_points|1|" + Service.risk_points(1)); } catch (Throwable e) { System.out.println("service.risk_points|1|ERR"); }
+                                                             ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.risk_points|987654321|" + Service.risk_points(987654321)); } catch (Throwable e) { System.out.println("service.risk_points|987654321|ERR"); }
+                                                                     ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.risk_points|1234|" + Service.risk_points(1234)); } catch (Throwable e) { System.out.println("service.risk_points|1234|ERR"); }
+                                                                ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println("service.risk_points|799273|" + Service.risk_points(799273)); } catch (Throwable e) { System.out.println("service.risk_points|799273|ERR"); }
+                                                                  ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println("service.risk_points|11|" + Service.risk_points(11)); } catch (Throwable e) { System.out.println("service.risk_points|11|ERR"); }
+                                                              ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println("service.risk_points|121|" + Service.risk_points(121)); } catch (Throwable e) { System.out.println("service.risk_points|121|ERR"); }
+                                                               ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println("service.risk_points|10|" + Service.risk_points(10)); } catch (Throwable e) { System.out.println("service.risk_points|10|ERR"); }
+                                                              ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:23: error: cannot find symbol
+  try { System.out.println("service.risk_points|123456789|" + Service.risk_points(123456789)); } catch (Throwable e) { System.out.println("service.risk_points|123456789|ERR"); }
+                                                                     ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:24: error: cannot find symbol
+  try { System.out.println("service.risk_points|125|" + Service.risk_points(125)); } catch (Throwable e) { System.out.println("service.risk_points|125|ERR"); }
+                                                               ^
+  symbol:   method risk_points(int)
+  location: class Service
+EvalRunner.java:25: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|1230|" + Utils.luhn_valid(1230)); } catch (Throwable e) { System.out.println("utils.luhn_valid|1230|ERR"); }
+                                                           ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:26: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|1016|" + Utils.luhn_valid(1016)); } catch (Throwable e) { System.out.println("utils.luhn_valid|1016|ERR"); }
+                                                           ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|1|" + Utils.luhn_valid(1)); } catch (Throwable e) { System.out.println("utils.luhn_valid|1|ERR"); }
+                                                        ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:28: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|987654321|" + Utils.luhn_valid(987654321)); } catch (Throwable e) { System.out.println("utils.luhn_valid|987654321|ERR"); }
+                                                                ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:29: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|1234|" + Utils.luhn_valid(1234)); } catch (Throwable e) { System.out.println("utils.luhn_valid|1234|ERR"); }
+                                                           ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:30: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|799273|" + Utils.luhn_valid(799273)); } catch (Throwable e) { System.out.println("utils.luhn_valid|799273|ERR"); }
+                                                             ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:31: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|11|" + Utils.luhn_valid(11)); } catch (Throwable e) { System.out.println("utils.luhn_valid|11|ERR"); }
+                                                         ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:32: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|121|" + Utils.luhn_valid(121)); } catch (Throwable e) { System.out.println("utils.luhn_valid|121|ERR"); }
+                                                          ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:33: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|10|" + Utils.luhn_valid(10)); } catch (Throwable e) { System.out.println("utils.luhn_valid|10|ERR"); }
+                                                         ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:34: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|123456789|" + Utils.luhn_valid(123456789)); } catch (Throwable e) { System.out.println("utils.luhn_valid|123456789|ERR"); }
+                                                                ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+EvalRunner.java:35: error: cannot find symbol
+  try { System.out.println("utils.luhn_valid|125|" + Utils.luhn_valid(125)); } catch (Throwable e) { System.out.println("utils.luhn_valid|125|ERR"); }
+                                                          ^
+  symbol:   method luhn_valid(int)
+  location: class Utils
+22 errors

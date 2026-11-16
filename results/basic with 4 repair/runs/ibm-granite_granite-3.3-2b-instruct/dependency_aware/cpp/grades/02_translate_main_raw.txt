@@ -1,0 +1,23 @@
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    return 1 if (bonus_score(n) >= 60) else 0;
+}
+```
+
+Note: C++ does not have a direct equivalent to Python's `if-else` statement. Instead, we use ternary conditional operator (also known as conditional expression) for this purpose.
+
+Also, C++ does not have a direct `clamp` function, so it's assumed that the `clamp` function from `api.hpp` is already defined.
+
+The `solve` function in C++ would be implemented as:
+
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    return 1 if (bonus_score(n) >= 60) else 0;
+}
+```
+
+This code snippet assumes that the `api.hpp` file contains the `bonus_score` and `clamp` functions as defined in the Python code. The `solve` function in C++ mirrors the behavior of the Python `solve` function, returning 1 if the `bonus_score` of `n` is 60 or more, and 0 otherwise.

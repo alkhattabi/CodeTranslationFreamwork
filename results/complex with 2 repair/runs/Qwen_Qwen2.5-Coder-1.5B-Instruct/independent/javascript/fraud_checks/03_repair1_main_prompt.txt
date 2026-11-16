@@ -1,0 +1,102 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/fraud_checks/initial/validate_feedback/main.mjs:4
+export function solve(n: number): number {
+                       ^
+
+SyntaxError: Unexpected token ':'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { risk_points } from "./service.mjs";
+  import { luhn_valid } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { riskPoints } from './service.mjs';
+import { luhnValid } from './utils.mjs';
+
+export function solve(n: number): number {
+    const points = riskPoints(n);
+    if (points >= 70) {
+        return 3;
+    }
+    if (points >= 40) {
+        return 2;
+    }
+    if (luhnValid(n) === 1) {
+        return 0;
+    }
+    return 1;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import luhn_valid
+from service import risk_points
+
+def solve(n: int) -> int:
+    points = risk_points(n)
+    if points >= 70:
+        return 3
+    if points >= 40:
+        return 2
+    if luhn_valid(n) == 1:
+        return 0
+    return 1
+
+
+DEPENDENCY service.mjs:
+import { luhnValid } from './utils.mjs';
+
+export function risk_points(n) {
+    if (n <= 0) {
+        return 100;
+    }
+    let score = 0;
+    if (luhnValid(n) === 0) {
+        score += 40;
+    }
+    if (n % 11 === 0) {
+        score += 20;
+    }
+    if (n % 100 < 10) {
+        score += 15;
+    }
+    if (n < 1000) {
+        score += 25;
+    }
+    return score;
+}
+
+
+DEPENDENCY utils.mjs:
+export function luhn_valid(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    let total = 0;
+    let double = false;
+    while (n > 0) {
+        const digit = n % 10;
+        if (double) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double = !double;
+        n = Math.floor(n / 10);
+    }
+    return total % 10 === 0 ? 1 : 0;
+}

@@ -1,0 +1,54 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:7: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Utils.java:7: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+2 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int factor_signature(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int factor_signature(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int factor_signature(int n) {
+        // Convert input to absolute value and then take modulo 1500
+        int value = Math.abs(n) % 1500;
+        
+        // Calculate the number of factors using sympy's factorint function
+        import org.sympy.ntheory.factor.FactorInteger;
+        FactorInteger factorInt = new FactorInteger();
+        Map<Integer, Integer> factors = factorInt.factor(value);
+        
+        // Calculate the score based on the number of factors and their exponents
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        
+        // Add a bonus for the number of factors
+        score += 3 * factors.size();
+        
+        return score;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+
+def factor_signature(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    factors = sp.factorint(value)
+    score = sum(int(prime) * int(exponent) for prime, exponent in factors.items())
+    return score + 3 * len(factors)

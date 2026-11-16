@@ -1,0 +1,20 @@
+{
+  "compiled": true,
+  "passed": 11,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1,
+      "expected": 13,
+      "actual": "ERR: Error: result must be a safe integer"
+    }
+  ]
+}

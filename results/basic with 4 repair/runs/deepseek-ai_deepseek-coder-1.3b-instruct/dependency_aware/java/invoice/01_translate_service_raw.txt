@@ -1,0 +1,27 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * Utils.unit_price(n);
+    }
+}
+```
+
+And here is the Java version of the Utils class:
+
+```java
+public class Utils {
+    public static int unit_price(int n) {
+        if (n >= 10) {
+            return 10;
+        }
+        return 12;
+    }
+}
+```
+
+Please note that in Java, the class name should start with a capital letter. Also, the method names in Java should start with a lowercase letter.

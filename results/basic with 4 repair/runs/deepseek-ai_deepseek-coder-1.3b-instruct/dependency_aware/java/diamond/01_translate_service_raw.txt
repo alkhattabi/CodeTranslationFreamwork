@@ -1,0 +1,25 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int weighted(int n) {
+        int x = Utils.normalize(n);
+        return x * 2 + 1;
+    }
+}
+```
+
+And here is the Java version of the Utils class:
+
+```java
+public class Utils {
+    public static int normalize(int n) {
+        if (n < 0) {
+            return -n;
+        }
+        return n;
+    }
+}
+```
+
+Please note that the Java version of the Utils class is in the same package as the Service class, so you can call the `normalize` method directly from the Service class.

@@ -1,0 +1,14 @@
+Here is the JavaScript ES-module source code for the provided Python file:
+
+```javascript
+import { unit_price } from "./utils.mjs";
+
+export function gross(n) {
+    if (n < 0) {
+        return 0;
+    }
+    return n * unit_price(n);
+}
+```
+
+Please note that the `unit_price` function is expected to be defined in a module named `utils.mjs`. If it's not, you'll need to import it correctly.

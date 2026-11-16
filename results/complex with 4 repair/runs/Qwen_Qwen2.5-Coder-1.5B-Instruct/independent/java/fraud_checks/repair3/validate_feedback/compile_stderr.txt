@@ -1,0 +1,11 @@
+Service.java:7: error: cannot find symbol
+        if (Utils.luhnValid(n) == 0) {
+                 ^
+  symbol:   method luhnValid(int)
+  location: class Utils
+Main.java:10: error: cannot find symbol
+        if (Utils.luhnValid(n) == 1) {
+                 ^
+  symbol:   method luhnValid(int)
+  location: class Utils
+2 errors

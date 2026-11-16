@@ -1,0 +1,125 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:15: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+2 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.order_quantity(n)
+  Utils.weekly_demand(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int weekly_demand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}
+
+public class Service {
+    public static int order_quantity(int n) {
+        int demand = Utils.weekly_demand(n);
+        int safety = 15;
+        if (demand < 100) {
+            safety = 35;
+        }
+        int available = n;
+        if (n <= 0) {
+            available = 0;
+        }
+        int shortage = demand + safety - available;
+        if (shortage <= 0) {
+            return 0;
+        }
+        int packs = (shortage + 11) / 12;
+        return packs * 12;
+    }
+}
+
+public class Main {
+    public static int solve(int n) {
+        int quantity = Service.order_quantity(n);
+        if (quantity == 0) {
+            return 0;
+        }
+        int unit_cost = 25;
+        if (quantity >= 120) {
+            unit_cost = 30;
+        }
+        int shipping = 400;
+        if (quantity > 100) {
+            shipping = 200;
+        }
+        return quantity * unit_cost + shipping;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weekly_demand
+from service import order_quantity
+
+def solve(n: int) -> int:
+    quantity = order_quantity(n)
+    if quantity == 0:
+        return 0
+    demand = weekly_demand(n)
+    unit_cost = 25 if quantity >= 120 else 30
+    shipping = 400 if demand > 100 else 200
+    return quantity * unit_cost + shipping
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int order_quantity(int n) {
+        int demand = Utils.weekly_demand(n);
+        int safety = 15;
+        if (demand < 100) {
+            safety = 35;
+        }
+        int available = n;
+        if (n <= 0) {
+            available = 0;
+        }
+        int shortage = demand + safety - available;
+        if (shortage <= 0) {
+            return 0;
+        }
+        int packs = (shortage + 11) / 12;
+        return packs * 12;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int weekly_demand(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        int base = n * 3;
+        int extra = (n % 7) * 2;
+        if (n >= 40) {
+            base += n / 4;
+        }
+        return base + extra;
+    }
+}

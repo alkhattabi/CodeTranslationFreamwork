@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:10: error: cannot find symbol\n            Date date = new Date(year, month, day);\n            ^\n  symbol:   class Date\n  location: class Utils\nUtils.java:10: error: cannot find symbol\n            Date date = new Date(year, month, day);\n                            ^\n  symbol:   class Date\n  location: class Utils\nUtils.java:14: error: cannot find symbol\n        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds\n        ^\n  symbol:   class Date\n  location: class Utils\nUtils.java:14: error: cannot find symbol\n        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds\n                       ^\n  symbol:   class Date\n  location: class Utils\nUtils.java:14: error: cannot find symbol\n        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds\n                            ^\n  symbol:   variable date\n  location: class Utils\nService.java:3: error: cannot find symbol\n        int renewed = renewal_date(n);\n                      ^\n  symbol:   method renewal_date(int)\n  location: class Service\nService.java:10: error: cannot find symbol\n        Date end = new Date(year, month, day);\n        ^\n  symbol:   class Date\n  location: class Service\nService.java:10: error: cannot find symbol\n        Date end = new Date(year, month, day);\n                       ^\n  symbol:   class Date\n  location: class Service\nMain.java:12: error: cannot find symbol\n        year2 = grace_period(n) / 10000;\n                ^\n  symbol:   method grace_period(int)\n  location: class Main\nMain.java:13: error: cannot find symbol\n        month2 = (grace_period(n) / 100) % 100;\n                  ^\n  symbol:   method grace_period(int)\n  location: class Main\nMain.java:14: error: cannot find symbol\n        day2 = grace_period(n) % 100;\n               ^\n  symbol:   method grace_period(int)\n  location: class Main\nMain.java:16: error: cannot find symbol\n            Date renewalDate = new Date(year1, month1, day1);\n            ^\n  symbol:   class Date\n  location: class Main\nMain.java:16: error: cannot find symbol\n            Date renewalDate = new Date(year1, month1, day1);\n                                   ^\n  symbol:   class Date\n  location: class Main\nMain.java:17: error: cannot find symbol\n            Date endDate = new Date(year2, month2, day2);\n            ^\n  symbol:   class Date\n  location: class Main\nMain.java:17: error: cannot find symbol\n            Date endDate = new Date(year2, month2, day2);\n                               ^\n  symbol:   class Date\n  location: class Main\n15 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

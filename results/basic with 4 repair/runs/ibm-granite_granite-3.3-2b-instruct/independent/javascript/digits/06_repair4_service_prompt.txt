@@ -1,0 +1,50 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 8/12 development checks.
+utils.digit_sum(0): expected 0, actual ERR: TypeError: modules[t.m][t.f] is not a function
+utils.digit_sum(208): expected 10, actual ERR: TypeError: modules[t.m][t.f] is not a function
+utils.digit_sum(1): expected 1, actual ERR: TypeError: modules[t.m][t.f] is not a function
+utils.digit_sum(-1): expected 1, actual ERR: TypeError: modules[t.m][t.f] is not a function
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function score_digits(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { digit_sum } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function score_digits(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// service.mjs
+export function score_digits(n) {
+    return digitSum(n) * 3;
+}
+
+export function digitSum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+DEPENDENCY utils.mjs:
+// utils.mjs
+export function digitSum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}

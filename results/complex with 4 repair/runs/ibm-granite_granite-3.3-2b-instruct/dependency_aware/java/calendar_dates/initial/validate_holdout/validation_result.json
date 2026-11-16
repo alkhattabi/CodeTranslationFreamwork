@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:6: error: ',', ')', or '[' expected\n        int month = (n // 100) % 100;\n                      ^\nMain.java:7: error: '.class' expected\n        int quarter = (month - 1) / 3 + 1;\n            ^\nMain.java:35: error: class, interface, enum, or record expected\nNote: The Java code assumes that the Service class is already available in the same package and does not need to be translated. The translation only includes the Main class as per the request.\n^\nMain.java:35: error: '{' expected\nNote: The Java code assumes that the Service class is already available in the same package and does not need to be translated. The translation only includes the Main class as per the request.\n                                                     ^\nMain.java:35: error: '{' expected\nNote: The Java code assumes that the Service class is already available in the same package and does not need to be translated. The translation only includes the Main class as per the request.\n                                                                                                                                                                               ^\n5 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,49 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                    ^
+Utils.java:14: error: not a statement
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                     ^
+Utils.java:14: error: ';' expected
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                             ^
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                                     ^
+4 errors
+
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int rolling_alert(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.category_balance(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int rolling_alert(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int rolling_alert(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        Series<Integer> series = new Series<>(Arrays.asList(n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7));
+        RollingWindow<Integer> rolling = series.rolling(windowSize = 3, minPeriods = 1);
+        int alerts = rolling.sum().stream().filter(x -> x >= 15).count();
+        return alerts * 10 + Math.abs(Utils.category_balance(n)) % 23;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+
+def rolling_alert(n: int) -> int:
+    n = max(-200, min(200, n))
+    series = pd.Series([n % 13, (n // 2) % 13, n % 17, abs(n) % 11, n % 7])
+    rolling = series.rolling(window=3, min_periods=1).sum()
+    alerts = int((rolling >= 15).sum())
+    return alerts * 10 + abs(category_balance(n)) % 23

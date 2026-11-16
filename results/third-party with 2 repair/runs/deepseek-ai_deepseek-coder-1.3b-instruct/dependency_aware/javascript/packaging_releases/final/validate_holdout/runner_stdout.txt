@@ -1,0 +1,39 @@
+{"k":"main.solve|-100","v":-1}
+{"k":"main.solve|101","error":"Error: result must be a safe integer"}
+{"k":"main.solve|4","error":"Error: result must be a safe integer"}
+{"k":"main.solve|9999","error":"Error: result must be a safe integer"}
+{"k":"main.solve|10200","v":67}
+{"k":"main.solve|100","v":66}
+{"k":"main.solve|199","error":"Error: result must be a safe integer"}
+{"k":"main.solve|20000","v":65}
+{"k":"main.solve|10001","error":"Error: result must be a safe integer"}
+{"k":"main.solve|19999","error":"Error: result must be a safe integer"}
+{"k":"main.solve|10000","v":65}
+{"k":"main.solve|0","v":65}
+{"k":"main.solve|200","v":67}
+{"k":"service.upgrade_cost|-100","v":-1}
+{"k":"service.upgrade_cost|101","error":"Error: result must be a safe integer"}
+{"k":"service.upgrade_cost|4","error":"Error: result must be a safe integer"}
+{"k":"service.upgrade_cost|9999","error":"Error: result must be a safe integer"}
+{"k":"service.upgrade_cost|10200","v":67}
+{"k":"service.upgrade_cost|100","v":66}
+{"k":"service.upgrade_cost|199","error":"Error: result must be a safe integer"}
+{"k":"service.upgrade_cost|20000","v":65}
+{"k":"service.upgrade_cost|10001","error":"Error: result must be a safe integer"}
+{"k":"service.upgrade_cost|19999","error":"Error: result must be a safe integer"}
+{"k":"service.upgrade_cost|10000","v":65}
+{"k":"service.upgrade_cost|0","v":65}
+{"k":"service.upgrade_cost|200","v":67}
+{"k":"utils.release_rank|-100","v":-1}
+{"k":"utils.release_rank|101","v":1}
+{"k":"utils.release_rank|4","v":1}
+{"k":"utils.release_rank|9999","v":1}
+{"k":"utils.release_rank|10200","v":1}
+{"k":"utils.release_rank|100","v":1}
+{"k":"utils.release_rank|199","v":1}
+{"k":"utils.release_rank|20000","v":1}
+{"k":"utils.release_rank|10001","v":1}
+{"k":"utils.release_rank|19999","v":1}
+{"k":"utils.release_rank|10000","v":1}
+{"k":"utils.release_rank|0","v":1}
+{"k":"utils.release_rank|200","v":1}

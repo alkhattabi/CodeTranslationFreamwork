@@ -1,0 +1,41 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/15 development checks.
+Execution diagnostics: node:internal/modules/esm/resolve:275
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/membership/initial/validate_feedback/utils.js' imported from /content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/membership/initial/validate_feedback/service.mjs
+    at finalizeResolu
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function tier(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function tier(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function tier(n) {
+    if (n >= 100) {
+        return 3;
+    }
+    if (n >= 50) {
+        return 2;
+    }
+    if (n >= 10) {
+        return 1;
+    }
+    return 0;
+}
+
+
+ORIGINAL PYTHON:
+def tier(n: int) -> int:
+    if n >= 100:
+        return 3
+    if n >= 50:
+        return 2
+    if n >= 10:
+        return 1
+    return 0

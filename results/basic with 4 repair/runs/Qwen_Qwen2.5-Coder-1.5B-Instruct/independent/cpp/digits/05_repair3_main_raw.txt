@@ -1,0 +1,18 @@
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int score_digits(int n);
+int digit_sum(int n);
+
+int solve(int n) {
+    int value = score_digits(n);
+    if (value % 2 == 0) {
+        return value + 1;
+    }
+    return value - 1;
+}
+```

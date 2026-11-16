@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "/usr/bin/ld: /tmp/cctkivnp.o: in function `valid_date(int)':\nmain.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/cczG2BpA.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cctkivnp.o: in function `day_of_year(int)':\nmain.cpp:(.text+0x183): multiple definition of `day_of_year(int)'; /tmp/ccIKRvHb.o:service.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

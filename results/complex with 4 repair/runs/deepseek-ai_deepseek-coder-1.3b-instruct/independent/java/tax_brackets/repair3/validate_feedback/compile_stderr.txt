@@ -1,0 +1,51 @@
+Service.java:3: error: cannot find symbol
+        int income = Utils.taxableIncome(n);
+                          ^
+  symbol:   method taxableIncome(int)
+  location: class Utils
+Main.java:3: error: cannot find symbol
+        int base = Utils.taxableIncome(n);
+                        ^
+  symbol:   method taxableIncome(int)
+  location: class Utils
+EvalRunner.java:11: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|1000|" + Service.calculate_tax(1000)); } catch (Throwable e) { System.out.println("service.calculate_tax|1000|ERR"); }
+                                                                  ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|3499|" + Service.calculate_tax(3499)); } catch (Throwable e) { System.out.println("service.calculate_tax|3499|ERR"); }
+                                                                  ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|500|" + Service.calculate_tax(500)); } catch (Throwable e) { System.out.println("service.calculate_tax|500|ERR"); }
+                                                                 ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|501|" + Service.calculate_tax(501)); } catch (Throwable e) { System.out.println("service.calculate_tax|501|ERR"); }
+                                                                 ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|15000|" + Service.calculate_tax(15000)); } catch (Throwable e) { System.out.println("service.calculate_tax|15000|ERR"); }
+                                                                   ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|3500|" + Service.calculate_tax(3500)); } catch (Throwable e) { System.out.println("service.calculate_tax|3500|ERR"); }
+                                                                  ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|7000|" + Service.calculate_tax(7000)); } catch (Throwable e) { System.out.println("service.calculate_tax|7000|ERR"); }
+                                                                  ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.calculate_tax|1500|" + Service.calculate_tax(1500)); } catch (Throwable e) { System.out.println("service.calculate_tax|1500|ERR"); }
+                                                                  ^
+  symbol:   method calculate_tax(int)
+  location: class Service
+10 errors

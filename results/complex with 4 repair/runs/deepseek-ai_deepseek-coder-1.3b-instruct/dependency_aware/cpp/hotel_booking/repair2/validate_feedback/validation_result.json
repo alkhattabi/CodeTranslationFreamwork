@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cc0H6FLE.o: in function `valid_nights(int)':\nmain.cpp:(.text+0x136): multiple definition of `valid_nights(int)'; /tmp/cchC4yOT.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cc0H6FLE.o: in function `lodging_charge(int)':\nmain.cpp:(.text+0x96): multiple definition of `lodging_charge(int)'; /tmp/ccey4M8H.o:service.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

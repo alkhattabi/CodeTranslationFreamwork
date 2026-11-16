@@ -1,0 +1,23 @@
+public class Main {
+    public static int solve(int n) {
+        int blocks = weightBlocks(n);
+        if (blocks == 0) {
+            return 0;
+        }
+        int cost = transportCost(n);
+        int fuel = (cost * 8 + 99) / 100;
+        int insurance = blocks >= 10? 300 : 100;
+        return cost + fuel + insurance;
+    }
+
+    // Static methods of their respective classes
+    public static int weightBlocks(int n) {
+        // Implementation here
+    }
+
+    public static int transportCost(int n) {
+        // Implementation here
+    }
+}
+
+Note: The actual implementations of weightBlocks and transportCost methods are not provided in the Python code snippet, so they are represented as placeholders in the Java code.

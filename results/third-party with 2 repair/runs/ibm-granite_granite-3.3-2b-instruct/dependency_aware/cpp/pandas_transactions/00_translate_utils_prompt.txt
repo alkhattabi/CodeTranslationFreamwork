@@ -1,0 +1,29 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int category_balance(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);
+
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: pandas.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE utils.py:
+import pandas as pd
+
+def category_balance(n: int) -> int:
+    n = max(-200, min(200, n))
+    frame = pd.DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, n // 2, -7, n % 9, 4, -n // 3]
+    })
+    sums = frame.groupby("category", sort=True)["amount"].sum()
+    return int(2 * sums.loc["A"] + sums.loc["B"] - sums.loc["C"])

@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp: In function \u2018int vector_signature(int)\u2019:\nutils.cpp:5:10: error: \u2018vector\u2019 is not a member of \u2018std\u2019\n    5 |     std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};\n      |          ^~~~~~\nutils.cpp:2:1: note: \u2018std::vector\u2019 is defined in header \u2018<vector>\u2019; did you forget to \u2018#include <vector>\u2019?\n    1 | #include \"api.hpp\"\n  +++ |+#include <vector>\n    2 | \nutils.cpp:5:17: error: expected primary-expression before \u2018int\u2019\n    5 |     std::vector<int> v = {n % 11, std::abs(n) % 7, (n / 3) % 9};\n      |                 ^~~\nutils.cpp:6:10: error: \u2018vector\u2019 is not a member of \u2018std\u2019\n    6 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\n      |          ^~~~~~\nutils.cpp:6:10: note: \u2018std::vector\u2019 is defined in header \u2018<vector>\u2019; did you forget to \u2018#include <vector>\u2019?\nutils.cpp:6:22: error: \u2018vector\u2019 is not a member of \u2018std\u2019\n    6 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\n      |                      ^~~~~~\nutils.cpp:6:22: note: \u2018std::vector\u2019 is defined in header \u2018<vector>\u2019; did you forget to \u2018#include <vector>\u2019?\nutils.cpp:6:29: error: expected primary-expression before \u2018int\u2019\n    6 |     std::vector<std::vector<int>> m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\n      |                             ^~~\nutils.cpp:11:23: error: \u2018m\u2019 was not declared in this scope\n   11 |             result += m[i][j] * v[i * 3 + j];\n      |                       ^\nutils.cpp:11:33: error: \u2018v\u2019 was not declared in this scope\n   11 |             result += m[i][j] * v[i * 3 + j];\n      |                                 ^\n",
+  "failed_modules": [
+    "utils"
+  ],
+  "case_failures": []
+}

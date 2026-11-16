@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int digit_sum(int)\u2019:\nservice.cpp:4:16: error: \u2018abs\u2019 was not declared in this scope\n    4 |         sum += abs(n % 10);\n      |                ^~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:5:17: error: \u2018scoreDigits\u2019 was not declared in this scope; did you mean \u2018score_digits\u2019?\n    5 |     int value = scoreDigits(n);\n      |                 ^~~~~~~~~~~\n      |                 score_digits\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,41 @@
+{
+  "compiled": true,
+  "passed": 8,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils"
+  ],
+  "case_failures": [
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": -123,
+      "expected": 6,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": 1005,
+      "expected": 6,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": 37,
+      "expected": 10,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    },
+    {
+      "module": "utils",
+      "function": "digit_sum",
+      "input": 999,
+      "expected": 27,
+      "actual": "ERR: TypeError: modules[t.m][t.f] is not a function"
+    }
+  ]
+}

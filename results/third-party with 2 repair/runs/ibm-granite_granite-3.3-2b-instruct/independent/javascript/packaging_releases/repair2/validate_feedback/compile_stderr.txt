@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_round3_third_party_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/packaging_releases/repair2/validate_feedback/main.mjs:18
+    let stable = version.match(/^\d+\.\d+\d*(-\d+(\.\d+)*)?$/);?!stable : 0;
+                                                               ^
+
+SyntaxError: Unexpected token '?'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

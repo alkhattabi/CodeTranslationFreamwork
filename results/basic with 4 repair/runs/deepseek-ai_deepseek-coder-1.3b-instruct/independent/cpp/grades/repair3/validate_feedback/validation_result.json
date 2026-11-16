@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccbNeT98.o: in function `clamp(int)':\nmain.cpp:(.text+0x42): multiple definition of `clamp(int)'; /tmp/ccvyf744.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccbNeT98.o: in function `bonus_score(int)':\nmain.cpp:(.text+0x2b): multiple definition of `bonus_score(int)'; /tmp/ccV24QBL.o:service.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccVyp37t.o: in function `main':\nEvalRunner.cpp:(.text+0x0): multiple definition of `main'; /tmp/ccbNeT98.o:main.cpp:(.text+0x52): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

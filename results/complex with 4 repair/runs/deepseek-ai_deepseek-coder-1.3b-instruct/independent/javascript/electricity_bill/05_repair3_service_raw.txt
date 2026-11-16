@@ -1,0 +1,26 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+import { billable_units } from "./utils.mjs";
+
+export function energy_charge(n) {
+    let units = billable_units(n);
+    let charge = 0;
+    if (units > 400) {
+        charge += (units - 400) * 50;
+        units = 400;
+    }
+    if (units > 200) {
+        charge += (units - 200) * 30;
+        units = 200;
+    }
+    if (units > 100) {
+        charge += (units - 100) * 20;
+        units = 100;
+    }
+    charge += units * 10;
+    return charge;
+}
+```
+
+This JavaScript ES-module source file exports a function named `energy_charge` that takes an integer `n` as a parameter and returns an integer. The function calculates the energy charge based on the units consumed. The units are calculated using the `billable_units` function from the `utils.mjs` module. The charge is calculated in a way that it is not exceeding the units of 400, 200, and 100. If the units exceed these limits, the excess units are charged at the rate of 50 for the first 400 units, 30 for the next 200 units, and 20 for the remaining units. The remaining units are charged at a rate of 10.

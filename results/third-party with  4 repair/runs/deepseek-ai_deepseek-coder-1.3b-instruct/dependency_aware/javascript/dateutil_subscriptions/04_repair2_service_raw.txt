@@ -1,0 +1,20 @@
+Here is the corrected JavaScript ES-module source file:
+
+```javascript
+import { renewal_date } from "./utils.mjs";
+
+export function grace_period(n) {
+    const renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    const year = Math.floor(renewed / 10000);
+    const month = Math.floor((renewed / 100) % 100);
+    const day = renewed % 100;
+    const due = new Date(year, month - 1, day);
+    due.setMonth(due.getMonth() + 2);
+    return due.getFullYear() * 10000 + (due.getMonth() + 1) * 100 + due.getDate();
+}
+```
+
+This JavaScript ES-module source file exports a function grace_period(n) that calculates the grace period for a given date. The grace period is calculated by adding 2 months to the renewal date. If the renewal date is less than 0, the function returns -1. Otherwise, it calculates the due date by adding 2 months to the renewal date and returns the due date as a 6-digit number.

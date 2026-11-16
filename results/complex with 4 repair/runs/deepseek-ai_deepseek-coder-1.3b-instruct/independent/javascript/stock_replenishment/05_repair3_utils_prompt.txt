@@ -1,0 +1,47 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 12/30 development checks.
+main.solve(41): expected 4000, actual 3700
+main.solve(1): expected 920, actual 560
+main.solve(19): expected 2360, actual 2000
+main.solve(55): expected 4900, actual 4600
+main.solve(14): expected 1640, actual 1280
+main.solve(7): expected 1280, actual 920
+main.solve(28): expected 2360, actual 2000
+main.solve(20): expected 2360, actual 2000
+main.solve(21): expected 2000, actual 1640
+service.order_quantity(41): expected 144, actual 132
+service.order_quantity(1): expected 24, actual 12
+service.order_quantity(19): expected 72, actual 60
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function weekly_demand(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function weekly_demand(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function weekly_demand(n) {
+    if (n < 0) {
+        return 0;
+    }
+    let base = n * 3;
+    let extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += Math.floor(n / 4);
+    }
+    return base + extra;
+}
+
+
+ORIGINAL PYTHON:
+
+def weekly_demand(n: int) -> int:
+    if n < 0:
+        return 0
+    base = n * 3
+    extra = (n % 7) * 2
+    if n >= 40:
+        base += n // 4
+    return base + extra

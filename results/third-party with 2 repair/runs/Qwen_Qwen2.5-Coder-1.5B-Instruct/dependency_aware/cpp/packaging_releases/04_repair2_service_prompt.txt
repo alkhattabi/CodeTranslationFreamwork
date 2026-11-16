@@ -1,0 +1,145 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+.cpp:28:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   28 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+utils.cpp:29:12: error: expected ‘;’ before ‘referenceVersion’
+   29 |     Version referenceVersion("2.1.0");
+      |            ^~~~~~~~~~~~~~~~~
+      |            ;
+utils.cpp:30:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   30 |     if (version < referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+utils.cpp:30:19: error: ‘referenceVersion’ was not declared in this scope
+   30 |     if (version < referenceVersion) {
+      |                   ^~~~~~~~~~~~~~~~
+utils.cpp:33:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   33 |     if (version == referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+utils.cpp:33:20: error: ‘referenceVersion’ was not declared in this scope
+   33 |     if (version == referenceVersion) {
+      |                    ^~~~~~~~~~~~~~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:16:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   16 | }
+      | ^
+service.cpp: In function ‘int upgrade_cost(int)’:
+service.cpp:20:1: warning
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int upgrade_cost(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+#include <numeric>
+#include <cassert>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+// Global C++ functions declared in api.hpp
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int upgrade_cost(int n) {
+    // Implementation of upgrade_cost function
+}
+
+int release_rank(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix = patch % 4 == 0 ? "rc1" : "";
+    std::string versionStr = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    Version version(versionStr);
+    Version referenceVersion("2.1.0");
+    if (version < referenceVersion) {
+        return 1;
+    }
+    if (version == referenceVersion) {
+        return 2;
+    }
+    return 3;
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+from utils import release_rank
+
+def upgrade_cost(n: int) -> int:
+    rank = release_rank(n)
+    if rank < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    current = Version(f"{major}.{minor}.{patch}")
+    required = Version("2.1.0")
+    penalty = 40 if current < required else 0
+    return rank * 25 + minor + patch // 5 + penalty
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include <iostream>
+#include <string>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+// Global C++ functions declared in api.hpp
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int upgrade_cost(int n) {
+    // Implementation of upgrade_cost function
+}
+
+int release_rank(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix = patch % 4 == 0 ? "rc1" : "";
+    std::string versionStr = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    Version version(versionStr);
+    Version referenceVersion("2.1.0");
+    if (version < referenceVersion) {
+        return 1;
+    }
+    if (version == referenceVersion) {
+        return 2;
+    }
+    return 3;
+}

@@ -1,0 +1,111 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int dijkstra(const std::vector<std::vector<int> >&, int, int)’:
+utils.cpp:13:10: error: ‘priority_queue’ is not a member of ‘std’
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |          ^~~~~~~~~~~~~~
+utils.cpp:6:1: note: ‘std::priority_queue’ is defined in header ‘<queue>’; did you forget to ‘#include <queue>’?
+    5 | #include <limits>
+  +++ |+#include <queue>
+    6 | 
+utils.cpp:13:44: error: expected primary-expression before ‘,’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                            ^
+utils.cpp:13:78: error: expected primary-expression before ‘,’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                              ^
+utils.cpp:13:93: error: expected primary-expression before ‘>’ token
+   13 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                                             ^~
+utils.cpp:13:96: error: ‘pq’ was not declar
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int disruption_score(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int disruption_score(int n);
+int route_cost(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <limits>
+
+// Helper function to calculate the cost of a route
+int route_cost(int n) {
+    // Placeholder for actual route cost calculation
+    return std::abs(n); // Example: absolute value of n
+}
+
+// Function to determine the disruption score based on the number of nodes
+int disruption_score(int n) {
+    // Create a directed graph
+    std::vector<std::vector<int>> graph(n, std::vector<int>(n));
+    graph[0][1] = 1;
+    graph[0][2] = 1;
+    graph[1][3] = 1;
+    graph[2][3] = 1;
+    graph[3][4] = 1;
+    graph[4][5] = 1;
+    graph[2][5] = 1;
+    graph[5][6] = 1;
+
+    // Remove edges based on divisibility conditions
+    if (n % 3 == 0) {
+        graph[2][5] = 0;
+    }
+    if (n % 5 == 0) {
+        graph[0][2] = 0;
+    }
+
+    // Calculate the number of reachable nodes from node 0
+    int reachable = 0;
+    for (int i = 0; i < n; ++i) {
+        if (graph[i][0]) {
+            reachable++;
+        }
+    }
+
+    // Calculate the length of the longest path in the graph
+    int longest = 0;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (graph[i][j]) {
+                longest = std::max(longest, static_cast<int>(std::distance(graph.begin() + i, std::find(graph.begin() + j, graph.end(), true))));
+            }
+        }
+    }
+
+    // Return the disruption score
+    return route_cost(n) + 3 * reachable + longest;
+}
+
+
+ORIGINAL PYTHON:
+import networkx as nx
+from utils import route_cost
+
+def disruption_score(n: int) -> int:
+    graph = nx.DiGraph()
+    graph.add_edges_from([(0, 1), (0, 2), (1, 3), (2, 3),
+                          (3, 4), (4, 5), (2, 5), (5, 6)])
+    if n % 3 == 0:
+        graph.remove_edge(2, 5)
+    if n % 5 == 0:
+        graph.remove_edge(0, 2)
+    reachable = len(nx.descendants(graph, 0))
+    longest = nx.dag_longest_path_length(graph)
+    return route_cost(n) + 3 * reachable + int(longest)

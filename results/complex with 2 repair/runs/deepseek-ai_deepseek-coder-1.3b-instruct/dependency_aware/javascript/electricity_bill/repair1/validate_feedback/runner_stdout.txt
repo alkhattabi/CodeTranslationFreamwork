@@ -1,0 +1,27 @@
+{"k":"main.solve|101","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|350","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|400","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|0","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|99","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|1","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|700","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|-50","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"main.solve|1000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.energy_charge|101","v":1020}
+{"k":"service.energy_charge|350","v":7500}
+{"k":"service.energy_charge|400","v":9000}
+{"k":"service.energy_charge|0","v":0}
+{"k":"service.energy_charge|99","v":990}
+{"k":"service.energy_charge|1","v":10}
+{"k":"service.energy_charge|700","v":24000}
+{"k":"service.energy_charge|-50","v":0}
+{"k":"service.energy_charge|1000","v":39000}
+{"k":"utils.billable_units|101","v":101}
+{"k":"utils.billable_units|350","v":350}
+{"k":"utils.billable_units|400","v":400}
+{"k":"utils.billable_units|0","v":0}
+{"k":"utils.billable_units|99","v":99}
+{"k":"utils.billable_units|1","v":1}
+{"k":"utils.billable_units|700","v":700}
+{"k":"utils.billable_units|-50","v":0}
+{"k":"utils.billable_units|1000","v":1000}

@@ -1,0 +1,36 @@
+{"k":"main.solve|-999","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|12","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|0","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|101","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|-2000","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|3","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|2","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|-256","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|2000","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|11","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|9","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"main.solve|1","error":"TypeError: number_strength.isPrime is not a function"}
+{"k":"service.number_strength|-999","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|12","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|0","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|101","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|-2000","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|3","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|2","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|-256","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|2000","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|11","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|9","error":"TypeError: Assignment to constant variable."}
+{"k":"service.number_strength|1","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|-999","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|12","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|0","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|101","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|-2000","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|3","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|2","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|-256","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|2000","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|11","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|9","error":"TypeError: Assignment to constant variable."}
+{"k":"utils.factor_signature|1","error":"TypeError: Assignment to constant variable."}

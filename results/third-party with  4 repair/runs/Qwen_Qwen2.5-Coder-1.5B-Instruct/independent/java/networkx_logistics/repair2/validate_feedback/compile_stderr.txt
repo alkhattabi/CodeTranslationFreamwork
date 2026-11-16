@@ -1,0 +1,127 @@
+Utils.java:4: error: package NetworkX does not exist
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+                ^
+Utils.java:4: error: package NetworkX does not exist
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+                                                             ^
+Utils.java:15: error: cannot find symbol
+        return (int) NetworkX.shortestPathLength(graph, 0, 6, "weight");
+                     ^
+  symbol:   variable NetworkX
+  location: class Utils
+Service.java:5: error: package NetworkX does not exist
+        NetworkX.Graph graph = new NetworkX.DiGraph();
+                ^
+Service.java:5: error: package NetworkX does not exist
+        NetworkX.Graph graph = new NetworkX.DiGraph();
+                                           ^
+Service.java:22: error: cannot find symbol
+        long reachable = NetworkX.descendants(graph, 0).size();
+                         ^
+  symbol:   variable NetworkX
+  location: class Service
+Service.java:23: error: cannot find symbol
+        long longest = NetworkX.dagLongestPathLength(graph);
+                       ^
+  symbol:   variable NetworkX
+  location: class Service
+Service.java:24: error: cannot find symbol
+        return routeCost(n) + 3 * reachable + (longest / 1L);
+               ^
+  symbol:   method routeCost(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+        ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+                             ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:13: error: cannot find symbol
+        Tree tree = graph.minimumSpanningTree("weight");
+        ^
+  symbol:   class Tree
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                       ^
+  symbol:   method disruptionScore(int)
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                                            ^
+  symbol:   method routeCost(int)
+  location: class Main
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.disruption_score|10|" + Service.disruption_score(10)); } catch (Throwable e) { System.out.println("service.disruption_score|10|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:27: error: cannot find symbol
+  try { System.out.println("utils.route_cost|10|" + Utils.route_cost(10)); } catch (Throwable e) { System.out.println("utils.route_cost|10|ERR"); }
+                                                         ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:28: error: cannot find symbol
+  try { System.out.println("utils.route_cost|1|" + Utils.route_cost(1)); } catch (Throwable e) { System.out.println("utils.route_cost|1|ERR"); }
+                                                        ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:29: error: cannot find symbol
+  try { System.out.println("utils.route_cost|9|" + Utils.route_cost(9)); } catch (Throwable e) { System.out.println("utils.route_cost|9|ERR"); }
+                                                        ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:30: error: cannot find symbol
+  try { System.out.println("utils.route_cost|5|" + Utils.route_cost(5)); } catch (Throwable e) { System.out.println("utils.route_cost|5|ERR"); }
+                                                        ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:31: error: cannot find symbol
+  try { System.out.println("utils.route_cost|0|" + Utils.route_cost(0)); } catch (Throwable e) { System.out.println("utils.route_cost|0|ERR"); }
+                                                        ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:32: error: cannot find symbol
+  try { System.out.println("utils.route_cost|11|" + Utils.route_cost(11)); } catch (Throwable e) { System.out.println("utils.route_cost|11|ERR"); }
+                                                         ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:33: error: cannot find symbol
+  try { System.out.println("utils.route_cost|100|" + Utils.route_cost(100)); } catch (Throwable e) { System.out.println("utils.route_cost|100|ERR"); }
+                                                          ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:34: error: cannot find symbol
+  try { System.out.println("utils.route_cost|-5|" + Utils.route_cost(-5)); } catch (Throwable e) { System.out.println("utils.route_cost|-5|ERR"); }
+                                                         ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:35: error: cannot find symbol
+  try { System.out.println("utils.route_cost|-9|" + Utils.route_cost(-9)); } catch (Throwable e) { System.out.println("utils.route_cost|-9|ERR"); }
+                                                         ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:36: error: cannot find symbol
+  try { System.out.println("utils.route_cost|-2|" + Utils.route_cost(-2)); } catch (Throwable e) { System.out.println("utils.route_cost|-2|ERR"); }
+                                                         ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:37: error: cannot find symbol
+  try { System.out.println("utils.route_cost|-12|" + Utils.route_cost(-12)); } catch (Throwable e) { System.out.println("utils.route_cost|-12|ERR"); }
+                                                          ^
+  symbol:   method route_cost(int)
+  location: class Utils
+EvalRunner.java:38: error: cannot find symbol
+  try { System.out.println("utils.route_cost|4|" + Utils.route_cost(4)); } catch (Throwable e) { System.out.println("utils.route_cost|4|ERR"); }
+                                                        ^
+  symbol:   method route_cost(int)
+  location: class Utils
+27 errors

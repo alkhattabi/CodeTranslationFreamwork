@@ -1,0 +1,12 @@
+main.solve|100|301
+main.solve|27|82
+main.solve|0|1
+main.solve|200|601
+service.weighted|100|201
+service.weighted|27|55
+service.weighted|0|1
+service.weighted|200|401
+utils.normalize|100|100
+utils.normalize|27|27
+utils.normalize|0|0
+utils.normalize|200|200

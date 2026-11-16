@@ -1,0 +1,22 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    int base = taxable_income(n);
+    int tax = calculate_tax(n);
+    int credit = (base > 0 && base <= 2500) ? 100 : 0;
+    int payable = tax - credit;
+    if (payable < 0) {
+        payable = 0;
+    }
+    return payable + ((base > 10000) ? (payable * 2 / 100) : 0);
+}
+```
+
+Please note that the `api.hpp` file should contain the definitions of the functions `taxable_income` and `calculate_tax`. The exact implementation of these functions would depend on your project's specific requirements.

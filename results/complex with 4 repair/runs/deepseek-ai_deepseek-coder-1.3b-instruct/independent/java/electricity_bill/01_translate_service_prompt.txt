@@ -1,0 +1,26 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int energy_charge(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.billable_units(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int energy_charge(int n) { /* implementation */ } }
+
+PYTHON FILE service.py:
+
+from utils import billable_units
+
+def energy_charge(n: int) -> int:
+    units = billable_units(n)
+    charge = 0
+    if units > 400:
+        charge += (units - 400) * 50
+        units = 400
+    if units > 200:
+        charge += (units - 200) * 30
+        units = 200
+    if units > 100:
+        charge += (units - 100) * 20
+        units = 100
+    charge += units * 10
+    return charge

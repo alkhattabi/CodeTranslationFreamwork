@@ -1,0 +1,46 @@
+public class Main {
+    public static int solve(int n) {
+        int base = taxableIncome(n);
+        int tax = calculateTax(n);
+        int credit = 100;
+        if (base > 0 && base <= 2500) {
+            credit = 0;
+        }
+        int payable = tax - credit;
+        if (payable < 0) {
+            payable = 0;
+        }
+        return payable + (payable * 2 / 100 > 0? (payable * 2) / 100 : 0);
+    }
+
+    // Static methods of their class
+    public static int taxableIncome(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+
+    public static int calculateTax(int n) {
+        int income = taxable_income(n);
+        int tax = 0;
+        if (income > 7000) {
+            tax += (income - 7000) * 20 / 100;
+            income = 7000;
+        }
+        if (income > 3000) {
+            tax += (income - 3000) * 12 / 100;
+            income = 3000;
+        }
+        tax += income * 5 / 100;
+        return tax;
+    }
+}
+
+Note: The taxable_income method from the utils module is assumed to be implemented in Java and is not provided here.
+
+This Java code mirrors the functionality of the provided Python code, translating the logic and dependencies into Java syntax. The classes are placed in the default package, and there's no main method or extra public classes. The function names and structure are preserved as closely as possible, with the understanding that Java does not support Python's syntax for type hints or docstrings.

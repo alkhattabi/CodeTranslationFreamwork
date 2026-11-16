@@ -1,0 +1,64 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 13/36 development checks.
+main.solve(3): expected 76, actual ERR: ReferenceError: current is not defined
+main.solve(49999): expected 206, actual ERR: ReferenceError: current is not defined
+main.solve(29999): expected 306, actual ERR: ReferenceError: current is not defined
+main.solve(99): expected 95, actual ERR: ReferenceError: current is not defined
+main.solve(2): expected 76, actual ERR: ReferenceError: current is not defined
+main.solve(1): expected 76, actual ERR: ReferenceError: current is not defined
+main.solve(30104): expected 179, actual ERR: ReferenceError: current is not defined
+main.solve(30000): expected 178, actual ERR: ReferenceError: current is not defined
+main.solve(10100): expected 67, actual ERR: ReferenceError: current is not defined
+main.solve(20100): expected 127, actual ERR: ReferenceError: current is not defined
+main.solve(20203): expected 190, actual ERR: ReferenceError: current is not defined
+service.upgrade_cost(3): expected 65, actual ERR: ReferenceError: current is not defined
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function release_rank(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function release_rank(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+export function release_rank(n) {
+    if (n < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = Math.floor((n / 100) % 100);
+    const patch = n % 100;
+    let suffix = "";
+    if (patch % 4 === 0) {
+        suffix = "rc1";
+    }
+    const version = `${major}.${minor}.${patch}${suffix}`;
+    const reference = "2.1.0";
+    if (version.localeCompare(reference) < 0) {
+        return 1;
+    }
+    if (version.localeCompare(reference) === 0) {
+        return 2;
+    }
+    return 3;
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+
+def release_rank(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    reference = Version("2.1.0")
+    if version < reference:
+        return 1
+    if version == reference:
+        return 2
+    return 3

@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\n        int demand = Utils.weeklyDemand(n);\n                          ^\n  symbol:   method weeklyDemand(int)\n  location: class Utils\n1 error\n",
+  "failed_modules": [
+    "service",
+    "utils"
+  ],
+  "case_failures": []
+}

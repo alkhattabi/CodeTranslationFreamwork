@@ -1,0 +1,27 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int yearly_interest(int n) {
+        int band = Utils.credit_band(n);
+        if (band == 0) {
+            return -1;
+        }
+        int principal = 10000 + (n - 300) * 10;
+        int rate = 18 - band * 3;
+        int interest = (principal * rate) / 100;
+        if (principal > 14000) {
+            interest += 125;
+        }
+        return interest;
+    }
+}
+```
+
+Please note that in Java, the import statement is not used to import classes or modules. Instead, you should use the fully qualified name of the class or method you want to use. In this case, you would import the Utils class like this:
+
+```java
+import your.package.name.Utils;
+```
+
+Also, please replace `your.package.name` with the actual package name where the Utils class is located.

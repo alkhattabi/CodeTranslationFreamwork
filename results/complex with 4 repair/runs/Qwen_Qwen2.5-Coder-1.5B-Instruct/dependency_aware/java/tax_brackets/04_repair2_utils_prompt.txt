@@ -1,0 +1,69 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:1: error: illegal character: '`'
+```java
+^
+Main.java:1: error: illegal character: '`'
+```java
+ ^
+Main.java:1: error: illegal character: '`'
+```java
+  ^
+Main.java:2: error: class, interface, enum, or record expected
+import java.util.function.Function;
+^
+Main.java:19: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                           ^
+Main.java:19: error: '(' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                              ^
+Main.java:19: error: ')' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                           ^
+Main.java:19: error: not a statement
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                 ^
+Main.java:19: error: ';' expected
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                                  ^
+Main.java:19: error: 'else' without 'if'
+        return payable + (payable * 2 / 100 if base > 10000 else 0);
+                                                            ^
+Main.java:49: error: reached end of file while parsing
+        System.out.println(solve(270
+                                    ^
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int taxable_income(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int taxable_income(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int taxable_income(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+def taxable_income(n: int) -> int:
+    if n <= 500:
+        return 0
+    income = n - 500
+    if income > 20000:
+        income = 20000
+    return income

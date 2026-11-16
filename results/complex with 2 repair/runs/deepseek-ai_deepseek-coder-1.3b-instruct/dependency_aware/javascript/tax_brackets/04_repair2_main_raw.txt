@@ -1,0 +1,24 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { calculate_tax } from "./service.mjs";
+import { taxable_income } from "./utils.mjs";
+
+export function solve(n) {
+    if (typeof n !== 'number' || n % 1 !== 0) {
+        throw new Error('Input must be an integer');
+    }
+
+    const base = taxable_income(n);
+    const tax = calculate_tax(n);
+    const credit = n <= 2500 ? 100 : 0;
+    const payable = tax - credit;
+    const payableWith20PercentDiscount = payable < 0 ? 0 : payable * 0.8;
+    const additionalDiscount = base > 10000 ? (payableWith20PercentDiscount * 0.2) : 0;
+    return payableWith20PercentDiscount + additionalDiscount;
+}
+```
+
+This code exports a function `solve` that takes an integer `n` as input and returns a safe integer as output. The function first checks if the input is an integer and if it's not, it throws an error. Then it calculates the tax, base income, credit, payable amount, payable amount after 20% discount, and additional discount based on the base income. Finally, it returns the total payable amount after applying the discounts.
+
+The dependencies `service.mjs` and `utils.mjs` are imported from their respective files.

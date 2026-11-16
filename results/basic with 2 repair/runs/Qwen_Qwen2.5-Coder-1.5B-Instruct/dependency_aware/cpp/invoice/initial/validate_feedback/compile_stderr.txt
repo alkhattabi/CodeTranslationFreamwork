@@ -1,0 +1,16 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccp5gDg6.o: in function `unit_price(int)':
+service.cpp:(.text+0x0): multiple definition of `unit_price(int)'; /tmp/cceyDdLg.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccop782l.o: in function `unit_price(int)':
+main.cpp:(.text+0x0): multiple definition of `unit_price(int)'; /tmp/cceyDdLg.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccop782l.o: in function `gross(int)':
+main.cpp:(.text+0x1f): multiple definition of `gross(int)'; /tmp/ccp5gDg6.o:service.cpp:(.text+0x1f): first defined here
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,18 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { number_strength } from "./service.mjs";
+import { factor_signature } from "./utils.mjs";
+
+export function solve(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let prime_bonus = (value % 2 === 0) ? 50 : 0;
+  let next_prime = Math.floor(Math.sqrt(value)) + 1;
+  while(value % 2 === 0) {
+    next_prime = Math.floor(Math.sqrt(value)) + 1;
+  }
+  return number_strength(n) + prime_bonus + next_prime - factor_signature(n);
+}
+```
+
+This code is exporting a function `solve` that takes an integer `n` as an argument and returns an integer. It uses imports from other local modules when needed. The broken Python code was not provided, so I can't provide a direct translation.

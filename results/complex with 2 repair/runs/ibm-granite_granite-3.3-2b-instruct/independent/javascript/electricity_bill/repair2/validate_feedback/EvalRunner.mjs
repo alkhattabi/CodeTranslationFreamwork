@@ -1,0 +1,12 @@
+import * as M_utils from "./utils.mjs";
+import * as M_service from "./service.mjs";
+import * as M_main from "./main.mjs";
+const tests = [{"m": "main", "f": "solve", "n": 101, "k": "main.solve|101"}, {"m": "main", "f": "solve", "n": 350, "k": "main.solve|350"}, {"m": "main", "f": "solve", "n": 400, "k": "main.solve|400"}, {"m": "main", "f": "solve", "n": 0, "k": "main.solve|0"}, {"m": "main", "f": "solve", "n": 99, "k": "main.solve|99"}, {"m": "main", "f": "solve", "n": 1, "k": "main.solve|1"}, {"m": "main", "f": "solve", "n": 700, "k": "main.solve|700"}, {"m": "main", "f": "solve", "n": -50, "k": "main.solve|-50"}, {"m": "main", "f": "solve", "n": 1000, "k": "main.solve|1000"}, {"m": "service", "f": "energy_charge", "n": 101, "k": "service.energy_charge|101"}, {"m": "service", "f": "energy_charge", "n": 350, "k": "service.energy_charge|350"}, {"m": "service", "f": "energy_charge", "n": 400, "k": "service.energy_charge|400"}, {"m": "service", "f": "energy_charge", "n": 0, "k": "service.energy_charge|0"}, {"m": "service", "f": "energy_charge", "n": 99, "k": "service.energy_charge|99"}, {"m": "service", "f": "energy_charge", "n": 1, "k": "service.energy_charge|1"}, {"m": "service", "f": "energy_charge", "n": 700, "k": "service.energy_charge|700"}, {"m": "service", "f": "energy_charge", "n": -50, "k": "service.energy_charge|-50"}, {"m": "service", "f": "energy_charge", "n": 1000, "k": "service.energy_charge|1000"}, {"m": "utils", "f": "billable_units", "n": 101, "k": "utils.billable_units|101"}, {"m": "utils", "f": "billable_units", "n": 350, "k": "utils.billable_units|350"}, {"m": "utils", "f": "billable_units", "n": 400, "k": "utils.billable_units|400"}, {"m": "utils", "f": "billable_units", "n": 0, "k": "utils.billable_units|0"}, {"m": "utils", "f": "billable_units", "n": 99, "k": "utils.billable_units|99"}, {"m": "utils", "f": "billable_units", "n": 1, "k": "utils.billable_units|1"}, {"m": "utils", "f": "billable_units", "n": 700, "k": "utils.billable_units|700"}, {"m": "utils", "f": "billable_units", "n": -50, "k": "utils.billable_units|-50"}, {"m": "utils", "f": "billable_units", "n": 1000, "k": "utils.billable_units|1000"}];
+const modules = {"utils":M_utils, "service":M_service, "main":M_main};
+for (const t of tests) {
+  try {
+    const v = modules[t.m][t.f](t.n);
+    if (!Number.isSafeInteger(v)) throw new Error("result must be a safe integer");
+    console.log(JSON.stringify({k:t.k, v:v}));
+  } catch (e) { console.log(JSON.stringify({k:t.k, error:String(e)})); }
+}

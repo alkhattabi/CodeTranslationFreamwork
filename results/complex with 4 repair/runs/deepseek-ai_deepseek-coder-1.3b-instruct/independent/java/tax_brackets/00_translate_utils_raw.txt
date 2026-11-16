@@ -1,0 +1,18 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int taxable_income(int n) {
+        if (n <= 500) {
+            return 0;
+        }
+        int income = n - 500;
+        if (income > 20000) {
+            income = 20000;
+        }
+        return income;
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It checks if the input `n` is less than or equal to 500, and if it is, it returns 0. If `n` is greater than 500, it calculates the taxable income by subtracting 500 from `n`. If the result is greater than 20000, it sets the result to 20000. Otherwise, it returns the result.

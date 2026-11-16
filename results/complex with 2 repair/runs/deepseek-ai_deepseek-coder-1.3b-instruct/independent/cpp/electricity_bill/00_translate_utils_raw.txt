@@ -1,0 +1,18 @@
+Here is the C++ implementation of the Python function `billable_units(n)`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int billable_units(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    if (n > 1200) {
+        return 1200;
+    }
+    return n;
+}
+```
+
+This function checks if the input `n` is less than 0 or greater than 1200, and returns 0 or 1200 respectively. If `n` is between 0 and 1200, it returns `n` as is.

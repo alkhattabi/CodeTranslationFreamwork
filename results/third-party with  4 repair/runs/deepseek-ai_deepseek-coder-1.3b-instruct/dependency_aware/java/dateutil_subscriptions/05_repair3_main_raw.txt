@@ -1,0 +1,47 @@
+The provided code is in Python and it seems to be using a third-party library to calculate the renewal date and grace period. The library is not provided in the original question, so I'll provide a solution in Java.
+
+The original Python code uses negative floor division and modulo semantics, which are not valid in Java. In Java, these operations should be replaced with appropriate arithmetic operators.
+
+Here is the corrected Java code:
+
+```java
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            LocalDate start = LocalDate.of(year, month, day);
+            LocalDate end = start.plusMonths(1);
+            return end.getYear() * 10000 + end.getMonthValue() * 100 + end.getDayOfMonth();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+}
+
+public class Service {
+    public static int grace_period(int n) {
+        int renewed = Utils.renewal_date(n);
+        if (renewed < 0) {
+            return -1;
+        }
+        int year, month, day;
+        year = renewed / 10000;
+        month = (renewed / 100) % 100;
+        day = renewed % 100;
+        LocalDate due = LocalDate.of(year, month, day).plus(2, ChronoUnit.DAYS);
+        return due.getYear() * 10000 + due.getMonthValue() * 100 + due.getDayOfMonth();
+    }
+}
+```
+
+In the `Utils` class, the `renewal_date` method calculates the renewal date by dividing the input number by 10000, then by 100 to get the year, then by 100 to get the month, and finally by 100 to get the day. The `grace_period` method calculates the grace period by adding 2 days to the renewal date.
+
+Please note that this code assumes that the input number `n` is a valid date in the range 19000101 to 20991231. If `n` is not a valid date, the `renewal_date` method will return -1, and the `grace_period` method will also return -1.

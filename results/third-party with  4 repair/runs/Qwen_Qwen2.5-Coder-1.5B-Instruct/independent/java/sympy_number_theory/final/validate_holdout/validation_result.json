@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:7: error: illegal start of expression\n        import org.sympy.ntheory.factor.FactorInteger;\n        ^\nUtils.java:7: error: not a statement\n        import org.sympy.ntheory.factor.FactorInteger;\n                                       ^\n2 errors\n",
+  "failed_modules": [
+    "utils"
+  ],
+  "case_failures": []
+}

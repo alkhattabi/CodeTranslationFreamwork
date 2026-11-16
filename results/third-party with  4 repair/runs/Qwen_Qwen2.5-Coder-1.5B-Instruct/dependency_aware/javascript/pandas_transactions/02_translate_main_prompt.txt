@@ -1,0 +1,55 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { rolling_alert } from "./service.mjs";
+  import { category_balance } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: pandas.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty
+
+
+ALREADY TRANSLATED DEPENDENCY: service.mjs
+// service.mjs
+import { category_balance } from "./utils.mjs";
+
+export function rolling_alert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const series = new Array(5).fill(n % 13);
+    series[1] = (n >>> 1) % 13;
+    series[2] = n % 17;
+    series[3] = Math.abs(n) % 11;
+    series[4] = n % 7;
+    const rolling = series.reduce((acc, val) => acc + val, 0);
+    const alerts = (rolling >= 15).reduce((acc, val) => acc + val, 0);
+    return alerts * 10 + category_balance(n) % 23;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+export function category_balance(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const frame = new DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, Math.floor(n / 2), -7, n % 9, 4, -Math.floor(n / 3)]
+    });
+    const sums = frame.groupby("category", sort=true).sum();
+    return parseInt(2 * sums.get("A") + sums.get("B") - sums.get("C"));
+}

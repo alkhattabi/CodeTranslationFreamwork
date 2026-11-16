@@ -1,0 +1,36 @@
+Here is the C++ implementation of the Python code. Note that the C++ version of the code does not include the pandas library, as the pandas library is not available in the C++ standard library.
+
+```cpp
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include "api.hpp"
+
+int solve(int n) {
+    // Your solve function implementation here
+    return n * n;
+}
+
+int rolling_alert(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}
+
+int category_balance(int n) {
+    n = std::max(-200, std::min(200, n));
+
+    int sumA = 2 * n;
+    int sumB = n / 2;
+    int sumC = n % 9;
+
+    return sumA + sumB - sumC;
+}
+```
+
+Please note that the `rolling_alert` function in the Python code is not implemented in the C++ version. You would need to implement this function yourself or use a library that provides a rolling window function.

@@ -1,0 +1,12 @@
+{"k":"main.solve|-123","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|1005","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|37","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|999","error":"ReferenceError: require is not defined"}
+{"k":"service.score_digits|-123","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.score_digits|1005","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.score_digits|37","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.score_digits|999","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|-123","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|1005","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|37","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|999","error":"TypeError: modules[t.m][t.f] is not a function"}

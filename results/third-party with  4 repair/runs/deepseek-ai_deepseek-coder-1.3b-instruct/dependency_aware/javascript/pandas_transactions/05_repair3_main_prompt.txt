@@ -1,0 +1,78 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+service.mjs
+/content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/pandas_transactions/initial/validate_feedback/service.mjs:6
+    let rolling = series.reduce((a, b) => a + b, 0);
+    ^^^
+
+SyntaxError: Unexpected strict mode reserved word
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { rolling_alert } from "./service.mjs";
+  import { category_balance } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { category_balance } from "./utils.mjs";
+import { rolling_alert } from "./service.mjs";
+
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = [Math.abs(balance) % 50, alert, Math.abs(n) % 50];
+    const ranks = scores.map(score => {
+        const series = [score % 13, (score // 2) % 13, score % 17, Math.abs(score) % 11, score % 7];
+        const rolling = series.reduce((a, b) => a + b, 0);
+        return Math.floor(rolling / 15) * 10 + Math.abs(category_balance(n)) % 23;
+    });
+    const penalty = ranks.reduce((a, b) => a + b, 0);
+    return balance + alert - penalty;
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty
+
+
+DEPENDENCY service.mjs:
+import { category_balance } from "./utils.mjs";
+
+export function rolling_alert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    let series = [n % 13, (n // 2) % 13, n % 17, Math.abs(n) % 11, n % 7];
+    let rolling = series.reduce((a, b) => a + b, 0);
+    let alerts = Math.floor(rolling / 15) * 10 + Math.abs(category_balance(n)) % 23;
+    return alerts;
+}
+
+
+DEPENDENCY utils.mjs:
+export function category_balance(n) {
+    n = Math.max(-200, Math.min(200, n));
+    let frame = {
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, Math.floor(n / 2), -7, Math.floor(n / 9), 4, -Math.floor(n / 3)]
+    };
+    let sums = frame.amount.reduce((a, b) => a + b, 0);
+    return 2 * sums - sums.filter(x => x < 0).reduce((a, b) => a + b, 0);
+}

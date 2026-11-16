@@ -1,0 +1,22 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int number_strength(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int number_strength(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: sympy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+import sympy as sp
+from utils import factor_signature
+
+def number_strength(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    phi = int(sp.totient(value))
+    divisor_count = int(sp.divisor_count(value))
+    return phi + 5 * divisor_count + factor_signature(n)

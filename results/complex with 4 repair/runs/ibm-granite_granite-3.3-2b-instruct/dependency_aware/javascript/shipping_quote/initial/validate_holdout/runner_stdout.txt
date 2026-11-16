@@ -1,0 +1,27 @@
+{"k":"main.solve|2501","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-3000","v":0}
+{"k":"main.solve|499","error":"Error: result must be a safe integer"}
+{"k":"main.solve|5001","error":"Error: result must be a safe integer"}
+{"k":"main.solve|501","error":"Error: result must be a safe integer"}
+{"k":"main.solve|0","v":0}
+{"k":"main.solve|1","error":"Error: result must be a safe integer"}
+{"k":"main.solve|9999","error":"Error: result must be a safe integer"}
+{"k":"main.solve|4999","error":"Error: result must be a safe integer"}
+{"k":"service.transport_cost|2501","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|-3000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|499","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|5001","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|501","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|0","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|1","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|9999","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"service.transport_cost|4999","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|2501","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|-3000","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|499","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|5001","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|501","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|0","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|1","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|9999","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.weight_blocks|4999","error":"TypeError: modules[t.m][t.f] is not a function"}

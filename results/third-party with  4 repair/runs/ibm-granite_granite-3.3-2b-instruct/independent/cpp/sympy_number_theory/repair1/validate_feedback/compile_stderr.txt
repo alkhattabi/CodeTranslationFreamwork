@@ -1,0 +1,33 @@
+utils.cpp: In function ‘int factor_signature(int)’:
+utils.cpp:5:10: error: ‘map’ is not a member of ‘std’
+    5 |     std::map<int, int> factors = sp::factorint(value);
+      |          ^~~
+utils.cpp:2:1: note: ‘std::map’ is defined in header ‘<map>’; did you forget to ‘#include <map>’?
+    1 | #include "api.hpp"
+  +++ |+#include <map>
+    2 | 
+utils.cpp:5:14: error: expected primary-expression before ‘int’
+    5 |     std::map<int, int> factors = sp::factorint(value);
+      |              ^~~
+utils.cpp:7:29: error: ‘factors’ was not declared in this scope; did you mean ‘acos’?
+    7 |     for (const auto& pair : factors) {
+      |                             ^~~~~~~
+      |                             acos
+utils.cpp:10:24: error: ‘factors’ was not declared in this scope; did you mean ‘acos’?
+   10 |     return score + 3 * factors.size();
+      |                        ^~~~~~~
+      |                        acos
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:5:25: error: ‘totient’ is not a member of ‘std’
+    5 |     int phi = (int)std::totient(value);
+      |                         ^~~~~~~
+service.cpp:6:35: error: ‘divisor_count’ is not a member of ‘std’
+    6 |     int divisor_count = (int)std::divisor_count(value);
+      |                                   ^~~~~~~~~~~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:5:24: error: ‘sp’ has not been declared
+    5 |     int prime_bonus = (sp::isprime(value)? 50 : 0);
+      |                        ^~
+main.cpp:6:39: error: ‘sp’ has not been declared
+    6 |     int next_prime = static_cast<int>(sp::nextprime(value));
+      |                                       ^~

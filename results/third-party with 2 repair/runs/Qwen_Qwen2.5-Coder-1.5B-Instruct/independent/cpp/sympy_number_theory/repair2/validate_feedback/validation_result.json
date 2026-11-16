@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int solve(int)\u2019:\nservice.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   14 | }\n      | ^\nservice.cpp: In function \u2018int number_strength(int)\u2019:\nservice.cpp:18:37: error: \u2018gcd\u2019 is not a member of \u2018std\u2019\n   18 |     int phi = static_cast<int>(std::gcd(value, value - 1));\n      |                                     ^~~\nservice.cpp: In function \u2018int factor_signature(int)\u2019:\nservice.cpp:25:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   25 | }\n      | ^\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

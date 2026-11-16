@@ -1,0 +1,53 @@
+public class Utils {
+    public static int billableUnits(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+}
+
+public class Service {
+    public static int energy_charge(int n) {
+        int units = Utils.billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+
+public class Main {
+    public static int solve(int n) {
+        int units = Utils.billableUnits(n);
+        if (units == 0) {
+            return 0;
+        }
+        int charge = Service.energy_charge(n);
+        int service_fee = 200;
+        if (units <= 400) {
+            service_fee = 200;
+        } else {
+            service_fee = 500;
+        }
+        int rebate = charge / 20;
+        if (units < 100) {
+            rebate = 0;
+        }
+        return charge + service_fee - rebate;
+    }
+}

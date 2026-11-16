@@ -1,0 +1,10 @@
+package com.example;
+
+import com.example.Utils;
+
+public class Service {
+    public static int bonus_score(int n) {
+        int base = Utils.clamp(n);
+        return Utils.clamp(base + 7);
+    }
+}

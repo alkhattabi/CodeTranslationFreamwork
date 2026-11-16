@@ -1,0 +1,17 @@
+// service.mjs
+import { categoryBalance } from "./utils.mjs";
+
+export function rollingAlert(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const series = [n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7];
+    const rolling = series.reduce((acc, curr, i) => {
+        acc[i] = acc[i] || 0;
+        acc[i] += curr;
+        return acc;
+    }, []);
+
+    const windowSize = 3;
+    const alerts = (rolling.map(x => x >= 15).reduce((sum, isAlert) => sum + isAlert, 0) * 10) + categoryBalance(n) % 23;
+
+    return alerts;
+}

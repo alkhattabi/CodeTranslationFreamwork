@@ -1,0 +1,45 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int order_quantity(int n);
+
+// Global C++ functions declared in api.hpp
+
+int weekly_demand(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    int base = n * 3;
+    int extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += n / 4;
+    }
+    return base + extra;
+}
+
+int order_quantity(int n) {
+    int demand = weekly_demand(n);
+    int safety = 15 if demand < 100 else 35;
+    int available = n if n > 0 else 0;
+    int shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    int packs = (shortage + 11) / 12;
+    return packs * 12;
+}
+
+int solve(int n) {
+    int quantity = order_quantity(n);
+    if (quantity == 0) {
+        return 0;
+    }
+    int demand = weekly_demand(n);
+    int unit_cost = 25 if quantity >= 120 else 30;
+    int shipping = 400 if demand > 100 else 200;
+    return quantity * unit_cost + shipping;
+}

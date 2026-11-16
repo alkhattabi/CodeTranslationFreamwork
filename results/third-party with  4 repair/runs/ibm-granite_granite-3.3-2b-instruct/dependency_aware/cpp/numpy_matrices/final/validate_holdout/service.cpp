@@ -1,0 +1,26 @@
+#include "api.hpp"
+
+int matrix_energy(int n) {
+    int x = std::max(-100, std::min(100, n));
+    std::vector<std::vector<int>> m = {{x % 5, 2, -1}, {3, x % 7, 4}, {1, 5, x % 3}};
+    std::vector<std::vector<int>> square(m.size(), std::vector<int>(m.size()));
+
+    for (size_t i = 0; i < m.size(); ++i) {
+        for (size_t j = 0; j < m.size(); ++j) {
+            square[i][j] = m[i][j];
+        }
+    }
+
+    for (size_t i = 0; i < square.size(); ++i) {
+        for (size_t j = 0; j < square.size(); ++j) {
+            square[i][j] *= square[i][j];
+        }
+    }
+
+    int diagonal = 0;
+    for (size_t i = 0; i < square.size(); ++i) {
+        diagonal += square[i][i];
+    }
+
+    return diagonal + vector_signature(n);
+}

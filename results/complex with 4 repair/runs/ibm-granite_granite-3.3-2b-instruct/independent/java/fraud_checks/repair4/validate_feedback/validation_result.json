@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:25: error: class, interface, enum, or record expected\nNote: The provided code snippets for Service.java and Utils.java are incomplete and lack the actual implementation of the riskPoints and luhnValid methods. The corrected Main.java file assumes these methods exist and are correctly implemented in their respective classes.\n^\n1 error\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

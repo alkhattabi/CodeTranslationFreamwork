@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccXdZBNt.o: in function `normalize(int)':\nservice.cpp:(.text+0x0): multiple definition of `normalize(int)'; /tmp/cc31heXK.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccup0kkJ.o: in function `normalize(int)':\nmain.cpp:(.text+0x0): multiple definition of `normalize(int)'; /tmp/cc31heXK.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccup0kkJ.o: in function `weighted(int)':\nmain.cpp:(.text+0x1d): multiple definition of `weighted(int)'; /tmp/ccXdZBNt.o:service.cpp:(.text+0x1d): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

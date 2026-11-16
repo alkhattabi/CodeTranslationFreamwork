@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: cannot find symbol\n        int blocks = Utils.weightBlocks(n);\n                          ^\n  symbol:   method weightBlocks(int)\n  location: class Utils\nMain.java:14: error: cannot find symbol\n        int blocks = Utils.weightBlocks(n);\n                          ^\n  symbol:   method weightBlocks(int)\n  location: class Utils\n2 errors\n",
+  "failed_modules": [
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

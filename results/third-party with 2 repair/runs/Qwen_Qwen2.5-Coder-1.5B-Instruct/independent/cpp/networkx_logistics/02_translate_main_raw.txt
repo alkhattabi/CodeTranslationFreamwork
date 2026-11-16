@@ -1,0 +1,28 @@
+```cpp
+#pragma once
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+// Helper function prototypes
+int disruption_score(int n);
+int route_cost(int n);
+
+// Main function
+int solve(int n);
+
+// Global variables
+extern std::vector<std::pair<int, int>> edges;
+extern int offset;
+
+// Helper function definitions
+int disruption_score(int n) {
+    // Implementation of disruption_score function
+    return n * 2; // Example implementation
+}
+
+int route_cost(int n) {
+    // Implementation of route_cost function
+    return n * 3; // Example implementation
+}
+```

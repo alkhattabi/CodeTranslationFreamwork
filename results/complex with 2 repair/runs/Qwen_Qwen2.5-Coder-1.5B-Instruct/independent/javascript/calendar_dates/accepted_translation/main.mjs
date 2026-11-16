@@ -1,0 +1,11 @@
+import { dayOfYear } from "./service.mjs";
+import { validDate } from "./utils.mjs";
+
+export function solve(n: number): number {
+    if (!validDate(n)) {
+        return -1;
+    }
+    const month = Math.floor((n / 100) % 100);
+    const quarter = Math.ceil((month - 1) / 3) + 1;
+    return quarter * 1000 + dayOfYear(n);
+}

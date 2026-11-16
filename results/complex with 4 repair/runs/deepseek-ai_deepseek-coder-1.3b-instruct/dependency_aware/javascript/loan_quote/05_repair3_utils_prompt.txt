@@ -1,0 +1,57 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 22/33 development checks.
+main.solve(500): expected 1180, actual 1192
+main.solve(799): expected 1347, actual ERR: TypeError: Assignment to constant variable.
+main.solve(549): expected 1227, actual 1239
+main.solve(450): expected 1132, actual 1144
+main.solve(800): expected 1348, actual ERR: TypeError: Assignment to constant variable.
+main.solve(499): expected 1179, actual 1191
+service.yearly_interest(799): expected 1024, actual ERR: TypeError: Assignment to constant variable.
+service.yearly_interest(549): expected 1873, actual ERR: Error: result must be a safe integer
+service.yearly_interest(699): expected 1259, actual ERR: Error: result must be a safe integer
+service.yearly_interest(800): expected 1025, actual ERR: TypeError: Assignment to constant variable.
+service.yearly_interest(499): expected 1798, actual ERR: Error: result must be a safe integer
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function credit_band(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function credit_band(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function credit_band(n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+
+
+ORIGINAL PYTHON:
+
+def credit_band(n: int) -> int:
+    if n < 300 or n > 850:
+        return 0
+    if n >= 750:
+        return 4
+    if n >= 650:
+        return 3
+    if n >= 550:
+        return 2
+    if n >= 450:
+        return 1
+    return 0

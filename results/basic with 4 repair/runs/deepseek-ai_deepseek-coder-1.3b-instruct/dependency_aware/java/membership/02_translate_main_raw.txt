@@ -1,0 +1,16 @@
+Here is the Java version of your Python code:
+
+```java
+public class Main {
+    public static int solve(int n) {
+        int value = n * 4 - discount(n);
+        return Math.max(0, value);
+    }
+
+    public static int discount(int n) {
+        return Utils.tier(n) * 5;
+    }
+}
+```
+
+Please note that the `discount` method in the `Main` class is a static method, which means it can be called without creating an instance of the `Main` class. Also, the `discount` method is a static method of the `Utils` class, which is not provided in your provided Python code. You may need to define this class or import it from another module.

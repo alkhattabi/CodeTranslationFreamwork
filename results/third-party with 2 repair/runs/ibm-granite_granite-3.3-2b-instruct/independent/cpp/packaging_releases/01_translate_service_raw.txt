@@ -1,0 +1,19 @@
+service.cpp
+
+```cpp
+#include "api.hpp"
+
+int upgrade_cost(int n) {
+    int rank = release_rank(n);
+    if (rank < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    api::Version current(major, minor, patch);
+    api::Version required("2.1.0");
+    int penalty = (current < required)? 40 : 0;
+    return rank * 25 + minor + patch / 5 + penalty;
+}
+```

@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int rolling_alert(int)\u2019:\nservice.cpp:20:10: error: \u2018vector\u2019 is not a member of \u2018std\u2019\n   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};\n      |          ^~~~~~\nservice.cpp:2:1: note: \u2018std::vector\u2019 is defined in header \u2018<vector>\u2019; did you forget to \u2018#include <vector>\u2019?\n    1 | #include \"api.hpp\"\n  +++ |+#include <vector>\n    2 | \nservice.cpp:20:17: error: expected primary-expression before \u2018int\u2019\n   20 |     std::vector<int> series = {n % 13, (n / 2) % 13, n % 17, std::abs(n) % 11, n % 7};\n      |                 ^~~\nservice.cpp:21:25: error: \u2018accumulate\u2019 is not a member of \u2018std\u2019\n   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);\n      |                         ^~~~~~~~~~\nservice.cpp:21:36: error: \u2018series\u2019 was not declared in this scope\n   21 |     auto rolling = std::accumulate(series.begin(), series.end(), 0);\n      |                                    ^~~~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

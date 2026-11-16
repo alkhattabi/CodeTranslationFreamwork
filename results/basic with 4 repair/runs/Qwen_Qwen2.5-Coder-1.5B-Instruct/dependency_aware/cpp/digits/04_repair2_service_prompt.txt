@@ -1,0 +1,95 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccypLC5o.o: in function `digit_sum(int)':
+service.cpp:(.text+0x0): multiple definition of `digit_sum(int)'; /tmp/ccyQLqgI.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cchukISB.o: in function `digit_sum(int)':
+main.cpp:(.text+0x0): multiple definition of `digit_sum(int)'; /tmp/ccyQLqgI.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cchukISB.o: in function `score_digits(int)':
+main.cpp:(.text+0x77): multiple definition of `score_digits(int)'; /tmp/ccypLC5o.o:service.cpp:(.text+0x77): first defined here
+collect2: error: ld returned 1 exit status
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int score_digits(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int score_digits(int n);
+int digit_sum(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int score_digits(int n);
+
+// Global C++ function declarations from api.hpp
+int digit_sum(int n);
+
+// Implementation of digit_sum function in utils.cpp
+int digit_sum(int n) {
+    n = std::abs(n);
+    int total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n /= 10;
+    }
+    return total;
+}
+
+// Implementation of score_digits function in service.cpp
+int score_digits(int n) {
+    return digit_sum(n) * 3;
+}
+
+
+ORIGINAL PYTHON:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int score_digits(int n);
+
+// Global C++ function declarations from api.hpp
+int digit_sum(int n);
+
+// Implementation of digit_sum function in utils.cpp
+int digit_sum(int n) {
+    n = std::abs(n);
+    int total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n /= 10;
+    }
+    return total;
+}

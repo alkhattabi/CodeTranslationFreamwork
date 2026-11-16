@@ -1,0 +1,17 @@
+Main.java:15: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+Main.java:30: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:3: error: cannot find symbol
+        int quantity = order_quantity(n);
+                       ^
+  symbol:   method order_quantity(int)
+  location: class Main
+Main.java:7: error: cannot find symbol
+        int demand = weekly_demand(n);
+                     ^
+  symbol:   method weekly_demand(int)
+  location: class Main
+4 errors

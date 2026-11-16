@@ -1,0 +1,260 @@
+{
+  "compiled": true,
+  "passed": 1,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 99,
+      "expected": 415,
+      "actual": "-119"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -7,
+      "expected": 397,
+      "actual": "-20"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 0,
+      "expected": 66,
+      "actual": "0"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -30,
+      "expected": 503,
+      "actual": "-37"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 100,
+      "expected": 456,
+      "actual": "-123"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -11,
+      "expected": 392,
+      "actual": "-12"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 30,
+      "expected": 383,
+      "actual": "-45"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -3,
+      "expected": 518,
+      "actual": "-3"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -1,
+      "expected": 512,
+      "actual": "-2"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -100,
+      "expected": 546,
+      "actual": "-115"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -12,
+      "expected": 520,
+      "actual": "-15"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 51,
+      "expected": 558,
+      "actual": "-86"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 99,
+      "expected": 190,
+      "actual": "20"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -7,
+      "expected": 219,
+      "actual": "13"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 0,
+      "expected": 50,
+      "actual": "0"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -30,
+      "expected": 285,
+      "actual": "7"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 100,
+      "expected": 205,
+      "actual": "23"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -11,
+      "expected": 226,
+      "actual": "1"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 30,
+      "expected": 198,
+      "actual": "15"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -3,
+      "expected": 355,
+      "actual": "0"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -1,
+      "expected": 385,
+      "actual": "1"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -100,
+      "expected": 265,
+      "actual": "15"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -12,
+      "expected": 348,
+      "actual": "3"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 51,
+      "expected": 313,
+      "actual": "35"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 99,
+      "expected": 123,
+      "actual": "20"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -7,
+      "expected": 156,
+      "actual": "13"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -30,
+      "expected": 210,
+      "actual": "7"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 100,
+      "expected": 150,
+      "actual": "23"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -11,
+      "expected": 150,
+      "actual": "1"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 30,
+      "expected": 144,
+      "actual": "15"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -3,
+      "expected": 285,
+      "actual": "0"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -1,
+      "expected": 279,
+      "actual": "1"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -100,
+      "expected": 186,
+      "actual": "15"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -12,
+      "expected": 285,
+      "actual": "3"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 51,
+      "expected": 258,
+      "actual": "35"
+    }
+  ]
+}

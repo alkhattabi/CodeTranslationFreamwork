@@ -1,0 +1,22 @@
+Here is the JavaScript equivalent of your Python code:
+
+```javascript
+import { category_balance } from "./utils.mjs";
+import { rolling_alert } from "./service.mjs";
+
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = [Math.abs(balance) % 50, alert, Math.abs(n) % 50];
+    const ranks = scores.map(score => {
+        if (score === 0) return 0;
+        return scores.indexOf(score) + 1;
+    });
+    const penalty = Math.floor(ranks[0] * 7 + ranks[1] * 3);
+    return balance + alert - penalty;
+}
+```
+
+This JavaScript code does the same thing as your Python code. It calculates the penalty based on the rank of the scores and the balance and alert values. The scores are calculated using the `Math.abs(balance) % 50` and `alert` values, and the ranks are calculated using the `scores.indexOf(score) + 1` method. The `Math.floor(ranks[0] * 7 + ranks[1] * 3)` part calculates the penalty based on the rank of the scores. The final result is the sum of the balance and alert values minus the penalty.
+
+Please note that this code assumes that the `category_balance` and `rolling_alert` functions are defined in the `utils.mjs` and `service.mjs` files respectively. Also, this code uses the `Math.abs` function to get the absolute value of the numbers, which is equivalent to the `abs` function in Python.

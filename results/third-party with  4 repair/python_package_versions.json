@@ -1,0 +1,8 @@
+{
+  "numpy": "2.4.6",
+  "pandas": "2.2.3",
+  "networkx": "3.7",
+  "sympy": "1.14.0",
+  "python-dateutil": "2.9.0.post0",
+  "packaging": "26.3"
+}

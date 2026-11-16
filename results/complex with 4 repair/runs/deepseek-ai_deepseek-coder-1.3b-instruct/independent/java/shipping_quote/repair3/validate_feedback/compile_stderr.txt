@@ -1,0 +1,61 @@
+Service.java:3: error: cannot find symbol
+        int blocks = Utils.weightBlocks(n);
+                          ^
+  symbol:   method weightBlocks(int)
+  location: class Utils
+Main.java:3: error: cannot find symbol
+        int blocks = Utils.weightBlocks(n);
+                          ^
+  symbol:   method weightBlocks(int)
+  location: class Utils
+Main.java:7: error: cannot find symbol
+        int cost = transportCost(n);
+                   ^
+  symbol:   method transportCost(int)
+  location: class Main
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println("service.transport_cost|10000|" + Service.transport_cost(10000)); } catch (Throwable e) { System.out.println("service.transport_cost|10000|ERR"); }
+                                                                    ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println("service.transport_cost|500|" + Service.transport_cost(500)); } catch (Throwable e) { System.out.println("service.transport_cost|500|ERR"); }
+                                                                  ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("service.transport_cost|1001|" + Service.transport_cost(1001)); } catch (Throwable e) { System.out.println("service.transport_cost|1001|ERR"); }
+                                                                   ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.transport_cost|5000|" + Service.transport_cost(5000)); } catch (Throwable e) { System.out.println("service.transport_cost|5000|ERR"); }
+                                                                   ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.transport_cost|2500|" + Service.transport_cost(2500)); } catch (Throwable e) { System.out.println("service.transport_cost|2500|ERR"); }
+                                                                   ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.transport_cost|1000|" + Service.transport_cost(1000)); } catch (Throwable e) { System.out.println("service.transport_cost|1000|ERR"); }
+                                                                   ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.transport_cost|999|" + Service.transport_cost(999)); } catch (Throwable e) { System.out.println("service.transport_cost|999|ERR"); }
+                                                                  ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println("service.transport_cost|2499|" + Service.transport_cost(2499)); } catch (Throwable e) { System.out.println("service.transport_cost|2499|ERR"); }
+                                                                   ^
+  symbol:   method transport_cost(int)
+  location: class Service
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println("service.transport_cost|-1|" + Service.transport_cost(-1)); } catch (Throwable e) { System.out.println("service.transport_cost|-1|ERR"); }
+                                                                 ^
+  symbol:   method transport_cost(int)
+  location: class Service
+12 errors

@@ -1,0 +1,20 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static int tier(int n) {
+        if (n >= 100) {
+            return 3;
+        }
+        if (n >= 50) {
+            return 2;
+        }
+        if (n >= 10) {
+            return 1;
+        }
+        return 0;
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It defines a public class `Utils` with a public static method `tier` that takes an integer `n` and returns an integer. The method checks if `n` is greater than or equal to 100, if so, it returns 3. If `n` is greater than or equal to 50, it returns 2. If `n` is greater than or equal to 10, it returns 1. If `n` is less than 10, it returns 0.

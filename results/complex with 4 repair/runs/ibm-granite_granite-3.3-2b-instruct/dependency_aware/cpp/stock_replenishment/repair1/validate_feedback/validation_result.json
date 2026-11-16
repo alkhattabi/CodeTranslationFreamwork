@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:9:24: error: expected \u2018,\u2019 or \u2018;\u2019 before \u2018if\u2019\n    9 |     int unit_cost = 25 if (quantity >= 120) else 30;\n      |                        ^~\nmain.cpp:10:24: error: expected \u2018,\u2019 or \u2018;\u2019 before \u2018if\u2019\n   10 |     int shipping = 400 if (demand > 100) else 200;\n      |                        ^~\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

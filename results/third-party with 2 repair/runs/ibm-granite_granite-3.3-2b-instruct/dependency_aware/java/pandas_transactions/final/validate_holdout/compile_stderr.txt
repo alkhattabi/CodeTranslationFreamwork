@@ -1,0 +1,43 @@
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+        ^
+  symbol:   class List
+  location: class Utils
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+                                    ^
+  symbol:   class ArrayList
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+        ^
+  symbol:   class Map
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+                                        ^
+  symbol:   class HashMap
+  location: class Utils
+Utils.java:15: error: package frame does not exist
+            if (sums.containsKey(frame.category.get(amount))) {
+                                      ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                                                                   ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                              ^
+Utils.java:18: error: package frame does not exist
+                sums.put(frame.category.get(amount), amount);
+                              ^
+Main.java:3: error: cannot find symbol
+        int balance = category_balance(n);
+                      ^
+  symbol:   method category_balance(int)
+  location: class Main
+Main.java:4: error: cannot find symbol
+        int alert = rolling_alert(n);
+                    ^
+  symbol:   method rolling_alert(int)
+  location: class Main
+10 errors

@@ -1,0 +1,77 @@
+{
+  "compiled": true,
+  "passed": 6,
+  "total": 15,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 9,
+      "expected": 36,
+      "actual": "34"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 99,
+      "expected": 386,
+      "actual": "392"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 50,
+      "expected": 190,
+      "actual": "196"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 12,
+      "expected": 43,
+      "actual": "45"
+    },
+    {
+      "module": "service",
+      "function": "discount",
+      "input": -5,
+      "expected": 0,
+      "actual": "2"
+    },
+    {
+      "module": "service",
+      "function": "discount",
+      "input": 9,
+      "expected": 0,
+      "actual": "2"
+    },
+    {
+      "module": "service",
+      "function": "discount",
+      "input": 99,
+      "expected": 10,
+      "actual": "4"
+    },
+    {
+      "module": "service",
+      "function": "discount",
+      "input": 50,
+      "expected": 10,
+      "actual": "4"
+    },
+    {
+      "module": "service",
+      "function": "discount",
+      "input": 12,
+      "expected": 5,
+      "actual": "3"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { route_cost } from "./utils.mjs";
+
+export function disruption_score(n) {
+  let graph = new Map();
+  graph.set(0, new Set([1, 2]));
+  graph.set(1, new Set([3]));
+  graph.set(2, new Set([3, 5]));
+  graph.set(3, new Set([4]));
+  graph.set(4, new Set([5]));
+  graph.set(5, new Set([6]));
+
+  if (n % 3 === 0) {
+    graph.get(2).delete(5);
+  }
+
+  if (n % 5 === 0) {
+    graph.get(0).delete(2);
+  }
+
+  let reachable = Array.from(new Set([...graph.get(0)])).length;
+  let longestPath = Math.max(...Object.values(graph));
+
+  return route_cost(n) + 3 * reachable + longestPath;
+}
+```
+
+This code is exporting a function `disruption_score` that takes an integer `n` and returns an integer. It uses a Map to represent a graph, where each key is a node and the value is a set of its neighbors. The function first checks if `n` is divisible by 3 or 5, and if so, it removes the edge between node 2 and node 5 or node 0 and node 2 from the graph. It then calculates the number of reachable nodes and the longest path in the graph, and returns the sum of the route cost, three times the number of reachable nodes, and the longest path.

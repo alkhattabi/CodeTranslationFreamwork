@@ -1,0 +1,21 @@
+Here is the corrected JavaScript code:
+
+```javascript
+export function renewal_date(n) {
+    if (n < 19000101 || n > 20991231) {
+        return -1;
+    }
+    let year = Math.floor(n / 10000);
+    let month = Math.floor((n / 100) % 100);
+    let day = n % 100;
+    let start = new Date(year, month - 1, day);
+    if (isNaN(start.getTime())) {
+        return -1;
+    }
+    let end = new Date(start.getTime());
+    end.setMonth(start.getMonth() + 1);
+    return end.getFullYear() * 10000 + (end.getMonth() + 1) * 100 + end.getDate();
+}
+```
+
+This JavaScript function `renewal_date(n)` takes an integer `n` as input and returns a new integer representing the renewal date. If `n` is not a valid date, it returns `-1`. The function uses the `Date` object to handle the date calculations. The `Date` object is initialized with the year, month, and day from `n`, and then the month is incremented to get the end date. The end date is then returned as a new integer with the year, month, and day formatted as `YYYYMMDD`.

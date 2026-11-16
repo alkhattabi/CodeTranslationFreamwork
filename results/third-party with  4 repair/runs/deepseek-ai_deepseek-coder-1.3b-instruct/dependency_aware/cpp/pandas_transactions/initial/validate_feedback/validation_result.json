@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cceMaIj6.o: in function `solve(int)':\nservice.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cceMaIj6.o: in function `rolling_alert(int)':\nservice.cpp:(.text+0x13): multiple definition of `rolling_alert(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x13): first defined here\n/usr/bin/ld: /tmp/cceMaIj6.o: in function `category_balance(int)':\nservice.cpp:(.text+0xcd): multiple definition of `category_balance(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x26): first defined here\n/usr/bin/ld: /tmp/ccGCnbzA.o: in function `solve(int)':\nmain.cpp:(.text+0x0): multiple definition of `solve(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccGCnbzA.o: in function `rolling_alert(int)':\nmain.cpp:(.text+0x13): multiple definition of `rolling_alert(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x13): first defined here\n/usr/bin/ld: /tmp/ccGCnbzA.o: in function `category_balance(int)':\nmain.cpp:(.text+0xcd): multiple definition of `category_balance(int)'; /tmp/ccA9pH7U.o:utils.cpp:(.text+0x26): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

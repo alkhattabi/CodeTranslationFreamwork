@@ -1,0 +1,88 @@
+Repair ONLY the file utils.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp: In function ‘int release_rank(int)’:
+utils.cpp:10:10: error: ‘string’ is not a member of ‘std’
+   10 |     std::string suffix = (patch % 4 == 0)? "rc1" : "";
+      |          ^~~~~~
+utils.cpp:2:1: note: ‘std::string’ is defined in header ‘<string>’; did you forget to ‘#include <string>’?
+    1 | #include "api.hpp"
+  +++ |+#include <string>
+    2 | 
+utils.cpp:11:5: error: ‘api’ has not been declared
+   11 |     api::Version version(major, minor, patch, suffix);
+      |     ^~~
+utils.cpp:12:5: error: ‘api’ has not been declared
+   12 |     api::Version reference("2.1.0");
+      |     ^~~
+utils.cpp:13:9: error: ‘version’ was not declared in this scope
+   13 |     if (version < reference) {
+      |         ^~~~~~~
+utils.cpp:13:19: error: ‘reference’ was not declared in this scope
+   13 |     if (version < reference) {
+      |                   ^~~~~~~~~
+utils.cpp:9:9: warning: control reaches end of non-void function [-Wreturn-type]
+    9 |     int patch = n % 100;
+      |         ^~~~~
+service.cpp: In function ‘int upgrade_cost(int)’:
+service.cpp:11:5: error: ‘api’ has not been declared
+   11 |     api::Version current(major, minor, patch);
+      |     ^~~
+service.cpp:12:5: error: ‘api’ has not been declared
+   12 |     api::Version required("2.1.0");
+      |     ^~~
+service.cpp:13:20: error: ‘current’ was not declared in this scope
+   13 |  
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int release_rank(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int release_rank(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix = (patch % 4 == 0)? "rc1" : "";
+    api::Version version(major, minor, patch, suffix);
+    api::Version reference("2.1.0");
+    if (version < reference) {
+        return 1;
+    } else if (version == reference) {
+        return 2;
+    } else {
+        return 3;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+
+def release_rank(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    reference = Version("2.1.0")
+    if version < reference:
+        return 1
+    if version == reference:
+        return 2
+    return 3

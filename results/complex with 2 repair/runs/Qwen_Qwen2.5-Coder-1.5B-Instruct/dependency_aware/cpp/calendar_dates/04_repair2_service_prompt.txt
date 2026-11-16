@@ -1,0 +1,169 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int solve(int)’:
+utils.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   39 | }
+      | ^
+utils.cpp: In function ‘int day_of_year(int)’:
+utils.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   43 | }
+      | ^
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:39:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   39 | }
+      | ^
+service.cpp: In function ‘int day_of_year(int)’:
+service.cpp:43:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   43 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/cc7RCevX.o: in function `valid_date(int)':
+service.cpp:(.text+0x0): multiple definition of `valid_date(int)'; /tmp/ccQDqV4I.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/cc7RCevX.o: in function `is_leap_year(int)':
+service.cpp:(.text+0x13a): multiple definition of `is_leap_year(int)'; /tmp/ccQDqV4I.o:utils.cpp:(.text+0x13a): first defined here
+/usr/bin/ld: /tmp/cc7RCevX.o: in function `solve(int)':
+service.cpp:(.text+0x120): 
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int day_of_year(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int day_of_year(int n);
+int valid_date(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int solve(int n);
+int day_of_year(int n);
+bool is_leap_year(int year);
+
+// Global declaration of valid_date function
+int valid_date(int n);
+
+// Implementation of valid_date function
+int valid_date(int n) {
+    if (n < 10000101 || n > 99991231) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    if (month < 1 || month > 12 || day < 1) {
+        return 0;
+    }
+    int days = 31;
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;
+    }
+    if (month == 2) {
+        bool leap = is_leap_year(year);
+        days = leap ? 29 : 28;
+    }
+    return day <= days;
+}
+
+// Helper function implementations
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int day_of_year(int n) {
+    // Implementation of day_of_year function
+}
+
+bool is_leap_year(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_date
+
+def day_of_year(n: int) -> int:
+    if valid_date(n) == 0:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    total = day
+    m = 1
+    while m < month:
+        days = 31
+        if m == 4 or m == 6 or m == 9 or m == 11:
+            days = 30
+        if m == 2:
+            leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+            days = 29 if leap else 28
+        total += days
+        m += 1
+    return total
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int solve(int n);
+int day_of_year(int n);
+bool is_leap_year(int year);
+
+// Global declaration of valid_date function
+int valid_date(int n);
+
+// Implementation of valid_date function
+int valid_date(int n) {
+    if (n < 10000101 || n > 99991231) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    if (month < 1 || month > 12 || day < 1) {
+        return 0;
+    }
+    int days = 31;
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;
+    }
+    if (month == 2) {
+        bool leap = is_leap_year(year);
+        days = leap ? 29 : 28;
+    }
+    return day <= days;
+}
+
+// Helper function implementations
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int day_of_year(int n) {
+    // Implementation of day_of_year function
+}
+
+bool is_leap_year(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+}

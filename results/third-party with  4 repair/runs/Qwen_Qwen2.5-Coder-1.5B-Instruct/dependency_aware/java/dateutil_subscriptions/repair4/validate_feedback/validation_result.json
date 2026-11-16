@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:20: error: cannot find symbol\n        calendar.setTime(start);\n                         ^\n  symbol:   variable start\n  location: class Utils\nService.java:17: error: incompatible types: Calendar cannot be converted to Date\n        calendar.setTime(start);\n                         ^\nMain.java:17: error: incompatible types: Calendar cannot be converted to Date\n        calendar.setTime(start);\n                         ^\nMain.java:6: error: duplicate class: com.example.Main\npublic class Main {\n       ^\nEvalRunner.java:3: error: cannot access Main\n  try { System.out.println(\"main.solve|19991231|\" + Main.solve(19991231)); } catch (Throwable e) { System.out.println(\"main.solve|19991231|ERR\"); }\n                                                    ^\n  bad source file: ./Main.java\n    file does not contain class Main\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nService.java:6: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nEvalRunner.java:15: error: cannot access Service\n  try { System.out.println(\"service.grace_period|19991231|\" + Service.grace_period(19991231)); } catch (Throwable e) { System.out.println(\"service.grace_period|19991231|ERR\"); }\n                                                              ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nUtils.java:6: error: duplicate class: com.example.Utils\npublic class Utils {\n       ^\nEvalRunner.java:27: error: cannot access Utils\n  try { System.out.println(\"utils.renewal_date|19991231|\" + Utils.renewal_date(19991231)); } catch (Throwable e) { System.out.println(\"utils.renewal_date|19991231|ERR\"); }\n                                                            ^\n  bad source file: ./Utils.java\n    file does not contain class Utils\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nNote: Utils.java uses or overrides a deprecated API.\nNote: Recompile with -Xlint:deprecation for details.\nNote: Some messages have been simplified; recompile with -Xdiags:verbose to get full output\n9 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

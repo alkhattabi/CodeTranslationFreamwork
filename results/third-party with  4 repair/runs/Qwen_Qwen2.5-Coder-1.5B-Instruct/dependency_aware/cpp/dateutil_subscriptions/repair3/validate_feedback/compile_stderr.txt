@@ -1,0 +1,85 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int days_in_month(int, int)’:
+utils.cpp:7:23: error: ‘is_leap_year’ was not declared in this scope
+    7 |     if (month == 2 && is_leap_year(year)) {
+      |                       ^~~~~~~~~~~~
+utils.cpp:10:59: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in return
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                           ^
+utils.cpp:10:60: error: expected ‘;’ before ‘[’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                            ^
+      |                                                            ;
+utils.cpp:10:66: error: expected ‘,’ before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                  ^~
+      |                                                                  ,
+utils.cpp:10:67: error: expected identifier before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                   ^
+utils.cpp: In lambda function:
+utils.cpp:10:71: error: expected ‘{’ before ‘;’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                       ^
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int days_in_month(int, int)’:
+service.cpp:7:23: error: ‘is_leap_year’ was not declared in this scope
+    7 |     if (month == 2 && is_leap_year(year)) {
+      |                       ^~~~~~~~~~~~
+service.cpp:10:59: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in return
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                           ^
+service.cpp:10:60: error: expected ‘;’ before ‘[’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                            ^
+      |                                                            ;
+service.cpp:10:66: error: expected ‘,’ before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                  ^~
+      |                                                                  ,
+service.cpp:10:67: error: expected identifier before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                   ^
+service.cpp: In lambda function:
+service.cpp:10:71: error: expected ‘{’ before ‘;’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                       ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int days_in_month(int, int)’:
+main.cpp:7:23: error: ‘is_leap_year’ was not declared in this scope
+    7 |     if (month == 2 && is_leap_year(year)) {
+      |                       ^~~~~~~~~~~~
+main.cpp:10:59: error: cannot convert ‘<brace-enclosed initializer list>’ to ‘int’ in return
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                           ^
+main.cpp:10:60: error: expected ‘;’ before ‘[’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                            ^
+      |                                                            ;
+main.cpp:10:66: error: expected ‘,’ before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                  ^~
+      |                                                                  ,
+main.cpp:10:67: error: expected identifier before ‘-’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                   ^
+main.cpp: In lambda function:
+main.cpp:10:71: error: expected ‘{’ before ‘;’ token
+   10 |     return {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[month - 1];
+      |                                                                       ^
+main.cpp: In function ‘int solve(int)’:
+main.cpp:57:20: error: ‘grace_period’ was not declared in this scope
+   57 |     int deadline = grace_period(n);
+      |                    ^~~~~~~~~~~~
+main.cpp:62:5: error: expected ‘,’ or ‘;’ before ‘y2’
+   62 |     y2, m2, d2 = deadline // 10000, (deadline // 100) % 100, deadline % 100
+      |     ^~
+main.cpp:61:17: warning: control reaches end of non-void function [-Wreturn-type]
+   61 |     int y1, m1, d1 = renewed // 10000, (renewed // 100) % 100, renewed % 100
+      |                 ^~

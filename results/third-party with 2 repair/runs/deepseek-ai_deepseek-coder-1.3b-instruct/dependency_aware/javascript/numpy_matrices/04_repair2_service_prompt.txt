@@ -1,0 +1,66 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+main.solve(10): expected 486, actual ERR: Error: result must be a safe integer
+main.solve(-10): expected 387, actual ERR: Error: result must be a safe integer
+main.solve(21): expected 525, actual ERR: Error: result must be a safe integer
+main.solve(999): expected 606, actual ERR: Error: result must be a safe integer
+main.solve(5): expected 401, actual ERR: Error: result must be a safe integer
+main.solve(1): expected 120, actual ERR: Error: result must be a safe integer
+main.solve(12): expected 409, actual ERR: Error: result must be a safe integer
+main.solve(2): expected 186, actual ERR: Error: result must be a safe integer
+main.solve(7): expected 307, actual ERR: Error: result must be a safe integer
+main.solve(11): expected 325, actual ERR: Error: result must be a safe integer
+main.solve(-51): expected 334, actual ERR: Error: result must be a safe integer
+main.solve(3): expected 283, actual ERR: Error: result must be a safe integer
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function matrix_energy(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { vector_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function matrix_energy(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { vector_signature } from "./utils.mjs";
+
+export function matrix_energy(n) {
+  const x = Math.max(-100, Math.min(100, n));
+  const m = [
+    [x % 5, 2, -1],
+    [3, x % 7, 4],
+    [1, 5, x % 3]
+  ];
+  const square = m.map(row => row.map(x => x * x)).reduce((a, b) => a.map((c, i) => c + b[i]).slice(), m);
+  const diagonal = square.reduce((a, b) => a + b, 0);
+  return diagonal + vector_signature(n);
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+
+def matrix_energy(n: int) -> int:
+    x = max(-100, min(100, n))
+    m = np.array([[x % 5, 2, -1], [3, x % 7, 4], [1, 5, x % 3]], dtype=np.int64)
+    square = m @ m
+    diagonal = int(np.trace(square))
+    return diagonal + vector_signature(n)
+
+
+DEPENDENCY utils.mjs:
+export function vector_signature(n) {
+  n = Math.max(-100, Math.min(100, n));
+  const v = [n % 11, Math.abs(n) % 7, Math.floor(n / 3) % 9];
+  const m = Array.from({length: 3}, (_, i) => Array(3).fill(i + 1)).map(arr => arr.fill(0));
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      m[i][j] += v[i] * v[j];
+    }
+  }
+  const out = m.flat();
+  return Math.abs(out.reduce((a, b) => a + b, 0));
+}

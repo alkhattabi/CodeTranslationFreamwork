@@ -1,0 +1,21 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int transport_cost(int n) {
+        int blocks = Utils.weight_blocks(n);
+        int price = 1200 + blocks * 180;
+        if (blocks > 5) {
+            price += (blocks - 5) * 70;
+        }
+        if (blocks > 12) {
+            price += (blocks - 12) * 90;
+        }
+        return price;
+    }
+}
+```
+
+Please note that the Utils class should be in the same package as the Service class. If it's in a different package, you need to import it using the fully qualified name.
+
+Also, please ensure that the Utils class has a public static method named weight_blocks that takes an integer as a parameter and returns an integer.

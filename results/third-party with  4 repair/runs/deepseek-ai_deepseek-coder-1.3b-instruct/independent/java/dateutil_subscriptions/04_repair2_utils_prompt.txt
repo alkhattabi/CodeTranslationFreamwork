@@ -1,0 +1,72 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:6: error: cannot find symbol
+        LocalDate renewed = Utils.renewalDate(n);
+                                 ^
+  symbol:   method renewalDate(int)
+  location: class Utils
+EvalRunner.java:15: error: cannot find symbol
+  try { System.out.println("service.grace_period|19991231|" + Service.grace_period(19991231)); } catch (Throwable e) { System.out.println("service.grace_period|19991231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println("service.grace_period|20240130|" + Service.grace_period(20240130)); } catch (Throwable e) { System.out.println("service.grace_period|20240130|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println("service.grace_period|20231231|" + Service.grace_period(20231231)); } catch (Throwable e) { System.out.println("service.grace_period|20231231|ERR"); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println("service.grace_period|19000131|" + Ser
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int renewal_date(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int renewal_date(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            LocalDate start = LocalDate.of(year, month, day);
+            LocalDate end = start.plusMonths(1);
+            return end.getYear() * 10000 + end.getMonthValue() * 100 + end.getDayOfMonth();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

@@ -1,0 +1,1118 @@
+model,project,approach,compiler_error
+Qwen/Qwen2.5-Coder-1.5B-Instruct,numpy_matrices,independent,"Service.java:32: error: cannot find symbol
+        int vectorSignature = vector_signature(n);
+                              ^
+  symbol:   method vector_signature(int)
+  location: class Service
+1 error
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,numpy_matrices,dependency_aware,"Main.java:5: error: cannot find symbol
+        int energy = matrixEnergy(n);
+                     ^
+  symbol:   method matrixEnergy(int)
+  location: class Main
+Main.java:6: error: cannot find symbol
+        int[] vector = new int[]{energy, vectorSignature(n), n};
+                                         ^
+  symbol:   method vectorSignature(int)
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|99|"" + Main.solve(99)); } catch (Throwable e) { System.out.println(""main.solve|99|ERR""); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println(""service.matrix_energy|99|"" + Service.matrix_energy(99)); } catch (Throwable e) { System.out.println(""service.matrix_energy|99|ERR""); }
+                                                         ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+6 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,pandas_transactions,independent,"Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                    ^
+Utils.java:14: error: not a statement
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                     ^
+Utils.java:14: error: ';' expected
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                             ^
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                                     ^
+4 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,pandas_transactions,dependency_aware,"Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                    ^
+Utils.java:14: error: not a statement
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                     ^
+Utils.java:14: error: ';' expected
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                             ^
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                                     ^
+Service.java:28: error: illegal start of expression
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                    ^
+Service.java:28: error: not a statement
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                     ^
+Service.java:28: error: ';' expected
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                             ^
+Service.java:28: error: illegal start of expression
+        Series sums = frame.groupby(""category"").agg({""amount"": ""sum""});
+                                                                     ^
+8 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,networkx_logistics,independent,"Utils.java:4: error: package NetworkX does not exist
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+                ^
+Utils.java:4: error: package NetworkX does not exist
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+                                                             ^
+Utils.java:15: error: cannot find symbol
+        return (int) NetworkX.shortestPathLength(graph, 0, 6, ""weight"");
+                     ^
+  symbol:   variable NetworkX
+  location: class Utils
+Service.java:5: error: package Networkx does not exist
+        Networkx.Graph graph = new Networkx.DiGraph();
+                ^
+Service.java:5: error: package Networkx does not exist
+        Networkx.Graph graph = new Networkx.DiGraph();
+                                           ^
+Service.java:22: error: cannot find symbol
+        long reachable = Networkx.descendants(graph, 0).size();
+                         ^
+  symbol:   variable Networkx
+  location: class Service
+Service.java:23: error: cannot find symbol
+        long longest = Networkx.dagLongestPathLength(graph);
+                       ^
+  symbol:   variable Networkx
+  location: class Service
+Service.java:24: error: cannot find symbol
+        return routeCost(n) + 3 * reachable + (longest / 1L);
+               ^
+  symbol:   method routeCost(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+        ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+                             ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:13: error: cannot find symbol
+        Tree tree = graph.minimumSpanningTree(""weight"");
+        ^
+  symbol:   class Tree
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                       ^
+  symbol:   method disruptionScore(int)
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                                            ^
+  symbol:   method routeCost(int)
+  location: class Main
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:16: error: cannot access Service
+  try { System.out.println(""service.disruption_score|25|"" + Service.disruption_score(25)); } catch (Throwable e) { System.out.println(""service.disrupt"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,networkx_logistics,dependency_aware,"Service.java:3: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DirectedAcyclicGraph;
+                        ^
+Service.java:4: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DefaultWeightedEdge;
+                        ^
+Service.java:5: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+                        ^
+Main.java:3: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DirectedAcyclicGraph;
+                        ^
+Main.java:4: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.DefaultWeightedEdge;
+                        ^
+Main.java:5: error: package org.jgrapht.graph does not exist
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
+                        ^
+Utils.java:4: error: package NetworkX does not exist
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+                ^
+Utils.java:4: error: package NetworkX does not exist
+        NetworkX.Graph<Integer, Integer> graph = new NetworkX.DiGraph<>();
+                                                             ^
+Utils.java:15: error: cannot find symbol
+        return (int) NetworkX.shortestPathLength(graph, 0, 6, ""weight"");
+                     ^
+  symbol:   variable NetworkX
+  location: class Utils
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+        ^
+  symbol:   class DirectedAcyclicGraph
+  location: class Service
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                      ^
+  symbol:   class DefaultWeightedEdge
+  location: class Service
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                ^
+  symbol:   class SimpleDirectedWeightedGraph
+  location: class Service
+Service.java:10: error: cannot find symbol
+        DirectedAcyclicGraph<Integer, DefaultWeightedEdge<Integer>> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
+                                                                                          "
+Qwen/Qwen2.5-Coder-1.5B-Instruct,sympy_number_theory,independent,"Utils.java:7: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Utils.java:7: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+2 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,sympy_number_theory,dependency_aware,"Utils.java:7: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Utils.java:7: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+Service.java:11: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Service.java:11: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+Main.java:11: error: illegal start of expression
+        import org.sympy.ntheory.factor.FactorInteger;
+        ^
+Main.java:11: error: not a statement
+        import org.sympy.ntheory.factor.FactorInteger;
+                                       ^
+6 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,dateutil_subscriptions,independent,"Utils.java:15: error: cannot find symbol
+        calendar.setTime(start);
+                         ^
+  symbol:   variable start
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+                       ^
+  symbol:   method renewalDate(int)
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+        ^
+  symbol:   class Calendar
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+                            ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:9: error: cannot find symbol
+        calendar.add(Calendar.MONTH, 2);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:10: error: cannot find symbol
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                            ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                                                                  ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                                                                                                       ^
+  symbol:   variable Calendar
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int renewed = renewalDate(n);
+                      ^
+  symbol:   method renewalDate(int)
+  location: class Main
+Main.java:4: error: cannot find symbol
+        int deadline = gracePeriod(n);
+                       ^
+  symbol:   method gracePeriod(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+        long days = (new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime()) / (1000 * 60 * 60 * 24);
+                 "
+Qwen/Qwen2.5-Coder-1.5B-Instruct,dateutil_subscriptions,dependency_aware,"Utils.java:15: error: cannot find symbol
+        calendar.setTime(start);
+                         ^
+  symbol:   variable start
+  location: class Utils
+Service.java:17: error: incompatible types: Calendar cannot be converted to Date
+        calendar.setTime(start);
+                         ^
+Main.java:17: error: incompatible types: Calendar cannot be converted to Date
+        calendar.setTime(start);
+                         ^
+Main.java:6: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|19000229|"" + Main.solve(19000229)); } catch (Throwable e) { System.out.println(""main.solve|19000229|ERR""); }
+                                                    ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:6: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:16: error: cannot access Service
+  try { System.out.println(""service.grace_period|19000229|"" + Service.grace_period(19000229)); } catch (Throwable e) { System.out.println(""service.grace_period|19000229|ERR""); }
+                                                              ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Note: Utils.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+7 errors
+"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,packaging_releases,independent,"Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+                                    ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = releaseRank(n);
+                   ^
+  symbol:   method releaseRank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(String.format(""%d.%d.%d"", major, minor, patch));
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(String.format(""%d.%d.%d"", major, minor, patch));
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version(""2.1.0"");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version(""2.1.0"");
+                               ^
+  symbol:   class Version
+  location: class Service
+Main.java:11: error: cannot find symbol
+        Version version = new Version(versionStr);
+        ^
+  symbol:   class Version
+  location: class Main
+Main.java:11: error: cannot find symbol
+        Version version = new Version(versionStr);
+                              ^
+  symbol:   class Version
+  location: class Main
+Main.java:12: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet("">=1.5,<4.0"");
+        ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:12: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet("">=1.5,<4.0"");
+                                   ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return upgradeCost(n) + 100 * inRange + 10 * stable + releaseRank(n);
+               ^
+  symbol:   method upgradeCost(int)
+  location: class Main
+Main.java:15: error: bad operand types for"
+Qwen/Qwen2.5-Coder-1.5B-Instruct,packaging_releases,dependency_aware,"Service.java:3: error: package org.apache.commons.lang3 does not exist
+import org.apache.commons.lang3.StringUtils;
+                               ^
+Main.java:3: error: package org.apache.commons.lang3 does not exist
+import org.apache.commons.lang3.StringUtils;
+                               ^
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+                                    ^
+  symbol:   class Version
+  location: class Utils
+Service.java:8: error: cannot find symbol
+        int rank = releaseRank(n);
+                   ^
+  symbol:   method releaseRank(int)
+  location: class Service
+Service.java:18: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Service
+Service.java:18: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Service
+Service.java:19: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+            ^
+  symbol:   class Version
+  location: class Service
+Service.java:19: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+                                    ^
+  symbol:   class Version
+  location: class Service
+Main.java:16: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Main
+Main.java:16: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+            ^
+  symbol:   class Version
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Version reference = new Version(""2.1.0"");
+                                    ^
+  symbol:   class Version
+  locati"
+deepseek-ai/deepseek-coder-1.3b-instruct,numpy_matrices,independent,"Service.java:19: error: cannot find symbol
+        return diagonal + vector_signature(n);
+                          ^
+  symbol:   method vector_signature(int)
+  location: class Service
+1 error
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,numpy_matrices,dependency_aware,"Service.java:1: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println(""service.matrix_energy|99|"" + Service.matrix_energy(99)); } catch (Throwable e) { System.out.println(""service.matrix_energy|99|ERR""); }
+                                                         ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+2 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,pandas_transactions,independent,"Main.java:3: error: '.' expected
+import utils;
+            ^
+Main.java:4: error: '.' expected
+import service;
+              ^
+2 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,pandas_transactions,dependency_aware,"Service.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|101|"" + Main.solve(101)); } catch (Throwable e) { System.out.println(""main.solve|101|ERR""); }
+                                               ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println(""service.rolling_alert|101|"" + Service.rolling_alert(101)); } catch (Throwable e) { System.out.println(""service.rolling_alert|101|ERR""); }
+                                                          ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,networkx_logistics,independent,"Utils.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Utils.java:3: error: illegal character: '`'
+```java
+^
+Utils.java:3: error: illegal character: '`'
+```java
+ ^
+Utils.java:3: error: illegal character: '`'
+```java
+  ^
+Utils.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Utils.java:65: error: reached end of file while parsing
+6 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,networkx_logistics,dependency_aware,"Utils.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Utils.java:3: error: illegal character: '`'
+```java
+^
+Utils.java:3: error: illegal character: '`'
+```java
+ ^
+Utils.java:3: error: illegal character: '`'
+```java
+  ^
+Utils.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Utils.java:65: error: reached end of file while parsing
+Service.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Service.java:3: error: illegal character: '`'
+```java
+^
+Service.java:3: error: illegal character: '`'
+```java
+ ^
+Service.java:3: error: illegal character: '`'
+```java
+  ^
+Service.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Service.java:65: error: reached end of file while parsing
+Main.java:1: error: class, interface, enum, or record expected
+Here is the Java equivalent of your Python code:
+^
+Main.java:3: error: illegal character: '`'
+```java
+^
+Main.java:3: error: illegal character: '`'
+```java
+ ^
+Main.java:3: error: illegal character: '`'
+```java
+  ^
+Main.java:5: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Main.java:65: error: reached end of file while parsing
+18 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,sympy_number_theory,independent,"Main.java:4: error: package sympy.ntheory does not exist
+import sympy.ntheory.factorint;
+                    ^
+Main.java:5: error: package sympy.ntheory does not exist
+import sympy.ntheory.primetest;
+                    ^
+Main.java:10: error: cannot find symbol
+        int primeBonus = Primetest.isprime(value) ? 50 : 0;
+                         ^
+  symbol:   variable Primetest
+  location: class Main
+Main.java:12: error: incompatible types: int cannot be converted to BigInteger
+        nextPrime = nextPrime.intValue();
+                                      ^
+Main.java:13: error: bad operand types for binary operator '+'
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+                                              ^
+  first type:  int
+  second type: BigInteger
+Main.java:22: error: cannot find symbol
+        List<BigInteger> factors = factorint.factorint(n).values();
+                                   ^
+  symbol:   variable factorint
+  location: class Main
+6 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,sympy_number_theory,dependency_aware,"Service.java:5: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:5: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|-999|"" + Main.solve(-999)); } catch (Throwable e) { System.out.println(""main.solve|-999|ERR""); }
+                                                ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println(""service.number_strength|-999|"" + Service.number_strength(-999)); } catch (Throwable e) { System.out.println(""service.number_strength|-999|ERR""); }
+                                                             ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,dateutil_subscriptions,independent,"Service.java:6: error: cannot find symbol
+        LocalDate renewed = Utils.renewalDate(n);
+                                 ^
+  symbol:   method renewalDate(int)
+  location: class Utils
+EvalRunner.java:16: error: cannot find symbol
+  try { System.out.println(""service.grace_period|19000229|"" + Service.grace_period(19000229)); } catch (Throwable e) { System.out.println(""service.grace_period|19000229|ERR""); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:17: error: cannot find symbol
+  try { System.out.println(""service.grace_period|20260229|"" + Service.grace_period(20260229)); } catch (Throwable e) { System.out.println(""service.grace_period|20260229|ERR""); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:18: error: cannot find symbol
+  try { System.out.println(""service.grace_period|20241110|"" + Service.grace_period(20241110)); } catch (Throwable e) { System.out.println(""service.grace_period|20241110|ERR""); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:19: error: cannot find symbol
+  try { System.out.println(""service.grace_period|-20240229|"" + Service.grace_period(-20240229)); } catch (Throwable e) { System.out.println(""service.grace_period|-20240229|ERR""); }
+                                                                      ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:20: error: cannot find symbol
+  try { System.out.println(""service.grace_period|20260228|"" + Service.grace_period(20260228)); } catch (Throwable e) { System.out.println(""service.grace_period|20260228|ERR""); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:21: error: cannot find symbol
+  try { System.out.println(""service.grace_period|19000228|"" + Service.grace_period(19000228)); } catch (Throwable e) { System.out.println(""service.grace_period|19000228|ERR""); }
+                                                                     ^
+  symbol:   method grace_period(int)
+  location: class Service
+EvalRunner.java:22: error: cannot find symbol
+  try { System.out.println(""service.grace_period|20240228|"" + Service.grace_period(20240228)); } catch (Throwable e"
+deepseek-ai/deepseek-coder-1.3b-instruct,dateutil_subscriptions,dependency_aware,"Service.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:4: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Main.java:22: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println(""main.solve|19000229|"" + Main.solve(19000229)); } catch (Throwable e) { System.out.println(""main.solve|19000229|ERR""); }
+                                                    ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+4 errors
+"
+deepseek-ai/deepseek-coder-1.3b-instruct,packaging_releases,independent,"Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                                                      ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                       ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = release_rank(n);
+                   ^
+  symbol:   method release_rank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version(""2.1.0"");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version(""2.1.0"");
+                               ^
+  symbol:   class Version
+  location: class Service
+Main.java:12: error: cannot find symbol
+            return upgradeCost(n) + 100 * 1 + 10 * 0 + releaseRank(n);
+                   ^
+  symbol:   method upgradeCost(int)
+  location: class Main
+Main.java:12: error: cannot find symbol
+            return upgradeCost(n) + 100 * 1 + 10 * 0 + releaseRank(n);
+                                                       ^
+  symbol:   method releaseRank(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+            return upgradeCost(n) + 100 * 0 + 10 * 1 + releaseRank(n);
+                   ^
+  symbol:   method upgradeCost(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+            return upgradeCost(n) + 100 * 0 + 10 * 1 + releaseRank(n);
+                                                       ^
+  symbol:   method releaseRank(int)
+  location: class "
+deepseek-ai/deepseek-coder-1.3b-instruct,packaging_releases,dependency_aware,"Main.java:1: error: package packaging.specifiers does not exist
+import packaging.specifiers.SpecifierSet;
+                           ^
+Main.java:2: error: package packaging.version does not exist
+import packaging.version.Version;
+                        ^
+Main.java:3: error: package utils does not exist
+import utils.Utils;
+            ^
+Main.java:4: error: package service does not exist
+import service.Service;
+              ^
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                                                      ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                       ^
+  symbol:   class Version
+  location: class Utils
+Service.java:14: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Service
+Service.java:14: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Service
+Main.java:16: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet("">=1.5,<4.0"");
+        ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:16: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet("">=1.5,<4.0"");
+                                   ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:17: error: cannot find symbol
+        boolean inRange = allowed.contains(new Version(version));
+                                               ^
+  symbol:   class Version
+  location: class Main
+Main.java:18: error: cannot find symbol
+        boolean stable = !new Version(version).isPrerelease();
+                              ^
+  symbol:   class Version
+  location: class Main
+Main.java:19: error: bad operand types for binary operator '*'
+        return Service.upgrad"
+ibm-granite/granite-3.3-2b-instruct,numpy_matrices,independent,"Service.java:34: error: class, interface, enum, or record expected
+Note: The vector_signature method is a placeholder and needs to be implemented according to its original Python function behavior.
+^
+Main.java:32: error: class, interface, enum, or record expected
+Note: The actual implementations of matrixEnergy and vectorSignature functions are not provided in the Python code snippet, so they are represented as placeholders in the Java code.
+^
+2 errors
+"
+ibm-granite/granite-3.3-2b-instruct,numpy_matrices,dependency_aware,"Service.java:40: error: class, interface, enum, or record expected
+Note: The behavior of numpy in Python is replicated using basic array operations in Java. The floor division and modulo operations in Python are preserved using the standard Java operators.
+^
+1 error
+"
+ibm-granite/granite-3.3-2b-instruct,pandas_transactions,independent,"Service.java:28: error: class, interface, enum, or record expected
+Note: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.
+^
+Service.java:28: error: unclosed character literal
+Note: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.
+                                                                ^
+Service.java:28: error: unclosed character literal
+Note: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.
+                                                                           ^
+Service.java:28: error: unclosed character literal
+Note: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.
+                                                                                                                                                                                                            ^
+4 errors
+"
+ibm-granite/granite-3.3-2b-instruct,pandas_transactions,dependency_aware,"Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+        ^
+  symbol:   class List
+  location: class Utils
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+                                    ^
+  symbol:   class ArrayList
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+        ^
+  symbol:   class Map
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+                                        ^
+  symbol:   class HashMap
+  location: class Utils
+Utils.java:15: error: package frame does not exist
+            if (sums.containsKey(frame.category.get(amount))) {
+                                      ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                                                                   ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                              ^
+Utils.java:18: error: package frame does not exist
+                sums.put(frame.category.get(amount), amount);
+                              ^
+Main.java:3: error: cannot find symbol
+        int balance = category_balance(n);
+                      ^
+  symbol:   method category_balance(int)
+  location: class Main
+Main.java:4: error: cannot find symbol
+        int alert = rolling_alert(n);
+                    ^
+  symbol:   method rolling_alert(int)
+  location: class Main
+10 errors
+"
+ibm-granite/granite-3.3-2b-instruct,networkx_logistics,independent,"Utils.java:20: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                    ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                     ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                                                                                                                                                                                       ^
+Service.java:43: error: class, interface, enum, or record expected
+Note: In Java, we don't have a direct equivalent to Python's networkx library. Instead, we use adjacency matrix representation for the graph. Also, Java doesn't have a built-in function for longest path in a directed graph like Python's nx.dag_longest_path_length, so we implement a depth-first search (DFS) to find the longest path.
+^
+Service.java:43: error: unclosed character literal
+Note: In Java, we don't have a direct equivalent to Python's networkx library. Instead, we use adjacency matrix representation for the graph. Also, Java doesn't have a built-in function for longest path in a directed graph like Python's nx.dag_longest_path_length, so we implement a depth-first search (DFS) to find the longest path.
+                     ^
+Service.java:43: error: unclosed character literal
+Note: In Java, we don't have a direct equivalent to Python's networkx library. Instead, we use adjacency matrix representation for the graph. Also, Java doesn"
+ibm-granite/granite-3.3-2b-instruct,networkx_logistics,dependency_aware,"Utils.java:20: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                    ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                     ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                                                                                                                                                                                       ^
+Service.java:27: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.
+^
+Service.java:27: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.
+                    ^
+Service.java:27: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a cus"
+ibm-granite/granite-3.3-2b-instruct,sympy_number_theory,independent,"Utils.java:30: error: class, interface, enum, or record expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+^
+Utils.java:30: error: unclosed character literal
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                      ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                       ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                                         ^
+Service.java:30: error: class, interface, enum, or record expected
+Note: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.
+^
+Service.java:30: error: unclosed character literal
+Note: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.
+                                                                               ^
+Service.java:30: error: unclosed character literal
+Note: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.
+                                                    "
+ibm-granite/granite-3.3-2b-instruct,sympy_number_theory,dependency_aware,"Utils.java:30: error: class, interface, enum, or record expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+^
+Utils.java:30: error: unclosed character literal
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                      ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                       ^
+Utils.java:30: error: '{' expected
+Note: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.
+                                                                                                                                                                         ^
+Service.java:44: error: class, interface, enum, or record expected
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+^
+Service.java:44: error: '{' expected
+Note: The phi and divisorCount methods in the Service class replicate the behavior of Python's sympy.totient and sympy.divisor_count functions respectively, using a simple algorithm for calculating Euler's totient function and divisor count. The PrimeFactorization class is not explicitly defined in Java due to the complexity of the task and the lack of built-in prime factorization functionality. The factorSignature method remains unchanged from the Python version.
+                      "
+ibm-granite/granite-3.3-2b-instruct,dateutil_subscriptions,independent,"Service.java:25: error: class, interface, enum, or record expected
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                     ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                 ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                       ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's standard library, so it's assumed to be replaced by custom logic or a third-party library.
+                                                                       ^
+Service.java:25: error: illegal character: '`'
+Note: The Java code assumes that the `renewalDate` and `dayOfYearToDate` methods are implemented in separate classes (not shown here) with the same functionality as their Python counterparts. The `relativedelta` functionality is not available in Java's sta"
+ibm-granite/granite-3.3-2b-instruct,dateutil_subscriptions,dependency_aware,"Utils.java:10: error: cannot find symbol
+            Date date = new Date(year, month, day);
+            ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+            Date date = new Date(year, month, day);
+                            ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+        ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+                       ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+                            ^
+  symbol:   variable date
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int renewed = renewal_date(n);
+                      ^
+  symbol:   method renewal_date(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Date end = new Date(year, month, day);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Date end = new Date(year, month, day);
+                       ^
+  symbol:   class Date
+  location: class Service
+Main.java:12: error: cannot find symbol
+        year2 = grace_period(n) / 10000;
+                ^
+  symbol:   method grace_period(int)
+  location: class Main
+Main.java:13: error: cannot find symbol
+        month2 = (grace_period(n) / 100) % 100;
+                  ^
+  symbol:   method grace_period(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+        day2 = grace_period(n) % 100;
+               ^
+  symbol:   method grace_period(int)
+  location: class Main
+Main.java:16: error: cannot find symbol
+            Date renewalDate = new Date(year1, month1, day1);
+            ^
+  symbol:   class Date
+  location: class Main
+Main.java:16: error: cannot find symbol
+            Date renewalDate = new Date(year1, month1, day1);
+                                   ^
+  symbol:   class Date
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Date endDate = new Date(year2, month2, day2);
+            ^
+  symbol:   class Date
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Date endDate = new Date(year2, month2, day2);
+  "
+ibm-granite/granite-3.3-2b-instruct,packaging_releases,independent,"s integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                                                                                                                    ^
+Service.java:17: error: illegal character: '`'
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                                                                                                                      ^
+Main.java:18: error: class, interface, enum, or record expected
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class or a third-party library that provides version range comparison functionality similar to Python's `packaging.specifiers`.
+^
+Main.java:18: error: illegal character: '`'
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class or a third-party library that provides version range comparison functionality similar to Python's `packaging.specifiers`.
+                                 ^
+Main.java:18: error: illegal character: '`'
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class or a third-party library that provides version range comparison functionality similar to Python's `packaging.specifiers`.
+                                              ^
+Main.java:18: error: illegal character: '`'
+Note: The Java code assumes that `upgrade_cost` and `release_rank` are already defined and implemented in their respective classes. The `Version` class is from the `java.util.concurrent.ThreadLocalRandom` library, which is a built-in Java library. The `SpecifierSet` class is assumed to be a custom class o"
+ibm-granite/granite-3.3-2b-instruct,packaging_releases,dependency_aware,"Utils.java:10: error: cannot find symbol
+        Version version = new Version(String.format(""%d.%d.%d%s"", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+        Version version = new Version(String.format(""%d.%d.%d%s"", major, minor, patch, suffix));
+                              ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:11: error: cannot find symbol
+        Version reference = new Version(""2.1.0"");
+        ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:11: error: cannot find symbol
+        Version reference = new Version(""2.1.0"");
+                                ^
+  symbol:   class Version
+  location: class Utils
+Service.java:11: error: cannot find symbol
+        Version currentVersion = new Version(String.format(""%d.%d.%d%s"", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version currentVersion = new Version(String.format(""%d.%d.%d%s"", major, minor, patch, suffix));
+                                     ^
+  symbol:   class Version
+  location: class Service
+Service.java:12: error: cannot find symbol
+        Version requiredVersion = new Version(""2.1.0"");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:12: error: cannot find symbol
+        Version requiredVersion = new Version(""2.1.0"");
+                                      ^
+  symbol:   class Version
+  location: class Service
+Main.java:10: error: cannot find symbol
+        Version version = new Version(String.format(""%d.%d.%d%s"", major, minor, patch, suffix));
+        ^
+  symbol:   class Version
+  location: class Main
+Main.java:10: error: cannot find symbol
+        Version version = new Version(String.format(""%d.%d.%d%s"", major, minor, patch, suffix));
+                              ^
+  symbol:   class Version
+  location: class Main
+Main.java:11: error: cannot find symbol
+        Version allowedVersion = new Version("">=1.5,<4.0"");
+        ^
+  symbol:   class Version
+  location: class Main
+Main.java:11: error: cannot find symbol
+        Version allowedVersion = new Version("">=1.5,<4.0"");
+                                     ^
+  symbol:   class Version
+  location: class Main
+Main.java:14: error: cannot find symbol
+        return upgrade_cost(n) + 100 * inRange + 10 * isStable + release_rank(n);
+               ^
+  symbol:   method upgrade_cost(int)
+  location: class Ma"

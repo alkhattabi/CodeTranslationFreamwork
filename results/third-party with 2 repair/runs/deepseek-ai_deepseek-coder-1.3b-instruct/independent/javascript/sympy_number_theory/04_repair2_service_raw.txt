@@ -1,0 +1,42 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { factor_signature } from "./utils.mjs";
+
+export function number_strength(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let phi = Math.floor(Math.sqrt(value));
+  for(let i = 2; i <= phi; i++)
+    if(value % i === 0) phi = i;
+  let divisor_count = 2;
+  let temp = value;
+  while(temp !== 1) {
+    if(temp % i === 0) {
+      divisor_count++;
+      temp = temp / i;
+    }
+    else i++;
+  }
+  return phi + 5 * divisor_count + factor_signature(n);
+}
+```
+
+This code is exporting a function named `number_strength` that takes an integer `n` as an argument and returns an integer. It uses the `factor_signature` function from the `utils.mjs` module.
+
+The original Python code was missing the `import` statement for the `sp` module and the `factor_signature` function. The corrected code also uses the `factor_signature` function from the `utils.mjs` module.
+
+The original Python code was using the `sp.totient` and `sp.divisor_count` functions, which are not available in JavaScript. The corrected code uses the `Math.floor`, `Math.sqrt`, `Math.abs`, `Math.floor`, `%`, `**`, and `++` operators in the corrected code.
+
+The original Python code was using the `abs` function to get the absolute value of `n`, which is not available in JavaScript. The corrected code uses the `Math.abs` function to get the absolute value of `n`.
+
+The original Python code was using the `sp.divisor_count` function to get the divisor count of `value`, which is not available in JavaScript. The corrected code uses the `Math.floor` function to get the floor of the square root of `value`, and then uses a for loop to find the largest divisor of `value`.
+
+The original Python code was using the `sp.totient` function to get the totient of `value`, which is not available in JavaScript. The corrected code uses the `Math.floor` function to get the floor of the square root of `value`, and then uses a for loop to find the largest divisor of `value`.
+
+The original Python code was using the `%` operator to get the remainder of `value` divided by `i`, which is not available in JavaScript. The corrected code uses the `%` operator to get the remainder of `value` divided by `i`.
+
+The original Python code was using the `**` operator to get the power of `value`, which is not available in JavaScript. The corrected code uses the `Math.sqrt` function to get the square root of `value`, and then uses a for loop to find the largest divisor of `value`.
+
+The original Python code was using the `++` operator to increment `i`, which is not available in JavaScript. The corrected code uses the `i++` operator to increment `i`.
+
+The original Python code was using the `/` operator to divide `temp` by `

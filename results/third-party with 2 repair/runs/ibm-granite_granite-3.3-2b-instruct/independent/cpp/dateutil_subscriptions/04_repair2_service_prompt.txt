@@ -1,0 +1,69 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp: In function ‘int renewal_date(int)’:
+utils.cpp:11:9: error: ‘date’ was not declared in this scope
+   11 |         date start_date(year, month, day);
+      |         ^~~~
+utils.cpp:15:5: error: ‘date’ was not declared in this scope
+   15 |     date end_date = start_date + relativedelta(months=1);
+      |     ^~~~
+utils.cpp:16:12: error: ‘end_date’ was not declared in this scope
+   16 |     return end_date.year() * 10000 + end_date.month() * 100 + end_date.day();
+      |            ^~~~~~~~
+service.cpp: In function ‘int grace_period(int)’:
+service.cpp:11:36: error: ‘months’ was not declared in this scope; did you mean ‘month’?
+   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+      |                                    ^~~~~~
+      |                                    month
+service.cpp:11:46: error: ‘days’ was not declared in this scope; did you mean ‘day’?
+   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+      |                                              ^~~~
+      |                                              day
+service.cpp:11:22: error: ‘relativedelta’ was not declared in this scope
+   11 |     int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+      |                      ^~~~~~~~~~~~~
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int grace_period(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int grace_period(int n);
+int renewal_date(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int grace_period(int n) {
+    int renewed = solve(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    int year = renewed / 10000;
+    int month = (renewed / 100) % 100;
+    int day = renewed % 100;
+    int due = year + relativedelta(months=2, days=7).years + (month * 100) + day;
+    return due;
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from utils import renewal_date
+
+def grace_period(n: int) -> int:
+    renewed = renewal_date(n)
+    if renewed < 0:
+        return -1
+    year, month, day = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    due = date(year, month, day) + relativedelta(months=2, days=7)
+    return due.year * 10000 + due.month * 100 + due.day

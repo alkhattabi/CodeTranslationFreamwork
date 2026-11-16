@@ -1,0 +1,6 @@
+public class Main {
+    public static int solve(int n) {
+        int cost = gross(n);
+        return cost + (cost * 15) / 100;
+    }
+}

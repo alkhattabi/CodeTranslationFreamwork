@@ -1,0 +1,73 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/digits/initial/validate_feedback/main.mjs:13
+import { digit_sum } from "./utils.js";
+         ^^^^^^^^^
+
+SyntaxError: Identifier 'digit_sum' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { score_digits } from "./service.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// utils.js
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+
+// service.js
+import { digit_sum } from "./utils.js";
+
+export function score_digits(n) {
+    return digit_sum(n);
+}
+
+// main.js
+import { score_digits } from "./service.js";
+
+export function solve(n) {
+    const value = score_digits(n);
+    if (value % 2 === 0) {
+        return value + 1;
+    }
+    return value - 1;
+}
+
+
+ORIGINAL PYTHON:
+from service import score_digits
+
+def solve(n: int) -> int:
+    value = score_digits(n)
+    if value % 2 == 0:
+        return value + 1
+    return value - 1
+
+
+DEPENDENCY service.mjs:
+// utils.mjs
+export function digit_sum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}

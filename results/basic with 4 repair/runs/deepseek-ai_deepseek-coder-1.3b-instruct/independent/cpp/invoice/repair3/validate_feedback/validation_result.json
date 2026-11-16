@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:14:9: warning: #pragma once in main file\n   14 | #pragma once\n      |         ^~~~\nmain.cpp:34:9: warning: #pragma once in main file\n   34 | #pragma once\n      |         ^~~~\nmain.cpp:52:9: warning: #pragma once in main file\n   52 | #pragma once\n      |         ^~~~\nmain.cpp:70:9: warning: #pragma once in main file\n   70 | #pragma once\n      |         ^~~~\nmain.cpp:88:9: warning: #pragma once in main file\n   88 | #pragma once\n      |         ^~~~\nmain.cpp:106:9: warning: #pragma once in main file\n  106 | #pragma once\n      |         ^~~~\nmain.cpp:124:9: warning: #pragma once in main file\n  124 | #pragma once\n      |         ^~~~\nmain.cpp:139:10: warning: missing terminating \" character\n  139 | #include \"api\n      |          ^\nmain.cpp:139:10: error: #include expects \"FILENAME\" or <FILENAME>\n  139 | #include \"api\n      |          ^~~~\nmain.cpp: In function \u2018int unit_price(int)\u2019:\nmain.cpp:12:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   12 | }\n      | ^\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

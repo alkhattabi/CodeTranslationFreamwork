@@ -1,0 +1,158 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:11: error: cannot find symbol
+        if (Utils.luhn_valid(n)) {
+            ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:5: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|1230|" + Main.solve(1230)); } catch (Throwable e) { System.out.println("main.solve|1230|ERR"); }
+                                                ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:14: error: cannot access Service
+  try { System.out.println("service.risk_points|1230|" + Service.risk_points(1230)); } catch (Throwable e) { System.out.println("service.risk_points|1230|ERR"); }
+                                                         ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+5 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.risk_points(n)
+  Utils.luhn_valid(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+import java.util.function.IntPredicate;
+
+public class Main {
+    public static int solve(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (Utils.luhn_valid(n)) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(123456)); // Output should be based on the logic implemented in solve method
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import luhn_valid
+from service import risk_points
+
+def solve(n: int) -> int:
+    points = risk_points(n)
+    if points >= 70:
+        return 3
+    if points >= 40:
+        return 2
+    if luhn_valid(n) == 1:
+        return 0
+    return 1
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+import java.util.function.IntPredicate;
+
+public class Service {
+
+    public static int risk_points(int n) {
+        if (n <= 0) {
+            return 100;
+        }
+        int score = 0;
+        if (luhnValid(n)) {
+            score += 40;
+        }
+        if (n % 11 == 0) {
+            score += 20;
+        }
+        if (n % 100 < 10) {
+            score += 15;
+        }
+        if (n < 1000) {
+            score += 25;
+        }
+        return score;
+    }
+
+    private static boolean luhnValid(int n) {
+        IntPredicate isEvenDigit = d -> d % 2 == 0;
+        IntPredicate isOddDigit = d -> d % 2 != 0;
+        int total = 0;
+        boolean doubleFlag = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (isEvenDigit.test(digit)) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleFlag = !doubleFlag;
+            n /= 10;
+        }
+        return total % 10 == 0;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleFlag = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleFlag) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleFlag = !doubleFlag;
+            n /= 10;
+        }
+        return total % 10 == 0 ? 1 : 0;
+    }
+}

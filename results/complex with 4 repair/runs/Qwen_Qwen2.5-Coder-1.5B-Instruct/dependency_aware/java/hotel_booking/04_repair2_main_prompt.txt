@@ -1,0 +1,120 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:8: error: variable n is already defined in method lodging_charge(int)
+        IntPredicate isValidNights = n -> n > 0 && n <= 9999;
+                                     ^
+Service.java:13: error: cannot find symbol
+        int nights = Utils.valid_nights(n);
+                     ^
+  symbol:   variable Utils
+  location: class Service
+Main.java:5: error: cannot find symbol
+        int nights = Utils.valid_nights(n);
+                     ^
+  symbol:   variable Utils
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|1015|" + Main.solve(1015)); } catch (Throwable e) { System.out.println("main.solve|1015|ERR"); }
+                                                ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:13: error: cannot access Service
+  try { System.out.println("service.lodging_charge|1015|" + Service.lodging_charge(1015)); } catch (Throwable e) { System.out.println("service.lodging_charge|1015|ERR"); }
+                                                            ^
+  bad source file: ./Se
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.lodging_charge(n)
+  Utils.valid_nights(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+public class Main {
+    public static int solve(int n) {
+        int nights = Utils.valid_nights(n);
+        if (nights == 0) {
+            return -1;
+        }
+        int rooms = n / 100;
+        int charge = Service.lodging_charge(n);
+        int cleaning = rooms * 45;
+        int tax = (charge + cleaning) * 15 / 100;
+        return charge + cleaning + tax;
+    }
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_nights
+from service import lodging_charge
+
+def solve(n: int) -> int:
+    nights = valid_nights(n)
+    if nights == 0:
+        return -1
+    rooms = n // 100
+    charge = lodging_charge(n)
+    cleaning = rooms * 45
+    tax = (charge + cleaning) * 15 // 100
+    return charge + cleaning + tax
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+import java.util.function.IntPredicate;
+
+public class Service {
+
+    public static int lodging_charge(int n) {
+        IntPredicate isValidNights = n -> n > 0 && n <= 9999;
+        if (!isValidNights.test(n)) {
+            throw new IllegalArgumentException("Invalid number of nights");
+        }
+
+        int nights = Utils.valid_nights(n);
+        if (nights == 0) {
+            return 0;
+        }
+
+        int rooms = n / 100;
+        int charge = rooms * nights * 150;
+        if (nights >= 7) {
+            charge -= charge / 10;
+        }
+        if (rooms >= 5) {
+            charge -= charge / 20;
+        }
+        return charge;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int valid_nights(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int rooms = n / 100;
+        int nights = n % 100;
+        if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+            return 0;
+        }
+        return nights;
+    }
+}

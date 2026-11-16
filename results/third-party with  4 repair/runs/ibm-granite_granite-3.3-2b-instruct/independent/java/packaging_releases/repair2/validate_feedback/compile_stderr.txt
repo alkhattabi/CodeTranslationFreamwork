@@ -1,0 +1,22 @@
+Service.java:17: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+^
+Service.java:17: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                    ^
+Service.java:17: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                     ^
+Service.java:17: error: illegal character: '`'
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                                                                                                   ^
+Service.java:17: error: illegal character: '`'
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                                                                                                     ^
+Service.java:17: error: illegal character: '`'
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                                                                                                                    ^
+Service.java:17: error: illegal character: '`'
+Note: In Java, there's no direct equivalent to Python's floor division and modulo operations. The Java code uses integer division (`/`) and modulo (`%`) operators to achieve similar functionality.
+                                                                                                                                                      ^
+7 errors

@@ -1,0 +1,71 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.grace_period(n)
+  Utils.renewal_date(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+
+
+PYTHON FILE main.py:
+from datetime import date
+from utils import renewal_date
+from service import grace_period
+
+def solve(n: int) -> int:
+    renewed = renewal_date(n)
+    deadline = grace_period(n)
+    if renewed < 0 or deadline < 0:
+        return -1
+    y1, m1, d1 = renewed // 10000, (renewed // 100) % 100, renewed % 100
+    y2, m2, d2 = deadline // 10000, (deadline // 100) % 100, deadline % 100
+    days = (date(y2, m2, d2) - date(y1, m1, d1)).days
+    return days * 100 + d2
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+package com.example;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Service {
+    public static int grace_period(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        Calendar start = Calendar.getInstance();
+        start.set(year - 1900, month - 1, day);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(start);
+        calendar.add(Calendar.MONTH, 1);
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            java.util.Date start = new java.util.Date(year - 1900, month - 1, day);
+        } catch (IllegalArgumentException e) {
+            return -1;
+        }
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        calendar.setTime(start);
+        calendar.add(java.util.Calendar.MONTH, 1);
+        return calendar.get(java.util.Calendar.YEAR) * 10000 + calendar.get(java.util.Calendar.MONTH) * 100 + calendar.get(java.util.Calendar.DAY_OF_MONTH);
+    }
+}

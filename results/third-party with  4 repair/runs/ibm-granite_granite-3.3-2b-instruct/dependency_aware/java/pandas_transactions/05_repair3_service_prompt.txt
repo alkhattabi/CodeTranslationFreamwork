@@ -1,0 +1,107 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+        ^
+  symbol:   class List
+  location: class Utils
+Utils.java:4: error: cannot find symbol
+        List<Integer> amounts = new ArrayList<>();
+                                    ^
+  symbol:   class ArrayList
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+        ^
+  symbol:   class Map
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+        Map<String, Integer> sums = new HashMap<>();
+                                        ^
+  symbol:   class HashMap
+  location: class Utils
+Utils.java:15: error: package frame does not exist
+            if (sums.containsKey(frame.category.get(amount))) {
+                                      ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                                                                   ^
+Utils.java:16: error: package frame does not exist
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+                              ^
+Utils.java:18: error: package frame does not exist
+                sums.put(frame.category.get(amount), amount);
+                              ^
+Ma
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int rolling_alert(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.category_balance(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int rolling_alert(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int rolling_alert(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        int[] series = {n % 13, (n / 2) % 13, n % 17, Math.abs(n) % 11, n % 7};
+        int[] rollingSum = new int[series.length];
+        int count = 0;
+        for (int i = 0; i < series.length; i++) {
+            rollingSum[i] = 0;
+            if (i > 0) rollingSum[i] += rollingSum[i - 1];
+            rollingSum[i] += series[i];
+        }
+
+        int alerts = 0;
+        for (int i = 2; i < rollingSum.length; i++) {
+            if (rollingSum[i] >= 15) alerts++;
+        }
+
+        return (alerts * 10) + Math.abs(Utils.category_balance(n)) % 23;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+
+def rolling_alert(n: int) -> int:
+    n = max(-200, min(200, n))
+    series = pd.Series([n % 13, (n // 2) % 13, n % 17, abs(n) % 11, n % 7])
+    rolling = series.rolling(window=3, min_periods=1).sum()
+    alerts = int((rolling >= 15).sum())
+    return alerts * 10 + abs(category_balance(n)) % 23
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        List<Integer> amounts = new ArrayList<>();
+        amounts.add(n);
+        amounts.add(12);
+        amounts.add(n / 2);
+        amounts.add(-7);
+        amounts.add(n % 9);
+        amounts.add(4);
+        amounts.add(-n / 3);
+
+        Map<String, Integer> sums = new HashMap<>();
+        for (int amount : amounts) {
+            if (sums.containsKey(frame.category.get(amount))) {
+                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);
+            } else {
+                sums.put(frame.category.get(amount), amount);
+            }
+        }
+
+        int result = 2 * sums.get("A") + sums.get("B") - sums.get("C");
+        return result;
+    }
+}

@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/packaging_releases/repair3/validate_feedback/main.mjs:24
+import { release_rank } from "./utils.mjs";
+         ^^^^^^^^^^^^
+
+SyntaxError: Identifier 'release_rank' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

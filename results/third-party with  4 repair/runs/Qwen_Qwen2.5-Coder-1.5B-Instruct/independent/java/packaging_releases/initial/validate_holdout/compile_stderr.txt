@@ -1,0 +1,86 @@
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+                                    ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = releaseRank(n);
+                   ^
+  symbol:   method releaseRank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(String.format("%d.%d.%d", major, minor, patch));
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(String.format("%d.%d.%d", major, minor, patch));
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version("2.1.0");
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot find symbol
+        Version required = new Version("2.1.0");
+                               ^
+  symbol:   class Version
+  location: class Service
+Main.java:11: error: cannot find symbol
+        Version version = new Version(versionStr);
+        ^
+  symbol:   class Version
+  location: class Main
+Main.java:11: error: cannot find symbol
+        Version version = new Version(versionStr);
+                              ^
+  symbol:   class Version
+  location: class Main
+Main.java:12: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet(">=1.5,<4.0");
+        ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:12: error: cannot find symbol
+        SpecifierSet allowed = new SpecifierSet(">=1.5,<4.0");
+                                   ^
+  symbol:   class SpecifierSet
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return upgradeCost(n) + 100 * inRange + 10 * stable + releaseRank(n);
+               ^
+  symbol:   method upgradeCost(int)
+  location: class Main
+Main.java:15: error: bad operand types for binary operator '*'
+        return upgradeCost(n) + 100 * inRange + 10 * stable + releaseRank(n);
+                                    ^
+  first type:  int
+  second type: boolean
+Main.java:15: error: bad operand types for binary operator '*'
+        return upgradeCost(n) + 100 * inRange + 10 * stable + releaseRank(n);
+                                                   ^
+  first type:  int
+  second type: boolean
+Main.java:15: error: cannot find symbol
+        return upgradeCost(n) + 100 * inRange + 10 * stable + releaseRank(n);
+                                                              ^
+  symbol:   method releaseRank(int)
+  location: class Main
+17 errors

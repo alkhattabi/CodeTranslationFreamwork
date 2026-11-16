@@ -1,0 +1,56 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/loan_quote/initial/validate_feedback/main.mjs:4
+export function solve(n: number): number {
+                       ^
+
+SyntaxError: Unexpected token ':'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function credit_band(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function credit_band(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+export function credit_band(n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+
+
+ORIGINAL PYTHON:
+
+def credit_band(n: int) -> int:
+    if n < 300 or n > 850:
+        return 0
+    if n >= 750:
+        return 4
+    if n >= 650:
+        return 3
+    if n >= 550:
+        return 2
+    if n >= 450:
+        return 1
+    return 0

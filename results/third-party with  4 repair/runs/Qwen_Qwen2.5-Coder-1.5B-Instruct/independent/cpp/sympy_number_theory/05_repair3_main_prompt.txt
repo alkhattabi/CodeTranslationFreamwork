@@ -1,0 +1,74 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:14:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   14 | }
+      | ^
+service.cpp: In function ‘int number_strength(int)’:
+service.cpp:18:37: error: ‘gcd’ is not a member of ‘std’
+   18 |     int phi = static_cast<int>(std::gcd(value, value - 1));
+      |                                     ^~~
+service.cpp: In function ‘int factor_signature(int)’:
+service.cpp:25:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   25 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int number_strength(int n);
+int factor_signature(int n);
+
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int number_strength(int n);
+int factor_signature(int n);
+
+// Main function
+int solve(int n);
+
+// Global declaration of sympy's isprime function
+extern "C" {
+    int isprime(int x);
+}
+
+// Global declaration of sympy's nextprime function
+extern "C" {
+    int nextprime(int x);
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)

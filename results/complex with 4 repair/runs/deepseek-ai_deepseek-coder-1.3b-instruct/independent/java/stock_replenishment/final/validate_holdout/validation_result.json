@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: cannot find symbol\n        int quantity = Service.orderQuantity(n);\n                              ^\n  symbol:   method orderQuantity(int)\n  location: class Service\nMain.java:7: error: cannot find symbol\n        int demand = Utils.weeklyDemand(n);\n                          ^\n  symbol:   method weeklyDemand(int)\n  location: class Utils\n2 errors\n",
+  "failed_modules": [
+    "main",
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

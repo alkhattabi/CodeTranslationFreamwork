@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:20: error: class, interface, enum, or record expected\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.\n^\nUtils.java:20: error: unclosed character literal\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.\n                    ^\nUtils.java:20: error: unclosed character literal\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.\n                                                     ^\nUtils.java:20: error: unclosed character literal\nNote: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.\n                                                                                                                                                                                                                       ^\nMain.java:53: error: class, interface, enum, or record expected\nNote: The actual implementations of disruptionScore and routeCost methods are not provided as they were not specified in the original Python code. They should be implemented according to the specific requirements.\n^\n5 errors\n",
+  "failed_modules": [
+    "utils",
+    "main"
+  ],
+  "case_failures": []
+}

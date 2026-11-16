@@ -1,0 +1,12 @@
+{"k":"main.solve|0","v":0}
+{"k":"main.solve|10","v":115}
+{"k":"main.solve|1","error":"Error: result must be a safe integer"}
+{"k":"main.solve|-3","v":0}
+{"k":"service.gross|0","v":0}
+{"k":"service.gross|10","v":100}
+{"k":"service.gross|1","v":12}
+{"k":"service.gross|-3","v":0}
+{"k":"utils.unit_price|0","v":12}
+{"k":"utils.unit_price|10","v":10}
+{"k":"utils.unit_price|1","v":12}
+{"k":"utils.unit_price|-3","v":12}

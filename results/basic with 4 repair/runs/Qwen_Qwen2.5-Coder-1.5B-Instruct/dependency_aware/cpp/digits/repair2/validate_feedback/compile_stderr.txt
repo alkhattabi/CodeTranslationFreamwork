@@ -1,0 +1,16 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccJqjfEs.o: in function `digit_sum(int)':
+service.cpp:(.text+0x0): multiple definition of `digit_sum(int)'; /tmp/ccvVjZAi.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccHswnD4.o: in function `digit_sum(int)':
+main.cpp:(.text+0x0): multiple definition of `digit_sum(int)'; /tmp/ccvVjZAi.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccHswnD4.o: in function `score_digits(int)':
+main.cpp:(.text+0x77): multiple definition of `score_digits(int)'; /tmp/ccJqjfEs.o:service.cpp:(.text+0x77): first defined here
+collect2: error: ld returned 1 exit status

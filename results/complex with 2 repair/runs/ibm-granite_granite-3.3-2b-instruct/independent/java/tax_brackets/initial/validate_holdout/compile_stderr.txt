@@ -1,0 +1,4 @@
+Service.java:18: error: class, interface, enum, or record expected
+Note: The taxable_income method from the utils module is assumed to be implemented in Java and is not provided here.
+^
+1 error

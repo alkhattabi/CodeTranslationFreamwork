@@ -1,0 +1,16 @@
+Main.java:14: error: ';' expected
+        int insurance = 300 if blocks >= 10 else 100;
+                           ^
+Main.java:14: error: '(' expected
+        int insurance = 300 if blocks >= 10 else 100;
+                              ^
+Main.java:14: error: ')' expected
+        int insurance = 300 if blocks >= 10 else 100;
+                                           ^
+Main.java:14: error: not a statement
+        int insurance = 300 if blocks >= 10 else 100;
+                                                 ^
+Main.java:14: error: 'else' without 'if'
+        int insurance = 300 if blocks >= 10 else 100;
+                                            ^
+5 errors

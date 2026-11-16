@@ -1,0 +1,12 @@
+main.solve|11|126
+main.solve|50|575
+main.solve|9|124
+main.solve|7|96
+service.gross|11|110
+service.gross|50|500
+service.gross|9|108
+service.gross|7|84
+utils.unit_price|11|10
+utils.unit_price|50|10
+utils.unit_price|9|12
+utils.unit_price|7|12

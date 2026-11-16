@@ -1,0 +1,15 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+export function weight_blocks(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n > 10000) {
+        n = 10000;
+    }
+    return Math.floor((n + 499) / 500);
+}
+```
+
+This JavaScript function does exactly the same thing as the Python function. It checks if the input number `n` is less than or equal to 0, if so, it returns 0. If `n` is greater than 10000, it sets `n` to 10000. Then it calculates the weight of `n` by adding 499 and dividing by 500, and returns the result rounded down to the nearest whole number using `Math.floor()`.

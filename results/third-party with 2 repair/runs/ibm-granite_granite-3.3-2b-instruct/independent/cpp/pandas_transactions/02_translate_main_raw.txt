@@ -1,0 +1,18 @@
+Here is the equivalent C++ code:
+
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    int balance = rolling_alert(n);
+    int alert = rolling_alert(n);
+    int scores[3] = {abs(balance) % 50, alert, abs(n) % 50};
+    std::vector<int> ranked_scores(scores, scores + 3);
+    std::sort(ranked_scores.begin(), ranked_scores.end(),
+              [](int a, int b) { return a > b; });
+    int penalty = (std::min(3, ranked_scores[0]) + std::min(7, ranked_scores[1])) * (int)n;
+    return balance + alert - penalty;
+}
+```
+
+This C++ code defines the `solve` function, which behaves identically to the Python `solve` function. It uses the `rolling_alert` function from the `api.hpp` header file, and calculates a penalty based on the ranks of the scores. The penalty is then subtracted from the sum of the balance and alert to get the final result. The sorting and penalty calculation are done using standard C++ features, without relying on Python-specific libraries or features.

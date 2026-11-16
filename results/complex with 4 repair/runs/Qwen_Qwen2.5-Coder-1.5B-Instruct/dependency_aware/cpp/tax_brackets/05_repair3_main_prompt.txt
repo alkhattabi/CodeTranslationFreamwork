@@ -1,0 +1,186 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:42:5: error: ‘base’ was not declared in this scope
+   42 |     base = taxable_income(n);
+      |     ^~~~
+main.cpp:43:5: error: ‘tax’ was not declared in this scope; did you mean ‘tan’?
+   43 |     tax = calculate_tax(n);
+      |     ^~~
+      |     tan
+main.cpp:44:5: error: ‘credit’ was not declared in this scope
+   44 |     credit = 100 if base > 0 && base <= 2500 else 0;
+      |     ^~~~~~
+main.cpp:45:5: error: ‘payable’ was not declared in this scope
+   45 |     payable = tax - credit;
+      |     ^~~~~~~
+main.cpp:46:8: error: expected ‘(’ before ‘payable’
+   46 |     if payable < 0) {
+      |        ^~~~~~~
+      |        (
+main.cpp:49:34: error: expected ‘)’ before ‘}’ token
+   49 |     return payable + (payable * 2 // 100 if base > 10000 else 0);
+      |                      ~           ^
+      |                                  )
+   50 | }
+      | ~                                 
+main.cpp:49:34: error: expected ‘;’ before ‘}’ token
+   49 |     return payable + (payable * 2 // 100 if base > 10000 else 0);
+      |         
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int calculate_tax(int n);
+int taxable_income(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int calculate_tax(int n);
+
+// Global declaration of taxable_income function
+int taxable_income(int n);
+
+// Implementation of taxable_income function
+int taxable_income(int n) {
+    if (n <= 500) {
+        return 0;
+    }
+    int income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+
+// Implementation of calculate_tax function
+int calculate_tax(int n) {
+    int income = taxable_income(n);
+    int tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+
+int solve(int n) {
+    base = taxable_income(n);
+    tax = calculate_tax(n);
+    credit = 100 if base > 0 && base <= 2500 else 0;
+    payable = tax - credit;
+    if payable < 0) {
+        payable = 0;
+    }
+    return payable + (payable * 2 // 100 if base > 10000 else 0);
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import taxable_income
+from service import calculate_tax
+
+def solve(n: int) -> int:
+    base = taxable_income(n)
+    tax = calculate_tax(n)
+    credit = 100 if base > 0 and base <= 2500 else 0
+    payable = tax - credit
+    if payable < 0:
+        payable = 0
+    return payable + (payable * 2 // 100 if base > 10000 else 0)
+
+
+DEPENDENCY service.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int calculate_tax(int n);
+
+// Global declaration of taxable_income function
+int taxable_income(int n);
+
+// Implementation of taxable_income function
+int taxable_income(int n) {
+    if (n <= 500) {
+        return 0;
+    }
+    int income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+
+// Implementation of calculate_tax function
+int calculate_tax(int n) {
+    int income = taxable_income(n);
+    int tax = 0;
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+    tax += income * 5 / 100;
+    return tax;
+}
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int calculate_tax(int n);
+
+// Global declaration of taxable_income function
+int taxable_income(int n);
+
+// Implementation of taxable_income function
+int taxable_income(int n) {
+    if (n <= 500) {
+        return 0;
+    }
+    int income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}

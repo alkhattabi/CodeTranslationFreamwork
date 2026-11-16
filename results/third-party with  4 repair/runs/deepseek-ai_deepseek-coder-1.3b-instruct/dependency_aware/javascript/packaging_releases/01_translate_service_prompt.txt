@@ -1,0 +1,47 @@
+Translate the following Python file to javascript, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function upgrade_cost(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { release_rank } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function upgrade_cost(n) { /* implementation */ }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: packaging.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+from packaging.version import Version
+from utils import release_rank
+
+def upgrade_cost(n: int) -> int:
+    rank = release_rank(n)
+    if rank < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    current = Version(f"{major}.{minor}.{patch}")
+    required = Version("2.1.0")
+    penalty = 40 if current < required else 0
+    return rank * 25 + minor + patch // 5 + penalty
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.mjs
+export function release_rank(n) {
+    if (n < 0) {
+        return -1;
+    }
+    let major = Math.floor(n / 10000);
+    let minor = Math.floor((n / 100) % 100);
+    let patch = n % 100;
+    let suffix = (patch % 4 === 0) ? "rc1" : "";
+    let version = `${major}.${minor}.${patch}${suffix}`;
+    let reference = "2.1.0";
+    if (version < reference) {
+        return 1;
+    }
+    if (version === reference) {
+        return 2;
+    }
+    return 3;
+}

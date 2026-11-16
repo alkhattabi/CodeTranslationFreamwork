@@ -1,0 +1,140 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:17:19: error: expected ‘,’ or ‘;’ before ‘if’
+   17 |     int fee = 150 if band >= 3 else 350;
+      |                   ^~
+
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int yearly_interest(int n);
+int credit_band(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int yearly_interest(int n);
+int credit_band(int n);
+
+int solve(int n) {
+    int band = credit_band(n);
+    if (band == 0) {
+        return -1;
+    }
+    int principal = 10000 + (n - 300) * 10;
+    int interest = yearly_interest(n);
+    int fee = 150 if band >= 3 else 350;
+    int total = principal + interest + fee;
+    return (total + 11) / 12;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import credit_band
+from service import yearly_interest
+
+def solve(n: int) -> int:
+    band = credit_band(n)
+    if band == 0:
+        return -1
+    principal = 10000 + (n - 300) * 10
+    interest = yearly_interest(n)
+    fee = 150 if band >= 3 else 350
+    total = principal + interest + fee
+    return (total + 11) // 12
+
+
+DEPENDENCY service.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int solve(int n);
+int yearly_interest(int n);
+int credit_band(int n);
+
+// Global declaration of yearly_interest function
+int yearly_interest(int n) {
+    int band = credit_band(n);
+    if (band == 0) {
+        return -1;
+    }
+    int principal = 10000 + (n - 300) * 10;
+    double rate = 18 - band * 3;
+    int interest = static_cast<int>(principal * rate / 100);
+    if (principal > 14000) {
+        interest += 125;
+    }
+    return interest;
+}
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function prototypes
+int solve(int n);
+int yearly_interest(int n);
+
+// Global declaration of credit_band function
+int credit_band(int n);
+
+// Implementation of credit_band function
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+
+// Implementation of solve function
+int solve(int n) {
+    // Placeholder for actual implementation
+    return n; // Example return value
+}
+
+// Implementation of yearly_interest function
+int yearly_interest(int n) {
+    // Placeholder for actual implementation
+    return n; // Example return value
+}

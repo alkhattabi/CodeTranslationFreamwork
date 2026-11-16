@@ -1,0 +1,71 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:5: error: ';' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                ^
+Main.java:5: error: '(' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                   ^
+Main.java:5: error: ')' expected
+        return 1 if bonusScore(n) >= 60 else 0;
+                                       ^
+Main.java:5: error: not a statement
+        return 1 if bonusScore(n) >= 60 else 0;
+                                             ^
+Main.java:5: error: 'else' without 'if'
+        return 1 if bonusScore(n) >= 60 else 0;
+                                        ^
+5 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.bonus_score(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+package com.example;
+
+public class Main {
+    public static int solve(int n) {
+        return 1 if bonusScore(n) >= 60 else 0;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(50)); // Expected output: 1
+        System.out.println(solve(-20)); // Expected output: 0
+        System.out.println(solve(105)); // Expected output: 1
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import bonus_score
+
+def solve(n: int) -> int:
+    return 1 if bonus_score(n) >= 60 else 0
+
+
+DEPENDENCY Service.java:
+package com.example;
+
+public class Service {
+    public static int bonus_score(int n) {
+        int base = clamp(n);
+        return clamp(base + 7);
+    }
+
+    private static int clamp(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
+    }
+}

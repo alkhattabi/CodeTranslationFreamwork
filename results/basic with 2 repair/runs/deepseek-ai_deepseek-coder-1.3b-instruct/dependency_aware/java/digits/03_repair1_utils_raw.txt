@@ -1,0 +1,17 @@
+Here is the corrected Java code:
+
+```java
+public class Utils {
+    public static int digit_sum(int n) {
+        n = Math.abs(n);
+        int total = 0;
+        while (n > 0) {
+            total += n % 10;
+            n /= 10;
+        }
+        return total;
+    }
+}
+```
+
+This code defines a public class `Utils` with a public static method `digit_sum` that calculates the sum of the digits of a given integer. The method takes an integer `n` as input and returns an integer. The method first converts the absolute value of `n` to its absolute value to ensure that the method works correctly for both positive and negative integers. Then, it enters a while loop that continues until `n` is greater than 0. In each iteration of the loop, it adds the remainder of `n` divided by 10 (which gives the last digit of `n`) to `total` and then divides `n` by 10 (which removes the last digit from `n`). The loop continues until `n` is 0, at which point the method returns `total`.

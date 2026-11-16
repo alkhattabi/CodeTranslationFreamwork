@@ -1,0 +1,77 @@
+{
+  "compiled": true,
+  "passed": 18,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 10000,
+      "expected": 7396,
+      "actual": "7196"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 500,
+      "expected": 1591,
+      "actual": "1791"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1001,
+      "expected": 1980,
+      "actual": "2180"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 5000,
+      "expected": 3918,
+      "actual": "3718"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2500,
+      "expected": 2368,
+      "actual": "2568"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 1000,
+      "expected": 1785,
+      "actual": "1985"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 999,
+      "expected": 1785,
+      "actual": "1985"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 2499,
+      "expected": 2368,
+      "actual": "2568"
+    },
+    {
+      "module": "service",
+      "function": "transport_cost",
+      "input": -1,
+      "expected": 0,
+      "actual": "1200"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:30: error: class, interface, enum, or record expected\nNote: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.\n^\nUtils.java:30: error: unclosed character literal\nNote: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.\n                                                                      ^\nUtils.java:30: error: '{' expected\nNote: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.\n                                                                                                                                                       ^\nUtils.java:30: error: '{' expected\nNote: Java does not have a built-in factorization function like Python's sympy, so a custom implementation is provided. The PrimeFactorization class is a helper class to encapsulate the prime factorization logic.\n                                                                                                                                                                         ^\nMain.java:38: error: class, interface, enum, or record expected\nNote: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.\n^\nMain.java:38: error: illegal character: '`'\nNote: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.\n                                   ^\nMain.java:38: error: illegal character: '`'\nNote: The original Python function `numberStrength` and its implementation are not provided, so placeholders are used in the Java code. You need to replace them with the actual Java implementation.\n                                                  ^\n7 errors\n",
+  "failed_modules": [
+    "utils",
+    "main"
+  ],
+  "case_failures": []
+}

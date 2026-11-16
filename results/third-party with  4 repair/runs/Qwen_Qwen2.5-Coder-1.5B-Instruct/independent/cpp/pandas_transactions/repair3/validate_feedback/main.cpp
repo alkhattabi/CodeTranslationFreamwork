@@ -1,0 +1,7 @@
+#pragma once
+#include <vector>
+#include <numeric>
+
+int solve(int n);
+int rolling_alert(int n);
+int category_balance(int n);

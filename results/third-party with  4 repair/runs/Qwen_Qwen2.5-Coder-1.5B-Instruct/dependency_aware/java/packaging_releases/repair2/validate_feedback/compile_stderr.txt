@@ -1,0 +1,90 @@
+Service.java:3: error: package org.apache.commons.lang3 does not exist
+import org.apache.commons.lang3.StringUtils;
+                               ^
+Main.java:3: error: package org.apache.commons.lang3 does not exist
+import org.apache.commons.lang3.StringUtils;
+                               ^
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+            ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:13: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+                                    ^
+  symbol:   class Version
+  location: class Utils
+Service.java:8: error: cannot find symbol
+        int rank = releaseRank(n);
+                   ^
+  symbol:   method releaseRank(int)
+  location: class Service
+Service.java:18: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Service
+Service.java:18: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Service
+Service.java:19: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+            ^
+  symbol:   class Version
+  location: class Service
+Service.java:19: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+                                    ^
+  symbol:   class Version
+  location: class Service
+Main.java:16: error: cannot find symbol
+            Version version = new Version(versionStr);
+            ^
+  symbol:   class Version
+  location: class Main
+Main.java:16: error: cannot find symbol
+            Version version = new Version(versionStr);
+                                  ^
+  symbol:   class Version
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+            ^
+  symbol:   class Version
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Version reference = new Version("2.1.0");
+                                    ^
+  symbol:   class Version
+  location: class Main
+Main.java:5: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|3|" + Main.solve(3)); } catch (Throwable e) { System.out.println("main.solve|3|ERR"); }
+                                             ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.upgrade_cost|3|" + Service.upgrade_cost(3)); } catch (Throwable e) { System.out.println("service.upgrade_cost|3|ERR"); }
+                                                       ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+19 errors

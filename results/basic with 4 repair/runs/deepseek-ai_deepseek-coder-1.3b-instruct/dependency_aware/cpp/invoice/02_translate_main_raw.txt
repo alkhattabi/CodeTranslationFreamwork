@@ -1,0 +1,14 @@
+Here is the C++ implementation of the Python file:
+
+```cpp
+#pragma once
+
+#include "api.hpp"
+
+int solve(int n) {
+    int cost = gross(n);
+    return cost + (cost * 15) / 100;
+}
+```
+
+The C++ version of the Python file is identical to the original Python file, except for the division operator. In C++, the division operator is /, not //. Also, the Python file uses the // operator for integer division, which is equivalent to the C++ version of integer division.

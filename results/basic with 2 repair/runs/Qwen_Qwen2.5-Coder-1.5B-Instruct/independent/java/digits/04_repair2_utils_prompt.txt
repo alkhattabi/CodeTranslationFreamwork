@@ -1,0 +1,58 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:3: error: cannot find symbol
+        return digitSum(n) * 3;
+               ^
+  symbol:   method digitSum(int)
+  location: class Service
+EvalRunner.java:11: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|0|" + Utils.digit_sum(0)); } catch (Throwable e) { System.out.println("utils.digit_sum|0|ERR"); }
+                                                       ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:12: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|208|" + Utils.digit_sum(208)); } catch (Throwable e) { System.out.println("utils.digit_sum|208|ERR"); }
+                                                         ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:13: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|1|" + Utils.digit_sum(1)); } catch (Throwable e) { System.out.println("utils.digit_sum|1|ERR"); }
+                                                       ^
+  symbol:   method digit_sum(int)
+  location: class Utils
+EvalRunner.java:14: error: cannot find symbol
+  try { System.out.println("utils.digit_sum|-1|" + Utils.digit_sum(-1)); } catch (Throwable e) { System.out.println("utils.digit_sum|-1|ERR"); }
+                                                        ^
+  symbol:   method digit_sum(int)
+  location: class Util
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int digit_sum(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int digit_sum(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int digitSum(int n) {
+        n = Math.abs(n);
+        int total = 0;
+        while (n > 0) {
+            total += n % 10;
+            n /= 10;
+        }
+        return total;
+    }
+}
+
+
+ORIGINAL PYTHON:
+def digit_sum(n: int) -> int:
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total

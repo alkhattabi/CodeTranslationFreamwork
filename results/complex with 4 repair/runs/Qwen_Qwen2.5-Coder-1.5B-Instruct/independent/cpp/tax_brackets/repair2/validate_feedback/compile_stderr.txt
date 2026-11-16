@@ -1,0 +1,14 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:21:40: error: expected ‘)’ before ‘if’
+   21 |     return payable + (payable * 2 / 100 if base > 10000 else 0);
+      |                      ~                 ^~~
+      |                                        )

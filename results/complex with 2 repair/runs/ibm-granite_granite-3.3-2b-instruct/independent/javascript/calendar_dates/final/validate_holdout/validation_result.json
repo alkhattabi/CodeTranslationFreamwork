@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "main.mjs\n/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/independent/javascript/calendar_dates/final/validate_holdout/main.mjs:9\n    const quarter = (month - 1) / 3 + 1;\n    ^^^^^\n\nSyntaxError: Unexpected token 'const'\n    at checkSyntax (node:internal/main/check_syntax:74:5)\n\nNode.js v22.23.4\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,22 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete utils.cpp implementation source. Include "api.hpp". Define exactly int taxable_income(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int calculate_tax(int n);
+int taxable_income(int n);
+
+
+PYTHON FILE utils.py:
+
+def taxable_income(n: int) -> int:
+    if n <= 500:
+        return 0
+    income = n - 500
+    if income > 20000:
+        income = 20000
+    return income

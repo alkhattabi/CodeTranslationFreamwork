@@ -1,0 +1,11 @@
+Service.java:6: error: cannot find symbol
+        return n * unitPrice(n);
+                   ^
+  symbol:   method unitPrice(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int cost = gross(n);
+                   ^
+  symbol:   method gross(int)
+  location: class Main
+2 errors

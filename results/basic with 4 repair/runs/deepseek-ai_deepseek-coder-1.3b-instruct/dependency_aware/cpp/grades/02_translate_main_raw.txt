@@ -1,0 +1,16 @@
+Here is the C++ implementation of the Python file main.cpp:
+
+```cpp
+#include "api.hpp"
+
+int solve(int n) {
+    int base = clamp(n);
+    return clamp(base + 7);
+}
+```
+
+The `clamp` function is defined in the `api.hpp` file. It clamps a number to a range of 0-100. If the number is less than 0, it returns 0. If the number is greater than 100, it returns 100. Otherwise, it returns the number.
+
+The `solve` function uses the `bonus_score` function to calculate the score. If the score is 60 or above, it returns 1, otherwise it returns 0.
+
+Please note that the `bonus_score` function is not defined in the provided Python file, so it is assumed that it is defined in the `api.hpp` file.

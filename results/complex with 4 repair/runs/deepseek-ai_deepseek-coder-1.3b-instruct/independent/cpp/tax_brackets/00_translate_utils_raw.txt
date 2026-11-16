@@ -1,0 +1,19 @@
+Here is the C++ implementation of the Python function `taxable_income(n)`:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int taxable_income(int n) {
+    if (n <= 500) {
+        return 0;
+    }
+    int income = n - 500;
+    if (income > 20000) {
+        income = 20000;
+    }
+    return income;
+}
+```
+
+This function takes an integer `n` as input and returns the taxable income. If `n` is less than or equal to 500, it returns 0. If `n` is greater than 500 but less than or equal to 20000, it returns the remaining income after subtracting 500. If `n` is greater than 20000, it returns 20000.

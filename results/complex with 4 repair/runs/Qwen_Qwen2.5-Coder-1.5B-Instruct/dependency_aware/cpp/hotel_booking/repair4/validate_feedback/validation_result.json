@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:44:5: error: \u2018nights\u2019 was not declared in this scope\n   44 |     nights = valid_nights(n);\n      |     ^~~~~~\nmain.cpp:48:5: error: \u2018rooms\u2019 was not declared in this scope\n   48 |     rooms = n / 100;\n      |     ^~~~~\nmain.cpp:49:5: error: \u2018charge\u2019 was not declared in this scope; did you mean \u2018char\u2019?\n   49 |     charge = lodging_charge(n);\n      |     ^~~~~~\n      |     char\nmain.cpp:50:5: error: \u2018cleaning\u2019 was not declared in this scope\n   50 |     cleaning = rooms * 45;\n      |     ^~~~~~~~\nmain.cpp:51:5: error: \u2018tax\u2019 was not declared in this scope; did you mean \u2018tan\u2019?\n   51 |     tax = (charge + cleaning) * 15 / 100;\n      |     ^~~\n      |     tan\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

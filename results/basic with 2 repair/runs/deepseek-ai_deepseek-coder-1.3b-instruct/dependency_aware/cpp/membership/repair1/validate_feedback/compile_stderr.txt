@@ -1,0 +1,24 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:17:9: warning: #pragma once in main file
+   17 | #pragma once
+      |         ^~~~
+service.cpp:33:9: warning: #pragma once in main file
+   33 | #pragma once
+      |         ^~~~
+service.cpp:42:9: warning: #pragma once in main file
+   42 | #pragma once
+      |         ^~~~
+service.cpp:45:2: error: #endif without #if
+   45 | #endif
+      |  ^~~~~
+service.cpp:47:2: error: #endif without #if
+   47 | #endif
+      |  ^~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

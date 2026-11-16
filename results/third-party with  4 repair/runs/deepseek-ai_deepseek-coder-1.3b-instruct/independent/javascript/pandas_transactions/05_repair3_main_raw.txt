@@ -1,0 +1,20 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { category_balance } from "./utils.mjs";
+import { rolling_alert } from "./service.mjs";
+
+export function solve(n) {
+    const balance = category_balance(n);
+    const alert = rolling_alert(n);
+    const scores = [Math.abs(balance) % 50, alert, Math.abs(n) % 50];
+    const ranks = scores.map(score => {
+        if (score === 0) return 0;
+        return scores.indexOf(score) + 1;
+    });
+    const penalty = Math.floor(ranks[0] * 7 + ranks[1] * 3);
+    return balance + alert - penalty;
+}
+```
+
+This code is exporting a function `solve` that takes an integer `n` as an argument and returns an integer. It uses the `category_balance` and `rolling_alert` functions from the `utils.mjs` and `service.mjs` modules, respectively. The `scores` array is created by taking the modulus of the balance and alert, and the `ranks` array is created by mapping the scores to their ranks in descending order. The `penalty` is calculated by multiplying the first rank by 7 and the second rank by 3, and then rounding down to the nearest integer. The final result is the sum of the balance and alert, minus the penalty.

@@ -1,0 +1,55 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <vector>
+#include <queue>
+
+// Helper function to calculate the cost of a route
+int route_cost(int n) {
+    // Placeholder for actual route cost calculation
+    return std::abs(n); // Example: absolute value of n
+}
+
+// Function to determine the disruption score based on the number of nodes
+int disruption_score(int n) {
+    // Create a directed graph
+    std::vector<std::vector<int>> graph(n, std::vector<int>(n));
+    graph[0][1] = 1;
+    graph[0][2] = 1;
+    graph[1][3] = 1;
+    graph[2][3] = 1;
+    graph[3][4] = 1;
+    graph[4][5] = 1;
+    graph[2][5] = 1;
+    graph[5][6] = 1;
+
+    // Remove edges based on divisibility conditions
+    if (n % 3 == 0) {
+        graph[2][5] = 0;
+    }
+    if (n % 5 == 0) {
+        graph[0][2] = 0;
+    }
+
+    // Calculate the number of reachable nodes from node 0
+    int reachable = 0;
+    for (int i = 0; i < n; ++i) {
+        if (graph[i][0]) {
+            reachable++;
+        }
+    }
+
+    // Calculate the length of the longest path in the graph
+    int longest = 0;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (graph[i][j]) {
+                longest = std::max(longest, static_cast<int>(std::distance(graph.begin() + i, std::find(graph.begin() + j, graph.end(), true))));
+            }
+        }
+    }
+
+    // Return the disruption score
+    return route_cost(n) + 3 * reachable + longest;
+}

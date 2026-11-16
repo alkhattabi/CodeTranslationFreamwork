@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccJyyOda.o: in function `bonus_score(int)':\nmain.cpp:(.text+0x0): multiple definition of `bonus_score(int)'; /tmp/cc0keazb.o:service.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccJqm2xV.o: in function `main':\nEvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

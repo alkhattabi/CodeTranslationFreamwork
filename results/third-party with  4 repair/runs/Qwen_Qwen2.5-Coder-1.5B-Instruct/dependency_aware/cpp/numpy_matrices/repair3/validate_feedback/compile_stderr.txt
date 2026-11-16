@@ -1,0 +1,114 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:39:42: error: no matching function for call to ‘clamp(std::vector<int>&, int, int)’
+   39 |     std::vector<int> bounded = std::clamp(vector, -150, 250);
+      |                                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/13/algorithm:61,
+                 from main.cpp:2:
+/usr/include/c++/13/bits/stl_algo.h:3667:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::clamp(const _Tp&, const _Tp&, const _Tp&)’
+ 3667 |     clamp(const _Tp& __val, const _Tp& __lo, const _Tp& __hi)
+      |     ^~~~~
+/usr/include/c++/13/bits/stl_algo.h:3667:5: note:   template argument deduction/substitution failed:
+main.cpp:39:42: note:   deduced conflicting types for parameter ‘const _Tp’ (‘std::vector<int>’ and ‘int’)
+   39 |     std::vector<int> bounded = std::clamp(vector, -150, 250);
+      |                                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/usr/include/c++/13/bits/stl_algo.h:3687:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::clamp(const _Tp&, const _Tp&, const _Tp&, _Compare)’
+ 3687 |     clamp(const _Tp& __val, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
+      |     ^~~~~
+/usr/include/c++/13/bits/stl_algo.h:3687:5: note:   template argument deduction/substitution failed:
+main.cpp:39:42: note:   deduced conflicting types for parameter ‘const _Tp’ (‘std::vector<int>’ and ‘int’)
+   39 |     std::vector<int> bounded = std::clamp(vector, -150, 250);
+      |                                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+main.cpp:40:39: error: ‘where’ is not a member of ‘std’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                       ^~~~~
+main.cpp:40:53: error: no match for ‘operator>’ (operand types are ‘std::vector<int>’ and ‘int’)
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                             ~~~~~~~ ^ ~
+      |                                             |         |
+      |                                             |         int
+      |                                             std::vector<int>
+In file included from /usr/include/c++/13/bits/stl_algobase.h:64,
+                 from /usr/include/c++/13/algorithm:60:
+/usr/include/c++/13/bits/stl_pair.h:848:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator>(const pair<_T1, _T2>&, const pair<_T1, _T2>&)’
+  848 |     operator>(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_pair.h:848:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::pair<_T1, _T2>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+In file included from /usr/include/c++/13/bits/stl_algobase.h:67:
+/usr/include/c++/13/bits/stl_iterator.h:469:5: note: candidate: ‘template<class _Iterator> constexpr bool std::operator>(const reverse_iterator<_Iterator>&, const reverse_iterator<_Iterator>&)’
+  469 |     operator>(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:469:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+/usr/include/c++/13/bits/stl_iterator.h:514:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr bool std::operator>(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)’
+  514 |     operator>(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:514:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+/usr/include/c++/13/bits/stl_iterator.h:1725:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr bool std::operator>(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)’
+ 1725 |     operator>(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1725:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::move_iterator<_IteratorL>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+/usr/include/c++/13/bits/stl_iterator.h:1784:5: note: candidate: ‘template<class _Iterator> constexpr bool std::operator>(const move_iterator<_IteratorL>&, const move_iterator<_IteratorL>&)’
+ 1784 |     operator>(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1784:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::move_iterator<_IteratorL>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+In file included from /usr/include/c++/13/vector:66,
+                 from main.cpp:5:
+/usr/include/c++/13/bits/stl_vector.h:2092:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator>(const vector<_Tp, _Alloc>&, const vector<_Tp, _Alloc>&)’
+ 2092 |     operator>(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_vector.h:2092:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘int’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+In file included from /usr/include/c++/13/bits/memory_resource.h:47,
+                 from /usr/include/c++/13/vector:80:
+/usr/include/c++/13/tuple:1980:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator>(const tuple<_UTypes ...>&, const tuple<_UTypes ...>&)’
+ 1980 |     operator>(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/13/tuple:1980:5: note:   template argument deduction/substitution failed:
+main.cpp:40:55: note:   ‘std::vector<int>’ is not derived from ‘const std::tuple<_UTypes ...>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                       ^
+main.cpp:40:67: error: no match for ‘operator-’ (operand type is ‘std::vector<int>’)
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                                   ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:625:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr decltype ((__y.base() - __x.base())) std::operator-(const reverse_iterator<_Iterator>&, const reverse_iterator<_IteratorR>&)’
+  625 |     operator-(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:625:5: note:   template argument deduction/substitution failed:
+main.cpp:40:68: note:   ‘std::vector<int>’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                                    ^~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1800:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> constexpr decltype ((__x.base() - __y.base())) std::operator-(const move_iterator<_IteratorL>&, const move_iterator<_IteratorR>&)’
+ 1800 |     operator-(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1800:5: note:   template argument deduction/substitution failed:
+main.cpp:40:68: note:   ‘std::vector<int>’ is not derived from ‘const std::move_iterator<_IteratorL>’
+   40 |     std::vector<int> positives = std::where(bounded > 0, bounded, -bounded);
+      |                                                                    ^~~~~~~
+main.cpp:41:34: error: ‘accumulate’ is not a member of ‘std’
+   41 |     return static_cast<int>(std::accumulate(positives.begin(), positives.end(), 0) + (energy % 17));
+      |                                  ^~~~~~~~~~

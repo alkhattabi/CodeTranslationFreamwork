@@ -1,0 +1,24 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int lodging_charge(int n) {
+    int nights = valid_nights(n);
+    if (nights == 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int charge = rooms * nights * 150;
+    if (nights >= 7) {
+        charge -= charge / 10;
+    }
+    if (rooms >= 5) {
+        charge -= charge / 20;
+    }
+    return charge;
+}
+```
+
+Please note that the `valid_nights` function is assumed to be defined in the `api.hpp` file. The function should return the number of valid nights for a given number of nights.

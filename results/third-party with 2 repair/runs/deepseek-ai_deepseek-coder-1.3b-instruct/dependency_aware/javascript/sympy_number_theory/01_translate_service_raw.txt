@@ -1,0 +1,16 @@
+Here is the JavaScript equivalent of the Python code you provided:
+
+```javascript
+import { factor_signature } from "./utils.mjs";
+
+export function number_strength(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let phi = Math.floor(value);
+  let divisor_count = Math.floor(Math.sqrt(phi));
+  return phi + 5 * divisor_count + factor_signature(n);
+}
+```
+
+This JavaScript code does the same thing as the Python code. It calculates the strength of a number by taking the absolute value of the number, modulo 1500, adding 2, then finding the phi (totient) of the result, finding the divisor count of the phi, and finally adding 5 times the divisor count to the result of the phi and factor_signature function.
+
+Please note that the factor_signature function in the Python code is not implemented in the JavaScript code. You would need to implement it yourself or find a suitable implementation.

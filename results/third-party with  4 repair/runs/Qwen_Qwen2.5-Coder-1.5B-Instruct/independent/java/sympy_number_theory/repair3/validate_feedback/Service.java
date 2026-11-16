@@ -1,0 +1,8 @@
+public class Service {
+    public static int number_strength(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        long phi = (long) sp.totient(value);
+        long divisorCount = (long) sp.divisor_count(value);
+        return (int) (phi + 5 * divisorCount + factorSignature(n));
+    }
+}

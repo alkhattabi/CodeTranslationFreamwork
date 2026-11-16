@@ -1,0 +1,36 @@
+{"k":"main.solve|127","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|-97","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|-2","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|97","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|-1","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|256","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|10","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|24","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|999","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|4","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|7","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"main.solve|-25","error":"ReferenceError: Cannot access 'nextPrime' before initialization"}
+{"k":"service.number_strength|127","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|-97","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|-2","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|97","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|-1","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|256","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|10","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|24","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|999","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|4","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|7","error":"ReferenceError: factorSignature is not defined"}
+{"k":"service.number_strength|-25","error":"ReferenceError: factorSignature is not defined"}
+{"k":"utils.factor_signature|127","v":52}
+{"k":"utils.factor_signature|-97","v":23}
+{"k":"utils.factor_signature|-2","v":7}
+{"k":"utils.factor_signature|97","v":23}
+{"k":"utils.factor_signature|-1","v":6}
+{"k":"utils.factor_signature|256","v":57}
+{"k":"utils.factor_signature|10","v":13}
+{"k":"utils.factor_signature|24","v":21}
+{"k":"utils.factor_signature|999","v":40}
+{"k":"utils.factor_signature|4","v":11}
+{"k":"utils.factor_signature|7","v":9}
+{"k":"utils.factor_signature|-25","v":12}

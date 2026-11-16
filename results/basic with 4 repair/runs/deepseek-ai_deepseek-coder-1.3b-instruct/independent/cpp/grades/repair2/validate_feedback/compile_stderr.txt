@@ -1,0 +1,29 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:9:9: warning: #pragma once in main file
+    9 | #pragma once
+      |         ^~~~
+service.cpp:22:9: warning: #pragma once in main file
+   22 | #pragma once
+      |         ^~~~
+service.cpp:29:9: warning: #pragma once in main file
+   29 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int solve(int)’:
+service.cpp:27:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   27 | }
+      | ^
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+/usr/bin/ld: /tmp/ccwkzxUx.o: in function `clamp(int)':
+service.cpp:(.text+0x2b): multiple definition of `clamp(int)'; /tmp/ccS0lPDp.o:utils.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccbsQWJE.o: in function `bonus_score(int)':
+main.cpp:(.text+0x0): multiple definition of `bonus_score(int)'; /tmp/ccwkzxUx.o:service.cpp:(.text+0x0): first defined here
+/usr/bin/ld: /tmp/ccXxSLCR.o: in function `main':
+EvalRunner.cpp:(.text+0x0): multiple definition of `main'; /tmp/ccwkzxUx.o:service.cpp:(.text+0x62): first defined here
+collect2: error: ld returned 1 exit status

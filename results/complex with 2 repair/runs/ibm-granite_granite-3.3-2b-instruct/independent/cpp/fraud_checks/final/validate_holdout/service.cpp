@@ -1,0 +1,21 @@
+#include "api.hpp"
+
+int risk_points(int n) {
+    if (n <= 0) {
+        return 100;
+    }
+    int score = 0;
+    if (!luhn_valid(n)) {
+        score += 40;
+    }
+    if (n % 11 == 0) {
+        score += 20;
+    }
+    if (n % 100 < 10) {
+        score += 15;
+    }
+    if (n < 1000) {
+        score += 25;
+    }
+    return score;
+}

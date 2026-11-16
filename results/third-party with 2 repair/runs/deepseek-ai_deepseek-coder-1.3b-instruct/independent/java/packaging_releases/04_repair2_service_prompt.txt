@@ -1,0 +1,83 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                                                      ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                       ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = release_rank(n);
+                   ^
+  symbol:   method release_rank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot fin
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int upgrade_cost(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.release_rank(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int upgrade_cost(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int upgrade_cost(int n) {
+        int rank = release_rank(n);
+        if (rank < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        Version current = new Version(major, minor, patch);
+        Version required = new Version("2.1.0");
+        int penalty = 0;
+        if (current.compareTo(required) < 0) {
+            penalty = 40;
+        }
+        return rank * 25 + minor + patch / 5 + penalty;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from packaging.version import Version
+from utils import release_rank
+
+def upgrade_cost(n: int) -> int:
+    rank = release_rank(n)
+    if rank < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    current = Version(f"{major}.{minor}.{patch}")
+    required = Version("2.1.0")
+    penalty = 40 if current < required else 0
+    return rank * 25 + minor + patch // 5 + penalty

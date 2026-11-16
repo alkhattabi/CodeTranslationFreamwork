@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\n        int nights = validNights(n);\n                     ^\n  symbol:   method validNights(int)\n  location: class Service\nMain.java:20: error: cannot find symbol\n        int nights = Service.validNights(n);\n                            ^\n  symbol:   method validNights(int)\n  location: class Service\n2 errors\n",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

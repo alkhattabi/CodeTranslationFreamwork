@@ -1,0 +1,103 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                    ^
+Utils.java:14: error: not a statement
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                     ^
+Utils.java:14: error: ';' expected
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                             ^
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                                     ^
+Service.java:28: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                    ^
+Service.java:28: error: not a statement
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                     ^
+Service.java:28: error: ';' expected
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                             ^
+Service.java:28: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                           
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int category_balance(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int category_balance(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(-200, Math.min(200, n));
+        DataFrame frame = new DataFrame(new Object[][]{
+            {"category", "amount"},
+            {"A", n},
+            {"B", 12},
+            {"A", n / 2},
+            {"C", -7},
+            {"B", n % 9},
+            {"A", -n / 3}
+        }, new String[]{"category", "amount"});
+        
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+        return (int)(2 * sums.get("A") + sums.get("B") - sums.get("C"));
+    }
+    
+    private static class DataFrame {
+        private List<Object[]> data;
+        private String[] columns;
+
+        public DataFrame(Object[][] data, String[] columns) {
+            this.data = Arrays.asList(data);
+            this.columns = columns;
+        }
+
+        public Series agg(String column) {
+            Map<String, Double> result = new HashMap<>();
+            for (Object[] row : data) {
+                double value = (Double) row[1];
+                if (!result.containsKey(column)) {
+                    result.put(column, value);
+                } else {
+                    result.put(column, result.get(column) + value);
+                }
+            }
+            return new Series(result);
+        }
+    }
+
+    private static class Series {
+        private Map<String, Double> values;
+
+        public Series(Map<String, Double> values) {
+            this.values = values;
+        }
+
+        public double get(String key) {
+            return values.get(key);
+        }
+    }
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+
+def category_balance(n: int) -> int:
+    n = max(-200, min(200, n))
+    frame = pd.DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, n // 2, -7, n % 9, 4, -n // 3]
+    })
+    sums = frame.groupby("category", sort=True)["amount"].sum()
+    return int(2 * sums.loc["A"] + sums.loc["B"] - sums.loc["C"])

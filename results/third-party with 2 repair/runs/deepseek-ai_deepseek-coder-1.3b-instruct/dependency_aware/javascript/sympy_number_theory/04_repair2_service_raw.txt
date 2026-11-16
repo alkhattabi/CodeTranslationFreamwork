@@ -1,0 +1,30 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { factor_signature } from "./utils.mjs";
+
+export function number_strength(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let phi = Math.floor(value);
+  let divisor_count = Math.floor(Math.sqrt(phi));
+  return phi + 5 * divisor_count + factor_signature(n);
+}
+```
+
+The error message indicates that the module 'mathjs' is not found, which is expected because the original Python code uses the 'mathjs' library, which is not available in the JavaScript environment. The error is thrown when the JavaScript engine tries to import the 'mathjs' module, which is not available in the environment.
+
+To fix this, you need to ensure that the 'mathjs' library is available in your JavaScript environment. You can do this by adding the 'mathjs' library to your project or by installing it using npm.
+
+Here is how you can install 'mathjs' using npm:
+
+```bash
+npm install mathjs
+```
+
+After installing 'mathjs', you can import it in your JavaScript file:
+
+```javascript
+import * as math from 'mathjs';
+```
+
+Then you can use the functions and methods provided by 'mathjs' in your code.

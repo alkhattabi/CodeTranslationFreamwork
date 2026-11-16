@@ -1,0 +1,11 @@
+Main.java:3: error: cannot find symbol
+        int quantity = Service.orderQuantity(n);
+                              ^
+  symbol:   method orderQuantity(int)
+  location: class Service
+Main.java:7: error: cannot find symbol
+        int demand = Utils.weeklyDemand(n);
+                          ^
+  symbol:   method weeklyDemand(int)
+  location: class Utils
+2 errors

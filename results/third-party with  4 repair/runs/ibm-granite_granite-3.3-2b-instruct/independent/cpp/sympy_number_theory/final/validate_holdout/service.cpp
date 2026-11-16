@@ -1,0 +1,8 @@
+#include "api.hpp"
+
+int number_strength(int n) {
+    int value = abs(n) % 1500 + 2;
+    int phi = (int)std::totient(value);
+    int divisor_count = (int)std::divisor_count(value);
+    return phi + 5 * divisor_count + factor_signature(n);
+}

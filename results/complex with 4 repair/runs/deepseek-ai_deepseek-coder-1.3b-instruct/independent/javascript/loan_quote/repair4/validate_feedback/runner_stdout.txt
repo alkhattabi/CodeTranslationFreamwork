@@ -1,0 +1,33 @@
+{"k":"main.solve|500","v":1163}
+{"k":"main.solve|799","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|549","v":1210}
+{"k":"main.solve|699","v":1300}
+{"k":"main.solve|450","v":1115}
+{"k":"main.solve|650","v":1256}
+{"k":"main.solve|449","v":-1}
+{"k":"main.solve|800","error":"TypeError: Assignment to constant variable."}
+{"k":"main.solve|499","v":1162}
+{"k":"main.solve|901","v":-1}
+{"k":"main.solve|300","v":-1}
+{"k":"service.yearly_interest|500","v":1800}
+{"k":"service.yearly_interest|799","error":"TypeError: Assignment to constant variable."}
+{"k":"service.yearly_interest|549","error":"Error: result must be a safe integer"}
+{"k":"service.yearly_interest|699","error":"Error: result must be a safe integer"}
+{"k":"service.yearly_interest|450","v":1725}
+{"k":"service.yearly_interest|650","v":1215}
+{"k":"service.yearly_interest|449","v":-1}
+{"k":"service.yearly_interest|800","error":"TypeError: Assignment to constant variable."}
+{"k":"service.yearly_interest|499","error":"Error: result must be a safe integer"}
+{"k":"service.yearly_interest|901","v":-1}
+{"k":"service.yearly_interest|300","v":-1}
+{"k":"utils.credit_band|500","v":1}
+{"k":"utils.credit_band|799","v":4}
+{"k":"utils.credit_band|549","v":1}
+{"k":"utils.credit_band|699","v":3}
+{"k":"utils.credit_band|450","v":1}
+{"k":"utils.credit_band|650","v":3}
+{"k":"utils.credit_band|449","v":0}
+{"k":"utils.credit_band|800","v":4}
+{"k":"utils.credit_band|499","v":1}
+{"k":"utils.credit_band|901","v":0}
+{"k":"utils.credit_band|300","v":0}

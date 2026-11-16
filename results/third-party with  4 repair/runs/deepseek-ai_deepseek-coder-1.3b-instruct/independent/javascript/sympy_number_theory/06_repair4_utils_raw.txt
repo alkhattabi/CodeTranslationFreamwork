@@ -1,0 +1,16 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { factorint } from 'mathjs';
+
+export function factor_signature(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let factors = factorint(value);
+  let score = Object.keys(factors).reduce((sum, prime) => {
+    return sum + prime * factors[prime];
+  }, 0);
+  return score + 3 * Object.keys(factors).length;
+}
+```
+
+This code is already in the correct format for a JavaScript ES-module. It exports a function named `factor_signature` that takes an integer as an argument and returns an integer. It uses the `factorint` function from the `mathjs` library to calculate the factors of the input number, and then calculates a score based on the factors. The score is the sum of the prime factors multiplied by their respective exponents, plus three times the number of primes.

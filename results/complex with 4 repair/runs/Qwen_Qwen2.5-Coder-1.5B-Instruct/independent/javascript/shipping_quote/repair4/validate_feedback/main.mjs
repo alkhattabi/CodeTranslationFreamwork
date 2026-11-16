@@ -1,0 +1,13 @@
+import { transportCost } from "./service.mjs";
+import { weightBlocks } from "./utils.mjs";
+
+export function solve(n: number): number {
+    const blocks = weightBlocks(n);
+    if (blocks === 0) {
+        return 0;
+    }
+    const cost = transportCost(n);
+    const fuel = Math.floor((cost * 8 + 99) / 100);
+    const insurance = blocks >= 10 ? 300 : 100;
+    return cost + fuel + insurance;
+}

@@ -1,0 +1,65 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 10/12 development checks.
+main.solve(-1): expected 2, actual -4
+service.score_digits(-1): expected 3, actual -3
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.score_digits(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int value = scoreDigits(n);
+        if (value % 2 == 0) {
+            return value + 1;
+        } else {
+            return value - 1;
+        }
+    }
+
+    // Assuming Service.java has scoreDigits method
+    public static int scoreDigits(int n) {
+        return digitSum(n) * 3;
+    }
+
+    private static int digitSum(int n) {
+        int sum = 0;
+        while (n!= 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from service import score_digits
+
+def solve(n: int) -> int:
+    value = score_digits(n)
+    if value % 2 == 0:
+        return value + 1
+    return value - 1
+
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int score_digits(int n) {
+        return digitSum(n) * 3;
+    }
+
+    private static int digitSum(int n) {
+        int sum = 0;
+        while (n!= 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+}

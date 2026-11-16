@@ -1,0 +1,6 @@
+Service.java:3: error: cannot find symbol
+        int nights = valid_nights(n);
+                     ^
+  symbol:   method valid_nights(int)
+  location: class Service
+1 error

@@ -1,0 +1,23 @@
+public class Main {
+    public static int solve(int n) {
+        return weighted(n) + normalize(n);
+    }
+
+    // Example of a utility class
+    public static class Utils {
+        public static int normalize(int n) {
+            if (n < 0) {
+                return -n;
+            }
+            return n;
+        }
+    }
+
+    // Example of a service class
+    public static class Service {
+        public static int weighted(int n) {
+            int x = normalize(n);
+            return x * 2 + 1;
+        }
+    }
+}

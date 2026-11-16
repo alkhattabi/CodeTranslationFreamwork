@@ -1,0 +1,85 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int normalize(int)’:
+service.cpp:8:14: error: ‘INT_MIN’ was not declared in this scope
+    8 |     if (n == INT_MIN) {
+      |              ^~~~~~~
+service.cpp:5:1: note: ‘INT_MIN’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+    4 | #include <cstdlib>
+  +++ |+#include <climits>
+    5 | 
+service.cpp:9:16: error: ‘INT_MAX’ was not declared in this scope
+    9 |         return INT_MAX;
+      |                ^~~~~~~
+service.cpp:9:16: note: ‘INT_MAX’ is defined in header ‘<climits>’; did you forget to ‘#include <climits>’?
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int weighted(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int weighted(int n);
+int normalize(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function to normalize an integer
+int normalize(int n) {
+    if (n == INT_MIN) {
+        return INT_MAX;
+    }
+    return std::abs(n);
+}
+
+// Function to calculate the weighted value
+int weighted(int n) {
+    int x = normalize(n);
+    return x * 2 + 1;
+}
+
+
+ORIGINAL PYTHON:
+from utils import normalize
+
+def weighted(n: int) -> int:
+    x = normalize(n)
+    return x * 2 + 1
+
+
+DEPENDENCY utils.cpp:
+#pragma once
+
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int weighted(int n);
+
+// Global C++ functions declared in api.hpp
+int normalize(int n) {
+    if (n < 0) {
+        return -n;
+    }
+    return n;
+}

@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:27: error: class, interface, enum, or record expected\nNote: The Java code assumes that the date manipulation methods and classes are available in the standard Java library or imported appropriately. The actual implementations of renewalDate and gracePeriod methods are not provided as they were not specified in the Python code.\n^\n1 error\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

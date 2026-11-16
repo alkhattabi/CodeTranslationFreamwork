@@ -1,0 +1,59 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:3: error: '.' expected
+import utils;
+            ^
+Main.java:4: error: '.' expected
+import service;
+              ^
+2 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int category_balance(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int category_balance(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    public static int category_balance(int n) {
+        n = Math.max(Math.min(200, n), -200);
+        Map<String, Integer> frame = new HashMap<>();
+        frame.put("A", n);
+        frame.put("B", 12);
+        frame.put("C", n / 2);
+        frame.put("D", -7);
+        frame.put("E", n % 9);
+        frame.put("F", 4);
+        frame.put("G", -n / 3);
+        int sumA = frame.get("A");
+        int sumB = frame.get("B");
+        int sumC = frame.get("C");
+        int sumD = frame.get("D");
+        int sumE = frame.get("E");
+        int sumF = frame.get("F");
+        int sumG = frame.get("G");
+        return 2 * sumA + sumB - sumC - sumD + sumE - sumF + sumG;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+
+def category_balance(n: int) -> int:
+    n = max(-200, min(200, n))
+    frame = pd.DataFrame({
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, n // 2, -7, n % 9, 4, -n // 3]
+    })
+    sums = frame.groupby("category", sort=True)["amount"].sum()
+    return int(2 * sums.loc["A"] + sums.loc["B"] - sums.loc["C"])

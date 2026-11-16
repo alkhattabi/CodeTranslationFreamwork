@@ -1,0 +1,25 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int luhn_valid(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int luhn_valid(int n) { /* implementation */ } }
+
+PYTHON FILE utils.py:
+
+def luhn_valid(n: int) -> int:
+    if n <= 0:
+        return 0
+    total = 0
+    double = False
+    while n > 0:
+        digit = n % 10
+        if double:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        total += digit
+        double = not double
+        n //= 10
+    return 1 if total % 10 == 0 else 0

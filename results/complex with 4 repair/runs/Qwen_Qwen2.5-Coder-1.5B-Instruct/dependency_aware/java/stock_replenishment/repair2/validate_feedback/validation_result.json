@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:1: error: unclosed character literal\nobj['main']\n    ^\nMain.java:1: error: unclosed character literal\nobj['main']\n         ^\n2 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

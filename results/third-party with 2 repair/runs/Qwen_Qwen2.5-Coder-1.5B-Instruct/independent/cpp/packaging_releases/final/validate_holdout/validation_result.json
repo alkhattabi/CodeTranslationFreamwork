@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 39,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nutils.cpp: In function \u2018int solve(int)\u2019:\nutils.cpp:13:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   13 | }\n      | ^\nutils.cpp: In function \u2018int upgrade_cost(int)\u2019:\nutils.cpp:17:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   17 | }\n      | ^\nutils.cpp: In function \u2018int release_rank(int)\u2019:\nutils.cpp:28:5: error: \u2018Version\u2019 was not declared in this scope; did you mean \u2018versionStr\u2019?\n   28 |     Version version(versionStr);\n      |     ^~~~~~~\n      |     versionStr\nutils.cpp:29:12: error: expected \u2018;\u2019 before \u2018referenceVersion\u2019\n   29 |     Version referenceVersion(\"2.1.0\");\n      |            ^~~~~~~~~~~~~~~~~\n      |            ;\nutils.cpp:30:9: error: \u2018version\u2019 was not declared in this scope; did you mean \u2018versionStr\u2019?\n   30 |     if (version < referenceVersion) {\n      |         ^~~~~~~\n      |         versionStr\nutils.cpp:30:19: error: \u2018referenceVersion\u2019 was not declared in this scope\n   30 |     if (version < referenceVersion) {\n      |                   ^~~~~~~~~~~~~~~~\nutils.cpp:33:9: error: \u2018version\u2019 was not declared in this scope; did you mean \u2018versionStr\u2019?\n   33 |     if (version == referenceVersion) {\n      |         ^~~~~~~\n      |         versionStr\nutils.cpp:33:20: error: \u2018referenceVersion\u2019 was not declared in this scope\n   33 |     if (version == referenceVersion) {\n      |                    ^~~~~~~~~~~~~~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:20:5: error: \u2018Version\u2019 was not declared in this scope; did you mean \u2018versionStr\u2019?\n   20 |     Version version(versionStr);\n      |     ^~~~~~~\n      |     versionStr\nmain.cpp:21:5: error: \u2018SpecifierSet\u2019 was not declared in this scope\n   21 |     SpecifierSet allowed(\">=1.5,<4.0\");\n      |     ^~~~~~~~~~~~\nmain.cpp:22:20: error: \u2018allowed\u2019 was not declared in this scope\n   22 |     bool inRange = allowed.contains(version);\n      |                    ^~~~~~~\nmain.cpp:22:37: error: \u2018version\u2019 was not declared in this scope; did you mean \u2018versionStr\u2019?\n   22 |     bool inRange = allowed.contains(version);\n      |                                     ^~~~~~~\n      |                                     versionStr\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

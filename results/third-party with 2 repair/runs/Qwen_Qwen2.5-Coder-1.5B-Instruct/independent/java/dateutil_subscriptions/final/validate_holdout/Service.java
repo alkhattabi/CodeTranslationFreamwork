@@ -1,0 +1,13 @@
+public class Service {
+    public static int grace_period(int n) {
+        Date renewed = renewalDate(n);
+        if (renewed == null || renewed.getTime() < 0) {
+            return -1;
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(renewed);
+        calendar.add(Calendar.MONTH, 2);
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+    }
+}

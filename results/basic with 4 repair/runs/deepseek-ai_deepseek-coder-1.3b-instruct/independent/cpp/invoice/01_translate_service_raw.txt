@@ -1,0 +1,15 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int gross(int n) {
+    if (n < 0) {
+        return 0;
+    }
+    return n * unit_price(n);
+}
+```
+
+In this C++ code, we have defined a function `gross` that takes an integer `n` as input and returns the gross amount. If `n` is negative, the function returns 0. Otherwise, it returns `n` times the unit price of `n`. The unit price is defined in the `unit_price` function in the `api.hpp` file.

@@ -1,0 +1,69 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:5: error: cannot find symbol
+        int energy = matrixEnergy(n);
+                     ^
+  symbol:   method matrixEnergy(int)
+  location: class Main
+Main.java:6: error: cannot find symbol
+        int[] vector = new int[]{energy, vectorSignature(n), n};
+                                         ^
+  symbol:   method vectorSignature(int)
+  location: class Main
+Main.java:3: error: duplicate class: com.example.Main
+public class Main {
+       ^
+EvalRunner.java:3: error: cannot access Main
+  try { System.out.println("main.solve|10|" + Main.solve(10)); } catch (Throwable e) { System.out.println("main.solve|10|ERR"); }
+                                              ^
+  bad source file: ./Main.java
+    file does not contain class Main
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.matrix_energy|10|" + Service.matrix_energy(10)); } catch (Throwable e) { System.out.println("service.matrix_energy|10|ERR"); }
+                                                         ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+6 errors
+
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int vector_signature(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int vector_signature(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int vector_signature(int n) {
+        n = Math.max(-100, Math.min(100, n));
+        int[] v = new int[]{n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[] out = new int[3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                out[i] += m[i][j] * v[j];
+            }
+        }
+        return Math.abs(out[0]) + Math.abs(out[1]) + Math.abs(out[2]);
+    }
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+
+def vector_signature(n: int) -> int:
+    n = max(-100, min(100, n))
+    v = np.array([n % 11, abs(n) % 7, (n // 3) % 9], dtype=np.int64)
+    m = np.arange(1, 10, dtype=np.int64).reshape(3, 3)
+    out = m @ v
+    return int(np.abs(out).sum())

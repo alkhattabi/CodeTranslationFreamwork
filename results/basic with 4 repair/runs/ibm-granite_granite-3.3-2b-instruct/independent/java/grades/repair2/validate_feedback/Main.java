@@ -1,0 +1,13 @@
+public class Main {
+    public static int solve(int n) {
+        return bonusScore(n) >= 60? 1 : 0;
+    }
+
+    // Assume Service class exists with static bonusScore method
+    public static class Service {
+        public static int bonusScore(int n) {
+            int base = clamp(n);
+            return clamp(base + 7);
+        }
+    }
+}

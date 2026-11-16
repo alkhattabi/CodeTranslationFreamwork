@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 24,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:3: error: cannot find symbol\n        int base = Utils.taxableIncome(n);\n                        ^\n  symbol:   method taxableIncome(int)\n  location: class Utils\nMain.java:4: error: cannot find symbol\n        int tax = Service.calculateTax(n);\n                         ^\n  symbol:   method calculateTax(int)\n  location: class Service\n2 errors\n",
+  "failed_modules": [
+    "main",
+    "utils",
+    "service"
+  ],
+  "case_failures": []
+}

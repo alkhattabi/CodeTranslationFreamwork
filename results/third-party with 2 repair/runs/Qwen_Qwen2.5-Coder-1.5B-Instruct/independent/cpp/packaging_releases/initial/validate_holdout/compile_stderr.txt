@@ -1,0 +1,55 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int solve(int)’:
+utils.cpp:13:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   13 | }
+      | ^
+utils.cpp: In function ‘int upgrade_cost(int)’:
+utils.cpp:17:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   17 | }
+      | ^
+utils.cpp: In function ‘int release_rank(int)’:
+utils.cpp:28:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   28 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+utils.cpp:29:12: error: expected ‘;’ before ‘referenceVersion’
+   29 |     Version referenceVersion("2.1.0");
+      |            ^~~~~~~~~~~~~~~~~
+      |            ;
+utils.cpp:30:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   30 |     if (version < referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+utils.cpp:30:19: error: ‘referenceVersion’ was not declared in this scope
+   30 |     if (version < referenceVersion) {
+      |                   ^~~~~~~~~~~~~~~~
+utils.cpp:33:9: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   33 |     if (version == referenceVersion) {
+      |         ^~~~~~~
+      |         versionStr
+utils.cpp:33:20: error: ‘referenceVersion’ was not declared in this scope
+   33 |     if (version == referenceVersion) {
+      |                    ^~~~~~~~~~~~~~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:20:5: error: ‘Version’ was not declared in this scope; did you mean ‘versionStr’?
+   20 |     Version version(versionStr);
+      |     ^~~~~~~
+      |     versionStr
+main.cpp:21:5: error: ‘SpecifierSet’ was not declared in this scope
+   21 |     SpecifierSet allowed(">=1.5,<4.0");
+      |     ^~~~~~~~~~~~
+main.cpp:22:20: error: ‘allowed’ was not declared in this scope
+   22 |     bool inRange = allowed.contains(version);
+      |                    ^~~~~~~
+main.cpp:22:37: error: ‘version’ was not declared in this scope; did you mean ‘versionStr’?
+   22 |     bool inRange = allowed.contains(version);
+      |                                     ^~~~~~~
+      |                                     versionStr

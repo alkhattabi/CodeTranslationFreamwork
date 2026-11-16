@@ -1,0 +1,27 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.gross(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON FILE main.py:
+from service import gross
+
+def solve(n: int) -> int:
+    cost = gross(n)
+    return cost + (cost * 15) // 100
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+package com.example;
+
+public class Service {
+    public static int gross(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        return n * Utils.unit_price(n);
+    }
+}

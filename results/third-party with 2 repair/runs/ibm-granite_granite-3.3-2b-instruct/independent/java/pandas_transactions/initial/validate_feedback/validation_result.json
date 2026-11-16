@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:28: error: class, interface, enum, or record expected\nNote: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.\n^\nService.java:28: error: unclosed character literal\nNote: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.\n                                                                ^\nService.java:28: error: unclosed character literal\nNote: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.\n                                                                           ^\nService.java:28: error: unclosed character literal\nNote: The categoryBalance method is assumed to be in a separate 'utils.java' file and is a placeholder for the actual implementation. The behavior of categoryBalance is not specified in the problem, so it's represented as returning 0 here.\n                                                                                                                                                                                                            ^\n4 errors\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

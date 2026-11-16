@@ -1,0 +1,24 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int calculate_tax(int n) {
+        int income = Utils.taxable_income(n);
+        int tax = 0;
+        if (income > 7000) {
+            tax += (income - 7000) * 20 / 100;
+            income = 7000;
+        }
+        if (income > 3000) {
+            tax += (income - 3000) * 12 / 100;
+            income = 3000;
+        }
+        tax += income * 5 / 100;
+        return tax;
+    }
+}
+```
+
+Please note that in Java, division of two integers results in an integer. If you want to get a decimal result, you should use floating-point arithmetic or use the `BigDecimal` class.
+
+Also, please note that the `Utils` class is assumed to be in the same package as the `Service` class. If it's in a different package, you need to import it using the fully qualified name.

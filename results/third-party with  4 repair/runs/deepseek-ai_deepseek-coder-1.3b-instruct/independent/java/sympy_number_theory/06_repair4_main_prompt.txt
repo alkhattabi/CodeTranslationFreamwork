@@ -1,0 +1,82 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Main.java:4: error: package sympy.ntheory does not exist
+import sympy.ntheory.factorint;
+                    ^
+Main.java:5: error: package sympy.ntheory does not exist
+import sympy.ntheory.primetest;
+                    ^
+Main.java:10: error: cannot find symbol
+        int primeBonus = Primetest.isprime(value) ? 50 : 0;
+                         ^
+  symbol:   variable Primetest
+  location: class Main
+Main.java:12: error: incompatible types: int cannot be converted to BigInteger
+        nextPrime = nextPrime.intValue();
+                                      ^
+Main.java:13: error: bad operand types for binary operator '+'
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+                                              ^
+  first type:  int
+  second type: BigInteger
+Main.java:22: error: cannot find symbol
+        List<BigInteger> factors = factorint.factorint(n).values();
+                                   ^
+  symbol:   variable factorint
+  location: class Main
+6 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.number_strength(n)
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import sympy.ntheory.factorint;
+import sympy.ntheory.primetest;
+
+public class Main {
+    public static int solve(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        int primeBonus = Primetest.isprime(value) ? 50 : 0;
+        BigInteger nextPrime = BigInteger.valueOf(value).nextProbablePrime();
+        nextPrime = nextPrime.intValue();
+        return numberStrength(n) + primeBonus + nextPrime - factorSignature(n);
+    }
+
+    public static int numberStrength(int n) {
+        // Implementation of numberStrength function
+        return 0;
+    }
+
+    public static int factorSignature(int n) {
+        List<BigInteger> factors = factorint.factorint(n).values();
+        int sum = 0;
+        for (BigInteger factor : factors) {
+            sum += factor.intValue();
+        }
+        return sum;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)

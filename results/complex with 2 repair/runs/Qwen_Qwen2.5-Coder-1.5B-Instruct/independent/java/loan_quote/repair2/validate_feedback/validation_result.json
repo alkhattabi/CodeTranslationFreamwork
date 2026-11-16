@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 33,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Utils.java:3: error: duplicate class: com.example.Utils\npublic class Utils {\n       ^\nService.java:3: error: cannot access Utils\n        int band = Utils.credit_band(n);\n                   ^\n  bad source file: ./Utils.java\n    file does not contain class Utils\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\nMain.java:8: error: cannot find symbol\n        double interest = Service.yearlyInterest(n);\n                                 ^\n  symbol:   method yearlyInterest(int)\n  location: class Service\n3 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

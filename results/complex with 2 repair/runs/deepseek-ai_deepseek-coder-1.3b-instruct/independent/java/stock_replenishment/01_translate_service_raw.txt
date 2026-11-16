@@ -1,0 +1,19 @@
+Here is the Java version of your Python code:
+
+```java
+public class Service {
+    public static int order_quantity(int n) {
+        int demand = Utils.weekly_demand(n);
+        int safety = (demand < 100) ? 15 : 35;
+        int available = (n > 0) ? n : 0;
+        int shortage = demand + safety - available;
+        if (shortage <= 0) {
+            return 0;
+        }
+        int packs = (shortage + 11) / 12;
+        return packs * 12;
+    }
+}
+```
+
+Please note that in Java, division of two integers results in an integer. If you want to get a float result, you should use a double instead of an int. Also, Java does not have a built-in function to check if a number is negative, so I used a ternary operator to handle this case.

@@ -1,0 +1,16 @@
+Here is the corrected JavaScript code:
+
+```javascript
+import { matrix_energy } from "./service.mjs";
+import { vector_signature } from "./utils.mjs";
+
+export function solve(n) {
+    const energy = matrix_energy(n);
+    const vector = [energy, vector_signature(n), n, 0];
+    const bounded = vector.map(val => Math.min(Math.max(val, -150), 250)).filter(Number.isInteger);
+    const positives = bounded.map(val => (val > 0 ? val : -val));
+    return positives.reduce((a, b) => a + b, 0) + (energy % 17);
+}
+```
+
+This code is importing the functions from the `service.mjs` and `utils.mjs` files, and then using them in the `solve` function. The `vector` is created by combining the `energy`, `vector_signature`, `n`, and `0` values. The `bounded` array is created by clipping each value in the `vector` to be between -150 and 250. The `positives` array is created by replacing any negative values in the `bounded` array with their negative counterparts, and then filtering out any non-integer values. The `reduce` function is used to sum up the `positives` array and the `energy` modulo 17. The result is the sum of the `positives` array and the `energy` modulo 17, cast to an integer.

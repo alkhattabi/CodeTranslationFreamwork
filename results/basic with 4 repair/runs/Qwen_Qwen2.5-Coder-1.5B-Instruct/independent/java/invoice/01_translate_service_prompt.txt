@@ -1,0 +1,15 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int gross(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.unit_price(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int gross(int n) { /* implementation */ } }
+
+PYTHON FILE service.py:
+from utils import unit_price
+
+def gross(n: int) -> int:
+    if n < 0:
+        return 0
+    return n * unit_price(n)

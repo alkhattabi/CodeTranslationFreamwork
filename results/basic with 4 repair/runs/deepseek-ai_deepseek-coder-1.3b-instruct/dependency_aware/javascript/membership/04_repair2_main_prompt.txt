@@ -1,0 +1,77 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/dependency_aware/javascript/membership/initial/validate_feedback/main.mjs:21
+import { discount } from "./service.mjs";
+         ^^^^^^^^
+
+SyntaxError: Identifier 'discount' has already been declared
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4
+
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { discount } from "./service.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// utils.mjs
+export function tier(n) {
+    if (n >= 100) {
+        return 3;
+    }
+    if (n >= 50) {
+        return 2;
+    }
+    if (n >= 10) {
+        return 1;
+    }
+    return 0;
+}
+
+// service.mjs
+export function discount(n) {
+    return Math.floor(n / 10);
+}
+
+// main.mjs
+import { discount } from "./service.mjs";
+import { tier } from "./utils.mjs";
+
+export function solve(n) {
+    if (typeof n !== 'number' || n % 1 !== 0) {
+        throw new Error('Input must be an integer');
+    }
+    let value = n * 4 - discount(n);
+    value = Math.max(0, value);
+    return value * tier(value);
+}
+
+
+ORIGINAL PYTHON:
+from service import discount
+
+def solve(n: int) -> int:
+    value = n * 4 - discount(n)
+    return max(0, value)
+
+
+DEPENDENCY service.mjs:
+// utils.mjs
+export function tier(n) {
+    if (n >= 100) {
+        return 3;
+    }
+    if (n >= 50) {
+        return 2;
+    }
+    if (n >= 10) {
+        return 1;
+    }
+    return 0;
+}

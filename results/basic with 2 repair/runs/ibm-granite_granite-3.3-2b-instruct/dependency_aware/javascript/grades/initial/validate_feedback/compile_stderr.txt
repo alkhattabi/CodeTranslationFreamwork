@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/ibm-granite_granite-3.3-2b-instruct/dependency_aware/javascript/grades/initial/validate_feedback/main.mjs:5
+    return 1 if (bonus_score(n) >= 60) else 0;
+             ^^
+
+SyntaxError: Unexpected token 'if'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

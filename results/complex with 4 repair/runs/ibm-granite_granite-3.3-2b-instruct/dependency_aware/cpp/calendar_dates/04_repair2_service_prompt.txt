@@ -1,0 +1,110 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+ const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:77:1: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+   76 | # include <bit> // std::__bit_width
+  +++ |+#include <cstddef>
+   77 | #endif
+/usr/include/c++/13/bits/stl_algobase.h:436:32: error: ‘_Num’ was not declared in this scope
+  436 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+/usr/include/c++/13/bits/stl_algobase.h:441:29: error: ‘_Num’ was not declared in this scope
+  441 |           return __result + _Num;
+      |                             ^~~~
+/usr/include/c++/13/bits/stl_algobase.h: In static member function ‘static _Up* std::__copy_move_backward<_IsMove, true, std::random_access_iterator_tag>::__copy_move_b(_Tp*, _Tp*, _Up*)’:
+/usr/include/c++/13/bits/stl_algobase.h:746:17: error: ‘ptrdiff_t’ does not name a type
+  746 |           const ptrdiff_t _Num = __last - __first;
+      |                 ^~~~~~~~~
+/usr/include/c++/13/bits/stl_algobase.h:746:17: note: ‘ptrdiff_t’ is defined in header ‘<cstddef>’; did you forget to ‘#include <cstddef>’?
+/usr/include/c++/13/bits/stl_algobase.h:747:32: error: ‘_Num’ was not declared in this scope
+  747 |           if (__builtin_expect(_Num > 1, true))
+      |                                ^~~~
+
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int day_of_year(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int day_of_year(int n);
+int valid_date(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int day_of_year(int n) {
+    if (solve(n) == 0) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    int total = day;
+    int m = 1;
+    while (m < month) {
+        total += 31;
+        if (m == 4 || m == 6 || m == 9 || m == 11) {
+            total += 30;
+        } else if (m == 2) {
+            bool leap = (year % 4 == 0 && year % 100!= 0) || year % 400 == 0;
+            total += leap? 29 : 28;
+        }
+        m++;
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_date
+
+def day_of_year(n: int) -> int:
+    if valid_date(n) == 0:
+        return 0
+    year = n // 10000
+    month = (n // 100) % 100
+    day = n % 100
+    total = day
+    m = 1
+    while m < month:
+        days = 31
+        if m == 4 or m == 6 or m == 9 or m == 11:
+            days = 30
+        if m == 2:
+            leap = (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
+            days = 29 if leap else 28
+        total += days
+        m += 1
+    return total
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int valid_date(int n) {
+    if (n < 10000101 || n > 99991231) {
+        return 0;
+    }
+    int year = n / 10000;
+    int month = (n / 100) % 100;
+    int day = n % 100;
+    if (month < 1 || month > 12 || day < 1) {
+        return 0;
+    }
+    int days = 31;
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;
+    }
+    if (month == 2) {
+        bool leap = (year % 4 == 0 && year % 100!= 0) || year % 400 == 0;
+        days = leap? 29 : 28;
+    }
+    return 1 if (day <= days)? 1 : 0;
+}

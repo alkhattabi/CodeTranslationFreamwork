@@ -1,0 +1,43 @@
+Repair ONLY the file service.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/12 development checks.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int score_digits(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int score_digits(int n);
+int digit_sum(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int score_digits(int n) {
+    return solve(n) * 3;
+}
+
+
+ORIGINAL PYTHON:
+from utils import digit_sum
+
+def score_digits(n: int) -> int:
+    return digit_sum(n) * 3
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int digit_sum(int n) {
+    n = abs(n);
+    int total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n /= 10;
+    }
+    return total;
+}

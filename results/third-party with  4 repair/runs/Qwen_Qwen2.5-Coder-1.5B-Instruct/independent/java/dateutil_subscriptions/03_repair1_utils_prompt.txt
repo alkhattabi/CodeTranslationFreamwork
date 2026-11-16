@@ -1,0 +1,89 @@
+Repair ONLY the file Utils.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:15: error: cannot find symbol
+        calendar.setTime(start);
+                         ^
+  symbol:   variable start
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+                       ^
+  symbol:   method renewalDate(int)
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+        ^
+  symbol:   class Calendar
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+                            ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:9: error: cannot find symbol
+        calendar.add(Calendar.MONTH, 2);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:10: error: cannot find symbol
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                            ^
+  symbol:   variable Calendar
+  location: c
+
+OUTPUT: only complete Utils.java source. Must declare public class Utils with public static int renewal_date(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  (none)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Utils { public static int renewal_date(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Utils {
+    public static int renewal_date(int n) {
+        if (n < 19000101 || n > 20991231) {
+            return -1;
+        }
+        int year = n / 10000;
+        int month = (n / 100) % 100;
+        int day = n % 100;
+        try {
+            java.util.Date start = new java.util.Date(year - 1900, month - 1, day);
+        } catch (IllegalArgumentException e) {
+            return -1;
+        }
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        calendar.setTime(start);
+        calendar.add(java.util.Calendar.MONTH, 1);
+        return calendar.get(java.util.Calendar.YEAR) * 10000 + calendar.get(java.util.Calendar.MONTH) * 100 + calendar.get(java.util.Calendar.DAY_OF_MONTH);
+    }
+}
+
+
+ORIGINAL PYTHON:
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+def renewal_date(n: int) -> int:
+    if n < 19000101 or n > 20991231:
+        return -1
+    year, month, day = n // 10000, (n // 100) % 100, n % 100
+    try:
+        start = date(year, month, day)
+    except ValueError:
+        return -1
+    end = start + relativedelta(months=1)
+    return end.year * 10000 + end.month * 100 + end.day

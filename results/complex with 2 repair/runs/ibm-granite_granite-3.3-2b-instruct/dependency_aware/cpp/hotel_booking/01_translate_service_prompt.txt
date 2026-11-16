@@ -1,0 +1,44 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete service.cpp implementation source. Include "api.hpp". Define exactly int lodging_charge(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int lodging_charge(int n);
+int valid_nights(int n);
+
+
+PYTHON FILE service.py:
+
+from utils import valid_nights
+
+def lodging_charge(n: int) -> int:
+    nights = valid_nights(n)
+    if nights == 0:
+        return 0
+    rooms = n // 100
+    charge = rooms * nights * 150
+    if nights >= 7:
+        charge -= charge // 10
+    if rooms >= 5:
+        charge -= charge // 20
+    return charge
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#include "api.hpp"
+
+int valid_nights(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}

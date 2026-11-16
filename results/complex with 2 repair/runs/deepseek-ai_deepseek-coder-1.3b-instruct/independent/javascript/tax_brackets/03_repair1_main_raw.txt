@@ -1,0 +1,23 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+import { calculateTax } from "./service.mjs";
+import { taxableIncome } from "./utils.mjs";
+
+export function solve(n) {
+    const base = taxableIncome(n);
+    const tax = calculateTax(n);
+    const credit = n <= 2500 ? 100 : 0;
+    const payable = tax - credit;
+    return payable + (payable * (n > 10000 ? 2 : 0)) / 100;
+}
+```
+
+The error message indicates that the module `service.mjs` or `utils.mjs` cannot be found. This is because the import statements in the original Python code are incorrect. The correct import statements are:
+
+```javascript
+import { calculateTax } from "./service.mjs";
+import { taxableIncome } from "./utils.mjs";
+```
+
+The corrected code exports a function `solve` that takes an integer `n` and returns a number. The function calculates the payable amount based on the tax brackets and returns it.

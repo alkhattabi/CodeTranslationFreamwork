@@ -1,0 +1,66 @@
+```
+public class Main {
+    public static int solve(int n) {
+        Function<Integer, Integer> yearlyInterest = Main::yearlyInterest;
+        Function<Integer, Integer> creditBand = Main::creditBand;
+
+        int band = creditBand.apply(n);
+        if (band == 0) {
+            return -1;
+        }
+        int principal = 10000 + (n - 300) * 10;
+        int interest = yearlyInterest.apply(n);
+        int fee = 150 if band >= 3 else 350;
+        int total = principal + interest + fee;
+        return (total + 11) / 12;
+    }
+
+    private static int yearlyInterest(int n) {
+        int band = creditBand(n);
+        if (band == 0) {
+            return -1;
+        }
+        int principal = 10000 + (n - 300) * 10;
+        int rate = 18 - band * 3;
+        int interest = principal * rate / 100;
+        if (principal > 14000) {
+            interest += 125;
+        }
+        return interest;
+    }
+
+    private static int creditBand(int n) {
+        if (n < 300 || n > 850) {
+            return 0;
+        }
+        if (n >= 750) {
+            return 4;
+        }
+        if (n >= 650) {
+            return 3;
+        }
+        if (n >= 550) {
+            return 2;
+        }
+        if (n >= 450) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solve(300)); // Expected output: 10000
+        System.out.println(solve(850)); // Expected output: 14000
+        System.out.println(solve(750)); // Expected output: 12500
+        System.out.println(solve(650)); // Expected output: 11250
+        System.out.println(solve(550)); // Expected output: 9000
+        System.out.println(solve(450)); // Expected output: 6750
+        System.out.println(solve(301)); // Expected output: -1
+        System.out.println(solve(851)); // Expected output: -1
+        System.out.println(solve(751)); // Expected output: -1
+        System.out.println(solve(651)); // Expected output: -1
+        System.out.println(solve(551)); // Expected output: -1
+        System.out.println(solve(451)); // Expected output: -1
+    }
+}
+```

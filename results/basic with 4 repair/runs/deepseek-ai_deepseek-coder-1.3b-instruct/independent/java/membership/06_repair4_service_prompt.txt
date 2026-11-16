@@ -1,0 +1,57 @@
+Repair ONLY the file Service.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 12/15 development checks.
+main.solve(49): expected 191, actual 172
+main.solve(150): expected 585, actual 525
+main.solve(100): expected 385, actual 350
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int discount(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.tier(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int discount(int n) { /* implementation */ } }
+
+CURRENT BROKEN TRANSLATION:
+public class Service {
+    public static int discount(int n) {
+        return tier(n) * 5;
+    }
+
+    private static int tier(int n) {
+        if (n >= 100) {
+            return 3;
+        }
+        if (n >= 50) {
+            return 2;
+        }
+        if (n >= 10) {
+            return 1;
+        }
+        return 0;
+    }
+}
+
+
+ORIGINAL PYTHON:
+from utils import tier
+
+def discount(n: int) -> int:
+    return tier(n) * 5
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int tier(int n) {
+        if (n >= 100) {
+            return 3;
+        }
+        if (n >= 50) {
+            return 2;
+        }
+        if (n >= 10) {
+            return 1;
+        }
+        return 0;
+    }
+}

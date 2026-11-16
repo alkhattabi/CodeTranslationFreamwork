@@ -1,0 +1,56 @@
+package com.example;
+
+public class Service {
+    public static int matrix_energy(int n) {
+        // Ensure n is within the valid range [-100, 100]
+        n = Math.max(-100, Math.min(100, n));
+
+        // Create a 3x3 matrix with elements based on n's remainder when divided by 5, 7, and 3
+        int[][] m = {
+            {n % 5, 2, -1},
+            {3, n % 7, 4},
+            {1, 5, n % 3}
+        };
+
+        // Calculate the square of the matrix
+        int[][] square = multiplyMatrix(m, m);
+
+        // Extract the diagonal elements
+        int diagonal = square[0][0] + square[1][1] + square[2][2];
+
+        // Calculate the vector signature using the extracted diagonal
+        int vectorSignature = vectorSignature(diagonal);
+
+        // Return the sum of the absolute values of the vector signature components
+        return Math.abs(vectorSignature);
+    }
+
+    private static int[][] multiplyMatrix(int[][] a, int[][] b) {
+        int rowsA = a.length;
+        int colsA = a[0].length;
+        int rowsB = b.length;
+        int colsB = b[0].length;
+        int[][] result = new int[rowsA][colsB];
+
+        for (int i = 0; i < rowsA; i++) {
+            for (int j = 0; j < colsB; j++) {
+                for (int k = 0; k < colsA; k++) {
+                    result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    private static int vectorSignature(int n) {
+        int[] v = new int[]{n % 11, Math.abs(n) % 7, (n / 3) % 9};
+        int[][] m = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[] out = new int[3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                out[i] += m[i][j] * v[j];
+            }
+        }
+        return Math.abs(out[0]) + Math.abs(out[1]) + Math.abs(out[2]);
+    }
+}

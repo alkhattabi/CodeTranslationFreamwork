@@ -1,0 +1,4 @@
+Service.java:40: error: class, interface, enum, or record expected
+Note: The behavior of numpy in Python is replicated using basic array operations in Java. The floor division and modulo operations in Python are preserved using the standard Java operators.
+^
+1 error

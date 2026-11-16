@@ -1,0 +1,78 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.number_strength(n)
+  Utils.factor_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: sympy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+import sympy as sp
+from utils import factor_signature
+from service import number_strength
+
+def solve(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    prime_bonus = 50 if bool(sp.isprime(value)) else 0
+    next_prime = int(sp.nextprime(value))
+    return number_strength(n) + prime_bonus + next_prime - factor_signature(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: Service.java
+package com.example;
+
+import java.util.Map;
+
+public class Service {
+    public static int number_strength(int n) {
+        // Convert input to absolute value and then take modulo 1500
+        int value = Math.abs(n) % 1500;
+        
+        // Calculate the number of factors using sympy's factorint function
+        import org.sympy.ntheory.factor.FactorInteger;
+        FactorInteger factorInt = new FactorInteger();
+        Map<Integer, Integer> factors = factorInt.factor(value);
+        
+        // Calculate the score based on the number of factors and their exponents
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        
+        // Add a bonus for the number of factors
+        score += 3 * factors.size();
+        
+        return score;
+    }
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: Utils.java
+public class Utils {
+    public static int factor_signature(int n) {
+        // Convert input to absolute value and then take modulo 1500
+        int value = Math.abs(n) % 1500;
+        
+        // Calculate the number of factors using sympy's factorint function
+        import org.sympy.ntheory.factor.FactorInteger;
+        FactorInteger factorInt = new FactorInteger();
+        Map<Integer, Integer> factors = factorInt.factor(value);
+        
+        // Calculate the score based on the number of factors and their exponents
+        int score = 0;
+        for (Map.Entry<Integer, Integer> entry : factors.entrySet()) {
+            score += entry.getKey() * entry.getValue();
+        }
+        
+        // Add a bonus for the number of factors
+        score += 3 * factors.size();
+        
+        return score;
+    }
+}

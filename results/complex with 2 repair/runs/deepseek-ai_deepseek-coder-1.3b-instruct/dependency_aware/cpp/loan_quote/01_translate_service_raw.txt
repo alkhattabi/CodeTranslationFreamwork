@@ -1,0 +1,101 @@
+Here is the C++ implementation of the Python function `yearly_interest`. The function `credit_band` is defined in the file `api.hpp`.
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int yearly_interest(int n) {
+    int band = credit_band(n);
+    if (band == 0) {
+        return -1;
+    }
+    int principal = 10000 + (n - 300) * 10;
+    int rate = 18 - band * 3;
+    int interest = principal * rate / 100;
+    if (principal > 14000) {
+        interest += 125;
+    }
+    return interest;
+}
+```
+
+Please note that the `credit_band` function is a global function defined in the `api.hpp` file. The function checks the input `n` and returns a value representing the credit band. The function is defined as follows:
+
+```cpp
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+This function checks the input `n` and returns a value representing the credit band. The function is defined as follows:
+
+```cpp
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+This function checks the input `n` and returns a value representing the credit band. The function is defined as follows:
+
+```cpp
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {
+        return 3;
+    }
+    if (n >= 550) {
+        return 2;
+    }
+    if (n >= 450) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+This function checks the input `n` and returns a value representing the credit band. The function is defined as follows:
+
+```cpp
+int credit_band(int n) {
+    if (n < 300 || n > 850) {
+        return 0;
+    }
+    if (n >= 750) {
+        return 4;
+    }
+    if (n >= 650) {

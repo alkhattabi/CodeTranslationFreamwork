@@ -1,0 +1,15 @@
+// service.mjs
+import { renewal_date } from "./utils.mjs";
+
+export function grace_period(n) {
+    const renewed = renewal_date(n);
+    if (renewed < 0) {
+        return -1;
+    }
+    const year = renewed / 10000;
+    const month = (renewed / 100) % 100;
+    const day = renewed % 100;
+    const due = new Date(year, month - 1, day); // date.js built-in
+    due.addMonths(2).addDays(7);
+    return due.getFullYear() * 10000 + due.getMonth() * 100 + due.getDate();
+}

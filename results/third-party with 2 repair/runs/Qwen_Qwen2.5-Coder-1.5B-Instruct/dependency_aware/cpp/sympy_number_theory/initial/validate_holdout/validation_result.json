@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp: In function \u2018int solve(int)\u2019:\nservice.cpp:64:12: error: \u2018number_strength\u2019 was not declared in this scope\n   64 |     return number_strength(n);\n      |            ^~~~~~~~~~~~~~~\nservice.cpp: In function \u2018int number_strength(int)\u2019:\nservice.cpp:68:5: error: \u2018value\u2019 was not declared in this scope\n   68 |     value = abs(n) % 1500 + 2;\n      |     ^~~~~\nservice.cpp:69:5: error: \u2018phi\u2019 was not declared in this scope\n   69 |     phi = int(factor_signature(value));\n      |     ^~~\nservice.cpp:70:5: error: \u2018divisor_count\u2019 was not declared in this scope\n   70 |     divisor_count = int(count_divisors(value));\n      |     ^~~~~~~~~~~~~\nservice.cpp:70:25: error: \u2018count_divisors\u2019 was not declared in this scope; did you mean \u2018countDivisors\u2019?\n   70 |     divisor_count = int(count_divisors(value));\n      |                         ^~~~~~~~~~~~~~\n      |                         countDivisors\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:64:12: error: \u2018number_strength\u2019 was not declared in this scope\n   64 |     return number_strength(n);\n      |            ^~~~~~~~~~~~~~~\nmain.cpp: In function \u2018int number_strength(int)\u2019:\nmain.cpp:68:5: error: \u2018value\u2019 was not declared in this scope\n   68 |     value = abs(n) % 1500 + 2;\n      |     ^~~~~\nmain.cpp:69:5: error: \u2018phi\u2019 was not declared in this scope\n   69 |     phi = int(factor_signature(value));\n      |     ^~~\nmain.cpp:70:5: error: \u2018divisor_count\u2019 was not declared in this scope\n   70 |     divisor_count = int(count_divisors(value));\n      |     ^~~~~~~~~~~~~\nmain.cpp:70:25: error: \u2018count_divisors\u2019 was not declared in this scope; did you mean \u2018countDivisors\u2019?\n   70 |     divisor_count = int(count_divisors(value));\n      |                         ^~~~~~~~~~~~~~\n      |                         countDivisors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

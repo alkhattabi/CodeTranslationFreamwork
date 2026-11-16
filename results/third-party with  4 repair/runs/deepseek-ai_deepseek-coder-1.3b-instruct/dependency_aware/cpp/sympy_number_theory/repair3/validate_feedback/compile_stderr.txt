@@ -1,0 +1,21 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int factor_signature(int)’:
+utils.cpp:9:34: error: ‘sp’ has not been declared
+    9 |     std::map<int, int> factors = sp::factorint(value);
+      |                                  ^~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int factor_signature(int)’:
+service.cpp:9:34: error: ‘sp’ has not been declared
+    9 |     std::map<int, int> factors = sp::factorint(value);
+      |                                  ^~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:5:10: fatal error: sympy/ntheory.h: No such file or directory
+    5 | #include <sympy/ntheory.h>
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.

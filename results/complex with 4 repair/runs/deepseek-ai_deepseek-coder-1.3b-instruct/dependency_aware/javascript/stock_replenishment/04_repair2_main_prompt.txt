@@ -1,0 +1,83 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 18/30 development checks.
+main.solve(1): expected 920, actual 800
+main.solve(19): expected 2360, actual 2000
+main.solve(70): expected 5200, actual 5800
+main.solve(55): expected 4900, actual 5080
+main.solve(14): expected 1640, actual 1400
+main.solve(7): expected 1280, actual 1100
+main.solve(28): expected 2360, actual 2000
+main.solve(20): expected 2360, actual 2000
+main.solve(21): expected 2000, actual 1700
+service.order_quantity(41): expected 144, actual 120
+service.order_quantity(70): expected 192, actual 180
+service.order_quantity(55): expected 180, actual 156
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { order_quantity } from "./service.mjs";
+  import { weekly_demand } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+import { weekly_demand } from "./utils.mjs";
+import { order_quantity } from "./service.mjs";
+
+export function solve(n) {
+    const quantity = order_quantity(n);
+    if (quantity === 0) {
+        return 0;
+    }
+    const demand = weekly_demand(n);
+    const unit_cost = quantity >= 120 ? 30 : 25;
+    const shipping = demand > 100 ? 400 : 200;
+    return quantity * unit_cost + shipping;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import weekly_demand
+from service import order_quantity
+
+def solve(n: int) -> int:
+    quantity = order_quantity(n)
+    if quantity == 0:
+        return 0
+    demand = weekly_demand(n)
+    unit_cost = 25 if quantity >= 120 else 30
+    shipping = 400 if demand > 100 else 200
+    return quantity * unit_cost + shipping
+
+
+DEPENDENCY service.mjs:
+import { weekly_demand } from "./utils.mjs";
+
+export function order_quantity(n) {
+    const demand = weekly_demand(n);
+    const safety = 15;
+    const available = n > 0 ? n : 0;
+    const shortage = demand + safety - available;
+    if (shortage <= 0) {
+        return 0;
+    }
+    const packs = Math.ceil(shortage / 12);
+    return packs * 12;
+}
+
+
+DEPENDENCY utils.mjs:
+export function weekly_demand(n) {
+    if (n < 0) {
+        return 0;
+    }
+    let base = n * 3;
+    let extra = (n % 7) * 2;
+    if (n >= 40) {
+        base += Math.floor(n / 4);
+    }
+    return base + extra;
+}

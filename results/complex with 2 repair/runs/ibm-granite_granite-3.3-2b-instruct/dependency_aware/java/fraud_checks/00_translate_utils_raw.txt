@@ -1,0 +1,22 @@
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubled = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubled) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubled =!doubled;
+            n /= 10;
+        }
+        return 1 - (total % 10);
+    }
+}

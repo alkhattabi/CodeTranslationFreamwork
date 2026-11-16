@@ -1,0 +1,28 @@
+Here is the Java version of your Python code:
+
+```java
+public class Utils {
+    public static int luhn_valid(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int total = 0;
+        boolean doubleDigit = false;
+        while (n > 0) {
+            int digit = n % 10;
+            if (doubleDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            total += digit;
+            doubleDigit = !doubleDigit;
+            n /= 10;
+        }
+        return (total % 10 == 0) ? 1 : 0;
+    }
+}
+```
+
+This Java code does the same thing as your Python code. It checks if a number is valid according to the Luhn algorithm. The Luhn algorithm is a simple checksum formula used to validate a variety of identification numbers such as credit card numbers, IMEI numbers, NIF numbers, etc.

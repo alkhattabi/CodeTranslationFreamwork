@@ -1,0 +1,8 @@
+main.cpp: In function ‘int solve(int)’:
+main.cpp:6:22: error: expected ‘,’ or ‘;’ before ‘if’
+    6 |     int credit = 100 if (base > 0 && base <= 2500) else 0;
+      |                      ^~
+main.cpp:11:35: error: expected ‘;’ before ‘if’
+   11 |     payable += (payable * 2 / 100) if (base > 10000) else 0;
+      |                                   ^~~
+      |                                   ;

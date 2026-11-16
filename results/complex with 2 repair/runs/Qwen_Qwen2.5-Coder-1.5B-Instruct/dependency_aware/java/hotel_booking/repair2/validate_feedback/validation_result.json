@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:17: error: class, interface, enum, or record expected\npackage com.example;\n^\nMain.java:19: error: class, interface, enum, or record expected\nimport java.util.function.IntPredicate;\n^\n2 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

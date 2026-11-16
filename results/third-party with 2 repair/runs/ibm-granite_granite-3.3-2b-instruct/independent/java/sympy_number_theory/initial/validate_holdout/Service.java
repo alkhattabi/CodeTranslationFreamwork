@@ -1,0 +1,30 @@
+public class Service {
+    public static int number_strength(int n) {
+        int value = Math.abs(n) % 1500 + 2;
+        int phi = (int) Math.pow(value, 1.0 - 1.0 / Math.gcd(value, 5));
+        int divisor_count = 0;
+        for (int i = 1; i <= value; i++) {
+            if (value % i == 0) {
+                divisor_count++;
+            }
+        }
+        return phi + 5 * divisor_count + factor_signature(n);
+    }
+
+    // Placeholder for factor_signature method
+    private static int factor_signature(int n) {
+        int count = 0;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            while (n % i == 0) {
+                n /= i;
+                count++;
+            }
+        }
+        if (n > 1) {
+            count++;
+        }
+        return count;
+    }
+}
+
+Note: The factor_signature method in Java is a simplified version of the Python's sympy.factorint function. It counts the number of divisors of a number, similar to the Python's math.gcd function, which is used to calculate the totient function in Java.

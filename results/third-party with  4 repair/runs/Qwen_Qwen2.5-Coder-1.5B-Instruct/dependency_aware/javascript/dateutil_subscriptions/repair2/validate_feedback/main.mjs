@@ -1,0 +1,19 @@
+// main.mjs
+import { grace_period } from "./service.mjs";
+import { renewal_date } from "./utils.mjs";
+
+export function solve(n) {
+    const renewed = renewal_date(n);
+    const deadline = grace_period(n);
+    if (renewed < 0 || deadline < 0) {
+        return -1;
+    }
+    const y1 = Math.floor(renewed / 10000);
+    const m1 = (renewed / 100) % 100;
+    const d1 = renewed % 100;
+    const y2 = Math.floor(deadline / 10000);
+    const m2 = (deadline / 100) % 100;
+    const d2 = deadline % 100;
+    const days = (new Date(y2, m2, d2) - new Date(y1, m1, d1)).getDate();
+    return days * 100 + d2;
+}

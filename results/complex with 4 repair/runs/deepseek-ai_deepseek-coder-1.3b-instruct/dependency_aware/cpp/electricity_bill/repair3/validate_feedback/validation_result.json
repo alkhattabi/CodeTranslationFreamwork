@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:23:9: warning: #pragma once in main file\n   23 | #pragma once\n      |         ^~~~\nmain.cpp:36:9: warning: #pragma once in main file\n   36 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/ccIQvQ3L.o: in function `energy_charge(int)':\nmain.cpp:(.text+0x0): multiple definition of `energy_charge(int)'; /tmp/cc2jazWg.o:service.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccIQvQ3L.o: in function `billable_units(int)':\nmain.cpp:(.text+0x93): multiple definition of `billable_units(int)'; /tmp/ccFN6Rz8.o:utils.cpp:(.text+0x0): first defined here\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

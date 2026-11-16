@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:27: error: class Service is public, should be declared in a file named Service.java\npublic class Service {\n       ^\nMain.java:48: error: class Utils is public, should be declared in a file named Utils.java\npublic class Utils {\n       ^\nUtils.java:4: error: cannot find symbol\n        List<Integer> amounts = new ArrayList<>();\n        ^\n  symbol:   class List\n  location: class Utils\nUtils.java:4: error: cannot find symbol\n        List<Integer> amounts = new ArrayList<>();\n                                    ^\n  symbol:   class ArrayList\n  location: class Utils\nUtils.java:13: error: cannot find symbol\n        Map<String, Integer> sums = new HashMap<>();\n        ^\n  symbol:   class Map\n  location: class Utils\nUtils.java:13: error: cannot find symbol\n        Map<String, Integer> sums = new HashMap<>();\n                                        ^\n  symbol:   class HashMap\n  location: class Utils\nUtils.java:15: error: package frame does not exist\n            if (sums.containsKey(frame.category.get(amount))) {\n                                      ^\nUtils.java:16: error: package frame does not exist\n                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);\n                                                                   ^\nUtils.java:16: error: package frame does not exist\n                sums.put(frame.category.get(amount), sums.get(frame.category.get(amount)) + amount);\n                              ^\nUtils.java:18: error: package frame does not exist\n                sums.put(frame.category.get(amount), amount);\n                              ^\nMain.java:3: error: cannot find symbol\n        int balance = category_balance(n);\n                      ^\n  symbol:   method category_balance(int)\n  location: class Main\nMain.java:4: error: cannot find symbol\n        int alert = rolling_alert(n);\n                    ^\n  symbol:   method rolling_alert(int)\n  location: class Main\n12 errors\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

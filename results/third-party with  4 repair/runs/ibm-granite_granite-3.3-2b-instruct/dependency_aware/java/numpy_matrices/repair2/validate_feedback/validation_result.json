@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:40: error: class, interface, enum, or record expected\nNote: The behavior of numpy in Python is replicated using basic array operations in Java. The floor division and modulo operations in Python are preserved using the standard Java operators.\n^\n1 error\n",
+  "failed_modules": [
+    "service"
+  ],
+  "case_failures": []
+}

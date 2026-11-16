@@ -1,0 +1,30 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int order_quantity(int)’:
+service.cpp:26:21: error: expected ‘,’ or ‘;’ before ‘if’
+   26 |     int safety = 15 if demand < 100 else 35;
+      |                     ^~
+service.cpp:27:23: error: expected ‘,’ or ‘;’ before ‘if’
+   27 |     int available = n if n > 0 else 0;
+      |                       ^~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp: In function ‘int order_quantity(int)’:
+main.cpp:26:21: error: expected ‘,’ or ‘;’ before ‘if’
+   26 |     int safety = 15 if demand < 100 else 35;
+      |                     ^~
+main.cpp:27:23: error: expected ‘,’ or ‘;’ before ‘if’
+   27 |     int available = n if n > 0 else 0;
+      |                       ^~
+main.cpp: In function ‘int solve(int)’:
+main.cpp:42:24: error: expected ‘,’ or ‘;’ before ‘if’
+   42 |     int unit_cost = 25 if quantity >= 120 else 30;
+      |                        ^~
+main.cpp:43:24: error: expected ‘,’ or ‘;’ before ‘if’
+   43 |     int shipping = 400 if demand > 100 else 200;
+      |                        ^~

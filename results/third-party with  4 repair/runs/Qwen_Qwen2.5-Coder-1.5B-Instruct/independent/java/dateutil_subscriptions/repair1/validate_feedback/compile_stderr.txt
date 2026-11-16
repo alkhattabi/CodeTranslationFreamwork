@@ -1,0 +1,82 @@
+Utils.java:20: error: cannot find symbol
+        calendar.setTime(start);
+                         ^
+  symbol:   variable start
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:3: error: cannot find symbol
+        Date renewed = renewalDate(n);
+                       ^
+  symbol:   method renewalDate(int)
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+        ^
+  symbol:   class Calendar
+  location: class Service
+Service.java:7: error: cannot find symbol
+        Calendar calendar = Calendar.getInstance();
+                            ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:9: error: cannot find symbol
+        calendar.add(Calendar.MONTH, 2);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:10: error: cannot find symbol
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+                     ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                            ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                                                                  ^
+  symbol:   variable Calendar
+  location: class Service
+Service.java:11: error: cannot find symbol
+        return calendar.get(Calendar.YEAR) * 10000 + calendar.get(Calendar.MONTH) * 100 + calendar.get(Calendar.DAY_OF_MONTH);
+                                                                                                       ^
+  symbol:   variable Calendar
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int renewed = renewalDate(n);
+                      ^
+  symbol:   method renewalDate(int)
+  location: class Main
+Main.java:4: error: cannot find symbol
+        int deadline = gracePeriod(n);
+                       ^
+  symbol:   method gracePeriod(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+        long days = (new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime()) / (1000 * 60 * 60 * 24);
+                         ^
+  symbol:   class Date
+  location: class Main
+Main.java:14: error: cannot find symbol
+        long days = (new Date(y2, m2, d2).getTime() - new Date(y1, m1, d1).getTime()) / (1000 * 60 * 60 * 24);
+                                                          ^
+  symbol:   class Date
+  location: class Main
+Utils.java:6: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:27: error: cannot access Utils
+  try { System.out.println("utils.renewal_date|19991231|" + Utils.renewal_date(19991231)); } catch (Throwable e) { System.out.println("utils.renewal_date|19991231|ERR"); }
+                                                            ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Note: Utils.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+16 errors

@@ -1,0 +1,25 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    int blocks = weight_blocks(n);
+    if (blocks == 0) {
+        return 0;
+    }
+    int cost = transport_cost(n);
+    int fuel = (cost * 8 + 99) / 100;
+    int insurance = (blocks >= 10) ? 300 : 100;
+    return cost + fuel + insurance;
+}
+```
+
+The `solve` function calculates the total cost of the trip based on the number of blocks. It first calculates the number of blocks, then calculates the cost of transport, the fuel cost, and the insurance cost. The total cost is the sum of these three values.
+
+The `transport_cost` function calculates the cost of transport based on the number of blocks. It first calculates the price of one block, then adds the cost of the extra blocks if there are more than 5 or more than 12 blocks.
+
+The `weight_blocks` function calculates the number of blocks based on the weight of the package. It returns 0 if the weight is less than or equal to 0, and it rounds up to the nearest 500 if the weight is more than 10000.
+
+The `api.hpp` file is included at the top of the file, which is where the global declarations for the helper functions are declared.

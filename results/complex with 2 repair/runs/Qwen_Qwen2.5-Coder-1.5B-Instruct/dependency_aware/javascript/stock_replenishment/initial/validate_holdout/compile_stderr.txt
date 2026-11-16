@@ -1,0 +1,9 @@
+main.mjs
+/content/MSCS811_multifile_translation_v2_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/dependency_aware/javascript/stock_replenishment/initial/validate_holdout/main.mjs:12
+    const unitCost = 25 if quantity >= 120 else 30;
+                        ^^
+
+SyntaxError: Unexpected token 'if'
+    at checkSyntax (node:internal/main/check_syntax:74:5)
+
+Node.js v22.23.4

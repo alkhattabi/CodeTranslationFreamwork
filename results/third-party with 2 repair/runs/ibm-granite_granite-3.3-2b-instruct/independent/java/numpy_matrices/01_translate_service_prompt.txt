@@ -1,0 +1,23 @@
+Translate the following Python file to java, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete Service.java source. Must declare public class Service with public static int matrix_energy(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Utils.vector_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Service { public static int matrix_energy(int n) { /* implementation */ } }
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: numpy.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE service.py:
+import numpy as np
+from utils import vector_signature
+
+def matrix_energy(n: int) -> int:
+    x = max(-100, min(100, n))
+    m = np.array([[x % 5, 2, -1], [3, x % 7, 4], [1, 5, x % 3]], dtype=np.int64)
+    square = m @ m
+    diagonal = int(np.trace(square))
+    return diagonal + vector_signature(n)

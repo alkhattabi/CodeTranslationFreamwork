@@ -1,0 +1,82 @@
+Main.java:27: error: class Service is public, should be declared in a file named Service.java
+public class Service {
+       ^
+Main.java:45: error: class Utils is public, should be declared in a file named Utils.java
+public class Utils {
+       ^
+Utils.java:10: error: cannot find symbol
+            Date date = new Date(year, month, day);
+            ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:10: error: cannot find symbol
+            Date date = new Date(year, month, day);
+                            ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+        ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+                       ^
+  symbol:   class Date
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        Date end = new Date(date.getTime() + 1000 * 60 * 60 * 24); // 1 day in milliseconds
+                            ^
+  symbol:   variable date
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int renewed = renewal_date(n);
+                      ^
+  symbol:   method renewal_date(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Date end = new Date(year, month, day);
+        ^
+  symbol:   class Date
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Date end = new Date(year, month, day);
+                       ^
+  symbol:   class Date
+  location: class Service
+Main.java:12: error: cannot find symbol
+        year2 = grace_period(n) / 10000;
+                ^
+  symbol:   method grace_period(int)
+  location: class Main
+Main.java:13: error: cannot find symbol
+        month2 = (grace_period(n) / 100) % 100;
+                  ^
+  symbol:   method grace_period(int)
+  location: class Main
+Main.java:14: error: cannot find symbol
+        day2 = grace_period(n) % 100;
+               ^
+  symbol:   method grace_period(int)
+  location: class Main
+Main.java:16: error: cannot find symbol
+            Date renewalDate = new Date(year1, month1, day1);
+            ^
+  symbol:   class Date
+  location: class Main
+Main.java:16: error: cannot find symbol
+            Date renewalDate = new Date(year1, month1, day1);
+                                   ^
+  symbol:   class Date
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Date endDate = new Date(year2, month2, day2);
+            ^
+  symbol:   class Date
+  location: class Main
+Main.java:17: error: cannot find symbol
+            Date endDate = new Date(year2, month2, day2);
+                               ^
+  symbol:   class Date
+  location: class Main
+17 errors

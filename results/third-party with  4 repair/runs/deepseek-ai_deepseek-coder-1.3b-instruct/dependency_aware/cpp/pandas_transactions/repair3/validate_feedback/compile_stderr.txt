@@ -1,0 +1,27 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+main.cpp:34:9: warning: #pragma once in main file
+   34 | #pragma once
+      |         ^~~~
+main.cpp:33:1: error: ‘DEPENDENCY’ does not name a type
+   33 | DEPENDENCY utils.cpp:
+      | ^~~~~~~~~~
+main.cpp:45:5: error: redefinition of ‘int rolling_alert(int)’
+   45 | int rolling_alert(int n) {
+      |     ^~~~~~~~~~~~~
+main.cpp:12:5: note: ‘int rolling_alert(int)’ previously defined here
+   12 | int rolling_alert(int n) {
+      |     ^~~~~~~~~~~~~
+main.cpp:50:5: error: redefinition of ‘int category_balance(int)’
+   50 | int category_balance(int n) {
+      |     ^~~~~~~~~~~~~~~~
+main.cpp:22:5: note: ‘int category_balance(int)’ previously defined here
+   22 | int category_balance(int n) {
+      |     ^~~~~~~~~~~~~~~~

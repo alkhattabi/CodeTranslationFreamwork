@@ -1,0 +1,12 @@
+export function category_balance(n) {
+    n = Math.max(-200, Math.min(200, n));
+    const frame = {
+        "category": ["A", "B", "A", "C", "B", "C", "A"],
+        "amount": [n, 12, Math.floor(n / 2), -7, n % 9, 4, -Math.floor(n / 3)]
+    };
+    const sums = frame.category.reduce((acc, category) => {
+        acc[category] = frame.amount.filter(amount => amount === category).reduce((acc, amount) => acc + amount, 0);
+        return acc;
+    }, {});
+    return parseInt(2 * sums.A + sums.B - sums.C);
+}

@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\n/usr/bin/ld: /tmp/cc1sZCSO.o: in function `valid_nights(int)':\nservice.cpp:(.text+0x0): multiple definition of `valid_nights(int)'; /tmp/ccoeG8UO.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccVTsF9O.o: in function `solve(int)':\nmain.cpp:(.text+0x4d): undefined reference to `lodging_charge(int)'\n/usr/bin/ld: /tmp/cceZ5enS.o: in function `main':\nEvalRunner.cpp:(.text+0x2e1): undefined reference to `lodging_charge(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x326): undefined reference to `lodging_charge(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x36b): undefined reference to `lodging_charge(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x3b0): undefined reference to `lodging_charge(int)'\n/usr/bin/ld: /tmp/cceZ5enS.o:EvalRunner.cpp:(.text+0x3f5): more undefined references to `lodging_charge(int)' follow\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

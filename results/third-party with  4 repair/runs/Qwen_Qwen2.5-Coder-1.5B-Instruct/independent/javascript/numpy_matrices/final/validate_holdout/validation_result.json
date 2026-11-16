@@ -1,0 +1,232 @@
+{
+  "compiled": true,
+  "passed": 5,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 99,
+      "expected": 415,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -7,
+      "expected": 397,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 0,
+      "expected": 66,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -30,
+      "expected": 503,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 100,
+      "expected": 456,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -11,
+      "expected": 392,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 30,
+      "expected": 383,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -3,
+      "expected": 518,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -1,
+      "expected": 512,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -100,
+      "expected": 546,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -12,
+      "expected": 520,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 51,
+      "expected": 558,
+      "actual": "ERR: ReferenceError: matrixEnergy is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 99,
+      "expected": 190,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -7,
+      "expected": 219,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 0,
+      "expected": 50,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -30,
+      "expected": 285,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 100,
+      "expected": 205,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -11,
+      "expected": 226,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 30,
+      "expected": 198,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -3,
+      "expected": 355,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -1,
+      "expected": 385,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -100,
+      "expected": 265,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -12,
+      "expected": 348,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 51,
+      "expected": 313,
+      "actual": "ERR: ReferenceError: vector_signature is not defined"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -7,
+      "expected": 156,
+      "actual": "138"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -30,
+      "expected": 210,
+      "actual": "84"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -11,
+      "expected": 150,
+      "actual": "12"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -3,
+      "expected": 285,
+      "actual": "9"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -1,
+      "expected": 279,
+      "actual": "15"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -100,
+      "expected": 186,
+      "actual": "108"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -12,
+      "expected": 285,
+      "actual": "9"
+    }
+  ]
+}

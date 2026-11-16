@@ -1,0 +1,36 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 8/12 development checks.
+utils.digit_sum(0): expected 0, actual ERR: TypeError: modules[t.m][t.f] is not a function
+utils.digit_sum(208): expected 10, actual ERR: TypeError: modules[t.m][t.f] is not a function
+utils.digit_sum(1): expected 1, actual ERR: TypeError: modules[t.m][t.f] is not a function
+utils.digit_sum(-1): expected 1, actual ERR: TypeError: modules[t.m][t.f] is not a function
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function digit_sum(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function digit_sum(n) { /* implementation */ }
+
+CURRENT BROKEN TRANSLATION:
+// utils.mjs
+export function digitSum(n) {
+    n = Math.abs(n);
+    let total = 0;
+    while (n > 0) {
+        total += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return total;
+}
+
+
+ORIGINAL PYTHON:
+def digit_sum(n: int) -> int:
+    n = abs(n)
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total

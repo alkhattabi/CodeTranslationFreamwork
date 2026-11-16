@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Service.java:3: error: cannot find symbol\nimport com.example.Utils;\n                  ^\n  symbol:   class Utils\n  location: package com.example\nService.java:7: error: cannot find symbol\n        if (!Utils.validDate(n)) {\n             ^\n  symbol:   variable Utils\n  location: class Service\nMain.java:3: error: cannot find symbol\n        if (!Utils.validDate(n)) {\n                  ^\n  symbol:   method validDate(int)\n  location: class Utils\nService.java:5: error: duplicate class: com.example.Service\npublic class Service {\n       ^\nMain.java:8: error: cannot access Service\n        return quarter * 1000 + Service.dayOfYear(n);\n                                ^\n  bad source file: ./Service.java\n    file does not contain class Service\n    Please remove or make sure it appears in the correct subdirectory of the sourcepath.\n5 errors\n",
+  "failed_modules": [
+    "service",
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,70 @@
+{
+  "compiled": true,
+  "passed": 22,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240430,
+      "expected": 2121,
+      "actual": "2152"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230430,
+      "expected": 2120,
+      "actual": "2151"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20231231,
+      "expected": 4365,
+      "actual": "4520"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20241110,
+      "expected": 4315,
+      "actual": "4439"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20240430,
+      "expected": 121,
+      "actual": "152"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20230430,
+      "expected": 120,
+      "actual": "151"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20231231,
+      "expected": 365,
+      "actual": "520"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20241110,
+      "expected": 315,
+      "actual": "439"
+    }
+  ]
+}

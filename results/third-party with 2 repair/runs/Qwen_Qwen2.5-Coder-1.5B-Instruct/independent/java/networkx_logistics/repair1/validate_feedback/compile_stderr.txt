@@ -1,0 +1,152 @@
+Utils.java:3: error: package org.apache.commons.math3.graph does not exist
+import org.apache.commons.math3.graph.DirectedWeightedGraph;
+                                     ^
+Utils.java:4: error: package org.apache.commons.math3.graph does not exist
+import org.apache.commons.math3.graph.SimpleDirectedWeightedGraph;
+                                     ^
+Utils.java:5: error: package org.apache.commons.math3.graph.indexed does not exist
+import org.apache.commons.math3.graph.indexed.IndexedWeightedGraph;
+                                             ^
+Utils.java:6: error: package org.apache.commons.math3.util does not exist
+import org.apache.commons.math3.util.Pair;
+                                    ^
+Utils.java:15: error: cannot find symbol
+        DirectedWeightedGraph<Integer, Integer> graph = new SimpleDirectedWeightedGraph<>(IndexedWeightedGraph::new);
+        ^
+  symbol:   class DirectedWeightedGraph
+  location: class Utils
+Utils.java:15: error: cannot find symbol
+        DirectedWeightedGraph<Integer, Integer> graph = new SimpleDirectedWeightedGraph<>(IndexedWeightedGraph::new);
+                                                            ^
+  symbol:   class SimpleDirectedWeightedGraph
+  location: class Utils
+Utils.java:15: error: cannot find symbol
+        DirectedWeightedGraph<Integer, Integer> graph = new SimpleDirectedWeightedGraph<>(IndexedWeightedGraph::new);
+                                                                                          ^
+  symbol:   class IndexedWeightedGraph
+  location: class Utils
+Utils.java:16: error: cannot find symbol
+        Map<Pair<Integer, Integer>, Double> edges = new HashMap<>();
+            ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:18: error: cannot find symbol
+        edges.put(new Pair<>(0, 1), 3 + x % 3);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:19: error: cannot find symbol
+        edges.put(new Pair<>(0, 2), 5 + x % 4);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:20: error: cannot find symbol
+        edges.put(new Pair<>(1, 3), 4 + x % 2);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:21: error: cannot find symbol
+        edges.put(new Pair<>(1, 4), 7);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:22: error: cannot find symbol
+        edges.put(new Pair<>(2, 3), 1 + x % 5);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:23: error: cannot find symbol
+        edges.put(new Pair<>(2, 4), 3 + x % 3);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:24: error: cannot find symbol
+        edges.put(new Pair<>(3, 5), 6);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:25: error: cannot find symbol
+        edges.put(new Pair<>(4, 5), 2 + x % 4);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:26: error: cannot find symbol
+        edges.put(new Pair<>(5, 6), 1 + x % 2);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:27: error: cannot find symbol
+        edges.put(new Pair<>(2, 6), 15);
+                      ^
+  symbol:   class Pair
+  location: class Utils
+Utils.java:29: error: cannot find symbol
+        for (Map.Entry<Pair<Integer, Integer>, Double> entry : edges.entrySet()) {
+                       ^
+  symbol:   class Pair
+  location: class Utils
+Service.java:5: error: package Networkx does not exist
+        Networkx.Graph graph = new Networkx.DiGraph();
+                ^
+Service.java:5: error: package Networkx does not exist
+        Networkx.Graph graph = new Networkx.DiGraph();
+                                           ^
+Service.java:22: error: cannot find symbol
+        long reachable = Networkx.descendants(graph, 0).size();
+                         ^
+  symbol:   variable Networkx
+  location: class Service
+Service.java:23: error: cannot find symbol
+        long longest = Networkx.dagLongestPathLength(graph);
+                       ^
+  symbol:   variable Networkx
+  location: class Service
+Service.java:24: error: cannot find symbol
+        return routeCost(n) + 3 * reachable + (longest / 1L);
+               ^
+  symbol:   method routeCost(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+        ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:3: error: cannot find symbol
+        NetworkX graph = new NetworkX();
+                             ^
+  symbol:   class NetworkX
+  location: class Main
+Main.java:13: error: cannot find symbol
+        Tree tree = graph.minimumSpanningTree("weight");
+        ^
+  symbol:   class Tree
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                       ^
+  symbol:   method disruptionScore(int)
+  location: class Main
+Main.java:15: error: cannot find symbol
+        return total + disruptionScore(n) - routeCost(n);
+                                            ^
+  symbol:   method routeCost(int)
+  location: class Main
+Service.java:3: error: duplicate class: com.example.Service
+public class Service {
+       ^
+EvalRunner.java:15: error: cannot access Service
+  try { System.out.println("service.disruption_score|10|" + Service.disruption_score(10)); } catch (Throwable e) { System.out.println("service.disruption_score|10|ERR"); }
+                                                            ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+Utils.java:11: error: duplicate class: com.example.Utils
+public class Utils {
+       ^
+EvalRunner.java:27: error: cannot access Utils
+  try { System.out.println("utils.route_cost|10|" + Utils.route_cost(10)); } catch (Throwable e) { System.out.println("utils.route_cost|10|ERR"); }
+                                                    ^
+  bad source file: ./Utils.java
+    file does not contain class Utils
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+33 errors

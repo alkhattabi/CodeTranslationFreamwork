@@ -1,0 +1,36 @@
+{"k":"main.solve|10","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|1","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|9","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|5","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|0","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|11","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|100","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|-5","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|-9","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|-2","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|-12","error":"ReferenceError: require is not defined"}
+{"k":"main.solve|4","error":"ReferenceError: require is not defined"}
+{"k":"service.disruption_score|10","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|1","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"service.disruption_score|9","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|5","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|0","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|11","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"service.disruption_score|100","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|-5","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|-9","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|-2","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"service.disruption_score|-12","error":"TypeError: Cannot read properties of undefined (reading '0')"}
+{"k":"service.disruption_score|4","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|10","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|1","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|9","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|5","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|0","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|11","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|100","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|-5","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|-9","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|-2","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|-12","error":"RangeError: Maximum call stack size exceeded"}
+{"k":"utils.route_cost|4","error":"RangeError: Maximum call stack size exceeded"}

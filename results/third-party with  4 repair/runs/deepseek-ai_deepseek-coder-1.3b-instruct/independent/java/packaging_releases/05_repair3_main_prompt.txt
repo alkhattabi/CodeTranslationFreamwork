@@ -1,0 +1,88 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                                               ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:12: error: cannot find symbol
+        if (new Version(version).compareTo(new Version(reference)) < 0) {
+                ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                                                      ^
+  symbol:   class Version
+  location: class Utils
+Utils.java:14: error: cannot find symbol
+        } else if (new Version(version).compareTo(new Version(reference)) == 0) {
+                       ^
+  symbol:   class Version
+  location: class Utils
+Service.java:3: error: cannot find symbol
+        int rank = release_rank(n);
+                   ^
+  symbol:   method release_rank(int)
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+        ^
+  symbol:   class Version
+  location: class Service
+Service.java:10: error: cannot find symbol
+        Version current = new Version(major, minor, patch);
+                              ^
+  symbol:   class Version
+  location: class Service
+Service.java:11: error: cannot fin
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.upgrade_cost(n)
+  Utils.release_rank(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        if (n < 0) {
+            return -1;
+        }
+        int major = n / 10000;
+        int minor = (n / 100) % 100;
+        int patch = n % 100;
+        String suffix = (patch % 4 == 0) ? "rc1" : "";
+        String version = major + "." + minor + "." + patch + suffix;
+        if (version.compareTo("1.5.0") >= 0 && version.compareTo("3.99.99") < 0) {
+            return upgradeCost(n) + 100 * 1 + 10 * 0 + releaseRank(n);
+        } else {
+            return upgradeCost(n) + 100 * 0 + 10 * 1 + releaseRank(n);
+        }
+    }
+
+    // Other static methods of their class
+}
+
+
+ORIGINAL PYTHON:
+from packaging.specifiers import SpecifierSet
+from packaging.version import Version
+from utils import release_rank
+from service import upgrade_cost
+
+def solve(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    allowed = SpecifierSet(">=1.5,<4.0")
+    in_range = 1 if version in allowed else 0
+    stable = 0 if version.is_prerelease else 1
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n)

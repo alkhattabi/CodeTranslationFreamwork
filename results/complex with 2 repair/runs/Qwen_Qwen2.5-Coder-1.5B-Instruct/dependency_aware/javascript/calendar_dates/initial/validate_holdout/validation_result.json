@@ -1,0 +1,98 @@
+{
+  "compiled": true,
+  "passed": 18,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240101,
+      "expected": 1001,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240430,
+      "expected": 2121,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230430,
+      "expected": 2120,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20231231,
+      "expected": 4365,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230228,
+      "expected": 1059,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240228,
+      "expected": 1059,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20241110,
+      "expected": 4315,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240229,
+      "expected": 1060,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20240430,
+      "expected": 121,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20230430,
+      "expected": 120,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20231231,
+      "expected": 365,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    },
+    {
+      "module": "service",
+      "function": "day_of_year",
+      "input": 20241110,
+      "expected": 315,
+      "actual": "ERR: TypeError: Assignment to constant variable."
+    }
+  ]
+}

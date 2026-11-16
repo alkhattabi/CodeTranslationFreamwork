@@ -1,0 +1,15 @@
+```java
+public class Main {
+    public static int solve(int n) {
+        int band = Utils.creditBand(n);
+        if (band == 0) {
+            return -1;
+        }
+        int principal = 10000 + (n - 300) * 10;
+        double interest = Service.yearlyInterest(n);
+        int fee = band >= 3 ? 150 : 350;
+        double total = principal + interest + fee;
+        return (int)((total + 11) / 12);
+    }
+}
+```

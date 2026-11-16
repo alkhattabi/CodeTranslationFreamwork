@@ -1,0 +1,48 @@
+Repair ONLY the file utils.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 11/36 development checks.
+main.solve(10): expected 486, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(-10): expected 387, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(21): expected 525, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(999): expected 606, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(5): expected 401, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(1): expected 120, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(12): expected 409, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(2): expected 186, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(7): expected 307, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(11): expected 325, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(-51): expected 334, actual ERR: ReferenceError: matrixEnergy is not defined
+main.solve(3): expected 283, actual ERR: ReferenceError: matrixEnergy is not defined
+
+OUTPUT: only complete utils.mjs JavaScript ES-module source. Must export exactly function vector_signature(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  (none)
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function vector_signature(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+export function vector_signature(n) {
+    n = Math.max(-100, Math.min(100, n));
+    const v = [n % 11, Math.abs(n) % 7, Math.floor(n / 3) % 9];
+    const m = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    const out = m.map(row => row.reduce((acc, val) => acc + val * v[row.indexOf(val)], 0));
+    return Math.abs(out.reduce((acc, val) => acc + val, 0));
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+
+def vector_signature(n: int) -> int:
+    n = max(-100, min(100, n))
+    v = np.array([n % 11, abs(n) % 7, (n // 3) % 9], dtype=np.int64)
+    m = np.arange(1, 10, dtype=np.int64).reshape(3, 3)
+    out = m @ v
+    return int(np.abs(out).sum())

@@ -1,0 +1,46 @@
+utils.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+utils.cpp: In function ‘int dijkstra(const std::vector<std::vector<int> >&, int, int)’:
+utils.cpp:14:10: error: ‘priority_queue’ is not a member of ‘std’
+   14 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |          ^~~~~~~~~~~~~~
+utils.cpp:6:1: note: ‘std::priority_queue’ is defined in header ‘<queue>’; did you forget to ‘#include <queue>’?
+    5 | #include <vector>
+  +++ |+#include <queue>
+    6 | #include <limits>
+utils.cpp:14:44: error: expected primary-expression before ‘,’ token
+   14 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                            ^
+utils.cpp:14:78: error: expected primary-expression before ‘,’ token
+   14 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                              ^
+utils.cpp:14:93: error: expected primary-expression before ‘>’ token
+   14 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                                             ^~
+utils.cpp:14:96: error: ‘pq’ was not declared in this scope
+   14 |     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<>> pq;
+      |                                                                                                ^~
+service.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~
+service.cpp: In function ‘int disruption_score(int)’:
+service.cpp:47:104: error: no matching function for call to ‘find(__gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >, std::vector<std::vector<int> >::iterator, bool)’
+   47 |                 longest = std::max(longest, static_cast<int>(std::distance(graph.begin() + i, std::find(graph.begin() + j, graph.end(), true))));
+      |                                                                                               ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/13/bits/locale_facets.h:48,
+                 from /usr/include/c++/13/bits/basic_ios.h:37,
+                 from /usr/include/c++/13/ios:46,
+                 from /usr/include/c++/13/ostream:40,
+                 from /usr/include/c++/13/iostream:41,
+                 from service.cpp:2:
+/usr/include/c++/13/bits/streambuf_iterator.h:435:5: note: candidate: ‘template<class _CharT2> typename __gnu_cxx::__enable_if<std::__is_char<_CharT2>::__value, std::istreambuf_iterator<_CharT> >::__type std::find(istreambuf_iterator<_CharT>, istreambuf_iterator<_CharT>, const _CharT2&)’
+  435 |     find(istreambuf_iterator<_CharT> __first,
+      |     ^~~~
+/usr/include/c++/13/bits/streambuf_iterator.h:435:5: note:   template argument deduction/substitution failed:
+service.cpp:47:104: note:   ‘__gnu_cxx::__normal_iterator<std::vector<int>*, std::vector<std::vector<int> > >’ is not derived from ‘std::istreambuf_iterator<_CharT>’
+   47 |                 longest = std::max(longest, static_cast<int>(std::distance(graph.begin() + i, std::find(graph.begin() + j, graph.end(), true))));
+      |                                                                                               ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.cpp:1:9: warning: #pragma once in main file
+    1 | #pragma once
+      |         ^~~~

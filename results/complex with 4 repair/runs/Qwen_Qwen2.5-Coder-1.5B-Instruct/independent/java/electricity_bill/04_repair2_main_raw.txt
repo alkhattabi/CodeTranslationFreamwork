@@ -1,0 +1,55 @@
+```
+public class Main {
+    public static int solve(int n) {
+        int units = billableUnits(n);
+        if (units == 0) {
+            return 0;
+        }
+        int charge = energyCharge(n);
+        int serviceFee = 200 <= units ? 200 : 500;
+        int rebate = units < 100 ? units / 20 : 0;
+        return charge + serviceFee - rebate;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        System.out.println(solve(100)); // Output will depend on the actual implementations of billableUnits and energyCharge
+    }
+}
+
+DEPENDENCY Service.java:
+public class Service {
+    public static int energy_charge(int n) {
+        int units = billableUnits(n);
+        int charge = 0;
+        if (units > 400) {
+            charge += (units - 400) * 50;
+            units = 400;
+        }
+        if (units > 200) {
+            charge += (units - 200) * 30;
+            units = 200;
+        }
+        if (units > 100) {
+            charge += (units - 100) * 20;
+            units = 100;
+        }
+        charge += units * 10;
+        return charge;
+    }
+}
+
+
+DEPENDENCY Utils.java:
+public class Utils {
+    public static int billableUnits(int n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 1200) {
+            return 1200;
+        }
+        return n;
+    }
+}
+```

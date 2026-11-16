@@ -1,0 +1,211 @@
+{
+  "compiled": true,
+  "passed": 8,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19991231,
+      "expected": 6707,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240130,
+      "expected": 6706,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20231231,
+      "expected": 6707,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 19000131,
+      "expected": 6605,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20010228,
+      "expected": 6804,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20000229,
+      "expected": 6805,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240630,
+      "expected": 6907,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240229,
+      "expected": 6805,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20991231,
+      "expected": 6607,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230229,
+      "expected": -1,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20240131,
+      "expected": 6706,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 20230228,
+      "expected": 6804,
+      "actual": "ERR: TypeError: ((intermediate value) - (intermediate value)).getTime is not a function"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19991231,
+      "expected": 20000407,
+      "actual": "20000231"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240130,
+      "expected": 20240506,
+      "actual": "20240401"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20231231,
+      "expected": 20240407,
+      "actual": "20240231"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 19000131,
+      "expected": 19000505,
+      "actual": "19000403"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20010228,
+      "expected": 20010604,
+      "actual": "20010428"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20000229,
+      "expected": 20000605,
+      "actual": "20000429"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240630,
+      "expected": 20241007,
+      "actual": "20240830"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240229,
+      "expected": 20240605,
+      "actual": "20240429"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20991231,
+      "expected": 21000407,
+      "actual": "21000231"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230229,
+      "expected": -1,
+      "actual": "20230501"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20240131,
+      "expected": 20240506,
+      "actual": "20240402"
+    },
+    {
+      "module": "service",
+      "function": "grace_period",
+      "input": 20230228,
+      "expected": 20230604,
+      "actual": "20230428"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20240130,
+      "expected": 20240229,
+      "actual": "20240301"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 19000131,
+      "expected": 19000228,
+      "actual": "19000303"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20230229,
+      "expected": -1,
+      "actual": "20230401"
+    },
+    {
+      "module": "utils",
+      "function": "renewal_date",
+      "input": 20240131,
+      "expected": 20240229,
+      "actual": "20240302"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+Repair ONLY the file main.cpp from Python to cpp. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/30 development checks.
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int lodging_charge(int n);
+int valid_nights(int n);
+
+
+CURRENT BROKEN TRANSLATION:
+#include "api.hpp"
+
+int solve(int n) {
+    int nights = valid_nights(n);
+    if (nights == 0) {
+        return -1;
+    }
+    int rooms = n / 100;
+    int charge = lodging_charge(n);
+    int cleaning = rooms * 45;
+    int tax = (charge + cleaning) * 15 / 100;
+    return charge + cleaning + tax;
+}
+
+
+ORIGINAL PYTHON:
+
+from utils import valid_nights
+from service import lodging_charge
+
+def solve(n: int) -> int:
+    nights = valid_nights(n)
+    if nights == 0:
+        return -1
+    rooms = n // 100
+    charge = lodging_charge(n)
+    cleaning = rooms * 45
+    tax = (charge + cleaning) * 15 // 100
+    return charge + cleaning + tax
+
+
+DEPENDENCY service.cpp:
+#include "api.hpp"
+
+int lodging_charge(int n) {
+    int nights = solve(n);
+    if (nights == 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int charge = rooms * nights * 150;
+    if (nights >= 7) {
+        charge -= charge / 10;
+    }
+    if (rooms >= 5) {
+        charge -= charge / 20;
+    }
+    return charge;
+}
+
+
+DEPENDENCY utils.cpp:
+#include "api.hpp"
+
+int valid_nights(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int rooms = n / 100;
+    int nights = n % 100;
+    if (rooms < 1 || rooms > 20 || nights < 1 || nights > 30) {
+        return 0;
+    }
+    return nights;
+}

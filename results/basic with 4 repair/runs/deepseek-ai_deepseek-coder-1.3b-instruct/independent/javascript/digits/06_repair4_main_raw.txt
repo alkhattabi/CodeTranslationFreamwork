@@ -1,0 +1,47 @@
+The error message indicates that the JavaScript module `service.js` cannot be found, which is expected because the path to the module is incorrect. The error message also suggests that the module `service.mjs` is missing in the current directory.
+
+The corrected JavaScript file should be:
+
+```javascript
+import { scoreDigits } from "./service.mjs";
+
+export function solve(n) {
+    const value = scoreDigits(n);
+    if (value % 2 === 0) {
+        return value + 1;
+    }
+    return value - 1;
+}
+```
+
+The corrected Python file should be:
+
+```python
+from service import score_digits
+
+def solve(n: int) -> int:
+    value = score_digits(n)
+    if value % 2 == 0:
+        return value + 1
+    return value - 1
+```
+
+The `service.mjs` file should be:
+
+```javascript
+import { digit_sum } from "./utils.mjs";
+
+export function score_digits(n) {
+  return digit_sum(n) * 3;
+}
+```
+
+The `utils.mjs` file should be:
+
+```javascript
+export function digit_sum(n) {
+  return n.toString().split('').reduce((a, b) => a + parseInt(b), 0);
+}
+```
+
+Please note that the `digit_sum` function is a simple implementation and may not be suitable for all cases. You may need to adjust it according to your specific needs.

@@ -1,0 +1,43 @@
+Utils.java:20: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                    ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                     ^
+Utils.java:20: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The IntStream and filter methods are used to mimic the behavior of Python's nx.shortest_path_length.
+                                                                                                                                                                                                                       ^
+Service.java:27: error: class, interface, enum, or record expected
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.
+^
+Service.java:27: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.
+                    ^
+Service.java:27: error: unclosed character literal
+Note: In Java, there's no direct equivalent to Python's networkx library. Instead, we use a custom graph implementation using a map of lists. The nx.shortest_path_length is mimicked by custom methods getDescendants and getLongestPathLength. IntStream and filter methods are not directly available in Java, so they are replaced with standard Java Stream API methods.
+                                                     ^
+Service.java:29: error: '{' expected
+Note: The Utils class and its methods (getDescendants, getLongestPathLength, route_cost) are assumed to be defined elsewhere in the project.
+                         ^
+Main.java:1: error: illegal character: '`'
+```java
+^
+Main.java:1: error: illegal character: '`'
+```java
+ ^
+Main.java:1: error: illegal character: '`'
+```java
+  ^
+Main.java:2: error: class, interface, enum, or record expected
+import java.util.HashMap;
+^
+Main.java:3: error: class, interface, enum, or record expected
+import java.util.Map;
+^
+Main.java:81: error: reached end of file while parsing
+        graph.addWeightedEdge(1, 4, 7);
+                                       ^
+14 errors

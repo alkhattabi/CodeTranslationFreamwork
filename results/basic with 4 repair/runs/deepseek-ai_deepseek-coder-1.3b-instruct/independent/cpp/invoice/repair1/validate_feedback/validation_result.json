@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 12,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nservice.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp:1:9: warning: #pragma once in main file\n    1 | #pragma once\n      |         ^~~~\nmain.cpp: In function \u2018int gross(int)\u2019:\nmain.cpp:6:1: warning: no return statement in function returning non-void [-Wreturn-type]\n    6 | }\n      | ^\nmain.cpp: In function \u2018int unit_price(int)\u2019:\nmain.cpp:10:1: warning: no return statement in function returning non-void [-Wreturn-type]\n   10 | }\n      | ^\n/usr/bin/ld: /tmp/ccjfUEPx.o: in function `gross(int)':\nmain.cpp:(.text+0x0): multiple definition of `gross(int)'; /tmp/ccqkIxvU.o:service.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/ccjfUEPx.o: in function `unit_price(int)':\nmain.cpp:(.text+0xd): multiple definition of `unit_price(int)'; /tmp/ccVPLCiy.o:utils.cpp:(.text+0x0): first defined here\n/usr/bin/ld: /tmp/cczpi5nk.o: in function `main':\nEvalRunner.cpp:(.text+0x2f): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0x74): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xb9): undefined reference to `solve(int)'\n/usr/bin/ld: EvalRunner.cpp:(.text+0xfe): undefined reference to `solve(int)'\ncollect2: error: ld returned 1 exit status\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,6 @@
+Main.java:6: error: cannot find symbol
+        return n * Utils.unitPrice(n);
+                        ^
+  symbol:   method unitPrice(int)
+  location: class Utils
+1 error

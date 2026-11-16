@@ -1,0 +1,35 @@
+package com.example;
+
+import java.util.function.IntPredicate;
+
+public class Main {
+
+    public static int solve(int n) {
+        if (Utils.validDate(n) == 0) {
+            return -1;
+        }
+        int month = (n / 100) % 100;
+        int quarter = (month - 1) / 3 + 1;
+        return quarter * 1000 + dayOfYear(n);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solve(20230401)); // Expected output: 4001
+        System.out.println(solve(20230431)); // Expected output: 4004
+        System.out.println(solve(20230501)); // Expected output: 4005
+        System.out.println(solve(20230601)); // Expected output: 4006
+        System.out.println(solve(20230701)); // Expected output: 4007
+        System.out.println(solve(20230801)); // Expected output: 4008
+        System.out.println(solve(20230901)); // Expected output: 4009
+        System.out.println(solve(20231001)); // Expected output: 4010
+        System.out.println(solve(20231101)); // Expected output: 4011
+        System.out.println(solve(20231201)); // Expected output: 4012
+        System.out.println(solve(20231231)); // Expected output: 4013
+        System.out.println(solve(19000101)); // Expected output: -1
+        System.out.println(solve(20230001)); // Expected output: -1
+        System.out.println(solve(20231301)); // Expected output: -1
+        System.out.println(solve(20231232)); // Expected output: -1
+    }
+}
+
+// Dependency classes remain unchanged

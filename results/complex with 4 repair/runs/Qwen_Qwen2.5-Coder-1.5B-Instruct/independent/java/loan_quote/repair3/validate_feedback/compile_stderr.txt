@@ -1,0 +1,25 @@
+Service.java:3: error: cannot find symbol
+import com.example.Utils;
+                  ^
+  symbol:   class Utils
+  location: package com.example
+Service.java:7: error: cannot find symbol
+        int band = Utils.credit_band(n);
+                   ^
+  symbol:   variable Utils
+  location: class Service
+Main.java:3: error: cannot find symbol
+        int band = Utils.creditBand(n);
+                        ^
+  symbol:   method creditBand(int)
+  location: class Utils
+Service.java:5: error: duplicate class: com.example.Service
+public class Service {
+       ^
+Main.java:8: error: cannot access Service
+        double interest = Service.yearlyInterest(n);
+                          ^
+  bad source file: ./Service.java
+    file does not contain class Service
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+5 errors

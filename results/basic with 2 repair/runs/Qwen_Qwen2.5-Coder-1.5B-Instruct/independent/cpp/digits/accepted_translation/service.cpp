@@ -1,0 +1,17 @@
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+
+// Helper function declaration from api.hpp
+int digit_sum(int n);
+
+int solve(int n) {
+    // Implementation of solve function
+    return digit_sum(n) * 3;
+}
+
+int score_digits(int n) {
+    // Implementation of score_digits function
+    return digit_sum(n) * 3;
+}

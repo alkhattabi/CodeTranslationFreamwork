@@ -1,0 +1,13 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:1: error: package utils does not exist\nimport utils.Utils;\n            ^\nMain.java:5: error: cannot find symbol\n        int balance = Utils.categoryBalance(n);\n                           ^\n  symbol:   method categoryBalance(int)\n  location: class Utils\nMain.java:6: error: cannot find symbol\n        int alert = service.rollingAlert(n);\n                    ^\n  symbol:   variable service\n  location: class Main\nMain.java:7: error: cannot find symbol\n        series scores = series.of(Math.abs(balance) % 50, alert, Math.abs(n) % 50);\n        ^\n  symbol:   class series\n  location: class Main\nMain.java:7: error: cannot find symbol\n        series scores = series.of(Math.abs(balance) % 50, alert, Math.abs(n) % 50);\n                        ^\n  symbol:   variable series\n  location: class Main\nMain.java:8: error: cannot find symbol\n        series ranks = scores.rank(\"dense\", true);\n        ^\n  symbol:   class series\n  location: class Main\n6 errors\n",
+  "failed_modules": [
+    "main",
+    "utils"
+  ],
+  "case_failures": []
+}

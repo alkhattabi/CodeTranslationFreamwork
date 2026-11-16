@@ -1,0 +1,7 @@
+Main.java:1: error: unclosed character literal
+obj['main']
+    ^
+Main.java:1: error: unclosed character literal
+obj['main']
+         ^
+2 errors

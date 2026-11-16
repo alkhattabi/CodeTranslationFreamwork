@@ -1,0 +1,26 @@
+Here is the C++ implementation of the service.cpp file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int calculate_tax(int n) {
+    int income = taxable_income(n);
+    int tax = 0;
+
+    if (income > 7000) {
+        tax += (income - 7000) * 20 / 100;
+        income = 7000;
+    }
+
+    if (income > 3000) {
+        tax += (income - 3000) * 12 / 100;
+        income = 3000;
+    }
+
+    tax += income * 5 / 100;
+    return tax;
+}
+```
+
+This C++ code does the same thing as the Python code. It calculates the tax based on the income and returns it. The tax is calculated as a percentage of the income. The tax is calculated for the income up to 7000 and then for the remaining income up to 3000. For the remaining income, the tax is 5% of the remaining income. The tax is then returned.

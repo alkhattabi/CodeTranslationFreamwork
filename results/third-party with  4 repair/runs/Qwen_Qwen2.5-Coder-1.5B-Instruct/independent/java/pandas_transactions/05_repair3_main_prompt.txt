@@ -1,0 +1,55 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                    ^
+Utils.java:14: error: not a statement
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                     ^
+Utils.java:14: error: ';' expected
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                             ^
+Utils.java:14: error: illegal start of expression
+        Series sums = frame.groupby("category").agg({"amount": "sum"});
+                                                                     ^
+4 errors
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.rolling_alert(n)
+  Utils.category_balance(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        int balance = categoryBalance(n);
+        int alert = rollingAlert(n);
+        double[] scores = new double[]{Math.abs(balance) % 50, alert, Math.abs(n) % 50};
+        Arrays.sort(scores);
+        int rank1 = (int)(scores.length - Arrays.binarySearch(scores, Math.abs(balance) % 50)) + 1;
+        int rank2 = (int)(scores.length - Arrays.binarySearch(scores, alert)) + 1;
+        int penalty = rank1 * 7 + rank2 * 3;
+        return balance + alert - penalty;
+    }
+}
+
+
+ORIGINAL PYTHON:
+import pandas as pd
+from utils import category_balance
+from service import rolling_alert
+
+def solve(n: int) -> int:
+    balance = category_balance(n)
+    alert = rolling_alert(n)
+    scores = pd.Series([abs(balance) % 50, alert, abs(n) % 50])
+    ranks = scores.rank(method="dense", ascending=False)
+    penalty = int(ranks.iloc[0] * 7 + ranks.iloc[1] * 3)
+    return balance + alert - penalty

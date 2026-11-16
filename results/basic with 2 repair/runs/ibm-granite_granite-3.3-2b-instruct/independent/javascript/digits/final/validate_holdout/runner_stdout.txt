@@ -1,0 +1,12 @@
+{"k":"main.solve|-123","v":19}
+{"k":"main.solve|1005","v":19}
+{"k":"main.solve|37","v":31}
+{"k":"main.solve|999","v":80}
+{"k":"service.score_digits|-123","v":18}
+{"k":"service.score_digits|1005","v":18}
+{"k":"service.score_digits|37","v":30}
+{"k":"service.score_digits|999","v":81}
+{"k":"utils.digit_sum|-123","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|1005","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|37","error":"TypeError: modules[t.m][t.f] is not a function"}
+{"k":"utils.digit_sum|999","error":"TypeError: modules[t.m][t.f] is not a function"}

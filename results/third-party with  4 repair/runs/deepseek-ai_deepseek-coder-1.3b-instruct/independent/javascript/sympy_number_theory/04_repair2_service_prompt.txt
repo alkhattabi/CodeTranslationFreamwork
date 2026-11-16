@@ -1,0 +1,50 @@
+Repair ONLY the file service.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: node:internal/modules/package_json_reader:314
+  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+        ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'mathjs' imported from /content/MSCS811_round3_third_party_full/results/runs/deepseek-ai_deepseek-coder-1.3b-instruct/independent/javascript/sympy_number_theory/initial/validate_feedback/utils.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+    at packageResolve (node:internal/mod
+
+OUTPUT: only complete service.mjs JavaScript ES-module source. Must export exactly function number_strength(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { factor_signature } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function number_strength(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { factor_signature } from "./utils.mjs";
+
+export function number_strength(n) {
+  let value = Math.abs(n) % 1500 + 2;
+  let phi = Math.floor(Math.sqrt(value));
+  for(let i = 2; i <= phi; i++)
+    if(value % i === 0) phi = i;
+  let divisor_count = 2;
+  let temp = value;
+  while(temp !== 1) {
+    if(temp % i === 0) {
+      divisor_count++;
+      temp = temp / i;
+    }
+    else i++;
+  }
+  return phi + 5 * divisor_count + factor_signature(n);
+}
+
+
+ORIGINAL PYTHON:
+import sympy as sp
+from utils import factor_signature
+
+def number_strength(n: int) -> int:
+    value = abs(n) % 1500 + 2
+    phi = int(sp.totient(value))
+    divisor_count = int(sp.divisor_count(value))
+    return phi + 5 * divisor_count + factor_signature(n)

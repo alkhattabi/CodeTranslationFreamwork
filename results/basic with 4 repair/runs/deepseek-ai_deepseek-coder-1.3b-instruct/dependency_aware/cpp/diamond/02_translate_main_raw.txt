@@ -1,0 +1,13 @@
+Here is the C++ implementation of the Python file:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    int x = normalize(n);
+    return x * 2 + 1;
+}
+```
+
+The `solve` function is defined in the `api.hpp` file and it takes an integer as input and returns an integer. The `weighted` function is a global function that takes an integer as input and returns an integer. The `normalize` function is also a global function that takes an integer as input and returns an integer.

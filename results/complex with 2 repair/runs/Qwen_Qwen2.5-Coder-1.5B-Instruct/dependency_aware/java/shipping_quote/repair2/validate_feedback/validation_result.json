@@ -1,0 +1,12 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 27,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "Main.java:14: error: ';' expected\n        int insurance = 300 if blocks >= 10 else 100;\n                           ^\nMain.java:14: error: '(' expected\n        int insurance = 300 if blocks >= 10 else 100;\n                              ^\nMain.java:14: error: ')' expected\n        int insurance = 300 if blocks >= 10 else 100;\n                                           ^\nMain.java:14: error: not a statement\n        int insurance = 300 if blocks >= 10 else 100;\n                                                 ^\nMain.java:14: error: 'else' without 'if'\n        int insurance = 300 if blocks >= 10 else 100;\n                                            ^\n5 errors\n",
+  "failed_modules": [
+    "main"
+  ],
+  "case_failures": []
+}

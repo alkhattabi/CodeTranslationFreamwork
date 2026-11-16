@@ -1,0 +1,26 @@
+Here is the JavaScript equivalent of the Python file:
+
+```javascript
+// utils.js
+export function normalize(n) {
+    return n < 0 ? -n : n;
+}
+
+// service.js
+import { normalize } from "./utils.js";
+
+export function weighted(n) {
+    const x = normalize(n);
+    return x * 2 + 1;
+}
+
+// main.js
+import { weighted } from "./service.js";
+import { normalize } from "./utils.js";
+
+export function solve(n) {
+    return weighted(n) + normalize(n);
+}
+```
+
+Please note that the JavaScript ES-module syntax is slightly different from Python's. The import statements are slightly different as well. Also, the function names and variable names are different in JavaScript.

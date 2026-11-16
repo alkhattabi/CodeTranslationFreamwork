@@ -1,0 +1,10 @@
+Here is the corrected JavaScript ES-module source code:
+
+```javascript
+export function unit_price(n) {
+    if (n >= 10) {
+        return 10;
+    }
+    return 12;
+}
+```

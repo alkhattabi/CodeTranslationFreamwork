@@ -1,0 +1,14 @@
+{
+  "compiled": false,
+  "passed": 0,
+  "total": 30,
+  "project_pass": false,
+  "error_category": "compile",
+  "errors": "utils.cpp: In function \u2018int valid_date(int)\u2019:\nutils.cpp:21:13: error: expected \u2018;\u2019 before \u2018if\u2019\n   21 |     return 1 if (day <= days)? 1 : 0;\n      |             ^~~\n      |             ;\nutils.cpp:21:30: error: expected primary-expression before \u2018?\u2019 token\n   21 |     return 1 if (day <= days)? 1 : 0;\n      |                              ^\nservice.cpp: In function \u2018int valid_date(int)\u2019:\nservice.cpp:45:13: error: expected \u2018;\u2019 before \u2018if\u2019\n   45 |     return 1 if (day <= days)? 1 : 0;\n      |             ^~~\n      |             ;\nservice.cpp:45:30: error: expected primary-expression before \u2018?\u2019 token\n   45 |     return 1 if (day <= days)? 1 : 0;\n      |                              ^\nmain.cpp: In function \u2018int solve(int)\u2019:\nmain.cpp:7:19: error: expected \u2018)\u2019 before \u2018int\u2019\n    7 |     int month = (n // 100) % 100;\n      |                 ~ ^\n      |                   )\n    8 |     int quarter = (month - 1) / 3 + 1;\n      |     ~~~            \nmain.cpp:9:12: error: \u2018quarter\u2019 was not declared in this scope\n    9 |     return quarter * 1000 + day_of_year(n);\n      |            ^~~~~~~\n",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": []
+}

@@ -1,0 +1,12 @@
+main.solve|0|0
+main.solve|10|115
+main.solve|1|13
+main.solve|-3|0
+service.gross|0|0
+service.gross|10|100
+service.gross|1|12
+service.gross|-3|0
+utils.unit_price|0|12
+utils.unit_price|10|10
+utils.unit_price|1|12
+utils.unit_price|-3|12

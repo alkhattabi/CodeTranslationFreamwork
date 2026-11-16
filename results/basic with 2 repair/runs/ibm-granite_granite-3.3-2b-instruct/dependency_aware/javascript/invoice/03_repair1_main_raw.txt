@@ -1,0 +1,7 @@
+// main.mjs
+import { gross } from "./service.mjs";
+
+export function solve(n) {
+    const cost = gross(n);
+    return Math.floor(cost + (cost * 15) / 100);
+}

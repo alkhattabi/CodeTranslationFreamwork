@@ -1,0 +1,7 @@
+main.cpp: In function ‘int solve(int)’:
+main.cpp:9:24: error: expected ‘,’ or ‘;’ before ‘if’
+    9 |     int unit_cost = 25 if (quantity >= 120) else 30;
+      |                        ^~
+main.cpp:10:24: error: expected ‘,’ or ‘;’ before ‘if’
+   10 |     int shipping = 400 if (demand > 100) else 200;
+      |                        ^~

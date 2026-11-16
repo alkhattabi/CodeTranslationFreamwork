@@ -1,0 +1,97 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int risk_points(int n);
+int luhn_valid(int n);
+
+
+PYTHON FILE main.py:
+
+from utils import luhn_valid
+from service import risk_points
+
+def solve(n: int) -> int:
+    points = risk_points(n)
+    if points >= 70:
+        return 3
+    if points >= 40:
+        return 2
+    if luhn_valid(n) == 1:
+        return 0
+    return 1
+
+
+ALREADY TRANSLATED DEPENDENCY: service.cpp
+#include "api.hpp"
+
+int luhn_valid(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int total = 0;
+    bool double_digit = false;
+    while (n > 0) {
+        int digit = n % 10;
+        if (double_digit) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double_digit = !double_digit;
+        n /= 10;
+    }
+    return (total % 10 == 0) ? 1 : 0;
+}
+
+int risk_points(int n) {
+    if (n <= 0) {
+        return 100;
+    }
+    int score = 0;
+    if (luhn_valid(n) == 0) {
+        score += 40;
+    }
+    if (n % 11 == 0) {
+        score += 20;
+    }
+    if (n % 100 < 10) {
+        score += 15;
+    }
+    if (n < 1000) {
+        score += 25;
+    }
+    return score;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#include "api.hpp"
+
+int luhn_valid(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    int total = 0;
+    bool double_digit = false;
+    while (n > 0) {
+        int digit = n % 10;
+        if (double_digit) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        total += digit;
+        double_digit = !double_digit;
+        n /= 10;
+    }
+    return (total % 10 == 0) ? 1 : 0;
+}

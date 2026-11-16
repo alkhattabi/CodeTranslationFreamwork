@@ -1,0 +1,260 @@
+{
+  "compiled": true,
+  "passed": 1,
+  "total": 36,
+  "project_pass": false,
+  "error_category": "semantic_or_runtime",
+  "errors": "",
+  "failed_modules": [
+    "utils",
+    "service",
+    "main"
+  ],
+  "case_failures": [
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 99,
+      "expected": 415,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -7,
+      "expected": 397,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 0,
+      "expected": 66,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -30,
+      "expected": 503,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 100,
+      "expected": 456,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -11,
+      "expected": 392,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 30,
+      "expected": 383,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -3,
+      "expected": 518,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -1,
+      "expected": 512,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -100,
+      "expected": 546,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": -12,
+      "expected": 520,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "main",
+      "function": "solve",
+      "input": 51,
+      "expected": 558,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 99,
+      "expected": 190,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -7,
+      "expected": 219,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 0,
+      "expected": 50,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -30,
+      "expected": 285,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 100,
+      "expected": 205,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -11,
+      "expected": 226,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 30,
+      "expected": 198,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -3,
+      "expected": 355,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -1,
+      "expected": 385,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -100,
+      "expected": 265,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": -12,
+      "expected": 348,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "service",
+      "function": "matrix_energy",
+      "input": 51,
+      "expected": 313,
+      "actual": "ERR: Error: result must be a safe integer"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 99,
+      "expected": 123,
+      "actual": "49"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -7,
+      "expected": 156,
+      "actual": "100"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -30,
+      "expected": 210,
+      "actual": "49"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 100,
+      "expected": 150,
+      "actual": "81"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -11,
+      "expected": 150,
+      "actual": "0"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 30,
+      "expected": 144,
+      "actual": "121"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -3,
+      "expected": 285,
+      "actual": "1"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -1,
+      "expected": 279,
+      "actual": "1"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -100,
+      "expected": 186,
+      "actual": "36"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": -12,
+      "expected": 285,
+      "actual": "0"
+    },
+    {
+      "module": "utils",
+      "function": "vector_signature",
+      "input": 51,
+      "expected": 258,
+      "actual": "289"
+    }
+  ]
+}

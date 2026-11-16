@@ -1,0 +1,65 @@
+Repair ONLY the file Main.java from Python to java. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Compilation/syntax failure:
+Service.java:32: error: cannot find symbol
+        int vectorSignature = vector_signature(n);
+                              ^
+  symbol:   method vector_signature(int)
+  location: class Service
+1 error
+
+
+OUTPUT: only complete Main.java source. Must declare public class Main with public static int solve(int n). Other module functions are static methods of their class.
+Examples of dependency calls:
+  Service.matrix_energy(n)
+  Utils.vector_signature(n)
+Place classes in the default package, in the same folder. No package statement, no main method, no extra public classes. Use exact function names, including underscores.
+Expected structure: public class Main { public static int solve(int n) { /* implementation */ } }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+public class Main {
+    public static int solve(int n) {
+        double energy = matrixEnergy(n);
+        double[] vector = new double[]{energy, vectorSignature(n), n};
+        double[] bounded = new double[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            bounded[i] = Math.min(Math.max(vector[i], -150), 250);
+        }
+        double[] positives = new double[vector.length];
+        for (int i = 0; i < vector.length; i++) {
+            if (bounded[i] > 0) {
+                positives[i] = bounded[i];
+            } else {
+                positives[i] = -bounded[i];
+            }
+        }
+        return (int)(positives[0] + (int)(energy % 17));
+    }
+
+    // Assuming these methods are defined in other Java files
+    private static double matrixEnergy(int n) {
+        // Implementation of matrix_energy
+        return 0.0; // Placeholder
+    }
+
+    private static double vectorSignature(int n) {
+        // Implementation of vector_signature
+        return 0.0; // Placeholder
+    }
+}
+
+
+ORIGINAL PYTHON:
+import numpy as np
+from utils import vector_signature
+from service import matrix_energy
+
+def solve(n: int) -> int:
+    energy = matrix_energy(n)
+    vector = np.array([energy, vector_signature(n), n], dtype=np.int64)
+    bounded = np.clip(vector, -150, 250)
+    positives = np.where(bounded > 0, bounded, -bounded)
+    return int(positives.sum() + (energy % 17))

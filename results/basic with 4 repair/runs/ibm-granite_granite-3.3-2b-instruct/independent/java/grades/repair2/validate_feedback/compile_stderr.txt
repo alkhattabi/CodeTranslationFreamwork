@@ -1,0 +1,26 @@
+Service.java:3: error: cannot find symbol
+        int base = clamp(n);
+                   ^
+  symbol:   method clamp(int)
+  location: class Service
+Service.java:4: error: cannot find symbol
+        return clamp(base + 7);
+               ^
+  symbol:   method clamp(int)
+  location: class Service
+Main.java:3: error: cannot find symbol
+        return bonusScore(n) >= 60? 1 : 0;
+               ^
+  symbol:   method bonusScore(int)
+  location: class Main
+Main.java:9: error: cannot find symbol
+            int base = clamp(n);
+                       ^
+  symbol:   method clamp(int)
+  location: class Service
+Main.java:10: error: cannot find symbol
+            return clamp(base + 7);
+                   ^
+  symbol:   method clamp(int)
+  location: class Service
+5 errors

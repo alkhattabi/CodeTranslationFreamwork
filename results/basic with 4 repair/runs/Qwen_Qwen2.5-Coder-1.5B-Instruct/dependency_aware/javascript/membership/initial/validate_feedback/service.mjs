@@ -1,0 +1,5 @@
+import { tier } from "./utils.mjs";
+
+export function discount(n) {
+    return tier(n) * 5;
+}

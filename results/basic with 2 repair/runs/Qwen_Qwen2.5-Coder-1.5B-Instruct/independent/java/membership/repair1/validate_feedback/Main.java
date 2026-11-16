@@ -1,0 +1,6 @@
+public class Main {
+    public static int solve(int n) {
+        int value = n * 4 - discount(n);
+        return Math.max(0, value);
+    }
+}

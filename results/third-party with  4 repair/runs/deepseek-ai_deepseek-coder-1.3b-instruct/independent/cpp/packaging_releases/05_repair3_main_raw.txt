@@ -1,0 +1,47 @@
+Here is the corrected C++ code:
+
+```cpp
+#pragma once
+#include <cmath>
+#include <string>
+#include <cstdlib>
+
+int solve(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major, minor, patch;
+    major = n / 10000;
+    minor = (n / 100) % 100;
+    patch = n % 100;
+    std::string suffix = (patch % 4 == 0) ? "rc1" : "";
+    std::string version = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    std::string reference = "2.1.0";
+    int in_range = (version >= reference) ? 1 : 0;
+    int stable = (version < reference) ? 0 : 1;
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n);
+}
+
+int upgrade_cost(int n) {
+    // Implementation of upgrade_cost function
+    return 0;
+}
+
+int release_rank(int n) {
+    // Implementation of release_rank function
+    return 0;
+}
+```
+
+This C++ code does the following:
+
+1. It includes the necessary headers.
+2. It defines the `solve` function, which calculates the version number and checks if it's in the allowed range.
+3. It defines the `upgrade_cost` and `release_rank` functions.
+4. It uses the `std::to_string` function to convert integers to strings.
+5. It uses the `>=` and `<` operators to compare strings.
+6. It uses the `%` operator to perform floor division and modulo operations.
+7. It uses the `? :` operator to perform ternary operations.
+8. It uses the `return` statement to return the result of the function.
+
+Please note that the `upgrade_cost` and `release_rank` functions are not defined in this code, so they will not be compiled. You need to define them in your code.

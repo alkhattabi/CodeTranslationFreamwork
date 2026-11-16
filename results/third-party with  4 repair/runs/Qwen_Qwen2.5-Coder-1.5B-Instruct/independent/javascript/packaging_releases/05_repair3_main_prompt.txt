@@ -1,0 +1,60 @@
+Repair ONLY the file main.mjs from Python to javascript. Preserve all public names, signatures and cross-file imports. Return ONLY the COMPLETE corrected source file (no markdown).
+
+VALIDATOR FEEDBACK (development tests only):
+Passed 0/36 development checks.
+Execution diagnostics: file:///content/MSCS811_round3_third_party_full/results/runs/Qwen_Qwen2.5-Coder-1.5B-Instruct/independent/javascript/packaging_releases/initial/validate_feedback/service.mjs:1
+import { releaseRank } from "./utils.mjs";
+         ^^^^^^^^^^^
+SyntaxError: The requested module './utils.mjs' does not provide an export named 'releaseRank'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:226:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)
+    at async onIm
+
+OUTPUT: only complete main.mjs JavaScript ES-module source. Must export exactly function solve(n), taking and returning an integer. Use imports from other local modules when needed.
+Required direct dependency imports:
+  import { upgrade_cost } from "./service.mjs";
+  import { release_rank } from "./utils.mjs";
+Use no external npm packages, no console logging, no tests, no top-level execution.
+Export as: export function solve(n) { /* implementation */ }
+Reproduce Python third-party library behavior with target standard libraries only; preserve negative floor-division and modulo semantics.
+
+
+CURRENT BROKEN TRANSLATION:
+import { upgradeCost } from "./service.mjs";
+import { releaseRank } from "./utils.mjs";
+
+export function solve(n) {
+    if (n < 0) {
+        return -1;
+    }
+    const major = Math.floor(n / 10000);
+    const minor = Math.floor((n / 100) % 100);
+    const patch = n % 100;
+    let suffix = "";
+    if (patch % 4 === 0) {
+        suffix = "rc1";
+    }
+    const version = `${major}.${minor}.${patch}${suffix}`;
+    const allowed = new Set([">=1.5", "<4.0"]);
+    const inRange = allowed.has(version);
+    const stable = !version.includes("pre");
+    return upgradeCost(n) + 100 * inRange + 10 * stable + releaseRank(n);
+}
+
+
+ORIGINAL PYTHON:
+from packaging.specifiers import SpecifierSet
+from packaging.version import Version
+from utils import release_rank
+from service import upgrade_cost
+
+def solve(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    allowed = SpecifierSet(">=1.5,<4.0")
+    in_range = 1 if version in allowed else 0
+    stable = 0 if version.is_prerelease else 1
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n)

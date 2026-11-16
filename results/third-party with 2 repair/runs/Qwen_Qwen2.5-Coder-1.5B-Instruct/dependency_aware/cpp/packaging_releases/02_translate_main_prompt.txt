@@ -1,0 +1,117 @@
+Translate the following Python file to cpp, preserving exact behavior for all integer inputs, including negatives and boundary cases. Maintain cross-file calls. Return ONLY compilable source code, no markdown or explanation.
+
+OUTPUT: only complete main.cpp implementation source. Include "api.hpp". Define exactly int solve(int n). All referenced helper functions are global C++ functions declared in api.hpp. Do not redefine other functions, do not include main(), no headers except standard C++ or api.hpp.
+Available global declarations:
+#pragma once
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+
+PYTHON THIRD-PARTY LIBRARIES USED BY THIS FILE: packaging.
+Preserve their observable behavior, but use only target-language built-in/standard-library features; do not copy Python imports or reference uninstalled target packages. Preserve Python floor-division and modulo semantics for negative numbers.
+
+
+
+PYTHON FILE main.py:
+from packaging.specifiers import SpecifierSet
+from packaging.version import Version
+from utils import release_rank
+from service import upgrade_cost
+
+def solve(n: int) -> int:
+    if n < 0:
+        return -1
+    major, minor, patch = n // 10000, (n // 100) % 100, n % 100
+    suffix = "rc1" if patch % 4 == 0 else ""
+    version = Version(f"{major}.{minor}.{patch}{suffix}")
+    allowed = SpecifierSet(">=1.5,<4.0")
+    in_range = 1 if version in allowed else 0
+    stable = 0 if version.is_prerelease else 1
+    return upgrade_cost(n) + 100 * in_range + 10 * stable + release_rank(n)
+
+
+ALREADY TRANSLATED DEPENDENCY: service.cpp
+#pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+#include <numeric>
+#include <cassert>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+// Global C++ functions declared in api.hpp
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int upgrade_cost(int n) {
+    // Implementation of upgrade_cost function
+}
+
+int release_rank(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix = patch % 4 == 0 ? "rc1" : "";
+    std::string versionStr = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    Version version(versionStr);
+    Version referenceVersion("2.1.0");
+    if (version < referenceVersion) {
+        return 1;
+    }
+    if (version == referenceVersion) {
+        return 2;
+    }
+    return 3;
+}
+
+
+ALREADY TRANSLATED DEPENDENCY: utils.cpp
+#pragma once
+#include <iostream>
+#include <string>
+
+// Helper function declarations from api.hpp
+int solve(int n);
+int upgrade_cost(int n);
+int release_rank(int n);
+
+// Global C++ functions declared in api.hpp
+int solve(int n) {
+    // Implementation of solve function
+}
+
+int upgrade_cost(int n) {
+    // Implementation of upgrade_cost function
+}
+
+int release_rank(int n) {
+    if (n < 0) {
+        return -1;
+    }
+    int major = n / 10000;
+    int minor = (n / 100) % 100;
+    int patch = n % 100;
+    std::string suffix = patch % 4 == 0 ? "rc1" : "";
+    std::string versionStr = std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) + suffix;
+    Version version(versionStr);
+    Version referenceVersion("2.1.0");
+    if (version < referenceVersion) {
+        return 1;
+    }
+    if (version == referenceVersion) {
+        return 2;
+    }
+    return 3;
+}

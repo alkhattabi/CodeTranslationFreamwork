@@ -1,0 +1,29 @@
+[
+  {
+    "module": "utils",
+    "phase": "translate",
+    "elapsed_s": 2.6173570769999515,
+    "prompt_tokens": 386,
+    "new_tokens": 395,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "service",
+    "phase": "translate",
+    "elapsed_s": 2.4413103320000573,
+    "prompt_tokens": 395,
+    "new_tokens": 368,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  },
+  {
+    "module": "main",
+    "phase": "translate",
+    "elapsed_s": 2.0294170380000196,
+    "prompt_tokens": 309,
+    "new_tokens": 307,
+    "output_limit_hit": false,
+    "input_limit_hit": false
+  }
+]

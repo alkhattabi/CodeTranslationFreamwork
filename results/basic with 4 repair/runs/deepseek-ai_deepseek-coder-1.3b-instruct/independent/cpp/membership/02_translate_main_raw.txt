@@ -1,0 +1,17 @@
+Here is the C++ implementation of the Python code:
+
+```cpp
+#pragma once
+#include "api.hpp"
+
+int solve(int n) {
+    int value = n * 4 - discount(n);
+    return std::max(0, value);
+}
+```
+
+In this C++ code, we have defined a function `solve` that takes an integer `n` as input and returns an integer. The function calculates the value of `n * 4` and subtracts the result of the `discount` function from it. The `std::max` function is used to ensure that the result is not negative.
+
+The `discount` function is not defined in the provided Python code, so it is assumed that it is a global function defined in the `api.hpp` file.
+
+Please note that the `api.hpp` file should contain the definition of the `discount` function.
